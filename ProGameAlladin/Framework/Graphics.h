@@ -4,6 +4,8 @@
 #include "definitions.h"
 #include "Windows.h"
 #include "Texture.h"
+#include "Matrix.h"
+#include "Color.h"
 
 NS_JK_BEGIN
 
@@ -15,7 +17,7 @@ public:
 	void present() const;
 	void init(Windows* window);
 	void clearScreen() const;
-	void drawSprite(const Texture &texture);
+	void drawSprite(const Texture &texture, const Matrix matrix, const Color color );
 
 	LPDIRECT3DDEVICE9 getDevice() const;
 	LPDIRECT3DSURFACE9 getSurface() const;

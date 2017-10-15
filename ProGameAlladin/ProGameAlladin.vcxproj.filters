@@ -267,6 +267,12 @@
     <ClInclude Include="Framework\Matrix.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Color.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Rect.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -391,6 +397,12 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Matrix.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Color.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Rect.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
