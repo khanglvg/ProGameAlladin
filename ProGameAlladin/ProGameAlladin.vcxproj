@@ -187,8 +187,9 @@
     <ClInclude Include="DirectX\Include\xnamath.h" />
     <ClInclude Include="Framework\Application.h" />
     <ClInclude Include="Framework\definitions.h" />
-    <ClInclude Include="Framework\Device.h" />
     <ClInclude Include="Framework\Graphics.h" />
+    <ClInclude Include="Framework\Matrix.h" />
+    <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Windows.h" />
   </ItemGroup>
   <ItemGroup>
@@ -231,8 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Application.cpp" />
-    <ClCompile Include="Framework\Device.cpp" />
     <ClCompile Include="Framework\Graphics.cpp" />
+    <ClCompile Include="Framework\Matrix.cpp" />
+    <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Windows.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

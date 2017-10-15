@@ -3,7 +3,7 @@
 
 #include "definitions.h"
 #include "Windows.h"
-#include "Device.h"
+#include "Graphics.h"
 
 NS_JK_BEGIN
 class Application
@@ -19,7 +19,7 @@ private:
   Application();
 
   Windows* _window;
-  Device* _device;
+  Graphics* _device;
 };
 NS_JK_END
 #endif __APPLICATION_H__

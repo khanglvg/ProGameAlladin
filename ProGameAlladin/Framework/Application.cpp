@@ -30,7 +30,7 @@ void Application::run ( HINSTANCE hInstance, LPCSTR applicationName, int screenW
   _window = new Windows(hInstance, applicationName, screenWidth, screenHeight, false);
   _window->initWindow();
 
-  _device = new Device();
+  _device = new Graphics();
   _device->init(_window);
 }
 
