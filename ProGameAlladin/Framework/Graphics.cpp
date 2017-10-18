@@ -31,6 +31,16 @@ void Graphics::clearScreen() const
 	_pDevice->ColorFill(_surface, NULL, D3DCOLOR_XRGB(0, 0, 0));
 }
 
+void Graphics::drawSprite(const Texture & texture, const Matrix matrix, const Color color, const Rect rect)
+{
+	
+}
+
+LPD3DXMATRIX Graphics::convertToDirectMatrix(Matrix &matrix)
+{
+	return LPD3DXMATRIX();
+}
+
 LPDIRECT3DDEVICE9 Graphics::getDevice() const
 {
 	return _pDevice;
