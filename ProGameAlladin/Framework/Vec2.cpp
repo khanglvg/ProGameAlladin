@@ -1,5 +1,7 @@
 ﻿#include "Vec2.h"
 
+US_NS_JK
+
 
 Vec2::Vec2(): x(0.0f), y(0.0f)
 {
@@ -209,10 +211,10 @@ void Vec2::setPoint(float xx, float yy)
 
 bool isOneDimensionSegmentOverlap(float A, float B, float C, float D, float *S, float * E)
 {
-	float ABmin = std::min(A, B);
-	float ABmax = std::max(A, B);
-	float CDmin = std::min(C, D);
-	float CDmax = std::max(C, D);
+	float ABmin = min(A, B);
+	float ABmax = max(A, B);
+	float CDmin = min(C, D);
+	float CDmax = max(C, D);
 
 	if (ABmax < CDmin || CDmax < ABmin)
 	{

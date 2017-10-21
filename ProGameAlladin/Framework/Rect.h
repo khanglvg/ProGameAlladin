@@ -4,6 +4,8 @@
 
 
 #include "definitions.h"
+NS_JK_BEGIN
+
 class Rect
 {
 public:
@@ -31,6 +33,6 @@ private:
 	float _width, _height;
 
 };
-
+NS_JK_END
 
 #endif // __RECT_H__

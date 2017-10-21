@@ -1,5 +1,6 @@
 #include "Matrix.h"
 
+US_NS_JK
 Matrix::Matrix()
 {								
 	_11 = 1; _12 = 0; _13 = 0; _14 = 0;			//	|1	0	0	0|

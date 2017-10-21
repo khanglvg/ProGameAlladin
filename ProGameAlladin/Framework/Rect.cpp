@@ -1,5 +1,6 @@
 #include "Rect.h"
 
+US_NS_JK
 Rect::Rect()
 {
 }

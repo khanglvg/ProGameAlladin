@@ -13,6 +13,10 @@
 #define CYAN			Color(0, 255, 255, 255)
 #define MAGENTA			Color(255, 0, 255, 255)
 
+#include "definitions.h"
+
+
+NS_JK_BEGIN
 class Color
 
 {
@@ -38,5 +42,7 @@ private:
 	unsigned char _blue;
 	unsigned char _alpha;
 };
+NS_JK_END
+
 
 #endif // _COLOR_H__

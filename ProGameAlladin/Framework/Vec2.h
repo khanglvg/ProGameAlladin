@@ -5,6 +5,7 @@
 #include <functional>
 #include <cmath>
 #include "CCMathBase.h"
+#include "definitions.h"
 
 
 #define MATH_FLOAT_SMALL            1.0e-37f
@@ -12,6 +13,7 @@
 #define MATH_PIOVER2                1.57079632679489661923f
 #define MATH_EPSILON                0.000001f
 
+NS_JK_BEGIN
 class Vec2
 {
 public:
@@ -378,5 +380,5 @@ public:
 Vec2 operator*(float x, const Vec2& v);
 
 
-
+NS_JK_END
 #endif // __VEC2_H__

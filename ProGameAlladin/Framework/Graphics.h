@@ -18,7 +18,7 @@ public:
 	void present() const;
 	void init(Windows* window);
 	void clearScreen() const;
-	void drawSprite(const Texture &texture, const Matrix matrix, const Color color, const Rect rect);
+	static void drawSprite(const Texture &texture, const Matrix matrix, const Color color, const Rect rect);
 	LPD3DXMATRIX convertToDirectMatrix(Matrix&);
 	LPDIRECT3DDEVICE9 getDevice() const;
 	LPDIRECT3DSURFACE9 getSurface() const;

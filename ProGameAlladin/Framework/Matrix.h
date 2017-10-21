@@ -2,6 +2,9 @@
 
 #define __MATRIX_H__
 #include "../DirectX/Include/D3DX10core.h"
+#include "definitions.h"
+
+NS_JK_BEGIN
 
 class Matrix
 {
@@ -90,6 +93,6 @@ private:
 	float _31, _32, _33, _34;
 	float _41, _42, _43, _44;
 };
-
+NS_JK_END
 
 #endif // !__MATRIX_H__

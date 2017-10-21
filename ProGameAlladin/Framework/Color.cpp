@@ -1,5 +1,6 @@
 #include "Color.h"
 
+US_NS_JK
 
 Color::Color()
 {

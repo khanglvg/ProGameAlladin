@@ -1,5 +1,6 @@
 #include "Texture.h"
 
+US_NS_JK
 Texture::Texture()
 {
 }
