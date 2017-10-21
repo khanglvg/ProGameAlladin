@@ -18,7 +18,7 @@ void Texture::setTexture(LPDIRECT3DTEXTURE9 texture)
 	_texture = texture;
 }
 
-const string& Texture::getName()
+const string& Texture::getName() 
 {
 	return _name;
 }

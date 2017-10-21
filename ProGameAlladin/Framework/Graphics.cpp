@@ -33,7 +33,6 @@ void Graphics::clearScreen() const
 
 void Graphics::drawSprite(const Texture & texture, const Matrix matrix, const Color color, const Rect rect)
 {
-	
 }
 
 LPD3DXMATRIX Graphics::convertToDirectMatrix(Matrix &matrix)

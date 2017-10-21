@@ -192,6 +192,7 @@
     <ClInclude Include="Framework\Matrix.h" />
     <ClInclude Include="Framework\Rect.h" />
     <ClInclude Include="Framework\Texture.h" />
+    <ClInclude Include="Framework\Vec2.h" />
     <ClInclude Include="Framework\Windows.h" />
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +240,7 @@
     <ClCompile Include="Framework\Matrix.cpp" />
     <ClCompile Include="Framework\Rect.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
+    <ClCompile Include="Framework\Vec2.cpp" />
     <ClCompile Include="Framework\Windows.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
