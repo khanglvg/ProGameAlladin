@@ -5,7 +5,10 @@ Color::Color()
 {
 }
 
-Color::Color(const char& red, const char& green, const char& blue, const char& alpha)
+Color::Color(const unsigned char& red, 
+			 const unsigned char& green, 
+			 const unsigned char& blue, 
+			 const unsigned char& alpha)
 {
 	_red = red;
 	_green = green;
@@ -18,42 +21,42 @@ Color::~Color()
 }
 
 #pragma region GET-SET
-char Color::getRed()
+unsigned char Color::getRed() const
 {
 	return _red;
 }
 
-void Color::setRed(const char& red)
+void Color::setRed(const unsigned char& red)
 {
 	_red = red;
 }
 
-char Color::getGreen()
+unsigned char Color::getGreen() const
 {
 	return _green;
 }
 
-void Color::setGreen(const char& green)
+void Color::setGreen(const unsigned char& green)
 {
 	_green = green;
 }
 
-char Color::getBlue()
+unsigned char Color::getBlue() const
 {
 	return _blue;
 }
 
-void Color::setBlue(const char& blue)
+void Color::setBlue(const unsigned char& blue)
 {
 	_blue = blue;
 }
 
-char Color::getAlpha()
+unsigned char Color::getAlpha() const
 {
 	return _alpha;
 }
 
-void Color::setAlpha(const char& alpha)
+void Color::setAlpha(const unsigned char& alpha)
 {
 	_alpha = alpha;
 }

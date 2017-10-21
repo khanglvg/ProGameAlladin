@@ -19,23 +19,24 @@ class Color
 public:
 	Color();
 	~Color();
-	Color(const char& red, const char& green, const char& blue, const char& alpha);
+	Color(const unsigned char& red, const unsigned char& green, const unsigned char& blue, const unsigned char& alpha);
 
 #pragma region GET-SET
-	char getRed();
-	void setRed(const char& red);
-	char getGreen();
-	void setGreen(const char& green);
-	char getBlue();
-	void setBlue(const char& blue);
-	char getAlpha();
-	void setAlpha(const char& alpha);
+	unsigned char getRed() const;
+	void setRed(const unsigned char& red);
+	unsigned char getGreen() const;
+	void setGreen(const unsigned char& green);
+	unsigned char getBlue() const;
+	void setBlue(const unsigned char& blue);
+	unsigned char getAlpha() const;
+	void setAlpha(const unsigned char& alpha);
 #pragma endregion 
+
 private:
-	char _red;
-	char _green;
-	char _blue;
-	char _alpha;
+	unsigned char _red;
+	unsigned char _green;
+	unsigned char _blue;
+	unsigned char _alpha;
 };
 
 #endif // _COLOR_H__
