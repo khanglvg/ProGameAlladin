@@ -19,7 +19,7 @@ void Windows::initWindow()
   wc.cbSize = sizeof(WNDCLASSEX);
   wc.style = CS_HREDRAW | CS_VREDRAW;
   wc.hInstance = _hInstance;
-  wc.lpfnWndProc = WinProc;
+  wc.lpfnWndProc = (WNDPROC)WinProc;
   wc.cbClsExtra = 0;
   wc.cbWndExtra = 0;
   wc.hIcon = NULL;

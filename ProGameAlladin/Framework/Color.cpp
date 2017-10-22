@@ -4,6 +4,10 @@ US_NS_JK
 
 Color::Color()
 {
+	_red = 0;
+	_blue = 0;
+	_green = 0;
+	_alpha = 0;
 }
 
 Color::Color(const unsigned char& red, 
@@ -61,4 +65,20 @@ void Color::setAlpha(const unsigned char& alpha)
 {
 	_alpha = alpha;
 }
-#pragma  endregion 
+#pragma endregion 
+
+
+
+bool Color::operator==(const Color& color) const
+{
+	if (_red == color._red &&
+		_green == color._green &&
+		_blue == color._blue &&
+		_alpha == color._alpha)
+		return true;
+	else
+		return false;
+}
+
+
+

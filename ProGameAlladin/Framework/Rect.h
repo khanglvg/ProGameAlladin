@@ -4,6 +4,7 @@
 
 
 #include "definitions.h"
+#include "Vec2.h"
 NS_JK_BEGIN
 
 class Rect
@@ -11,6 +12,7 @@ class Rect
 public:
 	Rect();
 	~Rect();
+	Rect(const float& x, const float& y, const float& width, const float& height);
 
 #pragma region GET-SET
 	float getX() const;
@@ -23,7 +25,20 @@ public:
 	void setHeight(const float& height);
 #pragma endregion 
 
+	float getMinX() const;
+	float getMidX() const;
+	float getMaxX() const; 
 
+	float getMinY() const;
+	float getMidY() const;
+	float getMaxY() const;
+
+	// Compare two Rect 
+	bool equals(const Rect& rect) const;
+	// Check if the point is contained in Rect
+	bool containsPoint(const Vec2& point) const; 
+
+	static const Rect ZERO;
 
 private:
 	// Delare coordinate top-left
@@ -33,6 +48,7 @@ private:
 	float _width, _height;
 
 };
+
 NS_JK_END
 
 #endif // __RECT_H__

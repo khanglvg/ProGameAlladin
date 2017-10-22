@@ -36,6 +36,9 @@ public:
 	void setAlpha(const unsigned char& alpha);
 #pragma endregion 
 
+	bool operator==(const Color& color) const;
+
+
 private:
 	unsigned char _red;
 	unsigned char _green;
