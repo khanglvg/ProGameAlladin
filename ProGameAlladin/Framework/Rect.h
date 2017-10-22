@@ -38,6 +38,8 @@ public:
 	// Check if the point is contained in Rect
 	bool containsPoint(const Vec2& point) const; 
 
+
+
 	static const Rect ZERO;
 
 private:

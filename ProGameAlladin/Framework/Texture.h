@@ -11,9 +11,9 @@ class Texture
 public:
 	Texture();
 	~Texture();
-	LPDIRECT3DTEXTURE9 getTextute();
-	void setTexture(LPDIRECT3DTEXTURE9);
-	const string& getName();
+	LPDIRECT3DTEXTURE9 getTexture() const;
+	void setTexture(const LPDIRECT3DTEXTURE9& texture);
+	string getName() const;
 	void setName(const string &name);
 private:
 	string _name;

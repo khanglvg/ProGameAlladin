@@ -16,7 +16,7 @@ Matrix::~Matrix()
 
 
 #pragma region GET-SET
-float Matrix::get11()
+float Matrix::get11() const
 {
 	return _11;
 }
@@ -26,7 +26,7 @@ void Matrix::set11(const float x)
 	_11 = x;
 }
 
-float Matrix::get12()
+float Matrix::get12() const
 {
 	return _12;
 }
@@ -36,7 +36,7 @@ void Matrix::set12(const float x)
 	_12 = x;
 }
 
-float Matrix::get13()
+float Matrix::get13() const
 {
 	return _13;
 }
@@ -46,7 +46,7 @@ void Matrix::set13(const float x)
 	_13 = x;
 }
 
-float Matrix::get14()
+float Matrix::get14() const
 {
 	return _14;
 }
@@ -56,7 +56,7 @@ void Matrix::set14(const float x)
 	_14 = x;
 }
 
-float Matrix::get21()
+float Matrix::get21() const
 {
 	return _21;
 }
@@ -66,7 +66,7 @@ void Matrix::set21(const float x)
 	_21 = x;
 }
 
-float Matrix::get22()
+float Matrix::get22() const
 {
 	return _22;
 }
@@ -76,7 +76,7 @@ void Matrix::set22(const float x)
 	_22 = x;
 }
 
-float Matrix::get23()
+float Matrix::get23() const
 {
 	return _23;
 }
@@ -86,7 +86,7 @@ void Matrix::set23(const float x)
 	_23 = x;
 }
 
-float Matrix::get24()
+float Matrix::get24() const
 {
 	return _24;
 }
@@ -96,7 +96,7 @@ void Matrix::set24(const float x)
 	_24 = x;
 }
 
-float Matrix::get31()
+float Matrix::get31() const
 {
 	return _31;
 }
@@ -106,7 +106,7 @@ void Matrix::set31(const float x)
 	_31 = x;
 }
 
-float Matrix::get32()
+float Matrix::get32() const
 {
 	return _32;
 }
@@ -116,7 +116,7 @@ void Matrix::set32(const float x)
 	_32 = x;
 }
 
-float Matrix::get33()
+float Matrix::get33() const
 {
 	return _33;
 }
@@ -126,7 +126,7 @@ void Matrix::set33(const float x)
 	_33 = x;
 }
 
-float Matrix::get34()
+float Matrix::get34() const
 {
 	return _34;
 }
@@ -136,7 +136,7 @@ void Matrix::set34(const float x)
 	_34 = x;
 }
 
-float Matrix::get41()
+float Matrix::get41() const
 {
 	return _41;
 }
@@ -146,7 +146,7 @@ void Matrix::set41(const float x)
 	_41 = x;
 }
 
-float Matrix::get42()
+float Matrix::get42() const
 {
 	return _42;
 }
@@ -156,7 +156,7 @@ void Matrix::set42(const float x)
 	_42 = x;
 }
 
-float Matrix::get43()
+float Matrix::get43() const
 {
 	return _43;
 }
@@ -166,7 +166,7 @@ void Matrix::set43(const float x)
 	_43 = x;
 }
 
-float Matrix::get44()
+float Matrix::get44() const
 {
 	return _44;
 }

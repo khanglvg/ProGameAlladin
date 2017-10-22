@@ -9,17 +9,17 @@ Texture::~Texture()
 {
 }
 
-LPDIRECT3DTEXTURE9 Texture::getTextute()
+LPDIRECT3DTEXTURE9 Texture::getTexture() const
 {
 	return _texture;
 }
 
-void Texture::setTexture(LPDIRECT3DTEXTURE9 texture)
+void Texture::setTexture(const LPDIRECT3DTEXTURE9& texture)
 {
 	_texture = texture;
 }
 
-const string& Texture::getName() 
+string Texture::getName() const
 {
 	return _name;
 }

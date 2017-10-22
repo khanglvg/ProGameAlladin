@@ -26,7 +26,27 @@ Vec2::Vec2(const float xx,const float yy): x(xx), y(yy)
 {
 }
 
- bool Vec2::isZero() const
+float Vec2::getX() const
+{
+	return x;
+}
+
+void Vec2::setX(const float& x)
+{
+	this->x = x;
+}
+
+float Vec2::getY() const
+{
+	return y;
+}
+
+void Vec2::setY(const float& y)
+{
+	this->y = y;
+}
+
+bool Vec2::isZero() const
 {
 	return x == 0.0f && y == 0.0f;
 }

@@ -28,6 +28,11 @@ public:
 	Vec2(const Vec2& copy);
 	~Vec2();
 
+	float getX() const;
+	void setX(const float& x);
+	float getY() const;
+	void setY(const float& y);
+
 	//Indicates whether this vector contains all zeros.
 	bool isZero() const;
 

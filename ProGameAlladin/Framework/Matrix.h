@@ -13,58 +13,58 @@ public:
 	~Matrix();
 
 #pragma region GET-SET
-	float get11();
+	float get11() const;
 	void set11(const float x);
 
-	float get12();
+	float get12() const;
 	void set12(const float x);
 
-	float get13();
+	float get13() const;
 	void set13(const float x);
 
-	float get14();
+	float get14() const;
 	void set14(const float x);
 
 	//-------------------------
 
-	float get21();
+	float get21() const;
 	void set21(const float x);
 
-	float get22();
+	float get22() const;
 	void set22(const float x);
 
-	float get23();
+	float get23() const;
 	void set23(const float x);
 
-	float get24();
+	float get24() const;
 	void set24(const float x);
 
 //------------------------------	
 
-	float get31();
+	float get31() const;
 	void set31(const float x);
 
-	float get32();
+	float get32() const;
 	void set32(const float x);
 
-	float get33();
+	float get33() const;
 	void set33(const float x);
 
-	float get34();
+	float get34() const;
 	void set34(const float x);
 
 //-----------------------------
 
-	float get41();
+	float get41() const;
 	void set41(const float x);
 
-	float get42();
+	float get42() const;
 	void set42(const float x);
 
-	float get43();
+	float get43() const;
 	void set43(const float x);
 
-	float get44();
+	float get44() const;
 	void set44(const float x);
 #pragma endregion 
 
