@@ -2,6 +2,7 @@
 
 US_NS_JK
 Texture::Texture()
+	: _texture(nullptr)
 {
 }
 
@@ -27,4 +28,14 @@ string Texture::getName() const
 void Texture::setName(const string &name)
 {
 	_name = name;
+}
+
+string Texture::getSrcFile() const
+{
+	return _srcFile;
+}
+
+void Texture::setSrcFile(const string& srcFile)
+{
+	_srcFile = srcFile;
 }

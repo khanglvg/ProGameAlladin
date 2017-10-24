@@ -2,38 +2,242 @@
 
 US_NS_JK
 
-Application* Application::_instance = NULL;
 
 
-Application* Application::getInstance ( )
+
+Application::Application(
+	const HINSTANCE& hInstance, 
+	const LPCSTR& appName,
+	const int& width, 
+	const int& height,
+	const bool& isFullScreen)
 {
-  if (_instance == NULL)
-  {
-    _instance = new Application();
-  }
+	_hInstance = hInstance;
+	_windowClassName = appName;
+	_width = width;
+	_height = height;
+	_isFullScreen = isFullScreen;
+}
 
-  return _instance;
+
+void Application::setFps(const int fps)
+{
+	setAnimationInterval(1.0f / fps);
+}
+
+void Application::setAnimationInterval(float interval)
+{
+	QueryPerformanceFrequency(&_freq);
+	_animationInterval.QuadPart = LONGLONG(interval * _freq.QuadPart);
+}
+
+float Application::getAnimationInterval() const
+{
+	return (float(_animationInterval.QuadPart))/ (_freq.QuadPart);
 }
 
 Application::~Application ( )
 {
-  delete _window;
-
-  _device->release();
-
-  delete _instance;
-  _instance = NULL;
 }
 
-void Application::run ( HINSTANCE hInstance, LPCSTR applicationName, int screenWidth, int screenHeight, int fps )
+void Application::processMessage()
 {
-  _window = new Windows(hInstance, applicationName, screenWidth, screenHeight, false);
-  _window->initWindow();
+	//read messages from Message queue
+	if(PeekMessage(&_msg,0,0,0,PM_REMOVE))
+	{
+		if(_msg.message == WM_QUIT)
+		{
+			//exit
+			_exiting = true;
+			return;
+		}
+		if(_msg.message == WM_ACTIVATE)
+		{
+			//backgroundtoForeground();
+			_msg.message = 0;
+		}
 
-  _device = new Graphics();
-  _device->init(_window);
+		//process message:
+		TranslateMessage(&_msg);
+		DispatchMessage(&_msg);
+	}
+}
+
+void Application::run ()
+{
+	setFps(60);
+
+	initWindow();
+
+	gameLoop();
 }
 
 Application::Application ( )
 {
+
 }
+
+void Application::initWindow()
+{
+	WNDCLASSEX wc;
+	wc.cbSize = sizeof(WNDCLASSEX);
+	wc.style = CS_HREDRAW | CS_VREDRAW;
+	wc.hInstance = _hInstance;
+	wc.lpfnWndProc = (WNDPROC)winProc;
+	wc.cbClsExtra = 0;
+	wc.cbWndExtra = 0;
+	wc.hIcon = nullptr;
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+	wc.lpszMenuName = nullptr;
+	wc.lpszClassName = _windowClassName;
+	wc.hIconSm = nullptr;
+
+	RegisterClassEx(&wc);
+	DWORD style;
+
+	if (this->_isFullScreen)
+	{
+		style = WS_EX_TOPMOST | WS_VISIBLE | WS_POPUP;
+	}
+
+	else
+	{
+		style = WS_OVERLAPPEDWINDOW;
+	}
+
+	_hWnd = CreateWindow(
+		_windowClassName,
+		_windowClassName,
+		style,
+		CW_USEDEFAULT,
+		CW_USEDEFAULT,
+		_width,
+		_height,
+		NULL,
+		NULL,
+		this->_hInstance,
+		NULL);
+
+	if (_hWnd == NULL)
+	{
+		throw exception("Cannot create Window");
+	}
+
+	ShowWindow(this->_hWnd, SW_SHOWNORMAL);
+	UpdateWindow(this->_hWnd);
+}
+
+void Application::gameLoop()
+{
+	//initial timestamp
+	QueryPerformanceCounter(&_startTimestamp);
+	_lastTimestamp = _startTimestamp;
+	_currentTimestamp = _lastTimestamp;
+
+	LONGLONG interval = 0LL; // Count ticks between two frames
+	LONGLONG waitMS = 0L; // Time waiting
+
+	//main loop
+	while(!_exiting)
+	{
+		QueryPerformanceCounter(&_currentTimestamp);
+		interval = (_currentTimestamp.QuadPart - _lastTimestamp.QuadPart);
+
+		if(interval >= _animationInterval.QuadPart)
+		{
+			_lastTimestamp.QuadPart = _currentTimestamp.QuadPart;
+			_deltaTime = (float(interval)) / _freq.QuadPart;
+			OutputDebugString(to_string(_deltaTime).c_str());
+			_frameCount++;
+			processMessage(); //update what message in win32
+			processGame();  //update Game
+		}
+		else
+		{
+			waitMS = (_animationInterval.QuadPart - interval) * 1000L / _freq.QuadPart - 1L;
+			if(waitMS > 1L)
+			{
+				Sleep(static_cast<DWORD>(waitMS));
+			}
+		}
+		
+	}
+}
+
+void Application::initComponents() const
+{
+	Graphics* graphics = Graphics::getInstance();
+	graphics->_hInstance = _hInstance;
+	graphics->_hWnd = _hWnd;
+	graphics->_screenWidth = _width;
+	graphics->_screenHeight = _height;
+
+	//Audio
+
+
+	//Input
+
+
+	//GameManager
+
+}
+
+void Application::processGame()
+{
+	//update input
+	//update Game
+	//render
+
+}
+
+void Application::updateGame()
+{
+	//update gamemanager
+	//update gaming scene
+}
+
+void Application::renderGraphics()
+{
+	Graphics::getInstance()->beginRender();
+	//render running scene
+	Graphics::getInstance()->endRender();
+}
+
+bool Application::isFullScreen() const
+{
+	return _isFullScreen;
+}
+
+int Application::getWidth() const
+{
+	return _width;
+}
+
+int Application::getHeight() const
+{
+	return _height;
+}
+
+HWND Application::getWindow() const
+{
+	return _hWnd;
+}
+
+HINSTANCE Application::getHInstance() const
+{
+	return _hInstance;
+}
+
+HRESULT Application::winProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	switch (msg)
+	{
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	default:
+		return DefWindowProc(hWnd, msg, wParam, lParam);
+	}
+}
+

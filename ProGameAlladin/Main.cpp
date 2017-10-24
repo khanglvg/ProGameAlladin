@@ -6,7 +6,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
   LPTSTR    lpCmdLine,
   int       nCmdShow)
 {
-  JaKa::Application* app = JaKa::Application::getInstance();
-  app->run(hInstance,"Hello Khang", 800, 600, 60);
+  JaKa::Application app = JaKa::Application::Application(hInstance, "Hello Khang", 800, 600, false);
+  app.run();
 }
 

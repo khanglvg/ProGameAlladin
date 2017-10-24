@@ -464,7 +464,7 @@ bool Vec2::isSegmentIntersect(const Vec2& A, const Vec2& B, const Vec2& C, const
 Vec2 Vec2::getIntersectPoint(const Vec2& A, const Vec2& B, const Vec2& C, const Vec2& D)
 {
 	float S, T;
-
+	Vec2 a;
 	if (isLineIntersect(A, B, C, D, &S, &T))
 	{
 		// Vec2 of intersection
@@ -474,5 +474,6 @@ Vec2 Vec2::getIntersectPoint(const Vec2& A, const Vec2& B, const Vec2& C, const 
 		return P;
 	}
 
-	return Vec2::ZERO;
+	return a;
+	//return Vec2::ZERO;
 }

@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <functional>
 #include <cmath>
-#include "CCMathBase.h"
+//#include "CCMathBase.h"
 #include "definitions.h"
 
 
@@ -371,7 +371,7 @@ public:
 	*/
 	static Vec2 getIntersectPoint(const Vec2& A, const Vec2& B, const Vec2& C, const Vec2& D);
 
-	static const Vec2 ZERO;
+	//static Vec2 ZERO;
 
 };
 

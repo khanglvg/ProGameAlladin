@@ -15,7 +15,10 @@ public:
 	void setTexture(const LPDIRECT3DTEXTURE9& texture);
 	string getName() const;
 	void setName(const string &name);
+	string getSrcFile() const;
+	void setSrcFile(const string& srcFile);
 private:
+	string _srcFile;
 	string _name;
 	LPDIRECT3DTEXTURE9 _texture;
 };

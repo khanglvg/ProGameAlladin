@@ -1,7 +1,10 @@
 ﻿#include "Graphics.h"
 #include <minwinbase.h>
+#include "Application.h"
 
 US_NS_JK
+
+Graphics* Graphics::_instance = NULL;
 
 Graphics::Graphics()
 {
@@ -45,39 +48,43 @@ RECT Graphics::converttoRECT(const Rect& rect)
 
 void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matrix& matrix, const Color& color, const Rect& rect) const
 {
+	D3DXMATRIX oldMatrix;
+	D3DXMATRIX newMatrix = convertToDirectMatrix(matrix);
+	_spriteHandler->GetTransform(&oldMatrix);
+	_spriteHandler->SetTransform(&newMatrix);
 	_spriteHandler->Draw(texture.getTexture(), 
 						&converttoRECT(rect), 
 						&D3DXVECTOR3(origin.x, origin.y, 0),
 						0, 
 						D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(),color.getBlue()));
 	
-	_spriteHandler->SetTransform(convertToDirectMatrix(matrix));
+	_spriteHandler->SetTransform(&oldMatrix);
 }
 
 
-LPD3DXMATRIX Graphics::convertToDirectMatrix(const Matrix &matrix)
+D3DXMATRIX Graphics::convertToDirectMatrix(const Matrix &matrix)
 {
-	const LPD3DXMATRIX d3DxMatrix = nullptr;
+	D3DXMATRIX d3DxMatrix ;
 
-	d3DxMatrix->_11 = matrix.get11();
-	d3DxMatrix->_12 = matrix.get12();
-	d3DxMatrix->_13 = matrix.get13();
-	d3DxMatrix->_14 = matrix.get14();
+	d3DxMatrix._11 = matrix.get11();
+	d3DxMatrix._12 = matrix.get12();
+	d3DxMatrix._13 = matrix.get13();
+	d3DxMatrix._14 = matrix.get14();
 
-	d3DxMatrix->_21 = matrix.get21();
-	d3DxMatrix->_22 = matrix.get22();
-	d3DxMatrix->_23 = matrix.get23();
-	d3DxMatrix->_24 = matrix.get24();
+	d3DxMatrix._21 = matrix.get21();
+	d3DxMatrix._22 = matrix.get22();
+	d3DxMatrix._23 = matrix.get23();
+	d3DxMatrix._24 = matrix.get24();
 
-	d3DxMatrix->_31 = matrix.get31();
-	d3DxMatrix->_32 = matrix.get32();
-	d3DxMatrix->_33 = matrix.get33();
-	d3DxMatrix->_34 = matrix.get34();
+	d3DxMatrix._31 = matrix.get31();
+	d3DxMatrix._32 = matrix.get32();
+	d3DxMatrix._33 = matrix.get33();
+	d3DxMatrix._34 = matrix.get34();
 
-	d3DxMatrix->_41 = matrix.get41();
-	d3DxMatrix->_42 = matrix.get42();
-	d3DxMatrix->_43 = matrix.get43();
-	d3DxMatrix->_44 = matrix.get44();
+	d3DxMatrix._41 = matrix.get41();
+	d3DxMatrix._42 = matrix.get42();
+	d3DxMatrix._43 = matrix.get43();
+	d3DxMatrix._44 = matrix.get44();
 
 	return d3DxMatrix;
 }
@@ -92,7 +99,64 @@ LPDIRECT3DSURFACE9 Graphics::getSurface() const
 	return _surface;
 }
 
-void Graphics::init(Windows* window)
+void Graphics::loadTexture(Texture& texture, Color& transcolor)
+{
+	D3DXIMAGE_INFO info; // Create a variable for Texture's info
+	LPDIRECT3DTEXTURE9 directXTexture;
+	HRESULT result = D3DXGetImageInfoFromFile(texture.getSrcFile().c_str(), &info);	// a variable to check if it's ok
+
+	D3DXCreateTextureFromFileEx(
+		_pDevice,
+		texture.getSrcFile().c_str(),
+		info.Width,
+		info.Height,
+		1,
+		D3DPOOL_DEFAULT,
+		D3DFMT_UNKNOWN,
+		D3DPOOL_DEFAULT,
+		D3DX_DEFAULT,
+		D3DX_DEFAULT,
+		D3DCOLOR_XRGB(transcolor.getRed(), transcolor.getGreen(), transcolor.getBlue()),
+		&info,
+		nullptr,
+		&directXTexture);
+
+	texture.setTexture(directXTexture);
+
+	if(result != D3D_OK) // Check if result will create
+	{
+		throw exception("Result is not OK");
+	}
+}
+
+Graphics* Graphics::getInstance()
+{
+	if(_instance == nullptr)
+	{
+		_instance = new Graphics();
+	}
+	return _instance;
+}
+
+void Graphics::beginRender()
+{
+	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x4866ff, 0.0f, 0) == D3D_OK)
+	{
+		_pDevice->Present(0, 0, 0, 0);
+	}
+	_pDevice->BeginScene();
+	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
+}
+
+void Graphics::endRender()
+{
+	_spriteHandler->End();
+	_pDevice->EndScene();
+
+	_pDevice->Present(0, 0, 0, 0);
+}
+
+void Graphics::init(Application* window)
 {
 	_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS parameter;
