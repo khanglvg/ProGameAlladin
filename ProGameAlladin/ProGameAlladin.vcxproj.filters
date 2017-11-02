@@ -276,6 +276,9 @@
     <ClInclude Include="Framework\GameManager.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Node.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -326,6 +329,9 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Framework\GameManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Node.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>

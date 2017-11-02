@@ -75,16 +75,20 @@ public:
 
 
 	Matrix operator - () const;
-	Matrix operator + (const Matrix &pM) const;
+	Matrix operator + (const Matrix &pM)const;
 	Matrix operator - (const Matrix  &pM) const;
 	Matrix operator * (const float v) const;
 	Matrix operator / (const float v) const;
+	friend Matrix operator * (const Matrix& m1, const Matrix& m2);
 
 
 	Matrix matrixRotationX(const float angle);
 	Matrix matrixRotationY(const float angle);
-	static Matrix matrixRotationZ(const float angle);
+	static Matrix getMatrixRotationZ(const float angle);
 
+	static Matrix getScalingMatrix(const float& sX,const float& sY);
+
+	static Matrix getTranslationMatrix(const float& dX, const float& dY);
 
 
 private:
