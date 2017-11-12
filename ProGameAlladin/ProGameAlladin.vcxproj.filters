@@ -279,6 +279,12 @@
     <ClInclude Include="Framework\Node.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Scene.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Input.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -332,6 +338,12 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Node.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Input.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
