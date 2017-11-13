@@ -118,6 +118,8 @@ enum MyKey {
 // Reference: phucmt97
 class Input
 {
+	friend class Application;
+
 public:
 
 	// Constructor

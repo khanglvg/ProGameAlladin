@@ -3,6 +3,14 @@ US_NS_JK
 
 GameManager* GameManager::_instance = nullptr;
 
+GameManager::GameManager()
+{
+}
+
+GameManager::~GameManager()
+{
+}
+
 void GameManager::setScreenWidth(const int& width)
 {
 	_screenWidth = width;

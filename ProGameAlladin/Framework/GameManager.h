@@ -3,11 +3,14 @@
 #define __GAMEMANAGER_H__
 #include "definitions.h"
 NS_JK_BEGIN
+
 class GameManager
 {
 	friend class Application;
 public:
 	
+	GameManager();
+	virtual ~GameManager();
 	void setScreenWidth(const int& width);
 	int getScreenWidth() const;
 	void setScreenHeight(const int& height);

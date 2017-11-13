@@ -285,6 +285,12 @@
     <ClInclude Include="Framework\Input.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\dxaudio.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Camera.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -344,6 +350,12 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Input.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\dxaudio.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Camera.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>

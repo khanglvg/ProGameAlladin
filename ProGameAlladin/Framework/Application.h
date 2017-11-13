@@ -4,6 +4,8 @@
 #include "definitions.h"
 #include "Windows.h"
 #include "Graphics.h"
+#include "Input.h"
+#include "GameManager.h"
 
 NS_JK_BEGIN
 class Application

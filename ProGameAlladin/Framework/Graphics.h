@@ -14,7 +14,8 @@ NS_JK_BEGIN
 
 	class Graphics
 {
-		friend class Application;
+	friend class Application;
+
 public:  //tat ca cac ham convert deu ghi vao class Graphics
 	Graphics();
 	void release() const;

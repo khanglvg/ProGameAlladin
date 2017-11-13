@@ -186,8 +186,10 @@
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
     <ClInclude Include="Framework\Application.h" />
+    <ClInclude Include="Framework\Camera.h" />
     <ClInclude Include="Framework\Color.h" />
     <ClInclude Include="Framework\definitions.h" />
+    <ClInclude Include="Framework\dxaudio.h" />
     <ClInclude Include="Framework\GameManager.h" />
     <ClInclude Include="Framework\Graphics.h" />
     <ClInclude Include="Framework\Input.h" />
@@ -209,7 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Application.cpp" />
+    <ClCompile Include="Framework\Camera.cpp" />
     <ClCompile Include="Framework\Color.cpp" />
+    <ClCompile Include="Framework\dxaudio.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
     <ClCompile Include="Framework\Graphics.cpp" />
     <ClCompile Include="Framework\Input.cpp" />

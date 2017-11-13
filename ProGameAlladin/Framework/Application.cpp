@@ -177,10 +177,13 @@ void Application::initComponents() const
 
 
 	//Input
-
+	Input *input = Input::getInstance();
+	input->initialize();
 
 	//GameManager
-
+	GameManager *gameManager = GameManager::getInstance();
+	gameManager->setScreenWidth(_width);
+	gameManager->setScreenHeight(_height);
 }
 
 void Application::processGame()
