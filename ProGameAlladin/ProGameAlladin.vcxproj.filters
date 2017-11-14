@@ -285,11 +285,14 @@
     <ClInclude Include="Framework\Input.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\dxaudio.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Camera.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Lv1Scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Aladdin.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -352,11 +355,14 @@
     <ClCompile Include="Framework\Input.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\dxaudio.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Camera.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Lv1Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Aladdin.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

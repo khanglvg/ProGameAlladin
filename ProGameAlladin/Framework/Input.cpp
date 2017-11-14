@@ -357,26 +357,26 @@ bool Input::oldDirectXKeyDown(const int keyCode) const
 
 void Input::initDirectXInput()
 {
-	// init DirectX Input
-	HRESULT result = DirectInput8Create(
-		_hInstance,
-		DIRECTINPUT_VERSION,
-		IID_IDirectInput8,
-		reinterpret_cast<void**>(&_directXInput),
-		nullptr);
-	
+	//// init DirectX Input
+	//HRESULT result = DirectInput8Create(
+	//	_hInstance,
+	//	DIRECTINPUT_VERSION,
+	//	IID_IDirectInput8,
+	//	reinterpret_cast<void**>(&_directXInput),
+	//	nullptr);
+	//
 
 
-	// init DirectX Input Keyboard
-	result = _directXInput->CreateDevice(GUID_SysKeyboard, &_directXInputKeyboard, NULL);
-	
+	//// init DirectX Input Keyboard
+	//result = _directXInput->CreateDevice(GUID_SysKeyboard, &_directXInputKeyboard, NULL);
+	//
 
-	// acquire Keyboard	
-	result = _directXInputKeyboard->SetDataFormat(&c_dfDIKeyboard);
-	
-	result = _directXInputKeyboard->SetCooperativeLevel(_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
+	//// acquire Keyboard	
+	//result = _directXInputKeyboard->SetDataFormat(&c_dfDIKeyboard);
+	//
+	//result = _directXInputKeyboard->SetCooperativeLevel(_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
 
-	result = _directXInputKeyboard->Acquire();
+	//result = _directXInputKeyboard->Acquire();
 	
 }
 

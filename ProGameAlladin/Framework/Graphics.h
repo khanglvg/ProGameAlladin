@@ -20,14 +20,14 @@ public:  //tat ca cac ham convert deu ghi vao class Graphics
 	Graphics();
 	void release() const;
 	void present() const;
-	void init(Application* window);
+	void init();
 	void clearScreen() const;
 	void drawSprite(const Texture &texture, const Vec2& origin, const Matrix& matrix, const Color& color, const Rect& rect) const;
 	static D3DXMATRIX convertToDirectMatrix(const Matrix& matrix);
 	static RECT Graphics::converttoRECT(const Rect& rect);
 	LPDIRECT3DDEVICE9 getDevice() const;
 	LPDIRECT3DSURFACE9 getSurface() const;
-	void loadTexture(Texture& texture, Color& transcolor);
+	void loadTexture(Texture& texture, const Color& transcolor = Color(255,0,255,255));
 	static Graphics* getInstance();
 
 	void beginRender();

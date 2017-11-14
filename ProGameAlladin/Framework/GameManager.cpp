@@ -33,7 +33,25 @@ int GameManager::getScreenHeight() const
 
 void GameManager::update()
 {
-	//....
+	_runningScene->update();
+	
+}
+
+void GameManager::init(Scene* startScene)
+{
+	_runningScene = startScene;
+	_runningScene->init();
+	
+}
+
+void GameManager::release()
+{
+	_runningScene->release();
+}
+
+void GameManager::render()
+{
+	_runningScene->render();
 }
 
 GameManager* GameManager::getInstance()

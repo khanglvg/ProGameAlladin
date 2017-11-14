@@ -50,13 +50,18 @@ void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matr
 {
 	D3DXMATRIX oldMatrix;
 	D3DXMATRIX newMatrix = convertToDirectMatrix(matrix);
+
+	D3DXVECTOR3 center = D3DXVECTOR3(abs(rect.getWidth()* origin.getX()), abs(rect.getHeight()* (1-origin.getY())), 0);
+
 	_spriteHandler->GetTransform(&oldMatrix);
 	_spriteHandler->SetTransform(&newMatrix);
+
 	_spriteHandler->Draw(texture.getTexture(), 
 						&converttoRECT(rect), 
-						&D3DXVECTOR3(origin.x, origin.y, 0),
+						&center,
 						0, 
 						D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(),color.getBlue()));
+	
 	
 	_spriteHandler->SetTransform(&oldMatrix);
 }
@@ -99,7 +104,7 @@ LPDIRECT3DSURFACE9 Graphics::getSurface() const
 	return _surface;
 }
 
-void Graphics::loadTexture(Texture& texture, Color& transcolor)
+void Graphics::loadTexture(Texture& texture, const Color& transcolor)
 {
 	D3DXIMAGE_INFO info; // Create a variable for Texture's info
 	LPDIRECT3DTEXTURE9 directXTexture;
@@ -140,7 +145,7 @@ Graphics* Graphics::getInstance()
 
 void Graphics::beginRender()
 {
-	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x4866ff, 0.0f, 0) == D3D_OK)
+	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x000000, 0.0f, 0) == D3D_OK)
 	{
 		_pDevice->Present(0, 0, 0, 0);
 	}
@@ -156,24 +161,24 @@ void Graphics::endRender()
 	_pDevice->Present(0, 0, 0, 0);
 }
 
-void Graphics::init(Application* window)
+void Graphics::init()
 {
 	_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
 	D3DPRESENT_PARAMETERS parameter;
 
 	ZeroMemory(&parameter, sizeof(parameter));
 	parameter.SwapEffect = D3DSWAPEFFECT_DISCARD;
-	parameter.Windowed = !window->isFullScreen();
-	parameter.hDeviceWindow = window->getWindow();
+	parameter.Windowed = true;
+	parameter.hDeviceWindow = _hWnd;
 	parameter.BackBufferFormat = D3DFMT_A8R8G8B8;
 	parameter.BackBufferCount = 1;
-	parameter.BackBufferHeight = window->getHeight();
-	parameter.BackBufferWidth = window->getWidth();
+	parameter.BackBufferHeight = _screenHeight;
+	parameter.BackBufferWidth = _screenWidth;
 
 	_pD3D->CreateDevice(
 		D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
-		window->getWindow(),
+		_hWnd,
 		D3DCREATE_SOFTWARE_VERTEXPROCESSING,
 		&parameter,
 		&_pDevice);
@@ -184,4 +189,5 @@ void Graphics::init(Application* window)
 	}
 
 	_pDevice->GetBackBuffer(NULL, NULL, D3DBACKBUFFER_TYPE_MONO, &_surface);
+	D3DXCreateSprite(_pDevice, &_spriteHandler);
 }

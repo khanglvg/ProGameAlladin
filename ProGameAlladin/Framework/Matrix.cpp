@@ -411,25 +411,25 @@ Matrix JaKa::operator*(const Matrix& m1, const Matrix& m2)
 {
 	Matrix newMatrix;
 
-	newMatrix._11 = m1.get11()*m2.get11() + m1.get12()*m2.get12() + m1.get13()*m2.get13() + m1.get14()*m2.get14();
-	newMatrix._12 = m1.get11()*m2.get21() + m1.get12()*m2.get22() + m1.get13()*m2.get23() + m1.get14()*m2.get24();
-	newMatrix._13 = m1.get11()*m2.get31() + m1.get12()*m2.get32() + m1.get13()*m2.get33() + m1.get14()*m2.get34();
-	newMatrix._14 = m1.get11()*m2.get41() + m1.get12()*m2.get42() + m1.get13()*m2.get43() + m1.get14()*m2.get44();
+	newMatrix._11 = m1.get11()*m2.get11() + m1.get12()*m2.get21() + m1.get13()*m2.get31() + m1.get14()*m2.get41();
+	newMatrix._12 = m1.get11()*m2.get12() + m1.get12()*m2.get22() + m1.get13()*m2.get32() + m1.get14()*m2.get42();
+	newMatrix._13 = m1.get11()*m2.get13() + m1.get12()*m2.get23() + m1.get13()*m2.get33() + m1.get14()*m2.get43();
+	newMatrix._14 = m1.get11()*m2.get14() + m1.get12()*m2.get24() + m1.get13()*m2.get34() + m1.get14()*m2.get44();
 
-	newMatrix._21 = m1.get21()*m2.get11() + m1.get22()*m2.get12() + m1.get23()*m2.get13() + m1.get24()*m2.get14();
-	newMatrix._22 = m1.get21()*m2.get21() + m1.get22()*m2.get22() + m1.get23()*m2.get23() + m1.get24()*m2.get24();
-	newMatrix._23 = m1.get21()*m2.get31() + m1.get22()*m2.get32() + m1.get23()*m2.get33() + m1.get24()*m2.get34();
-	newMatrix._24 = m1.get21()*m2.get41() + m1.get22()*m2.get42() + m1.get23()*m2.get43() + m1.get24()*m2.get44();
+	newMatrix._21 = m1.get21()*m2.get11() + m1.get22()*m2.get21() + m1.get23()*m2.get31() + m1.get24()*m2.get41();
+	newMatrix._22 = m1.get21()*m2.get12() + m1.get22()*m2.get22() + m1.get23()*m2.get32() + m1.get24()*m2.get42();
+	newMatrix._23 = m1.get21()*m2.get13() + m1.get22()*m2.get23() + m1.get23()*m2.get33() + m1.get24()*m2.get43();
+	newMatrix._24 = m1.get21()*m2.get14() + m1.get22()*m2.get24() + m1.get23()*m2.get34() + m1.get24()*m2.get44();
 
-	newMatrix._31 = m1.get31()*m2.get11() + m1.get32()*m2.get12() + m1.get33()*m2.get13() + m1.get34()*m2.get14();
-	newMatrix._32 = m1.get31()*m2.get21() + m1.get32()*m2.get22() + m1.get33()*m2.get23() + m1.get34()*m2.get24();
-	newMatrix._33 = m1.get31()*m2.get31() + m1.get32()*m2.get32() + m1.get33()*m2.get33() + m1.get34()*m2.get34();
-	newMatrix._34 = m1.get31()*m2.get41() + m1.get32()*m2.get42() + m1.get33()*m2.get43() + m1.get34()*m2.get44();
+	newMatrix._31 = m1.get31()*m2.get11() + m1.get32()*m2.get21() + m1.get33()*m2.get31() + m1.get34()*m2.get41();
+	newMatrix._32 = m1.get31()*m2.get12() + m1.get32()*m2.get22() + m1.get33()*m2.get32() + m1.get34()*m2.get42();
+	newMatrix._33 = m1.get31()*m2.get13() + m1.get32()*m2.get23() + m1.get33()*m2.get33() + m1.get34()*m2.get43();
+	newMatrix._34 = m1.get31()*m2.get14() + m1.get32()*m2.get24() + m1.get33()*m2.get34() + m1.get34()*m2.get44();
 
-	newMatrix._41 = m1.get41()*m2.get11() + m1.get42()*m2.get12() + m1.get43()*m2.get13() + m1.get44()*m2.get14();
-	newMatrix._42 = m1.get41()*m2.get21() + m1.get42()*m2.get22() + m1.get43()*m2.get23() + m1.get44()*m2.get24();
-	newMatrix._43 = m1.get41()*m2.get31() + m1.get42()*m2.get32() + m1.get43()*m2.get33() + m1.get44()*m2.get34();
-	newMatrix._44 = m1.get41()*m2.get41() + m1.get42()*m2.get42() + m1.get43()*m2.get43() + m1.get44()*m2.get44();
+	newMatrix._41 = m1.get41()*m2.get11() + m1.get42()*m2.get21() + m1.get43()*m2.get31() + m1.get44()*m2.get41();
+	newMatrix._42 = m1.get41()*m2.get12() + m1.get42()*m2.get22() + m1.get43()*m2.get32() + m1.get44()*m2.get42();
+	newMatrix._43 = m1.get41()*m2.get13() + m1.get42()*m2.get23() + m1.get43()*m2.get33() + m1.get44()*m2.get43();
+	newMatrix._44 = m1.get41()*m2.get14() + m1.get42()*m2.get24() + m1.get43()*m2.get34() + m1.get44()*m2.get44();
 
 	return newMatrix;
 }

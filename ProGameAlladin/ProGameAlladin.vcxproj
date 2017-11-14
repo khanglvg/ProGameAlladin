@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Aladdin.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
     <ClInclude Include="DirectX\Include\D2D1.h" />
@@ -189,7 +190,6 @@
     <ClInclude Include="Framework\Camera.h" />
     <ClInclude Include="Framework\Color.h" />
     <ClInclude Include="Framework\definitions.h" />
-    <ClInclude Include="Framework\dxaudio.h" />
     <ClInclude Include="Framework\GameManager.h" />
     <ClInclude Include="Framework\Graphics.h" />
     <ClInclude Include="Framework\Input.h" />
@@ -199,6 +199,7 @@
     <ClInclude Include="Framework\Scene.h" />
     <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Vec2.h" />
+    <ClInclude Include="Lv1Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX10math.inl" />
@@ -210,10 +211,10 @@
     <None Include="DirectX\Include\xnamathvector.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Aladdin.cpp" />
     <ClCompile Include="Framework\Application.cpp" />
     <ClCompile Include="Framework\Camera.cpp" />
     <ClCompile Include="Framework\Color.cpp" />
-    <ClCompile Include="Framework\dxaudio.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
     <ClCompile Include="Framework\Graphics.cpp" />
     <ClCompile Include="Framework\Input.cpp" />
@@ -223,6 +224,7 @@
     <ClCompile Include="Framework\Scene.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Vec2.cpp" />
+    <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>

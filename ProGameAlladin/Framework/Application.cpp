@@ -10,13 +10,15 @@ Application::Application(
 	const LPCSTR& appName,
 	const int& width, 
 	const int& height,
-	const bool& isFullScreen)
+	const bool& isFullScreen,
+	Scene* startScene)
 {
 	_hInstance = hInstance;
 	_windowClassName = appName;
 	_width = width;
 	_height = height;
 	_isFullScreen = isFullScreen;
+	_startScene = startScene;
 }
 
 
@@ -68,6 +70,7 @@ void Application::run ()
 	setFps(60);
 
 	initWindow();
+	initComponents();
 
 	gameLoop();
 }
@@ -172,6 +175,7 @@ void Application::initComponents() const
 	graphics->_hWnd = _hWnd;
 	graphics->_screenWidth = _width;
 	graphics->_screenHeight = _height;
+	graphics->init();
 
 	//Audio
 
@@ -184,6 +188,7 @@ void Application::initComponents() const
 	GameManager *gameManager = GameManager::getInstance();
 	gameManager->setScreenWidth(_width);
 	gameManager->setScreenHeight(_height);
+	gameManager->init(_startScene);
 }
 
 void Application::processGame()
@@ -191,19 +196,20 @@ void Application::processGame()
 	//update input
 	//update Game
 	//render
-
+	updateGame();
+	renderGraphics();
 }
 
 void Application::updateGame()
 {
-	//update gamemanager
-	//update gaming scene
+	GameManager::getInstance()->update();
 }
 
 void Application::renderGraphics()
 {
 	Graphics::getInstance()->beginRender();
 	//render running scene
+	GameManager::getInstance()->render();
 	Graphics::getInstance()->endRender();
 }
 

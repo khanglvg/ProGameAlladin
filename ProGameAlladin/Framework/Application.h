@@ -12,7 +12,7 @@ class Application
 {
 public:
 	Application();
-	Application(const HINSTANCE& hInstance, const LPCSTR& appName, const int& iWidth, const int& iHeight, const bool& isFullScreen);
+	Application(const HINSTANCE& hInstance, const LPCSTR& appName, const int& iWidth, const int& iHeight, const bool& isFullScreen, Scene* startScene);
 
 
 	void run();
@@ -56,7 +56,7 @@ private:
 	LARGE_INTEGER _startTimestamp; // thoi gian bat dau game
 
 	float _deltaTime; // khoang cach giua vong lap trc va vong lap sau: current - last
-
+	Scene* _startScene;
 };
 NS_JK_END
 #endif __APPLICATION_H__

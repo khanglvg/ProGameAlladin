@@ -10,12 +10,13 @@ public:
 	Scene();
 	~Scene();
 
-	void Init();
-	void Update();
-	void Release();
+	virtual void init();
+	virtual void update();
+	virtual void release();
+	virtual void render();
 	
-private:
-	vector<Node> _vectNode;
+protected:
+	vector<Node*> _vectNode;
 
 
 };
