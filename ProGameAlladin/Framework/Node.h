@@ -35,7 +35,7 @@ public:
 	virtual void render();
 
 	virtual void init();
-private:
+protected:
 
 	Vec2 _origin;
 
@@ -47,6 +47,8 @@ private:
 
 
 	Vec2 _scale;
+
+	
 	
 	
 };

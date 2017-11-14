@@ -500,9 +500,9 @@ Matrix Matrix::getScalingMatrix(const float& sX,const float& sY)
 Matrix Matrix::getTranslationMatrix(const float& dX, const float& dY)
 {
 	Matrix matrix;
-
-	matrix.set14(dX);
-	matrix.set24(dY);
+	// 41-42 or 14-24
+	matrix.set41(dX);
+	matrix.set42(dY);
 
 	return matrix;
 }

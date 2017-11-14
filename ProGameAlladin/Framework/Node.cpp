@@ -15,8 +15,9 @@ Node::Node()
 
 	_rotation = 0.0f;
 
-	_scale.x = 1.0f;
-	_scale.y = 1.0f;
+	_scale.x = 1;
+	_scale.y = 1;
+
 }
 
 Node::Node(const Vec2& origin, const Vec2& position, const float& rotation, const Vec2& scale)
@@ -77,6 +78,7 @@ void Node::setOrigin(const Vec2& origin)
 	_origin.y = origin.y;
 }
 
+
 Matrix Node::getTransformMatrix()
 {
 	Matrix newTransformMatrix;
@@ -85,13 +87,14 @@ Matrix Node::getTransformMatrix()
 	Matrix matrixRotation = Matrix::getMatrixRotationZ(_rotation);
 	Matrix matrixScaling = Matrix::getScalingMatrix(_scale.x, _scale.y);
 
-	newTransformMatrix = matrixRotation*matrixScaling*matrixTranslation;
+	//newTransformMatrix = matrixScaling*matrixRotation*matrixTranslation;
+	newTransformMatrix = matrixTranslation*matrixRotation*matrixScaling;
 	return newTransformMatrix;
 }
 
 void Node::update()
 {
-
+	// Input: check if the key is pressed
 }
 
 void Node::release()

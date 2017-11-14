@@ -7,6 +7,7 @@ Lv1Scene::Lv1Scene()
 {
 	_vectNode.push_back(new Aladdin());
 	_vectNode.push_back(new BackgroundLv1Scene());
+
 }
 
 Lv1Scene::~Lv1Scene()

@@ -5,6 +5,7 @@
 #include "Framework/Node.h"
 #include "Framework/Texture.h"
 #include "Framework/Graphics.h"
+#include "Framework/Input.h"
 
 NS_JK_BEGIN
 
@@ -21,7 +22,11 @@ public:
 	void render() override;
 
 private:
+	int i = 0;
+	bool _isAlready = false;
 	Texture _textureAla;
+	vector<Rect> _vectRect;
+	vector<Rect> _throwAni;
 	
 };
 

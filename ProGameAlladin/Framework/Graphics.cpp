@@ -46,7 +46,7 @@ RECT Graphics::converttoRECT(const Rect& rect)
 	return r;
 }
 
-void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matrix matrix, const Color& color, const Rect& rect) const
+void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matrix matrix, const Color& color, const Rect& rect, const int layer) const
 {
 	D3DXMATRIX oldMatrix;
 	D3DXMATRIX newMatrix = convertToDirectMatrix(matrix);
@@ -59,7 +59,7 @@ void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matr
 	_spriteHandler->Draw(texture.getTexture(), 
 						&converttoRECT(rect), 
 						&center,
-						0, 
+						&D3DXVECTOR3(0.f,0.f,layer), 
 						D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(),color.getBlue()));
 	
 	
@@ -150,7 +150,7 @@ void Graphics::beginRender()
 		_pDevice->Present(0, 0, 0, 0);
 	}
 	_pDevice->BeginScene();
-	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
+	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT);
 }
 
 void Graphics::endRender()

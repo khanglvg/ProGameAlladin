@@ -1,4 +1,4 @@
-#ifndef __APPLICATION_H__
+﻿#ifndef __APPLICATION_H__
 #define __APPLICATION_H__
 
 #include "definitions.h"
@@ -20,6 +20,8 @@ public:
 	void initWindow();
 	void gameLoop();
 	void initComponents() const;
+
+	// Mỗi frame sẽ chạy lại hàm processGame() 
 	void processGame();
 	void updateGame();
 	void renderGraphics();

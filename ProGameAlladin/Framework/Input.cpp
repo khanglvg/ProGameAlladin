@@ -357,26 +357,40 @@ bool Input::oldDirectXKeyDown(const int keyCode) const
 
 void Input::initDirectXInput()
 {
-	//// init DirectX Input
-	//HRESULT result = DirectInput8Create(
-	//	_hInstance,
-	//	DIRECTINPUT_VERSION,
-	//	IID_IDirectInput8,
-	//	reinterpret_cast<void**>(&_directXInput),
-	//	nullptr);
-	//
+	// init DirectX Input
+	HRESULT result = DirectInput8Create(
+		_hInstance,
+		DIRECTINPUT_VERSION,
+		IID_IDirectInput8,
+		reinterpret_cast<void**>(&_directXInput),
+		nullptr);
+	
+	if (result != DI_OK) return;
 
 
-	//// init DirectX Input Keyboard
-	//result = _directXInput->CreateDevice(GUID_SysKeyboard, &_directXInputKeyboard, NULL);
-	//
+	// init DirectX Input Keyboard
+	result = _directXInput->CreateDevice(GUID_SysKeyboard, &_directXInputKeyboard, nullptr);
+	
+	if (result != DI_OK) return;
+	
 
-	//// acquire Keyboard	
-	//result = _directXInputKeyboard->SetDataFormat(&c_dfDIKeyboard);
-	//
-	//result = _directXInputKeyboard->SetCooperativeLevel(_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
+	// acquire Keyboard	
+	result = _directXInputKeyboard->SetDataFormat(&c_dfDIKeyboard);
 
-	//result = _directXInputKeyboard->Acquire();
+
+	result = _directXInputKeyboard->SetCooperativeLevel(_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
+
+
+	DIPROPDWORD dipdw;
+
+	dipdw.diph.dwSize = sizeof(DIPROPDWORD);
+	dipdw.diph.dwHeaderSize = sizeof(DIPROPHEADER);
+	dipdw.diph.dwObj = 0;
+	dipdw.diph.dwHow = DIPH_DEVICE;
+
+	result = _directXInputKeyboard->SetProperty(DIPROP_BUFFERSIZE, &dipdw.diph);
+
+	result = _directXInputKeyboard->Acquire();
 	
 }
 
@@ -389,7 +403,7 @@ int Input::convertToDirectXKey(const int keyCode) const
 	// example: input "KEY_A" export "DIK_A"
 	const auto directXCode = it->second;
 
-	//return directX's keycode.
+	// return directX's keycode.
 	return directXCode;
 }
 

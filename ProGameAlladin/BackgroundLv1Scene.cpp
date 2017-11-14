@@ -4,7 +4,6 @@ US_NS_JK
 
 BackgroundLv1Scene::BackgroundLv1Scene()
 {
-	
 }
 
 BackgroundLv1Scene::~BackgroundLv1Scene()
@@ -21,5 +20,5 @@ void BackgroundLv1Scene::init()
 
 void BackgroundLv1Scene::render()
 {
-	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, 1000, 395));
+	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(225, 225, 255, 255), Rect(0, 0, 1000, 395), 0);
 }

@@ -199,10 +199,10 @@ private:
 	map<int, int> _keysMapInt;
 	map<string, int> _keysMapString;
 
-	HINSTANCE _hInstance;
+	HINSTANCE _hInstance;		// Handle of game instance
 	HWND _hWnd;
-	LPDIRECTINPUT8 _directXInput;
-	LPDIRECTINPUTDEVICE8 _directXInputKeyboard;
+	LPDIRECTINPUT8 _directXInput;  // The DirectX Input Object
+	LPDIRECTINPUTDEVICE8 _directXInputKeyboard; // The DirectX Input Device
 #pragma endregion 
 
 
