@@ -294,6 +294,9 @@
     <ClInclude Include="Aladdin.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BackgroundLv1Scene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -362,6 +365,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Aladdin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundLv1Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

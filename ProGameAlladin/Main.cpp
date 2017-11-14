@@ -1,13 +1,14 @@
 #include "Framework/Application.h"
 #include "Lv1Scene.h"
 
+US_NS_JK
 
 int WINAPI WinMain(HINSTANCE hInstance,
   HINSTANCE hPrevInstance,
   LPTSTR    lpCmdLine,
   int       nCmdShow)
 {
-  JaKa::Application app = JaKa::Application::Application(hInstance, "Hello Khang", 800, 600, false, new JaKa::Lv1Scene);
+  Application app = Application::Application(hInstance, "Hello Khang", SCREEN_WIDTH, SCREEN_HEIGHT, false, new Lv1Scene);
   app.run();
 
 }

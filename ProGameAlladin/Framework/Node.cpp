@@ -14,6 +14,9 @@ Node::Node()
 	_origin.y = 0.0f;
 
 	_rotation = 0.0f;
+
+	_scale.x = 1.0f;
+	_scale.y = 1.0f;
 }
 
 Node::Node(const Vec2& origin, const Vec2& position, const float& rotation, const Vec2& scale)

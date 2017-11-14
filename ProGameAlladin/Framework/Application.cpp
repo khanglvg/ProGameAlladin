@@ -70,6 +70,7 @@ void Application::run ()
 	setFps(60);
 
 	initWindow();
+
 	initComponents();
 
 	gameLoop();
@@ -146,7 +147,6 @@ void Application::gameLoop()
 	{
 		QueryPerformanceCounter(&_currentTimestamp);
 		interval = (_currentTimestamp.QuadPart - _lastTimestamp.QuadPart);
-
 		if(interval >= _animationInterval.QuadPart)
 		{
 			_lastTimestamp.QuadPart = _currentTimestamp.QuadPart;

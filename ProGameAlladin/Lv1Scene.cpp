@@ -1,30 +1,34 @@
 ﻿#include "Lv1Scene.h"
+#include "BackgroundLv1Scene.h"
 
-JaKa::Lv1Scene::Lv1Scene()
+US_NS_JK
+
+Lv1Scene::Lv1Scene()
 {
 	_vectNode.push_back(new Aladdin());
+	_vectNode.push_back(new BackgroundLv1Scene());
 }
 
-JaKa::Lv1Scene::~Lv1Scene()
+Lv1Scene::~Lv1Scene()
 {
 }
 
-void JaKa::Lv1Scene::init()
+void Lv1Scene::init()
 {
 	Scene::init();
 }
 
-void JaKa::Lv1Scene::release()
+void Lv1Scene::release()
 {
 	Scene::release();
 }
 
-void JaKa::Lv1Scene::update()
+void Lv1Scene::update()
 {
 	Scene::update();
 }
 
-void JaKa::Lv1Scene::render()
+void Lv1Scene::render()
 {
 	Scene::render();
 }

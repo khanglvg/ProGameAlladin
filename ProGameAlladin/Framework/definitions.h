@@ -22,4 +22,8 @@ using namespace std;
 
 #define NS_JK_END }
 
+#define SCREEN_WIDTH 1000
+
+#define SCREEN_HEIGHT 395
+
 #endif // !__DEFINITIONS_H__

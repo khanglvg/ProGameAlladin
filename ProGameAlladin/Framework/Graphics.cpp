@@ -46,12 +46,12 @@ RECT Graphics::converttoRECT(const Rect& rect)
 	return r;
 }
 
-void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matrix& matrix, const Color& color, const Rect& rect) const
+void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matrix matrix, const Color& color, const Rect& rect) const
 {
 	D3DXMATRIX oldMatrix;
 	D3DXMATRIX newMatrix = convertToDirectMatrix(matrix);
 
-	D3DXVECTOR3 center = D3DXVECTOR3(abs(rect.getWidth()* origin.getX()), abs(rect.getHeight()* (1-origin.getY())), 0);
+	D3DXVECTOR3 center = D3DXVECTOR3(abs(rect.getWidth()* origin.getX()), abs(rect.getHeight()* (origin.getY())), 0);
 
 	_spriteHandler->GetTransform(&oldMatrix);
 	_spriteHandler->SetTransform(&newMatrix);
@@ -145,7 +145,7 @@ Graphics* Graphics::getInstance()
 
 void Graphics::beginRender()
 {
-	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x000000, 0.0f, 0) == D3D_OK)
+	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x000000, 0.0f, 0) != D3D_OK)
 	{
 		_pDevice->Present(0, 0, 0, 0);
 	}

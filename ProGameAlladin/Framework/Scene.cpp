@@ -1,14 +1,16 @@
 ﻿#include "Scene.h"
 
-JaKa::Scene::Scene()
+US_NS_JK
+
+Scene::Scene()
 {
 }
 
-JaKa::Scene::~Scene()
+Scene::~Scene()
 {
 }
 
-void JaKa::Scene::init()
+void Scene::init()
 {
 	for(auto node: _vectNode)
 	{
@@ -16,7 +18,7 @@ void JaKa::Scene::init()
 	}
 }
 
-void JaKa::Scene::update()
+void Scene::update()
 {
 	for(auto node: _vectNode)
 	{
@@ -24,7 +26,7 @@ void JaKa::Scene::update()
 	}
 }
 
-void JaKa::Scene::release()
+void Scene::release()
 {
 	for(auto node: _vectNode)
 	{
@@ -32,7 +34,7 @@ void JaKa::Scene::release()
 	}
 }
 
-void JaKa::Scene::render()
+void Scene::render()
 {
 	for(auto node: _vectNode)
 	{

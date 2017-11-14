@@ -4,6 +4,7 @@
 
 #include "Framework/Node.h"
 #include "Framework/Texture.h"
+#include "Framework/Graphics.h"
 
 NS_JK_BEGIN
 
