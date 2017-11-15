@@ -23,6 +23,7 @@ public:
 
 	// Mỗi frame sẽ chạy lại hàm processGame() 
 	void processGame();
+	void updateInput();
 	void updateGame();
 	void renderGraphics();
 

@@ -13,12 +13,12 @@ BackgroundLv1Scene::~BackgroundLv1Scene()
 void BackgroundLv1Scene::init()
 {
 	_textureBackground.setName("BackGround.jpg");
-	_textureBackground.setSrcFile("background.jpg");
+	_textureBackground.setSrcFile("smallmarketBG.png");
 
 	Graphics::getInstance()->loadTexture(_textureBackground);
 }
 
 void BackgroundLv1Scene::render()
 {
-	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(225, 225, 255, 255), Rect(0, 0, 1000, 395), 0);
+	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(225, 225, 255, 255), Rect(0, 0, 1429, 683), 0);
 }

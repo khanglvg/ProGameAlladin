@@ -79,7 +79,7 @@ public:
 	Matrix operator - (const Matrix  &pM) const;
 	Matrix operator * (const float v) const;
 	Matrix operator / (const float v) const;
-	friend Matrix operator * (const Matrix& m1, const Matrix& m2);
+	Matrix operator *(const Matrix& mat) const;
 
 
 	Matrix matrixRotationX(const float angle);

@@ -25,6 +25,9 @@
     <Filter Include="DirectX\Lib">
       <UniqueIdentifier>{d5d29041-82e7-459b-86ae-e1101f36ddf0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pugixml">
+      <UniqueIdentifier>{8001d485-fc03-48d2-9a64-e0c342c3132a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\Include\audiodefs.h">
@@ -297,6 +300,12 @@
     <ClInclude Include="BackgroundLv1Scene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="pugixml\pugiconfig.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="pugixml\pugixml.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -369,6 +378,9 @@
     </ClCompile>
     <ClCompile Include="BackgroundLv1Scene.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pugixml\pugixml.cpp">
+      <Filter>pugixml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

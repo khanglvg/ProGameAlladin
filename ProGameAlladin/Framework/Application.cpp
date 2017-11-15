@@ -170,6 +170,7 @@ void Application::gameLoop()
 
 void Application::initComponents() const
 {
+	// Graphics
 	Graphics* graphics = Graphics::getInstance();
 	graphics->_hInstance = _hInstance;
 	graphics->_hWnd = _hWnd;
@@ -177,14 +178,16 @@ void Application::initComponents() const
 	graphics->_screenHeight = _height;
 	graphics->init();
 
-	//Audio
+	// Audio
 
 
-	//Input
+	// Input
 	Input *input = Input::getInstance();
+	input->_hInstance = _hInstance;
+	input->_hWnd = _hWnd;
 	input->initialize();
 
-	//GameManager
+	// GameManager
 	GameManager *gameManager = GameManager::getInstance();
 	gameManager->setScreenWidth(_width);
 	gameManager->setScreenHeight(_height);
@@ -194,10 +197,18 @@ void Application::initComponents() const
 void Application::processGame()
 {
 	//update input
+	updateInput();
+
 	//update Game
-	//render
 	updateGame();
+
+	//render
 	renderGraphics();
+}
+
+void Application::updateInput()
+{
+	Input::getInstance()->update();
 }
 
 void Application::updateGame()

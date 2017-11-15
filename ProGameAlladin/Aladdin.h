@@ -6,12 +6,15 @@
 #include "Framework/Texture.h"
 #include "Framework/Graphics.h"
 #include "Framework/Input.h"
+#include "pugixml/pugiconfig.hpp"
+#include "pugixml/pugixml.hpp"
 
 NS_JK_BEGIN
 
 class Aladdin: public Node
 {
 public:
+		
 	Aladdin();
 
 	~Aladdin();
@@ -21,12 +24,14 @@ public:
 	void update() override;
 	void render() override;
 
-private:
-	int i = 0;
-	bool _isAlready = false;
-	Texture _textureAla;
 	vector<Rect> _vectRect;
 	vector<Rect> _throwAni;
+
+private:
+	int i = 0;
+	int delta = 0;
+	Texture _textureAla;
+	string State = "idle";
 	
 };
 

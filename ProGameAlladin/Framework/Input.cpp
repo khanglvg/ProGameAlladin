@@ -376,9 +376,10 @@ void Input::initDirectXInput()
 
 	// acquire Keyboard	
 	result = _directXInputKeyboard->SetDataFormat(&c_dfDIKeyboard);
-
+	if (result != DI_OK) return;
 
 	result = _directXInputKeyboard->SetCooperativeLevel(_hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
+	if (result != DI_OK) return;
 
 
 	DIPROPDWORD dipdw;

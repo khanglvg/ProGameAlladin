@@ -407,31 +407,28 @@ Matrix Matrix::operator / (const float v) const
 
 }
 
-Matrix JaKa::operator*(const Matrix& m1, const Matrix& m2)
+Matrix Matrix::operator*(const Matrix& mat) const
 {
-	Matrix newMatrix;
+	Matrix result;
 
-	newMatrix._11 = m1.get11()*m2.get11() + m1.get12()*m2.get21() + m1.get13()*m2.get31() + m1.get14()*m2.get41();
-	newMatrix._12 = m1.get11()*m2.get12() + m1.get12()*m2.get22() + m1.get13()*m2.get32() + m1.get14()*m2.get42();
-	newMatrix._13 = m1.get11()*m2.get13() + m1.get12()*m2.get23() + m1.get13()*m2.get33() + m1.get14()*m2.get43();
-	newMatrix._14 = m1.get11()*m2.get14() + m1.get12()*m2.get24() + m1.get13()*m2.get34() + m1.get14()*m2.get44();
+	result._11 = this->_11 * mat._11 + this->_12 * mat._21 + this->_13 * mat._31 + this->_14 * mat._41;
+	result._12 = this->_11 * mat._12 + this->_12 * mat._22 + this->_13 * mat._32 + this->_14 * mat._42;
+	result._13 = this->_11 * mat._13 + this->_12 * mat._23 + this->_13 * mat._33 + this->_14 * mat._43;
+	result._14 = this->_11 * mat._14 + this->_12 * mat._24 + this->_13 * mat._34 + this->_14 * mat._44;
+	result._21 = this->_21 * mat._11 + this->_22 * mat._21 + this->_23 * mat._31 + this->_24 * mat._41;
+	result._22 = this->_21 * mat._12 + this->_22 * mat._22 + this->_23 * mat._32 + this->_24 * mat._42;
+	result._23 = this->_21 * mat._13 + this->_22 * mat._23 + this->_23 * mat._33 + this->_24 * mat._43;
+	result._24 = this->_21 * mat._14 + this->_22 * mat._24 + this->_23 * mat._34 + this->_24 * mat._44;
+	result._31 = this->_31 * mat._11 + this->_32 * mat._21 + this->_33 * mat._31 + this->_34 * mat._41;
+	result._32 = this->_31 * mat._12 + this->_32 * mat._22 + this->_33 * mat._32 + this->_34 * mat._42;
+	result._33 = this->_31 * mat._13 + this->_32 * mat._23 + this->_33 * mat._33 + this->_34 * mat._43;
+	result._34 = this->_31 * mat._14 + this->_32 * mat._24 + this->_33 * mat._34 + this->_34 * mat._44;
+	result._41 = this->_41 * mat._11 + this->_42 * mat._21 + this->_43 * mat._31 + this->_44 * mat._41;
+	result._42 = this->_41 * mat._12 + this->_42 * mat._22 + this->_43 * mat._32 + this->_44 * mat._42;
+	result._43 = this->_41 * mat._13 + this->_42 * mat._23 + this->_43 * mat._33 + this->_44 * mat._43;
+	result._44 = this->_41 * mat._14 + this->_42 * mat._24 + this->_43 * mat._34 + this->_44 * mat._44;
 
-	newMatrix._21 = m1.get21()*m2.get11() + m1.get22()*m2.get21() + m1.get23()*m2.get31() + m1.get24()*m2.get41();
-	newMatrix._22 = m1.get21()*m2.get12() + m1.get22()*m2.get22() + m1.get23()*m2.get32() + m1.get24()*m2.get42();
-	newMatrix._23 = m1.get21()*m2.get13() + m1.get22()*m2.get23() + m1.get23()*m2.get33() + m1.get24()*m2.get43();
-	newMatrix._24 = m1.get21()*m2.get14() + m1.get22()*m2.get24() + m1.get23()*m2.get34() + m1.get24()*m2.get44();
-
-	newMatrix._31 = m1.get31()*m2.get11() + m1.get32()*m2.get21() + m1.get33()*m2.get31() + m1.get34()*m2.get41();
-	newMatrix._32 = m1.get31()*m2.get12() + m1.get32()*m2.get22() + m1.get33()*m2.get32() + m1.get34()*m2.get42();
-	newMatrix._33 = m1.get31()*m2.get13() + m1.get32()*m2.get23() + m1.get33()*m2.get33() + m1.get34()*m2.get43();
-	newMatrix._34 = m1.get31()*m2.get14() + m1.get32()*m2.get24() + m1.get33()*m2.get34() + m1.get34()*m2.get44();
-
-	newMatrix._41 = m1.get41()*m2.get11() + m1.get42()*m2.get21() + m1.get43()*m2.get31() + m1.get44()*m2.get41();
-	newMatrix._42 = m1.get41()*m2.get12() + m1.get42()*m2.get22() + m1.get43()*m2.get32() + m1.get44()*m2.get42();
-	newMatrix._43 = m1.get41()*m2.get13() + m1.get42()*m2.get23() + m1.get43()*m2.get33() + m1.get44()*m2.get43();
-	newMatrix._44 = m1.get41()*m2.get14() + m1.get42()*m2.get24() + m1.get43()*m2.get34() + m1.get44()*m2.get44();
-
-	return newMatrix;
+	return result;
 }
 
 
@@ -475,14 +472,11 @@ Matrix Matrix::getMatrixRotationZ(const float angle)
 	auto const sinAng = sinf(angle);
 
 	matrix._11 = cosAng;
-	matrix._12 = -sinAng;
+	matrix._12 = sinAng;
 
-	matrix._21 = sinAng;
+	matrix._21 = -sinAng;
 	matrix._22 = cosAng;
 
-	matrix._33 = 1;
-
-	matrix._44 = 1;
 
 	return matrix;
 }
