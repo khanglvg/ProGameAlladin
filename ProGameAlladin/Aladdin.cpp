@@ -55,7 +55,20 @@ Aladdin::Aladdin()
 	_throwAni.push_back(Rect(221, 235, 36, 57));
 	_throwAni.push_back(Rect(268, 239, 38, 51));
 
-	setPosition(Vec2(SCREEN_WIDTH /10, SCREEN_HEIGHT - 50));
+	_jumpAni.push_back(Rect(8, 846, 59, 42));
+	_jumpAni.push_back(Rect(75, 828, 52, 61));
+	_jumpAni.push_back(Rect(137, 829, 54, 60));
+	_jumpAni.push_back(Rect(203, 824, 54, 68));
+	_jumpAni.push_back(Rect(269, 820, 51, 73));
+	_jumpAni.push_back(Rect(336, 829, 38, 65));
+	_jumpAni.push_back(Rect(390, 818, 35, 78));
+	_jumpAni.push_back(Rect(448, 808, 34, 92));
+	_jumpAni.push_back(Rect(504, 810, 34, 92));
+	_jumpAni.push_back(Rect(564, 812, 34, 92));
+
+
+
+	setPosition(Vec2(SCREEN_WIDTH / 10, _startPositon));
 
 	pugi::xml_document doc;
 	const auto result = doc.load_file("action2.xml");
@@ -88,21 +101,44 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
-	if (Input::getInstance()->isKeyDown(KEY_RIGHT_ARROW))
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
-		State = "right";
-		setPosition(Vec2(getPosition().getX() + 10, getPosition().getY()));
+		if (!Input::getInstance()->isKeyDown(KEY_LEFT_ARROW))
+		{
+			State = "right";
+			i = 0;
+			setPosition(Vec2(getPosition().getX() + 2, getPosition().getY()));
+		}
 	}
-	if (Input::getInstance()->isKeyDown(KEY_LEFT_ARROW))
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
-		State = "left";
-		setPosition(Vec2(getPosition().getX() - 10, getPosition().getY()));
+		if (!Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+		{
+			State = "left";
+			i = 0;
+			setPosition(Vec2(getPosition().getX() - 2, getPosition().getY()));
+		}
 	}
 	if (Input::getInstance()->isKeyDown(KEY_SPACE))
 	{
-		setPosition(Vec2(getPosition().getX(), getPosition().getY() - 10));
+		if (jump == NONE)
+		{
+			jump = JUMP;
+		}
 	}
-	
+	if (jump == JUMP)
+	{
+		State = "jumping";
+		setPosition(Vec2(getPosition().getX(), getPosition().getY() - 3));
+		if (getPosition().getY() <= _maxJump) jump = FALL;
+	}
+	if (jump == FALL)
+	{
+		State = "jumping";
+		setPosition(Vec2(getPosition().getX(), getPosition().getY() + 3));
+		if (getPosition().getY() >= _startPositon) jump = NONE;
+	}
+
 }
 
 void Aladdin::render()
@@ -110,12 +146,12 @@ void Aladdin::render()
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
 
-	
-	if (State == "idle") 
+
+	if (State == "idle")
 	{
 		if (delta <= 8)
 		{
-			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.0, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _vectRect[i], 1);
+			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _vectRect[i], 1);
 
 			if (delta == 8)
 			{
@@ -123,7 +159,7 @@ void Aladdin::render()
 				i++;
 			}
 
-			if (i >= 38)
+			if (i == _vectRect.size())
 			{
 				i = 10;
 			}
@@ -134,55 +170,70 @@ void Aladdin::render()
 
 	if (State == "right")
 	{
-		if (i != 0) i = 0;
-		else 
-		{
-			if (delta <= 8)
-			{
-				setScale(Vec2(1, 1));
-				Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.2, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
 
-				if (delta == 8)
-				{
-					delta = 0;
-					i++;
-				}
-				if (i == 5)
-				{
-					State = "idle";
-					i = 0;
-				}
-				delta++;
+		if (delta <= 8)
+		{
+			setScale(Vec2(1, 1));
+			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
+
+			if (delta == 8)
+			{
+				delta = 0;
+				i++;
 			}
+			if (i == _throwAni.size())
+			{
+				State = "idle";
+				i = 0;
+			}
+			delta++;
 		}
+
 	}
 
-	if(State == "left")
+	if (State == "left")
 	{
-		if (i != 0) i = 0;
-		else
-		{
-			setScale(Vec2(-1, 1));
-			if (delta <= 8)
-			{
-				Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.2, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
 
-				if (delta == 8)
-				{
-					delta = 0;
-					i++;
-				}
-				if (i == 6)
-				{
-					State = "idle";
-					i = 0;
-				}
-				delta++;
+		setScale(Vec2(-1, 1));
+		if (delta <= 8)
+		{
+			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
+
+			if (delta == 8)
+			{
+				delta = 0;
+				i++;
 			}
+			if (i == 6)
+			{
+				State = "idle";
+				i = 0;
+			}
+			delta++;
 		}
 	}
 
-	
+	if (State == "jumping")
+	{
+		setScale(Vec2(1, 1));
+		if (delta <= 8)
+		{
+			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _jumpAni[i], 1);
+
+			if (delta == 8)
+			{
+				delta = 0;
+				i++;
+			}
+			if (i == _jumpAni.size())
+			{
+				State = "idle";
+				i = 0;
+			}
+			delta++;
+		}
+	}
+
 
 
 }

@@ -151,7 +151,6 @@ void Application::gameLoop()
 		{
 			_lastTimestamp.QuadPart = _currentTimestamp.QuadPart;
 			_deltaTime = (float(interval)) / _freq.QuadPart;
-			OutputDebugString(to_string(_deltaTime).c_str());
 			_frameCount++;
 			processMessage(); //update what message in win32
 			processGame();  //update Game

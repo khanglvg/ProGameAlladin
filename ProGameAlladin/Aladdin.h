@@ -26,11 +26,17 @@ public:
 
 	vector<Rect> _vectRect;
 	vector<Rect> _throwAni;
+	vector<Rect> _jumpAni;
 
 private:
 	int i = 0;
 	int delta = 0;
 	Texture _textureAla;
+
+	enum {NONE, JUMP, FALL};
+	int jump = NONE;
+	float _maxJump = SCREEN_HEIGHT - 120;
+	float _startPositon = SCREEN_HEIGHT - 50;
 	string State = "idle";
 	
 };
