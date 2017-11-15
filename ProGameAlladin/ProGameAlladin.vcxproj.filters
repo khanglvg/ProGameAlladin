@@ -28,6 +28,9 @@
     <Filter Include="pugixml">
       <UniqueIdentifier>{8001d485-fc03-48d2-9a64-e0c342c3132a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="State">
+      <UniqueIdentifier>{e62cfcda-4cb1-4b9e-95f6-b2cb72437e1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\Include\audiodefs.h">
@@ -306,6 +309,18 @@
     <ClInclude Include="pugixml\pugixml.hpp">
       <Filter>pugixml</Filter>
     </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="Idle.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="Run.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateInclude.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -329,6 +344,7 @@
     <None Include="DirectX\Include\xnamathvector.inl">
       <Filter>DirectX\Include</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Application.cpp">
@@ -381,6 +397,15 @@
     </ClCompile>
     <ClCompile Include="pugixml\pugixml.cpp">
       <Filter>pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Idle.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Run.cpp">
+      <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

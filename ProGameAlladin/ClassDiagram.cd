@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Vec2" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIGCAABDUQQgACuwfBQQCgkiDAIwAAEBggGBCAIg=</HashCode>
+      <FileName>Framework\Vec2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="8.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAAggAAgAAAAAQAAAAAAABgAAIEAAAACAA=</HashCode>
+      <FileName>Framework\Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAgAAAACAAQAAAAAIAAAAAAAAUAAA=</HashCode>
+      <FileName>Framework\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rect" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cAAABAAIAASAAAAAAAAGAAAAADCAQAAEAAAAMGAAAQA=</HashCode>
+      <FileName>Framework\Rect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Node" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIIQAAAgAgAAQAAAAACCCCAAgAAICAAAAgAEUACA=</HashCode>
+      <FileName>Framework\Node.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAA0gKBAABgCQAAAAC4tQBAAEAkLIGWAAAiAEBLAwA=</HashCode>
+      <FileName>Framework\Matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECAMAAABAAAEAIACBYEABBAAFAGAAARBAAAgAAIFAQA=</HashCode>
+      <FileName>Framework\Input.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Graphics" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAMQAABBBBAAABAAQAQAAAACAAAAAYAAAgAAwIGEAA=</HashCode>
+      <FileName>Framework\Graphics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAgABABAAAAEAAAAAAAAAAAAQAYEAAAAAgBUAAA=</HashCode>
+      <FileName>Framework\GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Color" Collapsed="true">
+    <Position X="10.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAQAgABAAAEAAIAAQAAAAAQAAAAAAAAogEAGIA=</HashCode>
+      <FileName>Framework\Color.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQGJAIAAICAgQAAQAAAAAACABAAQBQEoAAAgAgAAAA=</HashCode>
+      <FileName>Framework\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QJkEAkQAAJiBAAACEQQIAAEAEFACQggKDCCRAAIAAAA=</HashCode>
+      <FileName>Framework\Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aladdin" Collapsed="true">
+    <Position X="2" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAADAAACAAKAAAAAAAAAAAAAAACCAAIAIAAABEAUAgA=</HashCode>
+      <FileName>Aladdin.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackgroundLv1Scene" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAACAAAAAQAAA=</HashCode>
+      <FileName>BackgroundLv1Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lv1Scene" Collapsed="true">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAIAAUAAA=</HashCode>
+      <FileName>Lv1Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="pDevice" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Framework\Graphics.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

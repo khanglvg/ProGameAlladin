@@ -60,20 +60,6 @@
     <sprite x="171" y="319" w="81" h="68" oX="171" oY="319" oW="379" oH="297" />
     <sprite x="260" y="335" w="51" h="52" oX="260" oY="335" oW="379" oH="297" />
   </Animation>
-  <Animation name="Head up and slash" imagePath="oie_transparent.png" width="1121" height="2718">
-    <sprite x="11" y="420" w="41" h="52" oX="11" oY="420" oW="462" oH="732" />
-    <sprite x="704" y="418" w="45" h="53" oX="704" oY="418" oW="462" oH="732" />
-    <sprite x="66" y="413" w="37" h="59" oX="66" oY="413" oW="462" oH="732" />
-    <sprite x="111" y="412" w="65" h="60" oX="111" oY="412" oW="462" oH="732" />
-    <sprite x="193" y="415" w="46" h="57" oX="193" oY="415" oW="462" oH="732" />
-    <sprite x="249" y="418" w="47" h="53" oX="249" oY="418" oW="462" oH="732" />
-    <sprite x="298" y="424" w="53" h="47" oX="298" oY="424" oW="462" oH="732" />
-    <sprite x="363" y="401" w="74" h="70" oX="363" oY="401" oW="462" oH="732" />
-    <sprite x="452" y="386" w="54" h="85" oX="452" oY="386" oW="462" oH="732" />
-    <sprite x="520" y="401" w="49" h="70" oX="520" oY="401" oW="462" oH="732" />
-    <sprite x="584" y="405" w="51" h="66" oX="584" oY="405" oW="462" oH="732" />
-    <sprite x="644" y="415" w="52" h="56" oX="644" oY="415" oW="462" oH="732" />
-  </Animation>
   <Animation name="Head up and Slash" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="11" y="420" w="41" h="52" oX="11" oY="420" oW="462" oH="732" />
     <sprite x="66" y="413" w="37" h="59" oX="66" oY="413" oW="462" oH="732" />

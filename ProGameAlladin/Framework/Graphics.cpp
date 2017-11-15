@@ -56,11 +56,11 @@ void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matr
 	_spriteHandler->GetTransform(&oldMatrix);
 	_spriteHandler->SetTransform(&newMatrix);
 
-	_spriteHandler->Draw(texture.getTexture(), 
-						&converttoRECT(rect), 
-						&center,
-						&D3DXVECTOR3(0.f,0.f,layer), 
-						D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(),color.getBlue()));
+	_spriteHandler->Draw(texture.getTexture(),			// texture lưu sprite		
+						&converttoRECT(rect),			// diện tích cần hiển thị
+						&center,						// tâm dùng để vẽ, xoay (neo)
+						&D3DXVECTOR3(0.f,0.f,layer),	// vị trí sprite, layer: độ sâu 
+						D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(),color.getBlue()));		// màu thay thế
 	
 	
 	_spriteHandler->SetTransform(&oldMatrix);
@@ -150,7 +150,7 @@ void Graphics::beginRender()
 		_pDevice->Present(0, 0, 0, 0);
 	}
 	_pDevice->BeginScene();
-	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT);
+	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT); // D3DXSPRITE_ALPHABLEND hỗ trợ vẽ trong suốt nếu không thì để giá trị NULL
 }
 
 void Graphics::endRender()
