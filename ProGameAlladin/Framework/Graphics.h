@@ -9,6 +9,8 @@
 #include "Rect.h"
 #include "Vec2.h"
 
+// Tham khảo: www.stdio.vn/articles/read/600/load-sprite-trong-directx-9
+
 NS_JK_BEGIN
 	class Application;
 
@@ -40,6 +42,16 @@ private:
 	LPDIRECT3DDEVICE9 _pDevice;
 	LPDIRECT3DSURFACE9 _surface;
 	LPD3DXSPRITE _spriteHandler; //SpriteHandler ho tro ve hinh
+/*	Khai báo : 
+ 		Sprite Handler, Texture, Information of sprite
+	Khởi tạo :
+		D3DXCreateSprite:				gắn sprite handler vào Direct3D và device
+		D3DXGetImageInfoFromFile :		lấy thông tin Sprite
+		D3DXCreateTextureFromFileEx :	khởi tạo texture chứa Sprite
+	Vẽ :
+		LPD3DXSPRITE::Begin
+		LPD3DXSPRITE::Draw
+		LPD3DXSPRITE::End*/
 
 	HINSTANCE _hInstance;
 	int _screenWidth;
