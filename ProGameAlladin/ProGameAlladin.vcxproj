@@ -209,11 +209,9 @@
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
-    <ClInclude Include="State\Idle.h" />
-    <ClInclude Include="State\Run.h" />
-    <ClInclude Include="State\State.h" />
-    <ClInclude Include="State\StateInclude.h" />
-    <ClInclude Include="State\Throw.h" />
+    <ClInclude Include="Run.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateInclude.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
