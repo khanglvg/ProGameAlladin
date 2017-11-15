@@ -24,10 +24,8 @@ public:
 	void update() override;
 	void render() override;
 
-	vector<Rect> _vectRect;
-	vector<Rect> _throwAni;
-	vector<Rect> _jumpAni;
-
+	std::map<string, vector<Rect>> _animations;
+	
 private:
 	int i = 0;
 	int delta = 0;

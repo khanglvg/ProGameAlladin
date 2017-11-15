@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="DirectX">
       <UniqueIdentifier>{b5af328b-d4b4-4f3c-a563-edfd25e17e0d}</UniqueIdentifier>
     </Filter>
@@ -30,6 +26,9 @@
     </Filter>
     <Filter Include="State">
       <UniqueIdentifier>{e62cfcda-4cb1-4b9e-95f6-b2cb72437e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{401560a3-2122-4258-b09f-318daa0a7ede}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -496,5 +495,21 @@
     <Library Include="DirectX\Lib\XInput.lib">
       <Filter>DirectX\Lib</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resources\action2.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\smallmarketBG.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\market BG.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\ala.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
