@@ -200,13 +200,14 @@
     <ClInclude Include="Framework\Scene.h" />
     <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Vec2.h" />
-    <ClInclude Include="Idle.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
-    <ClInclude Include="Run.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StateInclude.h" />
+    <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\Run.h" />
+    <ClInclude Include="State\State.h" />
+    <ClInclude Include="State\StateInclude.h" />
+    <ClInclude Include="State\Throw.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -233,12 +234,13 @@
     <ClCompile Include="Framework\Scene.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Vec2.cpp" />
-    <ClCompile Include="Idle.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
-    <ClCompile Include="Run.cpp" />
-    <ClCompile Include="State.cpp" />
+    <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\Run.cpp" />
+    <ClCompile Include="State\State.cpp" />
+    <ClCompile Include="State\Throw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

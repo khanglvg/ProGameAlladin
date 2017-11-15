@@ -22,10 +22,7 @@ State* Run::checkTransition()
 		return new Idle;
 	if (Input::getInstance()->getKey(KEY_A))
 		return new RunAndThrow;
-	if (Input::getInstance()->getKey(KEY_S))
-		return new RunAndSlash;
-	if (Input::getInstance()->getKey(KEY_D))
-		return new RunAndJump;
+
 
 
 	
