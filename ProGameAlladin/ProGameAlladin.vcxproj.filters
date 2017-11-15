@@ -320,6 +320,9 @@
     <ClInclude Include="StateInclude.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="SitAndThrow.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -404,6 +407,9 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="Run.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="SitAndThrow.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>
