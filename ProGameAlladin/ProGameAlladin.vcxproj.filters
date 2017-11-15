@@ -308,16 +308,19 @@
     <ClInclude Include="pugixml\pugixml.hpp">
       <Filter>pugixml</Filter>
     </ClInclude>
-    <ClInclude Include="State.h">
+    <ClInclude Include="State\Idle.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="Idle.h">
+    <ClInclude Include="State\Run.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="Run.h">
+    <ClInclude Include="State\State.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="StateInclude.h">
+    <ClInclude Include="State\StateInclude.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Throw.h">
       <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="SitAndThrow.h">
@@ -400,13 +403,16 @@
     <ClCompile Include="pugixml\pugixml.cpp">
       <Filter>pugixml</Filter>
     </ClCompile>
-    <ClCompile Include="State.cpp">
+    <ClCompile Include="State\Idle.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="Idle.cpp">
+    <ClCompile Include="State\Run.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="Run.cpp">
+    <ClCompile Include="State\State.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Throw.cpp">
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="SitAndThrow.cpp">
