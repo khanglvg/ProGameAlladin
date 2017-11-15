@@ -1,83 +1,34 @@
 ﻿#include "Aladdin.h"
+#include <iostream>
 
 US_NS_JK
 
 Aladdin::Aladdin()
 {
-	// Idle1
-	_vectRect.push_back(Rect(3, 9, 37, 49));
-	_vectRect.push_back(Rect(47, 11, 41, 46));
-	_vectRect.push_back(Rect(95, 6, 40, 51));
-	_vectRect.push_back(Rect(143, 3, 44, 54));
-	_vectRect.push_back(Rect(197, 6, 41, 50));
-	_vectRect.push_back(Rect(250, 5, 42, 50));
-	_vectRect.push_back(Rect(303, 2, 44, 52));
-
-	// Idle2
-	_vectRect.push_back(Rect(6, 83, 40, 51));
-	_vectRect.push_back(Rect(51, 81, 61, 52));
-	_vectRect.push_back(Rect(116, 80, 62, 53));
-	_vectRect.push_back(Rect(180, 81, 41, 52));
-	_vectRect.push_back(Rect(228, 81, 39, 52));
-	_vectRect.push_back(Rect(275, 81, 36, 52));
-	_vectRect.push_back(Rect(319, 81, 40, 52));
-	_vectRect.push_back(Rect(366, 79, 40, 54));
-	_vectRect.push_back(Rect(417, 61, 42, 72));
-	_vectRect.push_back(Rect(465, 57, 41, 76));
-	_vectRect.push_back(Rect(516, 63, 41, 70));
-	_vectRect.push_back(Rect(568, 72, 41, 61));
-	_vectRect.push_back(Rect(619, 80, 41, 53));
-	_vectRect.push_back(Rect(668, 80, 40, 53));
-	_vectRect.push_back(Rect(715, 81, 39, 52));
-
-	// Idle3
-	_vectRect.push_back(Rect(3, 165, 36, 52));
-	_vectRect.push_back(Rect(46, 165, 40, 52));
-	_vectRect.push_back(Rect(92, 163, 39, 54));
-	_vectRect.push_back(Rect(140, 155, 37, 62));
-	_vectRect.push_back(Rect(188, 151, 40, 66));
-	_vectRect.push_back(Rect(238, 159, 42, 57));
-	_vectRect.push_back(Rect(287, 168, 38, 48));
-	_vectRect.push_back(Rect(334, 168, 39, 48));
-	_vectRect.push_back(Rect(378, 168, 39, 48));
-	_vectRect.push_back(Rect(427, 150, 37, 66));
-	_vectRect.push_back(Rect(520, 143, 34, 73));
-	_vectRect.push_back(Rect(568, 138, 38, 78));
-	_vectRect.push_back(Rect(625, 155, 41, 61));
-	_vectRect.push_back(Rect(666, 163, 41, 53));
-	_vectRect.push_back(Rect(715, 163, 40, 53));
-	_vectRect.push_back(Rect(762, 164, 39, 52));
-
-	_throwAni.push_back(Rect(7, 235, 43, 55));
-	_throwAni.push_back(Rect(57, 232, 41, 58));
-	_throwAni.push_back(Rect(109, 233, 37, 57));
-	_throwAni.push_back(Rect(163, 231, 46, 59));
-	_throwAni.push_back(Rect(221, 235, 36, 57));
-	_throwAni.push_back(Rect(268, 239, 38, 51));
-
-	_jumpAni.push_back(Rect(8, 846, 59, 42));
-	_jumpAni.push_back(Rect(75, 828, 52, 61));
-	_jumpAni.push_back(Rect(137, 829, 54, 60));
-	_jumpAni.push_back(Rect(203, 824, 54, 68));
-	_jumpAni.push_back(Rect(269, 820, 51, 73));
-	_jumpAni.push_back(Rect(336, 829, 38, 65));
-	_jumpAni.push_back(Rect(390, 818, 35, 78));
-	_jumpAni.push_back(Rect(448, 808, 34, 92));
-	_jumpAni.push_back(Rect(504, 810, 34, 92));
-	_jumpAni.push_back(Rect(564, 812, 34, 92));
-
 
 
 	setPosition(Vec2(SCREEN_WIDTH / 10, _startPositon));
 
 	pugi::xml_document doc;
-	const auto result = doc.load_file("action2.xml");
+	const auto result = doc.load_file("Resources/action2.xml");
 
 	if (result)
 	{
-		for (auto a : doc.child("Animations").child("Animation"))
+		for (auto animation : doc.child("Animations").children())
 		{
-			auto c = a.child("sprite").attribute("w");
+			const pugi::char_t* name = animation.attribute("name").value();
+			vector<Rect> rects;
+
+			for (auto rect : animation.children())
+			{
+				rects.push_back(Rect(	rect.attribute("x").as_float(),
+										rect.attribute("y").as_float(),
+										rect.attribute("w").as_float(),
+										rect.attribute("h").as_float()));
+			}
+			_animations.emplace("a", rects);
+			//OutputDebugString()
+
 		}
 	}
 	else
@@ -107,7 +58,7 @@ void Aladdin::update()
 		{
 			State = "right";
 			i = 0;
-			setPosition(Vec2(getPosition().getX() + 2, getPosition().getY()));
+			setPosition(Vec2(getPosition().getX() + 3, getPosition().getY()));
 		}
 	}
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
@@ -116,7 +67,7 @@ void Aladdin::update()
 		{
 			State = "left";
 			i = 0;
-			setPosition(Vec2(getPosition().getX() - 2, getPosition().getY()));
+			setPosition(Vec2(getPosition().getX() - 3, getPosition().getY()));
 		}
 	}
 	if (Input::getInstance()->isKeyDown(KEY_SPACE))
@@ -151,7 +102,7 @@ void Aladdin::render()
 	{
 		if (delta <= 8)
 		{
-			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _vectRect[i], 1);
+		//	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _vectRect[i], 1);
 
 			if (delta == 8)
 			{
@@ -159,7 +110,7 @@ void Aladdin::render()
 				i++;
 			}
 
-			if (i == _vectRect.size())
+			if (i == 8 )// _vectRect.size())
 			{
 				i = 10;
 			}
@@ -174,14 +125,14 @@ void Aladdin::render()
 		if (delta <= 8)
 		{
 			setScale(Vec2(1, 1));
-			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
+			//Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
 
 			if (delta == 8)
 			{
 				delta = 0;
 				i++;
 			}
-			if (i == _throwAni.size())
+			if (i == 8) //_throwAni.size())
 			{
 				State = "idle";
 				i = 0;
@@ -197,7 +148,7 @@ void Aladdin::render()
 		setScale(Vec2(-1, 1));
 		if (delta <= 8)
 		{
-			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
+			//Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _throwAni[i], 1);
 
 			if (delta == 8)
 			{
@@ -218,14 +169,14 @@ void Aladdin::render()
 		setScale(Vec2(1, 1));
 		if (delta <= 8)
 		{
-			Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _jumpAni[i], 1);
+			//Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3, 1.0), getTransformMatrix(), Color(255, 255, 255, 255), _jumpAni[i], 1);
 
 			if (delta == 8)
 			{
 				delta = 0;
 				i++;
 			}
-			if (i == _jumpAni.size())
+			if (i == 6)// _jumpAni.size())
 			{
 				State = "idle";
 				i = 0;
