@@ -2,7 +2,7 @@
 
 #define __IDLE_H__
 
-#include "State.h"
+#include "StateInclude.h"
 
 
 NS_JK_BEGIN
