@@ -1,21 +1,34 @@
 ﻿#include "BeingAttacked.h"
 US_NS_JK
-JaKa::State* JaKa::BeingAttacked::checkTransition()
+
+BeingAttacked::BeingAttacked(Node* node):State(node)
+{
+}
+
+BeingAttacked::~BeingAttacked()
+{
+}
+
+void BeingAttacked::onEnter()
+{
+}
+
+State* BeingAttacked::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_A))
-		retun new Throw();
+		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_S))
-		return new Slash();
+		return new Slash(_node);
 	if (Input::getInstance()->getKey(KEY_D))
-		return new Jump();
+		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
-		return new HeadUp();
+		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit();
+		return new Sit(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		return new Run();
+		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		return new Run();
+		return new Run(_node);
 
 		return nullptr;
 

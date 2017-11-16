@@ -1,11 +1,24 @@
 ﻿#include "SitAndSlash.h"
 US_NS_JK
-JaKa::State* JaKa::SitAndSlash::checkTransition()
+
+SitAndSlash::SitAndSlash(Node* node):State(node)
+{
+}
+
+SitAndSlash::~SitAndSlash()
+{
+}
+
+void SitAndSlash::onEnter()
+{
+}
+
+State* SitAndSlash::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_A))
-		return new SitAndThrow();
+		return new SitAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_D))
-		return new Jump();
+		return new Jump(_node);
 
 		return nullptr;
 }

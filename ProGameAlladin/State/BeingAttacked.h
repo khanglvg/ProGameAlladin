@@ -7,7 +7,7 @@ NS_JK_BEGIN
 
 class BeingAttacked: public State
 {
-	BeingAttacked();
+	BeingAttacked(Node* node);
 	~BeingAttacked() override;
 	void onEnter() override;
 	State*checkTransition() override;

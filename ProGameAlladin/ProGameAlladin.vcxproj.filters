@@ -380,6 +380,9 @@
     <ClInclude Include="State\Wing.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\RunAndThrow.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -524,6 +527,9 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\HeadUpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\RunAndThrow.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

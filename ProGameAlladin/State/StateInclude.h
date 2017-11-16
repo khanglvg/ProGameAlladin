@@ -25,7 +25,7 @@
 #include "SitAndSlash.h"
 #include "RunAndSlash.h"
 #include "Fall.h"
-#include "Brake"
+#include "Brake.h"
 #include "Wing.h"
 #include "IdleWhenWing.h"
 #include "ThrowWhenWing.h"
@@ -34,6 +34,7 @@
 #include "BeingAttacked.h"
 #include "BeingAttackedAndDie.h"
 #include "BeingRescued.h"
+#include "RunAndThrow.h"
 
 
 #endif __STATEINCLUDE_H__

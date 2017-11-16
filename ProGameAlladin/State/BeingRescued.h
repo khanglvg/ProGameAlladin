@@ -3,10 +3,12 @@
 #define __BeingRescued_H__
 
 #include "StateInclude.h"
+
 NS_JK_BEGIN
+
 class BeingRescued:public State
 {
-	BeingRescued();
+	BeingRescued(Node* node);
 	~BeingRescued() override;
 	void onEnter() override;
 	State*checkTransition() override;
