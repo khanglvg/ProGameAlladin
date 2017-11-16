@@ -1,7 +1,7 @@
 ﻿#include "JumpAndThrow.h"
 US_NS_JK
 
-JumpAndThrow::JumpAndThrow(Node* node):State(_node)
+JumpAndThrow::JumpAndThrow(Node* node):State(node)
 {
 }
 

@@ -1,7 +1,7 @@
 ﻿#include "Jump.h"
 US_NS_JK
 
-Jump::Jump(Node* node):State(_node)
+Jump::Jump(Node* node):State(node)
 {
 }
 

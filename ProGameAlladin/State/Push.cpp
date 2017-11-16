@@ -1,7 +1,7 @@
 ﻿#include "Push.h"
 US_NS_JK
 
-Push::Push(Node* node):State(_node)
+Push::Push(Node* node):State(node)
 {
 }
 

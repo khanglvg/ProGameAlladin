@@ -2,7 +2,7 @@
 US_NS_JK
 
 
-Slash::Slash(Node* node):State(_node)
+Slash::Slash(Node* node):State(node)
 {
 }
 

@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-Throw::Throw(Node* node):State(_node)
+Throw::Throw(Node* node):State(node)
 {
 }
 

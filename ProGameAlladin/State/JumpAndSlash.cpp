@@ -1,7 +1,7 @@
 ﻿#include "JumpAndSlash.h"
 US_NS_JK
 
-JumpAndSlash::JumpAndSlash(Node* node):State(_node)
+JumpAndSlash::JumpAndSlash(Node* node):State(node)
 {
 }
 

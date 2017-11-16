@@ -3,7 +3,7 @@
 US_NS_JK
 
 
-Idle::Idle(Node* node):State(_node)
+Idle::Idle(Node* node):State(node)
 {
 }
 

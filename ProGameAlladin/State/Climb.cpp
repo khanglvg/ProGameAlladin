@@ -1,7 +1,7 @@
 ﻿#include "Climb.h"
 US_NS_JK
 
-Climb::Climb(Node* node):State(_node)
+Climb::Climb(Node* node):State(node)
 {
 }
 

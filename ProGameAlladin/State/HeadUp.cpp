@@ -1,7 +1,7 @@
 ﻿#include "HeadUp.h"
 US_NS_JK
 
-HeadUp::HeadUp(Node* node):State(_node)
+HeadUp::HeadUp(Node* node):State(node)
 {
 }
 

@@ -1,7 +1,7 @@
 ﻿#include "HeadUpAndSlash.h"
 US_NS_JK
 
-HeadUpAndSlash::HeadUpAndSlash(Node* node):State(_node)
+HeadUpAndSlash::HeadUpAndSlash(Node* node):State(node)
 {
 }
 
