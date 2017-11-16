@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __FALL_H__
+﻿#ifndef __FALL_H__
 #define __FALL_H__
 #include "StateInclude.h"
 

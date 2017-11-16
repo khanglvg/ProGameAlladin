@@ -392,6 +392,15 @@
     <ClInclude Include="State\JumpWhileClimb.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\IdleWhenClimb.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\ThrowWhenClimb.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\SlashWhenClimb.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -581,6 +590,15 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\RunAndThrow.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\IdleWhenClimb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\ThrowWhenClimb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\SlashWhenClimb.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __BRAKE_H__
+﻿#ifndef __BRAKE_H__
 #define __BRAKE_H__
 
 #include "StateInclude.h"

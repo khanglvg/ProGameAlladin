@@ -35,6 +35,8 @@
 #include "BeingAttackedAndDie.h"			// 25
 #include "BeingRescued.h"					// 26
 #include "RunAndThrow.h"					// 27
-
+#include "IdleWhenClimb.h"					// 28
+#include "ThrowWhenClimb.h"					// 29
+#include "SlashWhenClimb.h"					// 30
 
 #endif __STATEINCLUDE_H__

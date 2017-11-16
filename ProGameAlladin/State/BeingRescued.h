@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __BeingRescued_H__
+﻿#ifndef __BeingRescued_H__
 #define __BeingRescued_H__
 
 #include "StateInclude.h"

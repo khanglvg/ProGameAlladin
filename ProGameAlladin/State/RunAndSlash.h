@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __RUNANDSLASH_H__
+﻿#ifndef __RUNANDSLASH_H__
 #define __RUNANDSLASH_H__
 
 #include "StateInclude.h"
