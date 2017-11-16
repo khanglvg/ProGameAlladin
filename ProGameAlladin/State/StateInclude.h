@@ -25,7 +25,7 @@
 #include "SitAndSlash.h"
 #include "RunAndSlash.h"
 #include "Fall.h"
-#include "Brake"
+#include "Brake.h"
 #include "Wing.h"
 #include "IdleWhenWing.h"
 #include "ThrowWhenWing.h"

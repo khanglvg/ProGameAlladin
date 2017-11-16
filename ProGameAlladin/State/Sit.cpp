@@ -1,7 +1,7 @@
 ﻿#include "Sit.h"
 US_NS_JK
 
-Sit::Sit(Node* node):State(_node)
+Sit::Sit(Node* node):State(node)
 {
 }
 

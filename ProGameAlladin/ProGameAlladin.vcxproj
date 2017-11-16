@@ -73,12 +73,19 @@
     <IncludePath>D:\DirectX\Include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\DirectX\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>D:\DirectX\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\DirectX\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -266,12 +273,22 @@
     <ClCompile Include="State\BeingAttackedAndDie.cpp" />
     <ClCompile Include="State\BeingRescued.cpp" />
     <ClCompile Include="State\Brake.cpp" />
+    <ClCompile Include="State\Climb.cpp" />
     <ClCompile Include="State\Fall.cpp" />
+    <ClCompile Include="State\HeadUp.cpp" />
+    <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\Jump.cpp" />
+    <ClCompile Include="State\JumpAndSlash.cpp" />
+    <ClCompile Include="State\JumpAndThrow.cpp" />
+    <ClCompile Include="State\Push.cpp" />
     <ClCompile Include="State\Run.cpp" />
+    <ClCompile Include="State\RunAndJump.cpp" />
     <ClCompile Include="State\RunAndSlash.cpp" />
+    <ClCompile Include="State\Sit.cpp" />
     <ClCompile Include="State\SitAndSlash.cpp" />
     <ClCompile Include="State\SitAndThrow.cpp" />
+    <ClCompile Include="State\Slash.cpp" />
     <ClCompile Include="State\State.cpp" />
     <ClCompile Include="State\Throw.cpp" />
     <ClCompile Include="State\Wing.cpp" />

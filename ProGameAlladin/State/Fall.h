@@ -6,7 +6,7 @@
 NS_JK_BEGIN
 class Fall:public JaKa::State
 {
-	Fall();
+	Fall(Node*node);
 	~Fall() override;
 	void onEnter() override;
 	State*checkTransition() override;

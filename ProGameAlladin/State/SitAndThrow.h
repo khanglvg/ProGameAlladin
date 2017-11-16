@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef __SITANDTHROW_H__
 #define __SITANDTHROW_H__
 
@@ -6,7 +6,7 @@
 NS_JK_BEGIN
 class SitAndThrow :public State
 {
-	SitAndThrow();
+	SitAndThrow(Node *node);
 	~SitAndThrow() override;
 
 	void onEnter() override;
