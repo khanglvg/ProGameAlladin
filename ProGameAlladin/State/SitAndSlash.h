@@ -9,8 +9,7 @@ NS_JK_BEGIN
 
 class SitAndSlash : public State
 {
-public:
-	SitAndSlash(Node* node);
+	SitAndSlash(Node*node);
 	~SitAndSlash() override;
 	void onEnter() override;
 	State* checkTransition() override;

@@ -9,8 +9,7 @@ NS_JK_BEGIN
 
 class SitAndThrow : public State
 {
-public:
-	SitAndThrow(Node* node);
+	SitAndThrow(Node *node);
 	~SitAndThrow() override;
 	void onEnter() override;
 	State* checkTransition() override;

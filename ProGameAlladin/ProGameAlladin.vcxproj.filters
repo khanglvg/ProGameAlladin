@@ -380,7 +380,16 @@
     <ClInclude Include="State\Wing.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="State\RunAndThrow.h">
+    <ClInclude Include="State\IdleWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\ThrowWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\SlashWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\JumpWhileClimb.h">
       <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="State\IdleWhenClimb.h">
@@ -391,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="State\SlashWhenClimb.h">
       <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\RunAndThrow.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +520,39 @@
     <ClCompile Include="State\Wing.cpp">
       <Filter>State</Filter>
     </ClCompile>
+    <ClCompile Include="State\Sit.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Slash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Push.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Climb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\RunAndJump.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\HeadUp.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\HeadUpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\IdleWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\ThrowWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\SlashWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpWhileClimb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
     <ClCompile Include="State\Climb.cpp">
       <Filter>State</Filter>
     </ClCompile>
@@ -548,6 +593,15 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\SlashWhenClimb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Jump.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndThrow.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>
