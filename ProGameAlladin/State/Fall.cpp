@@ -11,6 +11,8 @@ Fall::~Fall()
 
 void Fall::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* Fall::checkTransition()

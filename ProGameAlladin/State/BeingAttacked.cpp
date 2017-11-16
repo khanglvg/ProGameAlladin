@@ -11,6 +11,8 @@ BeingAttacked::~BeingAttacked()
 
 void BeingAttacked::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* BeingAttacked::checkTransition()

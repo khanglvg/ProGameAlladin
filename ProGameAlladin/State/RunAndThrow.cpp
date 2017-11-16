@@ -11,6 +11,8 @@ RunAndThrow::~RunAndThrow()
 
 void RunAndThrow::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* RunAndThrow::checkTransition()

@@ -13,6 +13,8 @@ Idle::~Idle()
 
 void Idle::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Idle::checkTransition()

@@ -11,6 +11,8 @@ Climb::~Climb()
 
 void Climb::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Climb::checkTransition()

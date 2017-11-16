@@ -11,6 +11,8 @@ SitAndSlash::~SitAndSlash()
 
 void SitAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* SitAndSlash::checkTransition()

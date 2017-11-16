@@ -11,6 +11,8 @@ BeingRescued::~BeingRescued()
 
 void BeingRescued::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* BeingRescued::checkTransition()

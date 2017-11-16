@@ -11,6 +11,8 @@ SitAndThrow::~SitAndThrow()
 
 void SitAndThrow::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* SitAndThrow::checkTransition()

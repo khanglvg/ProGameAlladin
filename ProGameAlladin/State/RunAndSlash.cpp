@@ -11,6 +11,8 @@ RunAndSlash::~RunAndSlash()
 
 void RunAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* RunAndSlash::checkTransition()

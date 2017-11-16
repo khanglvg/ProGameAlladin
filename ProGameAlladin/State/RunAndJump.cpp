@@ -11,6 +11,8 @@ RunAndJump::~RunAndJump()
 
 void RunAndJump::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* RunAndJump::checkTransition()

@@ -12,6 +12,8 @@ Wing::~Wing()
 
 void Wing::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Wing::checkTransition()

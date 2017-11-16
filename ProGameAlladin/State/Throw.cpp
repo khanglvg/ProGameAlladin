@@ -12,6 +12,8 @@ Throw::~Throw()
 
 void Throw::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Throw::checkTransition()

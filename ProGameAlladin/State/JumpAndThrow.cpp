@@ -11,6 +11,8 @@ JumpAndThrow::~JumpAndThrow()
 
 void JumpAndThrow::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* JumpAndThrow::checkTransition()

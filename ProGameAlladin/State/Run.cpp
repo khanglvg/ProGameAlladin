@@ -12,6 +12,8 @@ Run::~Run()
 
 void Run::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Run::checkTransition()

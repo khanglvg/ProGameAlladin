@@ -11,6 +11,8 @@ Jump::~Jump()
 
 void Jump::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Jump::checkTransition()

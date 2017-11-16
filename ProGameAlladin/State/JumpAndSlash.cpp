@@ -11,6 +11,8 @@ JumpAndSlash::~JumpAndSlash()
 
 void JumpAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* JumpAndSlash::checkTransition()

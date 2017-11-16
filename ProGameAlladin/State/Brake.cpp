@@ -11,6 +11,8 @@ Brake::~Brake()
 
 void Brake::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* JaKa::Brake::checkTransition()

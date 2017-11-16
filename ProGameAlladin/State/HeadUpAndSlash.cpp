@@ -11,6 +11,8 @@ HeadUpAndSlash::~HeadUpAndSlash()
 
 void HeadUpAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* HeadUpAndSlash::checkTransition()

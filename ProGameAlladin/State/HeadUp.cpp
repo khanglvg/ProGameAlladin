@@ -11,6 +11,8 @@ HeadUp::~HeadUp()
 
 void HeadUp::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* HeadUp::checkTransition()

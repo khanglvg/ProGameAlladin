@@ -12,6 +12,8 @@ Slash::~Slash()
 
 void Slash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Slash::checkTransition()

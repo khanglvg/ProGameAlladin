@@ -11,6 +11,8 @@ Push::~Push()
 
 void Push::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Push::checkTransition()
