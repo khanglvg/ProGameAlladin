@@ -442,36 +442,6 @@
     <ClCompile Include="State\Throw.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="State\Slash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Jump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Climb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\RunAndJump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUp.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndThrow.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Push.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Sit.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib">
