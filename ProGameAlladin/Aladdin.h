@@ -8,6 +8,7 @@
 #include "Framework/Input.h"
 #include "pugixml/pugiconfig.hpp"
 #include "pugixml/pugixml.hpp"
+#include "State/StateInclude.h"
 
 NS_JK_BEGIN
 
@@ -27,16 +28,11 @@ public:
 	std::map<string, vector<Rect>> _animations;
 	
 private:
-	int i = 0;
-	int delta = 0;
-	Texture _textureAla;
 
-	enum {NONE, JUMP, FALL};
-	int jump = NONE;
-	float _maxJump = SCREEN_HEIGHT - 120;
-	float _startPositon = SCREEN_HEIGHT - 50;
-	string State = "idle";
-	
+	Texture _textureAla;
+	float _startPosition = SCREEN_HEIGHT - 50;
+
+	State* _currentState = new Idle(this);
 };
 
 NS_JK_END
