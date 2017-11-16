@@ -5,8 +5,10 @@
 #include "../Framework/definitions.h"
 #include "../Framework/Input.h"
 #include "../Framework/Node.h"
+#include "../Aladdin.h"
 
 #include "State.h"
+
 											// STATE
 #include "Idle.h"							// 1			
 #include "Run.h"							// 2
