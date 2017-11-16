@@ -353,6 +353,33 @@
     <ClInclude Include="State\Sit.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\BeingAttacked.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\BeingAttackedAndDie.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\BeingRescued.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Brake.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Fall.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\RunAndSlash.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\SitAndSlash.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\SitAndThrow.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Wing.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -440,6 +467,33 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\Throw.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\BeingAttacked.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\BeingAttackedAndDie.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\BeingRescued.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Brake.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Fall.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\RunAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\SitAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\SitAndThrow.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Wing.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

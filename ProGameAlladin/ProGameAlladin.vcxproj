@@ -209,7 +209,12 @@
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
+    <ClInclude Include="State\BeingAttacked.h" />
+    <ClInclude Include="State\BeingAttackedAndDie.h" />
+    <ClInclude Include="State\BeingRescued.h" />
+    <ClInclude Include="State\Brake.h" />
     <ClInclude Include="State\Climb.h" />
+    <ClInclude Include="State\Fall.h" />
     <ClInclude Include="State\HeadUp.h" />
     <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
@@ -219,11 +224,15 @@
     <ClInclude Include="State\Push.h" />
     <ClInclude Include="State\Run.h" />
     <ClInclude Include="State\RunAndJump.h" />
+    <ClInclude Include="State\RunAndSlash.h" />
     <ClInclude Include="State\Sit.h" />
+    <ClInclude Include="State\SitAndSlash.h" />
+    <ClInclude Include="State\SitAndThrow.h" />
     <ClInclude Include="State\Slash.h" />
     <ClInclude Include="State\State.h" />
     <ClInclude Include="State\StateInclude.h" />
     <ClInclude Include="State\Throw.h" />
+    <ClInclude Include="State\Wing.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -253,10 +262,19 @@
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
+    <ClCompile Include="State\BeingAttacked.cpp" />
+    <ClCompile Include="State\BeingAttackedAndDie.cpp" />
+    <ClCompile Include="State\BeingRescued.cpp" />
+    <ClCompile Include="State\Brake.cpp" />
+    <ClCompile Include="State\Fall.cpp" />
     <ClCompile Include="State\Idle.cpp" />
     <ClCompile Include="State\Run.cpp" />
+    <ClCompile Include="State\RunAndSlash.cpp" />
+    <ClCompile Include="State\SitAndSlash.cpp" />
+    <ClCompile Include="State\SitAndThrow.cpp" />
     <ClCompile Include="State\State.cpp" />
     <ClCompile Include="State\Throw.cpp" />
+    <ClCompile Include="State\Wing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
