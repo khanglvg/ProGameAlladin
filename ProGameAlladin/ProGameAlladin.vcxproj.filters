@@ -532,16 +532,7 @@
     <ClCompile Include="State\Climb.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="State\Jump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
     <ClCompile Include="State\RunAndJump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndThrow.cpp">
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\HeadUp.cpp">
@@ -602,6 +593,15 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\SlashWhenClimb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Jump.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndThrow.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

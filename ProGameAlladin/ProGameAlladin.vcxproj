@@ -287,6 +287,9 @@
     <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
     <ClCompile Include="State\IdleWhenWing.cpp" />
+    <ClCompile Include="State\Jump.cpp" />
+    <ClCompile Include="State\JumpAndSlash.cpp" />
+    <ClCompile Include="State\JumpAndThrow.cpp" />
     <ClCompile Include="State\JumpWhileClimb.cpp" />
     <ClCompile Include="State\IdleWhenClimb.cpp" />
     <ClCompile Include="State\Push.cpp" />

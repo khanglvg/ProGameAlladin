@@ -60,6 +60,11 @@
     <sprite x="171" y="319" w="81" h="68" oX="171" oY="319" oW="379" oH="297" />
     <sprite x="260" y="335" w="51" h="52" oX="260" oY="335" oW="379" oH="297" />
   </Animation>
+  <Animation name="head up" imagePath="oie_transparent.png" width="1121" height="2718">
+    <sprite x="11" y="496" w="39" h="52" oX="11" oY="496" oW="530" oH="134" />
+    <sprite x="59" y="490" w="45" h="58" oX="59" oY="490" oW="530" oH="134" />
+    <sprite x="111" y="491" w="49" h="57" oX="111" oY="491" oW="530" oH="134" />
+  </Animation>
   <Animation name="Head up and Slash" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="11" y="420" w="41" h="52" oX="11" oY="420" oW="462" oH="732" />
     <sprite x="66" y="413" w="37" h="59" oX="66" oY="413" oW="462" oH="732" />
