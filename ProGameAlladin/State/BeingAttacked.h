@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __BeingAttacked_H__
+﻿#ifndef __BeingAttacked_H__
 #define __BeingAttacked_H__
 
 #include "StateInclude.h"
