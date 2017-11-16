@@ -1,19 +1,19 @@
 ﻿#include "IdleWhenWing.h"
 US_NS_JK
 
-JaKa::IdleWhenWing::IdleWhenWing(Node* node):State(node)
+IdleWhenWing::IdleWhenWing(Node* node):State(node)
 {
 }
 
-JaKa::IdleWhenWing::~IdleWhenWing()
+IdleWhenWing::~IdleWhenWing()
 {
 }
 
-void JaKa::IdleWhenWing::onEnter()
+void IdleWhenWing::onEnter()
 {
 }
 
-JaKa::State* JaKa::IdleWhenWing::checkTransition()
+State* IdleWhenWing::checkTransition()
 {
 	return nullptr;
 }

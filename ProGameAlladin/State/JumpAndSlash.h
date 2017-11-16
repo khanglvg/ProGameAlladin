@@ -1,8 +1,7 @@
 ﻿#ifndef __JUMPANDSLASH_H__
 
 #define __JUMPANDSLASH_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

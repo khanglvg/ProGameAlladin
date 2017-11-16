@@ -1,7 +1,9 @@
-﻿#ifndef __BeingAttacked_H__
-#define __BeingAttacked_H__
+﻿#ifndef __BEINGATTACKED_H__
 
-#include "StateInclude.h"
+#define __BEINGATTACKED_H__
+
+#include "State.h"
+
 NS_JK_BEGIN
 
 class BeingAttacked: public State
@@ -13,4 +15,4 @@ class BeingAttacked: public State
 	
 };
 NS_JK_END
-#endif !__BeingAttacked_H__
+#endif __BEINGATTACKED_H__

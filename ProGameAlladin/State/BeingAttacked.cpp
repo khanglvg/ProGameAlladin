@@ -1,4 +1,12 @@
 ﻿#include "BeingAttacked.h"
+#include "Throw.h"
+#include "Jump.h"
+#include "Slash.h"
+#include "HeadUp.h"
+#include "Run.h"
+#include "Sit.h"
+#include "../Framework/Input.h"
+
 US_NS_JK
 
 BeingAttacked::BeingAttacked(Node* node):State(node)

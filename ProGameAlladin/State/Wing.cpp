@@ -1,4 +1,8 @@
 ﻿#include "Wing.h"
+#include "../Framework/Input.h"
+#include "Jump.h"
+#include "SlashWhenWing.h"
+#include "ThrowWhenWing.h"
 
 US_NS_JK
 

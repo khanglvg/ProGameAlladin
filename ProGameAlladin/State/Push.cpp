@@ -1,4 +1,7 @@
 ﻿#include "Push.h"
+#include "../Framework/Input.h"
+#include "Jump.h"
+
 US_NS_JK
 
 Push::Push(Node* node):State(node)

@@ -1,5 +1,5 @@
 ﻿#include "Aladdin.h"
-#include <iostream>
+#include "Framework/Graphics.h"
 
 US_NS_JK
 

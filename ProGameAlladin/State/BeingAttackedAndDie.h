@@ -1,7 +1,9 @@
 ﻿#ifndef __BeingAttackedAndDie_H__
 #define __BeingAttackedAndDie_H__
 
-#include "StateInclude.h"
+#include "State.h"
+
+
 NS_JK_BEGIN
 
 class BeingAttackedAndDie:public State

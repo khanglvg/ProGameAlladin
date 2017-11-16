@@ -1,4 +1,10 @@
 ﻿#include "Slash.h"
+#include "../Framework/Input.h"
+#include "Throw.h"
+#include "Jump.h"
+#include "Run.h"
+#include "HeadUp.h"
+#include "Sit.h"
 US_NS_JK
 
 

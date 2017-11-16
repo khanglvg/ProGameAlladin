@@ -1,9 +1,7 @@
 ﻿#ifndef __IDLE_H__
 
 #define __IDLE_H__
-
-#include "StateInclude.h"
-
+#include "State.h"
 
 NS_JK_BEGIN
 
@@ -14,7 +12,6 @@ public:
 	~Idle() override;
 	void onEnter() override;
 	State* checkTransition() override;
-
 };
 
 NS_JK_END

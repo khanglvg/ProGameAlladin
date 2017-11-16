@@ -1,19 +1,23 @@
 ﻿#include "JumpWhileClimb.h"
+#include "../Framework/Input.h"
+#include "JumpAndSlash.h"
+#include "JumpAndThrow.h"
+#include "Fall.h"
 
 US_NS_JK
-JaKa::JumpWhileClimb::JumpWhileClimb(Node* node):State(node)
+JumpWhileClimb::JumpWhileClimb(Node* node):State(node)
 {
 }
 
-JaKa::JumpWhileClimb::~JumpWhileClimb()
+JumpWhileClimb::~JumpWhileClimb()
 {
 }
 
-void JaKa::JumpWhileClimb::onEnter()
+void JumpWhileClimb::onEnter()
 {
 }
 
-JaKa::State* JaKa::JumpWhileClimb::checkTransition()
+State* JumpWhileClimb::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);

@@ -1,4 +1,7 @@
 ﻿#include "SlashWhenClimb.h"
+#include "../Framework/Input.h"
+#include "JumpWhileClimb.h"
+#include "ThrowWhenClimb.h"
 US_NS_JK
 
 SlashWhenClimb::SlashWhenClimb(Node* node):State(node)

@@ -1,4 +1,7 @@
 ﻿#include "SitAndSlash.h"
+#include "../Framework/Input.h"
+#include "SitAndThrow.h"
+#include "Jump.h"
 US_NS_JK
 
 SitAndSlash::SitAndSlash(Node* node):State(node)

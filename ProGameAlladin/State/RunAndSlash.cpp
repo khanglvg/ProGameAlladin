@@ -1,4 +1,7 @@
 ﻿#include "RunAndSlash.h"
+#include "../Framework/Input.h"
+#include "Throw.h"
+#include "RunAndJump.h"
 US_NS_JK
 
 RunAndSlash::RunAndSlash(Node* node):State(node)
@@ -15,7 +18,7 @@ void RunAndSlash::onEnter()
 	// TODO: loadAnimation()
 }
 
-JaKa::State* RunAndSlash::checkTransition()
+State* RunAndSlash::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_A))
 		return new Throw(_node);

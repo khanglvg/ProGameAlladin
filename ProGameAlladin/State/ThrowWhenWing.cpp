@@ -1,15 +1,15 @@
 ﻿#include "ThrowWhenWing.h"
 US_NS_JK
 
-JaKa::ThrowWhenWing::ThrowWhenWing(Node* node):State(node)
+ThrowWhenWing::ThrowWhenWing(Node* node):State(node)
 {
 }
 
-JaKa::ThrowWhenWing::~ThrowWhenWing()
+ThrowWhenWing::~ThrowWhenWing()
 {
 }
 
-void JaKa::ThrowWhenWing::onEnter()
+void ThrowWhenWing::onEnter()
 {
 }
 

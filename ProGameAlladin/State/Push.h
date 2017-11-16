@@ -1,8 +1,7 @@
 ﻿#ifndef __PUSH_H__
 
 #define __PUSH_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

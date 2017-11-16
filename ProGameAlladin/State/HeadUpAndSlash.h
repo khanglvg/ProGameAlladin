@@ -1,8 +1,7 @@
 ﻿#ifndef __HEADUPANDSLASH_H__
 
 #define __HEADUPANDSLASH_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

@@ -15,7 +15,7 @@ void BeingRescued::onEnter()
 	// TODO: loadAnimation()
 }
 
-JaKa::State* BeingRescued::checkTransition()
+State* BeingRescued::checkTransition()
 {
 	return nullptr;
 }

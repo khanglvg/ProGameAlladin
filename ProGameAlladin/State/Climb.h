@@ -1,8 +1,8 @@
 ﻿#ifndef __CLIMB_H__
 
 #define __CLIMB_H__
+#include "State.h"
 
-#include "StateInclude.h"
 
 NS_JK_BEGIN
 

@@ -13,7 +13,7 @@ void JaKa::SlashWhenWing::onEnter()
 {
 }
 
-JaKa::State* JaKa::SlashWhenWing::checkTransition()
+State* JaKa::SlashWhenWing::checkTransition()
 {
 	return nullptr;
 }

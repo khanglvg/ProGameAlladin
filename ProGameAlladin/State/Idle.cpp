@@ -1,4 +1,11 @@
 ﻿#include "Idle.h"
+#include "Run.h"
+#include "../Framework/Input.h"
+#include "Jump.h"
+#include "HeadUp.h"
+#include "Sit.h"
+#include "Slash.h"
+#include "Throw.h"
 
 US_NS_JK
 

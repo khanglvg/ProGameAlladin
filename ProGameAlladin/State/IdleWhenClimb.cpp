@@ -1,4 +1,7 @@
 ﻿#include "IdleWhenClimb.h"
+#include "../Framework/Input.h"
+#include "SlashWhenClimb.h"
+#include "ThrowWhenClimb.h"
 US_NS_JK
 
 IdleWhenClimb::IdleWhenClimb(Node* node):State(node)

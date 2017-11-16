@@ -1,8 +1,8 @@
 ﻿#ifndef __RUN_H__
 
 #define __RUN_H__
+#include "State.h"
 
-#include "StateInclude.h"
 
 NS_JK_BEGIN
 

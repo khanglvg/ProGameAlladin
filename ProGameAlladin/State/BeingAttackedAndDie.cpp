@@ -15,7 +15,7 @@ void BeingAttackedAndDie::onEnter()
 	// TODO: loadAnimation()
 }
 
-JaKa::State* JaKa::BeingAttackedAndDie::checkTransition()
+State* BeingAttackedAndDie::checkTransition()
 {
 	return nullptr;
 }

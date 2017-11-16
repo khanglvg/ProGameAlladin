@@ -1,10 +1,11 @@
 ﻿#ifndef __SLASHWHENWING_H__
 #define __SLASHWHENWING_H__
-#include "StateInclude.h"
+#include "State.h"
 
 NS_JK_BEGIN
 class SlashWhenWing:public State
 {
+public:
 	SlashWhenWing(Node*node);
 	~SlashWhenWing() override;
 	void onEnter() override;

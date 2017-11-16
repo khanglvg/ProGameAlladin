@@ -1,4 +1,9 @@
 ﻿#include "Run.h"
+#include "../Framework/Input.h"
+#include "Idle.h"
+#include "RunAndThrow.h"
+#include "RunAndSlash.h"
+#include "RunAndJump.h"
 
 US_NS_JK
 

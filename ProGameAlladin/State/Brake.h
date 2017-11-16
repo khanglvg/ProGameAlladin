@@ -1,10 +1,11 @@
 ﻿#ifndef __BRAKE_H__
 #define __BRAKE_H__
+#include "State.h"
 
-#include "StateInclude.h"
+
 NS_JK_BEGIN
 
-class Brake:public JaKa::State
+class Brake:public State
 {
 	Brake(Node* node);
 	~Brake() override;

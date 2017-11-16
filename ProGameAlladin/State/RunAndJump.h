@@ -1,8 +1,8 @@
 ﻿#ifndef __RUNANDJUMP_H__
 
 #define __RUNANDJUMP_H__
+#include "State.h"
 
-#include "StateInclude.h"
 
 NS_JK_BEGIN
 

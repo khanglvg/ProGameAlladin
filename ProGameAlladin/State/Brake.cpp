@@ -1,4 +1,9 @@
 ﻿#include "Brake.h"
+#include "Throw.h"
+#include "../Framework/Input.h"
+#include "Slash.h"
+#include "Jump.h"
+
 US_NS_JK
 
 Brake::Brake(Node* node):State(node)

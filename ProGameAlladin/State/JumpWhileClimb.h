@@ -1,10 +1,11 @@
 ﻿#ifndef __JUMPWHILECLIMB_H__
 #define __JUMPWHILECLIMB_H__
+#include "State.h"
 
-#include "StateInclude.h"
 NS_JK_BEGIN
 class JumpWhileClimb:public State
 {
+public:
 	JumpWhileClimb(Node*node);
 	~JumpWhileClimb() override;
 	void onEnter() override;
@@ -12,5 +13,5 @@ class JumpWhileClimb:public State
 	
 };
 NS_JK_END
-#endif
+#endif __JUMPWHILECLIMB_H__
 

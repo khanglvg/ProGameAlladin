@@ -2,7 +2,8 @@
 
 #define __STATE_H__
 
-#include "StateInclude.h"
+#include "../Framework/definitions.h"
+#include "../Framework/Node.h"
 
 NS_JK_BEGIN
 

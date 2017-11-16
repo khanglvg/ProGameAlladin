@@ -1,7 +1,7 @@
 ﻿#ifndef __BeingRescued_H__
 #define __BeingRescued_H__
+#include "State.h"
 
-#include "StateInclude.h"
 
 NS_JK_BEGIN
 

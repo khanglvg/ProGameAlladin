@@ -1,4 +1,11 @@
 ﻿#include "HeadUp.h"
+#include "State.h"
+#include "../Framework/Input.h"
+#include "Jump.h"
+#include "Sit.h"
+#include "HeadUpAndSlash.h"
+#include "Throw.h"
+
 US_NS_JK
 
 HeadUp::HeadUp(Node* node):State(node)

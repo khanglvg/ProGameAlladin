@@ -4,11 +4,10 @@
 
 #include "Framework/Node.h"
 #include "Framework/Texture.h"
-#include "Framework/Graphics.h"
-#include "Framework/Input.h"
-#include "pugixml/pugiconfig.hpp"
+#include "Framework/Rect.h"
 #include "pugixml/pugixml.hpp"
-#include "State/StateInclude.h"
+#include "State/State.h"
+#include "State/Idle.h"
 
 NS_JK_BEGIN
 
@@ -18,7 +17,7 @@ public:
 		
 	Aladdin();
 
-	~Aladdin();
+	~Aladdin() override;
 
 	void init() override;
 	void release() override;

@@ -1,4 +1,8 @@
 ﻿#include "Throw.h"
+#include "../Framework/Input.h"
+#include "Slash.h"
+#include "Jump.h"
+#include "Run.h"
 
 US_NS_JK
 

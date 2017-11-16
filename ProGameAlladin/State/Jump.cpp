@@ -1,4 +1,7 @@
 ﻿#include "Jump.h"
+#include "../Framework/Input.h"
+#include "JumpAndThrow.h"
+#include "JumpAndSlash.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)

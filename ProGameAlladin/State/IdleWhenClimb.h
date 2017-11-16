@@ -1,8 +1,7 @@
 ﻿#ifndef __IDLEWHENCLIMB_H__
 
 #define __IDLEWHENCLIMB_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

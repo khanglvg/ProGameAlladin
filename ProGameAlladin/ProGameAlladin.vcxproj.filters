@@ -402,7 +402,7 @@
       <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="State\RunAndThrow.h">
-      <Filter>Header Files</Filter>
+      <Filter>State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

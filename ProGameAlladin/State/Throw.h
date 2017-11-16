@@ -1,8 +1,8 @@
 ﻿#ifndef __THROW_H__
 
 #define __THROW_H__
+#include "State.h"
 
-#include "StateInclude.h"
 
 NS_JK_BEGIN
 

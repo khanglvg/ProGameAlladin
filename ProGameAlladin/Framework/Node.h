@@ -10,7 +10,7 @@ class Node
 public:
 	Node();
 	Node(const Vec2& origin, const Vec2& position, const float& rotation, const Vec2& scale);
-	~Node();
+	virtual ~Node();
 
 #pragma region GET-SET
 	Vec2 getPosition() const;

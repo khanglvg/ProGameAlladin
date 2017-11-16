@@ -1,8 +1,7 @@
 ﻿#ifndef __SIT_H__
 
 #define __SIT_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

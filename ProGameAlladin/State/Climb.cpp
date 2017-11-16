@@ -1,4 +1,6 @@
 ﻿#include "Climb.h"
+#include "../Framework/Input.h"
+#include "JumpWhileClimb.h"
 US_NS_JK
 
 Climb::Climb(Node* node):State(node)

@@ -1,8 +1,7 @@
 ﻿#ifndef __JUMPANDTHROW_H__
 
 #define __JUMPANDTHROW_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

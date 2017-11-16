@@ -1,8 +1,7 @@
 ﻿#ifndef __SLASHWHENCLIMB_H__
 
 #define __SLASHWHENCLIMB_H__
-
-#include "StateInclude.h"
+#include "State.h"
 
 
 NS_JK_BEGIN

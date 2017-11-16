@@ -1,10 +1,11 @@
 ﻿#ifndef __FALL_H__
 #define __FALL_H__
-#include "StateInclude.h"
+#include "State.h"
 
 NS_JK_BEGIN
-class Fall:public JaKa::State
+class Fall:public State
 {
+public:
 	Fall(Node* node);
 	~Fall() override;
 	void onEnter() override;
