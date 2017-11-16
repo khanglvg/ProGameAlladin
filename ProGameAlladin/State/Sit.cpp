@@ -11,6 +11,8 @@ Sit::~Sit()
 
 void Sit::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Sit::checkTransition()

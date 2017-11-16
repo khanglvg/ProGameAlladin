@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-Throw::Throw(Node* node):State(_node)
+Throw::Throw(Node* node):State(node)
 {
 }
 
@@ -12,6 +12,8 @@ Throw::~Throw()
 
 void Throw::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Throw::checkTransition()

@@ -1,7 +1,7 @@
 ﻿#include "Fall.h"
 US_NS_JK
 
-Fall::Fall(Node*node):State(node)
+Fall::Fall(Node* node):State(node)
 {
 }
 
@@ -11,9 +11,11 @@ Fall::~Fall()
 
 void Fall::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
-JaKa::State* JaKa::Fall::checkTransition()
+JaKa::State* Fall::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_A))
 		return new JumpAndThrow(_node);

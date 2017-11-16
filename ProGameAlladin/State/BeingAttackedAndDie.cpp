@@ -5,13 +5,14 @@ BeingAttackedAndDie::BeingAttackedAndDie(Node* node):State(node)
 {
 }
 
-
 BeingAttackedAndDie::~BeingAttackedAndDie()
 {
 }
 
 void BeingAttackedAndDie::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* JaKa::BeingAttackedAndDie::checkTransition()

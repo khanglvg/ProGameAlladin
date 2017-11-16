@@ -1,7 +1,7 @@
 ﻿#include "JumpAndSlash.h"
 US_NS_JK
 
-JumpAndSlash::JumpAndSlash(Node* node):State(_node)
+JumpAndSlash::JumpAndSlash(Node* node):State(node)
 {
 }
 
@@ -11,6 +11,8 @@ JumpAndSlash::~JumpAndSlash()
 
 void JumpAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* JumpAndSlash::checkTransition()

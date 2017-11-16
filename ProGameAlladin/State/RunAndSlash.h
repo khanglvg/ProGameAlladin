@@ -6,7 +6,7 @@
 NS_JK_BEGIN
 class RunAndSlash:public State
 {
-	RunAndSlash();
+	RunAndSlash(Node* node);
 	~RunAndSlash() override;
 	void onEnter() override;
 	State* checkTransition() override;

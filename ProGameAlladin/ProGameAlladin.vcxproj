@@ -234,6 +234,7 @@
     <ClInclude Include="State\Run.h" />
     <ClInclude Include="State\RunAndJump.h" />
     <ClInclude Include="State\RunAndSlash.h" />
+    <ClInclude Include="State\RunAndThrow.h" />
     <ClInclude Include="State\Sit.h" />
     <ClInclude Include="State\SitAndSlash.h" />
     <ClInclude Include="State\SitAndThrow.h" />
@@ -288,9 +289,14 @@
     <ClCompile Include="State\JumpAndThrow.cpp" />
     <ClCompile Include="State\JumpWhileClimb.cpp" />
     <ClCompile Include="State\Push.cpp" />
+    <ClCompile Include="State\Jump.cpp" />
+    <ClCompile Include="State\JumpAndSlash.cpp" />
+    <ClCompile Include="State\JumpAndThrow.cpp" />
+    <ClCompile Include="State\Push.cpp" />
     <ClCompile Include="State\Run.cpp" />
     <ClCompile Include="State\RunAndJump.cpp" />
     <ClCompile Include="State\RunAndSlash.cpp" />
+    <ClCompile Include="State\RunAndThrow.cpp" />
     <ClCompile Include="State\Sit.cpp" />
     <ClCompile Include="State\SitAndSlash.cpp" />
     <ClCompile Include="State\SitAndThrow.cpp" />

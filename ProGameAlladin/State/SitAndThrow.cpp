@@ -11,9 +11,11 @@ SitAndThrow::~SitAndThrow()
 
 void SitAndThrow::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
-State * SitAndThrow::checkTransition()
+State* SitAndThrow::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SitAndSlash(_node);

@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-Run::Run(Node* node):State(_node)
+Run::Run(Node* node):State(node)
 {
 }
 
@@ -12,6 +12,8 @@ Run::~Run()
 
 void Run::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Run::checkTransition()

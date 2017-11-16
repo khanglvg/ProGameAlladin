@@ -1,7 +1,7 @@
 ﻿#include "SitAndSlash.h"
 US_NS_JK
 
-SitAndSlash::SitAndSlash(Node*node):State(node)
+SitAndSlash::SitAndSlash(Node* node):State(node)
 {
 }
 
@@ -11,9 +11,11 @@ SitAndSlash::~SitAndSlash()
 
 void SitAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
-JaKa::State* JaKa::SitAndSlash::checkTransition()
+State* SitAndSlash::checkTransition()
 {
 	if (Input::getInstance()->getKey(KEY_A))
 		return new SitAndThrow(_node);

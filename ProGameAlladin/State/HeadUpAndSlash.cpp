@@ -1,7 +1,7 @@
 ﻿#include "HeadUpAndSlash.h"
 US_NS_JK
 
-HeadUpAndSlash::HeadUpAndSlash(Node* node):State(_node)
+HeadUpAndSlash::HeadUpAndSlash(Node* node):State(node)
 {
 }
 
@@ -11,6 +11,8 @@ HeadUpAndSlash::~HeadUpAndSlash()
 
 void HeadUpAndSlash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* HeadUpAndSlash::checkTransition()

@@ -1,7 +1,7 @@
 ﻿#include "Brake.h"
 US_NS_JK
 
-Brake::Brake(Node*node):State(node)
+Brake::Brake(Node* node):State(node)
 {
 }
 
@@ -11,6 +11,8 @@ Brake::~Brake()
 
 void Brake::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 JaKa::State* JaKa::Brake::checkTransition()

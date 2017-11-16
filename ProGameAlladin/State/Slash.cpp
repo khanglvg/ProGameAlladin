@@ -2,7 +2,7 @@
 US_NS_JK
 
 
-Slash::Slash(Node* node):State(_node)
+Slash::Slash(Node* node):State(node)
 {
 }
 
@@ -12,6 +12,8 @@ Slash::~Slash()
 
 void Slash::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* Slash::checkTransition()

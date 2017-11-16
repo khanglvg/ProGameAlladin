@@ -1,7 +1,7 @@
 ﻿#include "RunAndJump.h"
 US_NS_JK
 
-RunAndJump::RunAndJump(Node* node):State(_node)
+RunAndJump::RunAndJump(Node* node):State(node)
 {
 }
 
@@ -11,6 +11,8 @@ RunAndJump::~RunAndJump()
 
 void RunAndJump::onEnter()
 {
+	// TODO: setScale()
+	// TODO: loadAnimation()
 }
 
 State* RunAndJump::checkTransition()

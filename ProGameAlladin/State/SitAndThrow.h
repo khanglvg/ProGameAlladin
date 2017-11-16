@@ -1,23 +1,20 @@
-
 #ifndef __SITANDTHROW_H__
+
 #define __SITANDTHROW_H__
 
 #include "StateInclude.h"
+
+
 NS_JK_BEGIN
-class SitAndThrow :public State
+
+class SitAndThrow : public State
 {
 	SitAndThrow(Node *node);
 	~SitAndThrow() override;
-
 	void onEnter() override;
-	State *checkTransition() override;
-
+	State* checkTransition() override;
 
 };
 
-
-
-
-
 NS_JK_END
-#endif // !__SITANDTHROW_H__
+#endif __SITANDTHROW_H__

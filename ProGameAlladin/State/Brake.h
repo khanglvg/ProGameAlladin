@@ -7,7 +7,7 @@ NS_JK_BEGIN
 
 class Brake:public JaKa::State
 {
-	Brake(Node*node);
+	Brake(Node* node);
 	~Brake() override;
 	void onEnter() override;
 	State*checkTransition() override;
