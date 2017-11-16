@@ -401,6 +401,9 @@
     <ClInclude Include="State\SlashWhenClimb.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\RunAndThrow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
