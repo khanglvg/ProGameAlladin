@@ -380,6 +380,18 @@
     <ClInclude Include="State\Wing.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\IdleWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\ThrowWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\SlashWhenWing.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\JumpWhileClimb.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -524,6 +536,18 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\HeadUpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\IdleWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\ThrowWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\SlashWhenWing.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpWhileClimb.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>
