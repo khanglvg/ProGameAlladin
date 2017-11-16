@@ -209,8 +209,18 @@
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
+    <ClInclude Include="State\Climb.h" />
+    <ClInclude Include="State\HeadUp.h" />
+    <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\Jump.h" />
+    <ClInclude Include="State\JumpAndSlash.h" />
+    <ClInclude Include="State\JumpAndThrow.h" />
+    <ClInclude Include="State\Push.h" />
     <ClInclude Include="State\Run.h" />
+    <ClInclude Include="State\RunAndJump.h" />
+    <ClInclude Include="State\Sit.h" />
+    <ClInclude Include="State\Slash.h" />
     <ClInclude Include="State\State.h" />
     <ClInclude Include="State\StateInclude.h" />
     <ClInclude Include="State\Throw.h" />
@@ -243,8 +253,18 @@
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
+    <ClCompile Include="State\Climb.cpp" />
+    <ClCompile Include="State\HeadUp.cpp" />
+    <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\Jump.cpp" />
+    <ClCompile Include="State\JumpAndSlash.cpp" />
+    <ClCompile Include="State\JumpAndThrow.cpp" />
+    <ClCompile Include="State\Push.cpp" />
     <ClCompile Include="State\Run.cpp" />
+    <ClCompile Include="State\RunAndJump.cpp" />
+    <ClCompile Include="State\Sit.cpp" />
+    <ClCompile Include="State\Slash.cpp" />
     <ClCompile Include="State\State.cpp" />
     <ClCompile Include="State\Throw.cpp" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-Run::Run()
+Run::Run(Node* node):State(_node)
 {
 }
 
@@ -17,15 +17,15 @@ void Run::onEnter()
 State* Run::checkTransition()
 {
 	if (Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
-		return new Idle();
+		return new Idle(_node);
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
-		return new Idle();
+		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_A))
-		return new RunAndThrow();
+		return new RunAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
-		return new RunAndSlash();
+		return new RunAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_D))
-		return new RunAndJump();
+		return new RunAndJump(_node);
 
 
 	

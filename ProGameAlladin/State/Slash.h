@@ -1,22 +1,22 @@
-﻿#ifndef __RUN_H__
+﻿#ifndef __SLASH_H__
 
-#define __RUN_H__
+#define __SLASH_H__
 
 #include "StateInclude.h"
 
 NS_JK_BEGIN
 
-class Run: public State
+class Slash : public State
 {
 public:
-	Run(Node* node);
-	~Run() override;
+	Slash(Node* node);
+	~Slash() override;
 
 	void onEnter() override;
 	State* checkTransition() override;
-	
+
 };
 
 NS_JK_END
 
-#endif __RUN_H__
+#endif __SLASH_H__

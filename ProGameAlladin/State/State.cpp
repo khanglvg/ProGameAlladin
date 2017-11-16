@@ -2,8 +2,9 @@
 
 US_NS_JK 
 
-State::State()
+State::State(Node* node)
 {
+	_node = node;
 }
 
 State::~State()

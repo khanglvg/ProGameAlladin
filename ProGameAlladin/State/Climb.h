@@ -1,16 +1,16 @@
-﻿#ifndef __THROW_H__
+﻿#ifndef __CLIMB_H__
 
-#define __THROW_H__
+#define __CLIMB_H__
 
 #include "StateInclude.h"
 
 NS_JK_BEGIN
 
-class Throw : public State
+class Climb : public State
 {
 public:
-	Throw(Node* node);
-	~Throw() override;
+	Climb(Node* _node);
+	~Climb() override;
 
 	void onEnter() override;
 	State* checkTransition() override;
@@ -19,4 +19,5 @@ public:
 
 NS_JK_END
 
-#endif __THROW_H__
+#endif __CLIMB_H__
+

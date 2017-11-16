@@ -323,6 +323,36 @@
     <ClInclude Include="State\Throw.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\Slash.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Jump.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Climb.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\RunAndJump.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\HeadUp.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\JumpAndSlash.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\JumpAndThrow.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Push.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\HeadUpAndSlash.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Sit.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -410,6 +440,36 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\Throw.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Slash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Jump.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Climb.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\RunAndJump.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\HeadUp.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\JumpAndThrow.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Push.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\HeadUpAndSlash.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Sit.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

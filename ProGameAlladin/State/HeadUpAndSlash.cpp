@@ -1,22 +1,21 @@
-﻿#include "Idle.h"
-
+﻿#include "HeadUpAndSlash.h"
 US_NS_JK
 
-
-Idle::Idle(Node* node):State(_node)
+HeadUpAndSlash::HeadUpAndSlash(Node* node):State(_node)
 {
 }
 
-Idle::~Idle()
+HeadUpAndSlash::~HeadUpAndSlash()
 {
 }
 
-void Idle::onEnter()
+void HeadUpAndSlash::onEnter()
 {
 }
 
-State* Idle::checkTransition()
+State* HeadUpAndSlash::checkTransition()
 {
+
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
@@ -27,10 +26,8 @@ State* Idle::checkTransition()
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Sit(_node);
-	if (Input::getInstance()->getKey(KEY_S))
-		return new Slash(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new Throw(_node);
-	
+
 	return nullptr;
 }

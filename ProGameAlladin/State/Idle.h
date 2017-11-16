@@ -10,7 +10,7 @@ NS_JK_BEGIN
 class Idle: public State
 {
 public:
-	Idle();
+	Idle(Node* node);
 	~Idle() override;
 	void onEnter() override;
 	State* checkTransition() override;

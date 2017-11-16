@@ -1,22 +1,22 @@
-﻿#ifndef __RUN_H__
+﻿#ifndef __JUMP_H__
 
-#define __RUN_H__
+#define __JUMP_H__
 
 #include "StateInclude.h"
 
 NS_JK_BEGIN
 
-class Run: public State
+class Jump : public State
 {
 public:
-	Run(Node* node);
-	~Run() override;
+	Jump(Node* node);
+	~Jump() override;
 
 	void onEnter() override;
 	State* checkTransition() override;
-	
+
 };
 
 NS_JK_END
 
-#endif __RUN_H__
+#endif __JUMP_H__
