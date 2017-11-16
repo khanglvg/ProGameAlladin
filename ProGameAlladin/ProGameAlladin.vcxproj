@@ -218,6 +218,7 @@
     <ClInclude Include="State\HeadUp.h" />
     <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\Jump.h" />
     <ClInclude Include="State\JumpAndSlash.h" />
     <ClInclude Include="State\JumpAndThrow.h" />
@@ -230,9 +231,11 @@
     <ClInclude Include="State\SitAndSlash.h" />
     <ClInclude Include="State\SitAndThrow.h" />
     <ClInclude Include="State\Slash.h" />
+    <ClInclude Include="State\SlashWhenClimb.h" />
     <ClInclude Include="State\State.h" />
     <ClInclude Include="State\StateInclude.h" />
     <ClInclude Include="State\Throw.h" />
+    <ClInclude Include="State\ThrowWhenClimb.h" />
     <ClInclude Include="State\Wing.h" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +275,7 @@
     <ClCompile Include="State\HeadUp.cpp" />
     <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\IdleWhenClimb.cpp" />
     <ClCompile Include="State\Jump.cpp" />
     <ClCompile Include="State\JumpAndSlash.cpp" />
     <ClCompile Include="State\JumpAndThrow.cpp" />
@@ -284,8 +288,10 @@
     <ClCompile Include="State\SitAndSlash.cpp" />
     <ClCompile Include="State\SitAndThrow.cpp" />
     <ClCompile Include="State\Slash.cpp" />
+    <ClCompile Include="State\SlashWhenClimb.cpp" />
     <ClCompile Include="State\State.cpp" />
     <ClCompile Include="State\Throw.cpp" />
+    <ClCompile Include="State\ThrowWhenClimb.cpp" />
     <ClCompile Include="State\Wing.cpp" />
   </ItemGroup>
   <ItemGroup>
