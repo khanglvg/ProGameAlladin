@@ -3,10 +3,11 @@
 #include "../Framework/Input.h"
 #include "Jump.h"
 #include "HeadUp.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "Slash.h"
 #include "Throw.h"
 #include "../Aladdin.h"
+
 
 US_NS_JK
 
@@ -40,7 +41,7 @@ State* Idle::checkTransition()
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new Slash(_node);
 	if (Input::getInstance()->getKey(KEY_A))

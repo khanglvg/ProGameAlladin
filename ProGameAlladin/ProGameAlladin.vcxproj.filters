@@ -350,9 +350,6 @@
     <ClInclude Include="State\HeadUpAndSlash.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="State\Sit.h">
-      <Filter>State</Filter>
-    </ClInclude>
     <ClInclude Include="State\BeingAttacked.h">
       <Filter>State</Filter>
     </ClInclude>
@@ -402,6 +399,12 @@
       <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="State\RunAndThrow.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\IdleToSit.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Sit.h">
       <Filter>State</Filter>
     </ClInclude>
   </ItemGroup>
@@ -520,9 +523,6 @@
     <ClCompile Include="State\Wing.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="State\Sit.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
     <ClCompile Include="State\Slash.cpp">
       <Filter>State</Filter>
     </ClCompile>
@@ -602,6 +602,12 @@
       <Filter>State</Filter>
     </ClCompile>
     <ClCompile Include="State\JumpAndThrow.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\IdleToSit.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Sit.cpp">
       <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>

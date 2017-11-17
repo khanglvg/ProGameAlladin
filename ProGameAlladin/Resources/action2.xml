@@ -84,13 +84,15 @@
     <sprite x="59" y="490" w="45" h="58" oX="59" oY="490" oW="565" oH="399" />
     <sprite x="111" y="491" w="49" h="57" oX="111" oY="491" oW="565" oH="399" />
   </Animation>
-  <Animation name="Sit" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="IdleToSit" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="205" y="500" w="42" h="48" oX="205" oY="500" oW="565" oH="399" />
     <sprite x="258" y="509" w="47" h="39" oX="258" oY="509" oW="565" oH="399" />
     <sprite x="315" y="519" w="53" h="29" oX="315" oY="519" oW="565" oH="399" />
     <sprite x="378" y="516" w="52" h="34" oX="378" oY="516" oW="565" oH="399" />
   </Animation>
-  
+  <Animation name="Sit" imagePath="oie_transparent.png" width="1121" height="2718">
+    <sprite x="378" y="516" w="52" h="34" oX="378" oY="516" oW="565" oH="399" />
+  </Animation>  
   <Animation name="SitAndThrow" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="9" y="571" w="36" h="43" oX="9" oY="571" oW="613" oH="273" />
     <sprite x="58" y="567" w="37" h="47" oX="58" oY="567" oW="613" oH="273" />
@@ -108,6 +110,16 @@
     <sprite x="475" y="642" w="45" h="30" oX="475" oY="642" oW="673" oH="513" />
   </Animation>
   <Animation name="RunAndJump" imagePath="oie_transparent.png" width="1121" height="2718">
+    <sprite x="10" y="705" w="41" h="41" oX="10" oY="705" oW="749" oH="582" />
+    <sprite x="66" y="683" w="45" h="75" oX="66" oY="683" oW="749" oH="582" />
+    <sprite x="124" y="686" w="57" h="56" oX="124" oY="686" oW="749" oH="582" />
+    <sprite x="199" y="698" w="58" h="41" oX="199" oY="698" oW="749" oH="582" />
+    <sprite x="273" y="696" w="60" h="47" oX="273" oY="696" oW="749" oH="582" />
+    <sprite x="350" y="692" w="57" h="52" oX="350" oY="692" oW="749" oH="582" />
+    <sprite x="419" y="688" w="53" h="57" oX="419" oY="688" oW="749" oH="582" />
+    <sprite x="560" y="719" w="59" h="43" oX="560" oY="719" oW="749" oH="582" />
+  </Animation>
+  <Animation name="RunAndSlash" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="10" y="705" w="41" h="41" oX="10" oY="705" oW="749" oH="582" />
     <sprite x="66" y="683" w="45" h="75" oX="66" oY="683" oW="749" oH="582" />
     <sprite x="124" y="686" w="57" h="56" oX="124" oY="686" oW="749" oH="582" />

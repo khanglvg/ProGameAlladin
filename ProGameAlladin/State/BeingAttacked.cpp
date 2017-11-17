@@ -4,7 +4,7 @@
 #include "Slash.h"
 #include "HeadUp.h"
 #include "Run.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "../Framework/Input.h"
 
 US_NS_JK
@@ -34,7 +34,7 @@ State* BeingAttacked::checkTransition()
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))

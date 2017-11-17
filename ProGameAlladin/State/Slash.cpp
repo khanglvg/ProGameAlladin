@@ -4,7 +4,7 @@
 #include "Jump.h"
 #include "Run.h"
 #include "HeadUp.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "../Aladdin.h"
 US_NS_JK
 
@@ -34,6 +34,7 @@ void Slash::onEnter()
 
 State* Slash::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_D))
@@ -45,7 +46,12 @@ State* Slash::checkTransition()
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
+
+	if (aladdin->getIndex() >= 4)
+	{
+		return new Idle(_node);
+	}
 
 	return nullptr;
 }

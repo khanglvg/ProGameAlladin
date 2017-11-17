@@ -2,10 +2,11 @@
 #include "State.h"
 #include "../Framework/Input.h"
 #include "Jump.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "HeadUpAndSlash.h"
 #include "Throw.h"
 #include "Idle.h"
+#include "../Aladdin.h"
 
 US_NS_JK
 
@@ -21,6 +22,9 @@ void HeadUp::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+	const auto aladdin = static_cast<Aladdin*>(_node);
+
+	aladdin->setActionName("HeadUp"); // Idle to Look -> HeadUp
 }
 
 State* HeadUp::checkTransition()

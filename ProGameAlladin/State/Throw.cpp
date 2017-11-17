@@ -30,8 +30,14 @@ void Throw::onEnter()
 	aladdin->setActionName("Throw");
 }
 
+void Throw::onExit()
+{
+
+}
+
 State* Throw::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new Slash(_node);
 	if (Input::getInstance()->getKey(KEY_D))
@@ -40,8 +46,11 @@ State* Throw::checkTransition()
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
-	/*if (_state == DONE)
-		return new Idle(_node);*/
+
+	if(aladdin->getIndex() >= 5)
+	{
+		return new Idle(_node);
+	}
 
 	return nullptr;
 }

@@ -4,7 +4,7 @@
 #include "JumpAndSlash.h"
 #include "../Aladdin.h"
 #include "Run.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -59,7 +59,7 @@ State* Jump::checkTransition()
 	if (Input::getInstance()->isAnyKeyDown())
 		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
 	
 	if (Input::getInstance()->getKey(KEY_D)){}
 	// ??

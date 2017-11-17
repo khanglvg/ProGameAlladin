@@ -19,7 +19,7 @@ void Push::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setActionName("Push");
+	aladdin->setActionName("Push"); // Idle to push
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));

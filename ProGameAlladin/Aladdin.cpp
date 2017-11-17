@@ -72,6 +72,8 @@ void Aladdin::render()
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
 	
+	if (_animationIndex >= _animations[_actionName].size())
+		_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
 	
@@ -121,4 +123,19 @@ float Aladdin::getYGround() const
 float Aladdin::getXGround() const
 {
 	return _startX;
+}
+
+int Aladdin::getIndex() const
+{
+	return _animationIndex;
+}
+
+Texture Aladdin::getTexture()
+{
+	return _textureAla;
+}
+
+void Aladdin::setIndex(const int& index)
+{
+	_animationIndex = index;
 }

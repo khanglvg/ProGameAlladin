@@ -5,7 +5,7 @@
 #include "RunAndSlash.h"
 #include "RunAndJump.h"
 #include "../Aladdin.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "HeadUp.h"
 #include "Push.h"
 
@@ -50,12 +50,12 @@ State* Run::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	if (Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW) )
 		return new Idle(_node);
-	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) )
 		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_A))
@@ -65,7 +65,7 @@ State* Run::checkTransition()
 	if (Input::getInstance()->getKey(KEY_D))
 		return new RunAndJump(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->getPosition().getX() < aladdin->getXGround() - 70)
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->getPosition().getX() < aladdin->getXGround() - 82)
 		return new Push(_node);
 	
 	return nullptr;

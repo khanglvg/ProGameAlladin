@@ -34,6 +34,8 @@ State* SitAndSlash::checkTransition()
 		return new SitAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
+	if (!Input::getInstance()->getKey(KEY_DOWN_ARROW))
+		return new Idle(_node);
 
 		return nullptr;
 }

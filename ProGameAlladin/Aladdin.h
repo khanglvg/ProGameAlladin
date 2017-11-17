@@ -30,6 +30,9 @@ public:
 	float getMaxHeight() const;
 	float getYGround() const;
 	float getXGround() const;
+
+	int getIndex() const;
+	void setIndex(const int& index);
 	Texture getTexture();
 
 	std::map<string, vector<Rect>> _animations;

@@ -13,6 +13,7 @@ public:
 	~Throw() override;
 
 	void onEnter() override;
+	void onExit() override;
 	State* checkTransition() override;
 
 	enum{THROW,DONE};

@@ -3,7 +3,7 @@
 #include "Run.h"
 #include "Jump.h"
 #include "HeadUp.h"
-#include "Sit.h"
+#include "IdleToSit.h"
 #include "Throw.h"
 US_NS_JK
 
@@ -33,7 +33,7 @@ State* HeadUpAndSlash::checkTransition()
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new Sit(_node);
+		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new Throw(_node);
 

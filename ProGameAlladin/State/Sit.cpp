@@ -1,9 +1,9 @@
 ﻿#include "Sit.h"
+#include "../Aladdin.h"
+#include "../Framework/Graphics.h"
 #include "../Framework/Input.h"
-#include "Jump.h"
 #include "SitAndSlash.h"
 #include "SitAndThrow.h"
-#include "../Aladdin.h"
 US_NS_JK
 
 Sit::Sit(Node* node):State(node)
@@ -16,24 +16,23 @@ Sit::~Sit()
 
 void Sit::onEnter()
 {
-	// TODO: setScale()
-	// TODO: loadAnimation()
+	const auto aladdin = static_cast<Aladdin*>(_node);
 
-	auto aladdin = static_cast<Aladdin*>(_node);
+	Graphics::getInstance()->drawSprite(aladdin->getTexture(), Vec2(0.3f, 1.0f), aladdin->getTransformMatrix(), Color(255, 255, 255, 255), Rect(378, 516, 52, 34), 1);
+}
 
-	aladdin->setActionName("Sit");
+void Sit::onExit()
+{
 }
 
 State* Sit::checkTransition()
 {
-	if (Input::getInstance()->getKey(KEY_D))
-		return new Jump(_node);
+	if (!Input::getInstance()->getKey(KEY_DOWN_ARROW))
+		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SitAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new SitAndThrow(_node);
-	//if (Input::getInstance()->isKeyUp(KEY_DOWN_ARROW) && Input::getInstance()->isAnyKeyDown())
-	//	return new Idle(_node);
 
 	return nullptr;
 }
