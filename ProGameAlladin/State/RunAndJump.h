@@ -13,7 +13,11 @@ public:
 	~RunAndJump() override;
 
 	void onEnter() override;
+	void onUpdate() override;
 	State* checkTransition() override;
+
+	enum{NONE,JUMP,FALL};
+	int _state = NONE;
 
 };
 

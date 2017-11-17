@@ -24,14 +24,30 @@ public:
 	void update() override;
 	void render() override;
 
+	void setActionName(string);
+	string getActionName() const;
+
+	float getMaxHeight() const;
+	float getYGround() const;
+	float getXGround() const;
+	Texture getTexture();
+
 	std::map<string, vector<Rect>> _animations;
 	
 private:
 
 	Texture _textureAla;
-	float _startPosition = SCREEN_HEIGHT - 50;
+	float _startX = SCREEN_WIDTH / 10;
+	float _startY = SCREEN_HEIGHT - 50;
+	float _max = SCREEN_HEIGHT - 100;
 
-	State* _currentState = new Idle(this);
+	// --------------------------------------
+	// State
+	// --------------------------------------
+	int _animationIndex = 0;
+	string _actionName;
+	float _index = 0;
+	State* _currentState;
 };
 
 NS_JK_END

@@ -6,6 +6,7 @@
 #include "Sit.h"
 #include "Slash.h"
 #include "Throw.h"
+#include "../Aladdin.h"
 
 US_NS_JK
 
@@ -22,7 +23,9 @@ void Idle::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+	auto aladdin = static_cast<Aladdin*>(_node);
 
+	aladdin->setActionName("Idle1");
 	
 }
 

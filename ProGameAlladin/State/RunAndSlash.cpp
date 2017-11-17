@@ -2,6 +2,7 @@
 #include "../Framework/Input.h"
 #include "Throw.h"
 #include "RunAndJump.h"
+#include "../Aladdin.h"
 US_NS_JK
 
 RunAndSlash::RunAndSlash(Node* node):State(node)
@@ -16,6 +17,15 @@ void RunAndSlash::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+	auto aladdin = static_cast<Aladdin*>(_node);
+
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		aladdin->setScale(Vec2(-1, 1));
+
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));
+
+	aladdin->setActionName("RunAndSlash");
 }
 
 State* RunAndSlash::checkTransition()

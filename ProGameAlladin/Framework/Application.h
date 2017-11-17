@@ -27,7 +27,7 @@ public:
 	void updateGame();
 	void renderGraphics();
 
-
+	float getDeltaTime() const;
 
 	bool isFullScreen() const;
 	int getWidth() const;

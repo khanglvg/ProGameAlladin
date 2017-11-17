@@ -13,6 +13,8 @@ public:
 	~Run() override;
 
 	void onEnter() override;
+
+	void onUpdate() override;
 	State* checkTransition() override;
 	
 };

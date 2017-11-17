@@ -62,3 +62,14 @@ GameManager* GameManager::getInstance()
 	}
 	return _instance;
 }
+
+float GameManager::getDeltaTime() const
+{
+	return _deltaTime;
+}
+
+
+void GameManager::setDeltaTime(const float& deltaTime)
+{
+	_deltaTime = deltaTime;
+}

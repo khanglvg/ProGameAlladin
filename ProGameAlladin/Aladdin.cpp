@@ -1,11 +1,12 @@
 ﻿#include "Aladdin.h"
 #include "Framework/Graphics.h"
+#include "Framework/GameManager.h"
 
 US_NS_JK
 
 Aladdin::Aladdin()
 {
-	setPosition(Vec2(SCREEN_WIDTH / 10, _startPosition));
+	setPosition(Vec2(_startX, _startY));
 
 
 #pragma region READ - XML
@@ -26,10 +27,14 @@ Aladdin::Aladdin()
 										rect.attribute("w").as_float(),
 										rect.attribute("h").as_float()));
 			}
-			_animations.emplace("a", rects);
+			_animations.emplace(name, rects); 
 		}
 	}
 #pragma endregion 
+
+
+	_currentState = new Idle(this);
+	_currentState->onEnter();
 }
 
 Aladdin::~Aladdin()
@@ -53,11 +58,11 @@ void Aladdin::update()
 
 	State* newState = _currentState->checkTransition();
 
-	if (newState->checkTransition() != nullptr)
+	if (newState != nullptr)
 	{
 		_currentState->onExit();
 		delete _currentState;
-		_currentState = newState->checkTransition();
+		_currentState = newState;
 		_currentState->onEnter();
 	}
 }
@@ -66,9 +71,54 @@ void Aladdin::render()
 {
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
+	
+
+	const auto rect = _animations[_actionName][_animationIndex];
+	
+	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
+	auto expect = 0.1;
+
+	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+
+	if (_index <= expect)
+	{
+		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		_index += GameManager::getInstance()->getDeltaTime();		
+	}
+	else
+	{
+		_index = 0;
+		_animationIndex++;
+		if (_animationIndex == _animations[_actionName].size())
+			_animationIndex = 0;
+		
+	}
 
 
+	
+}
 
+void Aladdin::setActionName(string actionName)
+{
+	_actionName = actionName;
+}
 
+string Aladdin::getActionName() const
+{
+	return _actionName;
+}
 
+float Aladdin::getMaxHeight() const
+{
+	return _max;
+}
+
+float Aladdin::getYGround() const
+{
+	return _startY;
+}
+
+float Aladdin::getXGround() const
+{
+	return _startX;
 }

@@ -13,7 +13,7 @@ BackgroundLv1Scene::~BackgroundLv1Scene()
 void BackgroundLv1Scene::init()
 {
 	_textureBackground.setName("BackGround.jpg");
-	_textureBackground.setSrcFile("smallmarketBG.png");
+	_textureBackground.setSrcFile("Resources/smallmarketBG.png");
 
 	Graphics::getInstance()->loadTexture(_textureBackground);
 }

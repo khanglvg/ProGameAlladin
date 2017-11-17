@@ -5,6 +5,7 @@
 #include "Run.h"
 #include "HeadUp.h"
 #include "Sit.h"
+#include "../Aladdin.h"
 US_NS_JK
 
 
@@ -20,6 +21,15 @@ void Slash::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+	auto aladdin = static_cast<Aladdin*>(_node);
+
+	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	//	aladdin->setScale(Vec2(-1, 1));
+
+	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	//	aladdin->setScale(Vec2(1, 1));
+
+	aladdin->setActionName("Slash");
 }
 
 State* Slash::checkTransition()

@@ -3,6 +3,7 @@
 #include "Jump.h"
 #include "SlashWhenWing.h"
 #include "ThrowWhenWing.h"
+#include "../Aladdin.h"
 
 US_NS_JK
 
@@ -18,6 +19,15 @@ void Wing::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+	auto aladdin = static_cast<Aladdin*>(_node);
+
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		aladdin->setScale(Vec2(-1, 1));
+
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));
+
+	aladdin->setActionName("Wing");
 }
 
 State* Wing::checkTransition()

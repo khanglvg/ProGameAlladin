@@ -152,6 +152,7 @@ void Application::gameLoop()
 			_lastTimestamp.QuadPart = _currentTimestamp.QuadPart;
 			_deltaTime = (float(interval)) / _freq.QuadPart;
 			_frameCount++;
+			GameManager::getInstance()->setDeltaTime(_deltaTime);
 			processMessage(); //update what message in win32
 			processGame();  //update Game
 		}
@@ -221,6 +222,11 @@ void Application::renderGraphics()
 	//render running scene
 	GameManager::getInstance()->render();
 	Graphics::getInstance()->endRender();
+}
+
+float Application::getDeltaTime() const
+{
+	return _deltaTime;
 }
 
 bool Application::isFullScreen() const

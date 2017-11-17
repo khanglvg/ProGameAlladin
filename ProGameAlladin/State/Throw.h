@@ -15,6 +15,8 @@ public:
 	void onEnter() override;
 	State* checkTransition() override;
 
+	enum{THROW,DONE};
+	int _state = DONE;
 };
 
 NS_JK_END

@@ -22,11 +22,15 @@ public:
 	void render();
 	static GameManager* getInstance();
 
+	float getDeltaTime() const;
+	void setDeltaTime(const float& deltaTime);
+
 private:
 	static GameManager* _instance;
 	int _screenWidth;
 	int _screenHeight;
 
+	float _deltaTime;
 	Scene* _runningScene;
 };
 NS_JK_END
