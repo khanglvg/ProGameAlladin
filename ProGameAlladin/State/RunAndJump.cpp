@@ -75,6 +75,8 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (_state == NONE && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
+	if (!Input::getInstance()->getKey(KEY_D))
+		_state = FALL;
 	
 
 	return nullptr;

@@ -22,12 +22,12 @@ Aladdin::Aladdin()
 
 			for (auto rect : animation.children())
 			{
-				rects.push_back(Rect(	rect.attribute("x").as_float(),
-										rect.attribute("y").as_float(),
-										rect.attribute("w").as_float(),
-										rect.attribute("h").as_float()));
+				rects.push_back(Rect(rect.attribute("x").as_float(),
+					rect.attribute("y").as_float(),
+					rect.attribute("w").as_float(),
+					rect.attribute("h").as_float()));
 			}
-			_animations.emplace(name, rects); 
+			_animations.emplace(name, rects);
 		}
 	}
 #pragma endregion 
@@ -71,12 +71,12 @@ void Aladdin::render()
 {
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
-	
+
 	if (_animationIndex >= _animations[_actionName].size())
 		_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
-	
+
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
@@ -84,8 +84,9 @@ void Aladdin::render()
 
 	if (_index <= expect)
 	{
+
 		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
-		_index += GameManager::getInstance()->getDeltaTime();		
+		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
 	{
@@ -93,11 +94,11 @@ void Aladdin::render()
 		_animationIndex++;
 		if (_animationIndex == _animations[_actionName].size())
 			_animationIndex = 0;
-		
+
 	}
 
 
-	
+
 }
 
 void Aladdin::setActionName(string actionName)

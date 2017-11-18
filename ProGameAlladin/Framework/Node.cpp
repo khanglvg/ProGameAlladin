@@ -78,13 +78,22 @@ void Node::setOrigin(const Vec2& origin)
 	_origin.y = origin.y;
 }
 
-
-Matrix Node::getTransformMatrix()
+Vec2 Node::getVelocity() const
 {
+	return _velocity;
+}
 
-	Matrix matrixTranslation = Matrix::getTranslationMatrix(_position.x, _position.y);
-	Matrix matrixRotation = Matrix::getMatrixRotationZ(_rotation);
-	Matrix matrixScaling = Matrix::getScalingMatrix(_scale.x, _scale.y);
+void Node::setVelocity(const Vec2& velocity)
+{
+	_velocity = velocity;
+}
+
+
+Matrix Node::getTransformMatrix() const
+{
+	const auto matrixTranslation = Matrix::getTranslationMatrix(_position.x, _position.y);
+	const auto matrixRotation = Matrix::getMatrixRotationZ(_rotation);
+	const auto matrixScaling = Matrix::getScalingMatrix(_scale.x, _scale.y);
 
 	return matrixScaling*matrixRotation*matrixTranslation;
 }

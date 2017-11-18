@@ -66,6 +66,9 @@ State* JumpAndSlash::checkTransition()
 	if (aladdin->getIndex() >= 5)
 		return new Idle(_node);
 
+	if (!Input::getInstance()->getKey(KEY_D))
+		_state = FALL;
+
 	return nullptr;
 }
 
