@@ -45,18 +45,18 @@ void RunAndJump::onUpdate()
 	if (_state == JUMP)
 	{
 		if(Input::getInstance()->getKey(KEY_LEFT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2 , aladdin->getPosition().getY() - 2));
+			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - aladdin->getVelocity().getX(), aladdin->getPosition().getY() - aladdin->getVelocity().getY()));
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2, aladdin->getPosition().getY() - 2));
+			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + aladdin->getVelocity().getX(), aladdin->getPosition().getY() - aladdin->getVelocity().getY()));
 		if (aladdin->getPosition().getY() < aladdin->getMaxHeight())
 			_state = FALL;
 	}
 	if (_state == FALL)
 	{
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2, aladdin->getPosition().getY() + 2));
+			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - aladdin->getVelocity().getX(), aladdin->getPosition().getY() + aladdin->getVelocity().getY()));
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2, aladdin->getPosition().getY() + 2));
+			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + aladdin->getVelocity().getX(), aladdin->getPosition().getY() + aladdin->getVelocity().getY()));
 		if (aladdin->getPosition().getY() >= aladdin->getYGround())
 			_state = NONE;
 	}
