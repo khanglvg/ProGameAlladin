@@ -51,6 +51,7 @@ void Aladdin::init()
 
 void Aladdin::release()
 {
+	delete this;
 }
 
 void Aladdin::update()

@@ -15,6 +15,8 @@ public:
 
 	~BackgroundLv1Scene();
 
+	void release() override;
+
 	void init() override;
 
 	void render() override;
