@@ -40,6 +40,9 @@ float Application::getAnimationInterval() const
 
 Application::~Application ( )
 {
+	GameManager::getInstance()->release();
+	Graphics::getInstance()->release();
+	Input::getInstance()->release();
 }
 
 void Application::processMessage()
