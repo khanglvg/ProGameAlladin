@@ -407,6 +407,12 @@
     <ClInclude Include="State\Sit.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\RigidBody.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PhysicsManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -609,6 +615,12 @@
     </ClCompile>
     <ClCompile Include="State\Sit.cpp">
       <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\RigidBody.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PhysicsManager.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ Aladdin::Aladdin()
 {
 	setPosition(Vec2(_startX, _startY));
 
-	setVelocity(Vec2(2, 2));
+	setVelocity(Vec2(4, 3));
 
 #pragma region READ - XML
 	pugi::xml_document doc;

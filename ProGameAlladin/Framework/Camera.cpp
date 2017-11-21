@@ -2,58 +2,34 @@
 
 US_NS_JK
 
-Camera* Camera::_instance = nullptr;
 
-Camera::Camera():_vx(0.0f), _vy(0.0f), _isPause(false)
+Camera::Camera(const float& width, const float& height):Node()
 {
+	_isStop = false;
+	_width = width;
+	_height = height;
+	_startX = SCREEN_WIDTH / 2;;
+	_startY = SCREEN_HEIGHT / 2;
+	setScale(Vec2(-1, -1));
 }
 
 Camera::~Camera()
-{
+{	
 }
 
-Camera* Camera::getInstance()
+void Camera::update()
 {
-	if (_instance == nullptr)
-	{
-		_instance = new Camera();
-	}
+	//update camera
+	this->setPosition(Vec2(getPosition().getX() + getVelocity().getX(), getPosition().getY() + getVelocity().getY()));
+}
 
-	return _instance;
+void Camera::release()
+{
+	delete this;
 }
 
 
 #pragma region GET-SET
-float Camera::getVX() const
-{
-	return _vx;
-}
-
-void Camera::setVX(const float& vx)
-{
-	_vx = vx;
-}
-
-float Camera::getVY() const
-{
-	return _vy;
-}
-
-void Camera::setVY(const float& vy)
-{
-	_vy = vy;
-}
-
-Vec2 Camera::getPosition() const
-{
-	return _position;
-}
-
-void Camera::setPosition(const Vec2& position)
-{
-	_position = position;
-}
-
 float Camera::getWidth() const
 {
 	return _width;
@@ -73,21 +49,12 @@ void Camera::setHeight(const float& height)
 {
 	_height = height;
 }
+
+void Camera::stop()
+{
+	_isStop = true;
+}
+
 #pragma endregion 
 
 
-void Camera::Update(float time)
-{
-	_position.x += _vx*time;
-	_position.y += _vy*time;
-}
-
-void Camera::Stop()
-{
-	_isPause = true;
-}
-
-void Camera::Move()
-{
-	_isPause = false;
-}
