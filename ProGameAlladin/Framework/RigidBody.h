@@ -51,7 +51,7 @@ private:
 
 public:
 	RigidBody();
-	RigidBody(	const float& position,
+	/*RigidBody(	const float& position,
 				const float& velocity,
 				const int& bodyType,
 				const float& density,
@@ -60,7 +60,7 @@ public:
 				const float& forces,
 				const float& impulse,
 				const Rect& shape)
-	{}
+	{}*/
 
 	~RigidBody();
 

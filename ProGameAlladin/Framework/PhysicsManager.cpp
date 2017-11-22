@@ -15,7 +15,7 @@ void PhysicsManager::resolveCollision(RigidBody& a, RigidBody& b) const
 	const auto relativeVelocity = b.getVelocity() - a.getVelocity();
 
 	// Calculate
-	const auto velocityAlongNormal = dotProduct(relativeVelocity, _collisionNormal); 
+	const auto velocityAlongNormal = dotProduct(relativeVelocity, collisionNormal); 
 
 	if (velocityAlongNormal > 0)
 		return;
@@ -33,7 +33,7 @@ void PhysicsManager::resolveCollision(RigidBody& a, RigidBody& b) const
 	j /= 1 / (massA) + 1 / (massB);
 
 	// Apply impulse
-	const auto impulse = j * _collisionNormal;
+	const auto impulse = j * collisionNormal;
 
 	// Calculate sum of mass
 	const auto massSum = massA + massB;
@@ -69,7 +69,7 @@ void PhysicsManager::positionalCorrection(RigidBody& a, RigidBody& b) const
 
 	const float slop = 0.01; // usually 0.01 to 0.1
 
-	const auto correction = max(_penetration - slop, 0.0f) / (inverseMassA + inverseMassB) * percent * _collisionNormal;
+	const auto correction = max(penetration - slop, 0.0f) / (inverseMassA + inverseMassB) * percent *collisionNormal;
 	
 	a.setPosition(Vec2(a.getPosition() - inverseMassA * correction));
 	b.setPosition(Vec2(b.getPosition() + inverseMassB * correction));

@@ -213,6 +213,7 @@
     <ClInclude Include="Framework\Rect.h" />
     <ClInclude Include="Framework\RigidBody.h" />
     <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\Size.h" />
     <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Vec2.h" />
     <ClInclude Include="Lv1Scene.h" />
@@ -277,6 +278,7 @@
     <ClCompile Include="Framework\Rect.cpp" />
     <ClCompile Include="Framework\RigidBody.cpp" />
     <ClCompile Include="Framework\Scene.cpp" />
+    <ClCompile Include="Framework\Size.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Vec2.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />

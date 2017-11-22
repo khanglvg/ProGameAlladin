@@ -20,12 +20,22 @@ public:
 	static float dotProduct(const Vec2& v1, const Vec2& v2);
 
 	void positionalCorrection(RigidBody& a, RigidBody& b) const;
-private:
-	// hướng va chạm
-	Vec2 _collisionNormal;
 
+	struct Manifold
+	{
+		RigidBody *a;
+		RigidBody *b;
+
+		
+	};
+private:
 	// độ sâu của va chạm
-	float _penetration;
+	float penetration;
+
+	// hướng va chạm
+	Vec2 collisionNormal;
+
+	
 };
 
 NS_JK_END
