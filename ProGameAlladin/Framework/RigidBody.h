@@ -3,6 +3,7 @@
 #define __RIGIDBODY_H__
 
 #include "Rect.h"
+#include "Size.h"
 
 NS_JK_BEGIN
 
@@ -47,7 +48,8 @@ private:
 	float _impulse;
 
 	// Hình dáng vật
-	Rect _shape;
+	float _offsize;
+	Size _size;
 
 public:
 	RigidBody();
