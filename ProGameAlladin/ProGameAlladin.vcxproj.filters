@@ -416,6 +416,9 @@
     <ClInclude Include="Framework\Size.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -628,6 +631,9 @@
     <ClCompile Include="Framework\Size.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib">
@@ -725,6 +731,9 @@
       <Filter>Resources</Filter>
     </Image>
     <Image Include="Resources\ala.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\ground.png">
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>

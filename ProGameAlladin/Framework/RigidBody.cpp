@@ -1,13 +1,40 @@
 ﻿#include "RigidBody.h"
+#include "PhysicsManager.h"
 
 US_NS_JK
 
 RigidBody::RigidBody()
 {
+	PhysicsManager::getIntance()->attachRigidbody(this);
+}
+
+RigidBody::RigidBody(	const Vec2& position,
+						const Vec2& velocity, 
+						const int& bodyType, 
+						const float& density,
+						const float& restitution, 
+						const float& gravityScale, 
+						const Vec2& forces, 
+						const float& impulse, 
+						const Vec2& offset,
+						const Size& size)
+{
+	_position = position;
+	_velocity = velocity;
+	_bodyType = bodyType;
+	_density = density;
+	_restitution = restitution;
+	_gravityScale = gravityScale;
+	_forces = forces;
+	_impulse = impulse;
+	_offset = offset;
+	_size = size;
+	PhysicsManager::getIntance()->attachRigidbody(this);
 }
 
 RigidBody::~RigidBody()
 {
+	PhysicsManager::getIntance()->detachRigidbody(this);
 }
 
 
@@ -72,12 +99,12 @@ void RigidBody::setGravityScale(const float& gravityScale)
 	_gravityScale = gravityScale;
 }
 
-float RigidBody::getForces() const
+Vec2 RigidBody::getForces() const
 {
 	return _forces;
 }
 
-void RigidBody::setForces(const float& forces)
+void RigidBody::setForces(const Vec2& forces)
 {
 	_forces = forces;
 }
@@ -92,12 +119,12 @@ void RigidBody::setImpulse(const float& impulse)
 	_impulse = impulse;
 }
 
-float RigidBody::getOffset() const
+Vec2 RigidBody::getOffset() const
 {
 	return _offset;
 }
 
-void RigidBody::setOffset(const float& offset)
+void RigidBody::setOffset(const Vec2& offset)
 {
 	_offset = offset; 
 }

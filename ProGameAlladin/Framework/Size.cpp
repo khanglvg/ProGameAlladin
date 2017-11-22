@@ -5,6 +5,12 @@ Size::Size():_width(0.0f), _height(0.0f)
 {
 }
 
+Size::Size(const float& width, const float& height)
+{
+	_width = width;
+	_height = height;
+}
+
 Size::~Size()
 {
 }

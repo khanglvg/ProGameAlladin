@@ -216,6 +216,7 @@
     <ClInclude Include="Framework\Size.h" />
     <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Vec2.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
@@ -281,6 +282,7 @@
     <ClCompile Include="Framework\Size.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Vec2.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
@@ -351,6 +353,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />
+    <Image Include="Resources\ground.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\smallmarketBG.png" />
   </ItemGroup>

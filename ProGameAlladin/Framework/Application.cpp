@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "PhysicsManager.h"
 
 US_NS_JK
 
@@ -205,6 +206,9 @@ void Application::processGame()
 	//update Game
 	updateGame();
 
+	//update Physics
+	updatePhysicsManager();
+
 	//render
 	renderGraphics();
 }
@@ -225,6 +229,11 @@ void Application::renderGraphics()
 	//render running scene
 	GameManager::getInstance()->render();
 	Graphics::getInstance()->endRender();
+}
+
+void Application::updatePhysicsManager()
+{
+	PhysicsManager::getIntance()->update();
 }
 
 float Application::getDeltaTime() const

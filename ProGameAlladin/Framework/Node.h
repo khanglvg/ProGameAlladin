@@ -24,9 +24,6 @@ public:
 
 	Vec2 getOrigin() const;
 	void setOrigin(const Vec2& origin);
-
-	Vec2 getVelocity() const;
-	void setVelocity(const Vec2& velocity);
 #pragma endregion
 
 	Matrix getTransformMatrix() const;

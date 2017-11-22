@@ -26,6 +26,7 @@ public:
 	void updateInput();
 	void updateGame();
 	void renderGraphics();
+	void updatePhysicsManager();
 
 	float getDeltaTime() const;
 

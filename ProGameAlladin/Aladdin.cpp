@@ -1,14 +1,15 @@
 ﻿#include "Aladdin.h"
 #include "Framework/Graphics.h"
 #include "Framework/GameManager.h"
+#include "Framework/PhysicsManager.h"
 
 US_NS_JK
 
 Aladdin::Aladdin()
 {
-	setPosition(Vec2(_startX, _startY));
+	setPosition(Vec2(_startX, -500));
 
-	setVelocity(Vec2(4, 3));
+	_rigidAla = new RigidBody(getPosition(), Vec2(200,0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50) );
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -56,7 +57,11 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
+	_position = _rigidAla->getPosition();
+	OutputDebugString(std::to_string(_position.getY()).c_str());
+
 	_currentState->onUpdate();
+	
 
 	State* newState = _currentState->checkTransition();
 
@@ -136,6 +141,11 @@ int Aladdin::getIndex() const
 Texture Aladdin::getTexture()
 {
 	return _textureAla;
+}
+
+Vec2 Aladdin::getStartPosition() const
+{
+	return Vec2(_startX, _startY);
 }
 
 void Aladdin::setIndex(const int& index)

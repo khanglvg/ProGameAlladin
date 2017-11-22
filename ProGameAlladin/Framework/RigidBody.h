@@ -7,6 +7,13 @@
 
 NS_JK_BEGIN
 
+enum
+{
+	DYNAMIC,
+	RINEMATIC,
+	STATIC
+};
+
 class RigidBody
 {
 private:
@@ -42,27 +49,27 @@ private:
 	// Lực tác dụng vào:		
 	// F = a*m		(a = acceleration, m = mass) 
 	// => a = F/m	(m = density*squared(shape))
-	float _forces;
+	Vec2 _forces;
 
 	// Xung lực
 	float _impulse;
 
 	// Hình dáng vật
-	float _offset;
+	Vec2 _offset;
 	Size _size;
 
 public:
 	RigidBody();
-	/*RigidBody(	const float& position,
-				const float& velocity,
-				const int& bodyType,
-				const float& density,
-				const float& restitution,
-				const float& gravityScale,
-				const float& forces,
-				const float& impulse,
-				const Rect& shape)
-	{}*/
+	RigidBody(const Vec2& position,
+		const Vec2& velocity,
+		const int& bodyType,
+		const float& density,
+		const float& restitution,
+		const float& gravityScale,
+		const Vec2& forces,
+		const float& impulse,
+		const Vec2& offset,
+		const Size& size);
 
 	~RigidBody();
 
@@ -86,14 +93,14 @@ public:
 	float getGravityScale() const;
 	void setGravityScale(const float& gravityScale);
 
-	float getForces() const;
-	void setForces(const float& forces);
+	Vec2 getForces() const;
+	void setForces(const Vec2& forces);
 
 	float getImpulse() const;
 	void setImpulse(const float& impulse);
 
-	float getOffset() const;
-	void setOffset(const float& offset);
+	Vec2 getOffset() const;
+	void setOffset(const Vec2& offset);
 
 	Size getSize() const;
 	void setSize(const Size& size);

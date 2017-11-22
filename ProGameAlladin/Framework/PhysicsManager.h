@@ -8,6 +8,17 @@
 
 
 NS_JK_BEGIN
+typedef struct Manifold
+{
+	RigidBody *rigid1;
+	RigidBody *rigid2;
+	// độ sâu của va chạm
+	float penetration;
+	// hướng va chạm
+	Vec2 collisionNormal;
+
+};
+
 class PhysicsManager
 {
 public:
@@ -15,27 +26,27 @@ public:
 
 	~PhysicsManager();
 
-	void resolveCollision(RigidBody& a, RigidBody& b) const;
+	void attachRigidbody(RigidBody *rigidbody);
+
+	void detachRigidbody(RigidBody *rigidbody);
+
+	void resolveCollision(const Manifold &manifold) const;
 
 	static float dotProduct(const Vec2& v1, const Vec2& v2);
 
-	void positionalCorrection(RigidBody& a, RigidBody& b) const;
+	void positionalCorrection(const Manifold& manifold) const;
 
-	struct Manifold
-	{
-		RigidBody *a;
-		RigidBody *b;
+	void update();
 
-		
-	};
+	bool AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
+
+	static PhysicsManager* getIntance();
 private:
-	// độ sâu của va chạm
-	float penetration;
-
-	// hướng va chạm
-	Vec2 collisionNormal;
-
 	
+
+	std::vector<RigidBody*> _rigidBodies;
+
+	static PhysicsManager* _instance;
 };
 
 NS_JK_END

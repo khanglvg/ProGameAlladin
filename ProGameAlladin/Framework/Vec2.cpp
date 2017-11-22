@@ -175,9 +175,14 @@ void Vec2::setZero()
 	Vec2 result(*this);
 	result.scale(s);
 	return result;
+	 /*Vec2 result;
+	 result.setX((result.getX()*s));
+	 result.setY((result.getY()*s));
+	 return result;*/
 }
 
- Vec2& Vec2::operator*=(float s)
+
+Vec2& Vec2::operator*=(float s)
 {
 	scale(s);
 	return *this;

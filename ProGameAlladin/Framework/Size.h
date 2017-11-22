@@ -9,6 +9,7 @@ class Size
 {
 public:
 	Size();
+	Size(const float& width, const float& height);
 	~Size();
 
 #pragma region GET-SET

@@ -20,7 +20,6 @@ Camera::~Camera()
 void Camera::update()
 {
 	//update camera
-	this->setPosition(Vec2(getPosition().getX() + getVelocity().getX(), getPosition().getY() + getVelocity().getY()));
 }
 
 void Camera::release()

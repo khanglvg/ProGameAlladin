@@ -78,17 +78,6 @@ void Node::setOrigin(const Vec2& origin)
 	_origin.y = origin.y;
 }
 
-Vec2 Node::getVelocity() const
-{
-	return _velocity;
-}
-
-void Node::setVelocity(const Vec2& velocity)
-{
-	_velocity = velocity;
-}
-
-
 Matrix Node::getTransformMatrix() const
 {
 	const auto matrixTranslation = Matrix::getTranslationMatrix(_position.x, _position.y);
