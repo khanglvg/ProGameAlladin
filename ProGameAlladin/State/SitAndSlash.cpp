@@ -3,6 +3,7 @@
 #include "SitAndThrow.h"
 #include "Jump.h"
 #include "../Aladdin.h"
+#include "Sit.h"
 US_NS_JK
 
 SitAndSlash::SitAndSlash(Node* node):State(node)
@@ -19,13 +20,23 @@ void SitAndSlash::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
+	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		aladdin->setScale(Vec2(-1, 1));
+
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));*/
+
+	aladdin->setActionName("SitAndSlash");
+}
+
+void SitAndSlash::onUpdate()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));
 
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));
-
-	aladdin->setActionName("SitAndSlash");
 }
 
 State* SitAndSlash::checkTransition()
@@ -36,6 +47,8 @@ State* SitAndSlash::checkTransition()
 		return new Jump(_node);
 	if (!Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Idle(_node);
+	/*if (Input::getInstance()->isKeyUp(KEY_S))
+		return new Sit(_node);*/
 
 		return nullptr;
 }

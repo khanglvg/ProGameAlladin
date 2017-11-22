@@ -225,6 +225,7 @@
     <ClInclude Include="State\HeadUp.h" />
     <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\IdleToLook.h" />
     <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
     <ClInclude Include="State\Jump.h" />
@@ -287,6 +288,7 @@
     <ClCompile Include="State\HeadUp.cpp" />
     <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\IdleToLook.cpp" />
     <ClCompile Include="State\IdleWhenWing.cpp" />
     <ClCompile Include="State\Jump.cpp" />
     <ClCompile Include="State\JumpAndSlash.cpp" />
@@ -341,12 +343,15 @@
     <Library Include="DirectX\Lib\XInput.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\action2.xml" />
+    <Xml Include="Resources\action2.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\smallmarketBG.png" />
+    <Image Include="Resources\texture3.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

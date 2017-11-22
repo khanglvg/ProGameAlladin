@@ -407,6 +407,9 @@
     <ClInclude Include="State\Sit.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="State\IdleToLook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -610,6 +613,9 @@
     <ClCompile Include="State\Sit.cpp">
       <Filter>State</Filter>
     </ClCompile>
+    <ClCompile Include="State\IdleToLook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib">
@@ -709,5 +715,6 @@
     <Image Include="Resources\ala.png">
       <Filter>Resources</Filter>
     </Image>
+    <Image Include="Resources\texture3.png" />
   </ItemGroup>
 </Project>

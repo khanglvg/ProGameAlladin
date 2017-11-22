@@ -42,7 +42,7 @@ private:
 	Texture _textureAla;
 	float _startX = SCREEN_WIDTH / 10;
 	float _startY = SCREEN_HEIGHT - 50;
-	float _max = SCREEN_HEIGHT - 100;
+	float _max = SCREEN_HEIGHT - 120;
 
 	// --------------------------------------
 	// State

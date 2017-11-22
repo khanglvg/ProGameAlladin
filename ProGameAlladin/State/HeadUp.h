@@ -12,6 +12,8 @@ public:
 	HeadUp(Node* node);
 	~HeadUp() override;
 	void onEnter() override;
+	void onUpdate() override;
+	void onExit() override;
 	State* checkTransition() override;
 
 };
