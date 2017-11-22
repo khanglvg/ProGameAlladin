@@ -48,7 +48,7 @@ private:
 	float _impulse;
 
 	// Hình dáng vật
-	float _offsize;
+	float _offset;
 	Size _size;
 
 public:
@@ -92,8 +92,11 @@ public:
 	float getImpulse() const;
 	void setImpulse(const float& impulse);
 
-	Rect getShape() const;
-	void setShape(const Rect& shape);
+	float getOffset() const;
+	void setOffset(const float& offset);
+
+	Size getSize() const;
+	void setSize(const Size& size);
 #pragma endregion 
 
 

@@ -92,13 +92,25 @@ void RigidBody::setImpulse(const float& impulse)
 	_impulse = impulse;
 }
 
-Rect RigidBody::getShape() const
+float RigidBody::getOffset() const
 {
-	return _shape;
+	return _offset;
 }
 
-void RigidBody::setShape(const Rect& shape)
+void RigidBody::setOffset(const float& offset)
 {
-	_shape = shape; 
+	_offset = offset; 
 }
+
+Size RigidBody::getSize() const
+{
+	return _size;
+}
+
+void RigidBody::setSize(const Size& size)
+{
+	_size = size;
+}
+
+
 #pragma endregion 
