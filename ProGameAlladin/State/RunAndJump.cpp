@@ -4,6 +4,7 @@
 #include "JumpAndSlash.h"
 #include "../Aladdin.h"
 #include "Run.h"
+#include "Fall.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)

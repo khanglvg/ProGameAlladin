@@ -45,7 +45,7 @@ Aladdin::~Aladdin()
 void Aladdin::init()
 {
 	_textureAla.setName("Aladdin.jpg");
-	_textureAla.setSrcFile("Resources/ala.png");
+	_textureAla.setSrcFile("Resources/texture3.png");
 	Graphics::getInstance()->loadTexture(_textureAla);
 }
 

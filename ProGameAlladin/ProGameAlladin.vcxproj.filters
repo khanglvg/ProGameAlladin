@@ -733,6 +733,7 @@
     <Image Include="Resources\ala.png">
       <Filter>Resources</Filter>
     </Image>
+    <Image Include="Resources\texture3.png" />
     <Image Include="Resources\ground.png">
       <Filter>Resources</Filter>
     </Image>

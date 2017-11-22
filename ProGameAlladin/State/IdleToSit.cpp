@@ -22,7 +22,7 @@ void IdleToSit::onEnter()
 
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setActionName("Sit");
+	aladdin->setActionName("IdleToSit");
 }
 
 State* IdleToSit::checkTransition()

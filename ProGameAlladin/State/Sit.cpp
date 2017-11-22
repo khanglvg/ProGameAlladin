@@ -16,9 +16,24 @@ Sit::~Sit()
 
 void Sit::onEnter()
 {
-	const auto aladdin = static_cast<Aladdin*>(_node);
+	auto aladdin = static_cast<Aladdin*>(_node);
 
-	Graphics::getInstance()->drawSprite(aladdin->getTexture(), Vec2(0.3f, 1.0f), aladdin->getTransformMatrix(), Color(255, 255, 255, 255), Rect(378, 516, 52, 34), 1);
+
+	aladdin->setActionName("Sit");
+
+	//Graphics::getInstance()->drawSprite(aladdin->getTexture(), Vec2(0.3f, 1.0f), aladdin->getTransformMatrix(), Color(255, 255, 255, 255), Rect(378, 516, 52, 34), 1);
+}
+
+void Sit::onUpdate()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		aladdin->setScale(Vec2(-1, 1));
+
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));
+
+	
 }
 
 void Sit::onExit()
@@ -27,12 +42,17 @@ void Sit::onExit()
 
 State* Sit::checkTransition()
 {
+	auto aladdin = static_cast<Aladdin*>(_node);
 	if (!Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SitAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new SitAndThrow(_node);
+	
+
+	
+
 
 	return nullptr;
 }

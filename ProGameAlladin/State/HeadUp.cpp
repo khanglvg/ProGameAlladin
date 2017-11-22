@@ -7,6 +7,7 @@
 #include "Throw.h"
 #include "Idle.h"
 #include "../Aladdin.h"
+#include "IdleToLook.h"
 
 US_NS_JK
 
@@ -22,9 +23,23 @@ void HeadUp::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
-	const auto aladdin = static_cast<Aladdin*>(_node);
+	auto aladdin = static_cast<Aladdin*>(_node);
 
 	aladdin->setActionName("HeadUp"); // Idle to Look -> HeadUp
+}
+
+void HeadUp::onUpdate()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+			aladdin->setScale(Vec2(-1, 1));
+
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));
+}
+
+void HeadUp::onExit()
+{
 }
 
 State* HeadUp::checkTransition()
@@ -39,6 +54,8 @@ State* HeadUp::checkTransition()
 		return new Throw(_node);
 	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW))
 		return new Idle(_node);
+	/*if (Input::getInstance()->isKeyDown(KEY_UP_ARROW))
+		return new IdleToLook(_node);*/
 
 	return nullptr;
 }
