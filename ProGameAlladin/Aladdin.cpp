@@ -7,9 +7,8 @@ US_NS_JK
 
 Aladdin::Aladdin()
 {
-	setPosition(Vec2(_startX, -500));
-
-	_rigidAla = new RigidBody(getPosition(), Vec2(200,0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50) );
+	_rigidAla = new RigidBody(Vec2(0,-200), Vec2(200,0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,0), Size(50,50));
+	setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -57,8 +56,7 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
-	_position = _rigidAla->getPosition();
-	OutputDebugString(std::to_string(_position.getY()).c_str());
+	_position = _rigidAla->getPosition() - _rigidAla->getOffset();
 
 	_currentState->onUpdate();
 	
