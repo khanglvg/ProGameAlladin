@@ -148,6 +148,11 @@ Vec2 Aladdin::getStartPosition() const
 	return Vec2(_startX, _startY);
 }
 
+Vec2 Aladdin::getVelocity() const
+{
+	return _rigidAla->getVelocity();
+}
+
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;

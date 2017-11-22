@@ -39,6 +39,8 @@ public:
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
+
+	Vec2 getVelocity()const;
 	
 private:
 
