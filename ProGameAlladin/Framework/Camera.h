@@ -4,71 +4,44 @@
 
 #include "Vec2.h"
 #include "Rect.h"
+#include "Node.h"
 
 NS_JK_BEGIN
 
-class Camera
+class Camera: public Node
 {
 private:
-	static Camera* _instance;
-
-	// Camera's position in Game Scene, co-ordinate is defined: top-left
-	Vec2 _position;
-
-	// Camera's velocity to move 
-	float _vx, _vy;
-
 	// is Camera pause?
-	bool _isPause;
+	bool _isStop;
 
 	// width - height of Camera
 	float _width, _height;
 
-
+	float _startX;
+	float _startY;
 
 public: // SET-GET
-	float getVX() const;
-	void setVX(const float& vx);
-
-	float getVY() const;
-	void setVY(const float& vy);
-
-	Vec2 getPosition() const;
-	void setPosition(const Vec2& position);
-
 	float getWidth() const;
 	void setWidth(const float& width);
 
 	float getHeight() const;
 	void setHeight(const float& height);
 
-
+	void stop();
 
 public:
 	// Constructor
-	Camera();
+	Camera(const float& width, const float& height);
 
 	// virtual Destructor
 	virtual ~Camera();
 
-	// Camera is singleton
-	static Camera* getInstance();
+	void update() override;
 
+	void release() override;
 
-	// Update Camera's position with time
-	// param:	FLOAT time
-	// return:	void
-	void Update(float time);
-
-	// To stop the camera
-	// param:	no
-	// return:	void
-	void Stop();
-
-	// To set the camera to move
-	// param:	no
-	// return:	no
-	void Move();
+	// tạo ra ma trận biến hình (-x,-y)
+	//Matrix getTransformMatrix();  
 };
 
 NS_JK_END

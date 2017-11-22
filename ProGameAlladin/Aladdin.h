@@ -8,6 +8,7 @@
 #include "pugixml/pugixml.hpp"
 #include "State/State.h"
 #include "State/Idle.h"
+#include "Framework/RigidBody.h"
 
 NS_JK_BEGIN
 
@@ -35,6 +36,8 @@ public:
 	void setIndex(const int& index);
 	Texture getTexture();
 
+	Vec2 getStartPosition() const;
+
 	std::map<string, vector<Rect>> _animations;
 	
 private:
@@ -51,6 +54,8 @@ private:
 	string _actionName;
 	float _index = 0;
 	State* _currentState;
+
+	RigidBody* _rigidAla;
 };
 
 NS_JK_END

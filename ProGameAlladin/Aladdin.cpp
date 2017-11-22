@@ -1,13 +1,15 @@
 ﻿#include "Aladdin.h"
 #include "Framework/Graphics.h"
 #include "Framework/GameManager.h"
+#include "Framework/PhysicsManager.h"
 
 US_NS_JK
 
 Aladdin::Aladdin()
 {
-	setPosition(Vec2(_startX, _startY));
+	setPosition(Vec2(_startX, -500));
 
+	_rigidAla = new RigidBody(getPosition(), Vec2(200,0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50) );
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -22,12 +24,12 @@ Aladdin::Aladdin()
 
 			for (auto rect : animation.children())
 			{
-				rects.push_back(Rect(	rect.attribute("x").as_float(),
-										rect.attribute("y").as_float(),
-										rect.attribute("w").as_float(),
-										rect.attribute("h").as_float()));
+				rects.push_back(Rect(rect.attribute("x").as_float(),
+					rect.attribute("y").as_float(),
+					rect.attribute("w").as_float(),
+					rect.attribute("h").as_float()));
 			}
-			_animations.emplace(name, rects); 
+			_animations.emplace(name, rects);
 		}
 	}
 #pragma endregion 
@@ -50,11 +52,16 @@ void Aladdin::init()
 
 void Aladdin::release()
 {
+	delete this;
 }
 
 void Aladdin::update()
 {
+	_position = _rigidAla->getPosition();
+	OutputDebugString(std::to_string(_position.getY()).c_str());
+
 	_currentState->onUpdate();
+	
 
 	State* newState = _currentState->checkTransition();
 
@@ -71,12 +78,12 @@ void Aladdin::render()
 {
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
-	
+
 	if (_animationIndex >= _animations[_actionName].size())
 		_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
-	
+
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
@@ -84,8 +91,9 @@ void Aladdin::render()
 
 	if (_index <= expect)
 	{
+
 		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
-		_index += GameManager::getInstance()->getDeltaTime();		
+		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
 	{
@@ -93,11 +101,11 @@ void Aladdin::render()
 		_animationIndex++;
 		if (_animationIndex == _animations[_actionName].size())
 			_animationIndex = 0;
-		
+
 	}
 
 
-	
+
 }
 
 void Aladdin::setActionName(string actionName)
@@ -133,6 +141,11 @@ int Aladdin::getIndex() const
 Texture Aladdin::getTexture()
 {
 	return _textureAla;
+}
+
+Vec2 Aladdin::getStartPosition() const
+{
+	return Vec2(_startX, _startY);
 }
 
 void Aladdin::setIndex(const int& index)

@@ -382,7 +382,7 @@ public:
 * @param v The vector to scale.
 * @return The scaled vector.
 */
-Vec2 operator*(float x, const Vec2& v);
+
 
 
 NS_JK_END

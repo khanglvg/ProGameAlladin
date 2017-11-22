@@ -407,8 +407,17 @@
     <ClInclude Include="State\Sit.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="State\IdleToLook.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Framework\RigidBody.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PhysicsManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Size.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -613,7 +622,16 @@
     <ClCompile Include="State\Sit.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="State\IdleToLook.cpp">
+    <ClCompile Include="Framework\RigidBody.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PhysicsManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Size.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -716,5 +734,8 @@
       <Filter>Resources</Filter>
     </Image>
     <Image Include="Resources\texture3.png" />
+    <Image Include="Resources\ground.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>

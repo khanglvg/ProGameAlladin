@@ -10,6 +10,11 @@ BackgroundLv1Scene::~BackgroundLv1Scene()
 {
 }
 
+void BackgroundLv1Scene::release()
+{
+	delete this;
+}
+
 void BackgroundLv1Scene::init()
 {
 	_textureBackground.setName("BackGround.jpg");

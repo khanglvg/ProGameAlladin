@@ -26,7 +26,7 @@ public:
 	void setOrigin(const Vec2& origin);
 #pragma endregion
 
-	Matrix getTransformMatrix();
+	Matrix getTransformMatrix() const;
 	
 	virtual void update();
 
@@ -35,6 +35,7 @@ public:
 	virtual void render();
 
 	virtual void init();
+
 protected:
 
 	Vec2 _origin;
@@ -47,6 +48,9 @@ protected:
 
 
 	Vec2 _scale;
+
+
+	Vec2 _velocity;
 
 	
 	

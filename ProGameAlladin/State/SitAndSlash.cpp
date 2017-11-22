@@ -41,14 +41,16 @@ void SitAndSlash::onUpdate()
 
 State* SitAndSlash::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
+
 	if (Input::getInstance()->getKey(KEY_A))
 		return new SitAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	if (!Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Idle(_node);
-	/*if (Input::getInstance()->isKeyUp(KEY_S))
-		return new Sit(_node);*/
+	if (aladdin->getIndex() >= 6)
+		return new Sit(_node);
 
 		return nullptr;
 }

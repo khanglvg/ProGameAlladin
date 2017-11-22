@@ -45,21 +45,9 @@ void RunAndJump::onUpdate()
 	}
 	if (_state == JUMP)
 	{
-		if(Input::getInstance()->getKey(KEY_LEFT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2.5 , aladdin->getPosition().getY() -2));
-		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2.5, aladdin->getPosition().getY() - 2));
-		if (aladdin->getPosition().getY() < aladdin->getMaxHeight())
-			_state = FALL;
 	}
 	if (_state == FALL)
 	{
-		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2.5, aladdin->getPosition().getY() + 2));
-		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2.5, aladdin->getPosition().getY() + 2));
-		if (aladdin->getPosition().getY() >= aladdin->getYGround())
-			_state = NONE;
 	}
 }
 
@@ -76,7 +64,9 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (_state == NONE && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
-
+	if (!Input::getInstance()->getKey(KEY_D))
+		_state = FALL;
+	
 
 	return nullptr;
 }

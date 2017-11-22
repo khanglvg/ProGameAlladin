@@ -37,12 +37,12 @@ void Run::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2, aladdin->getPosition().getY()));
-
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2, aladdin->getPosition().getY()));
-
+	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW)) {
+	//	//aladdin->setPosition(Vec2(aladdin->getPosition().getX() - aladdin->getVelocity().getX(), aladdin->getPosition().getY()));
+	//}
+	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW)) {
+	//	//aladdin->setPosition(Vec2(aladdin->getPosition().getX() + aladdin->getVelocity().getX(), aladdin->getPosition().getY()));
+	//}
 }
 
 State* Run::checkTransition()
