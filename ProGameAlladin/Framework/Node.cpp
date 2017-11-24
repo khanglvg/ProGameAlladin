@@ -105,6 +105,11 @@ void Node::init()
 
 }
 
+Rect Node::getRect()
+{
+	return Rect(0, 0, 0, 0);
+}
+
 
 #pragma endregion 
 

@@ -156,6 +156,20 @@ void Aladdin::setVelocity(const Vec2& velocity)
 	_rigidAla->setVelocity(velocity);
 }
 
+Rect Aladdin::getRect()
+{ 
+	auto width = _animations[_actionName][_animationIndex].getWidth();
+	auto height = _animations[_actionName][_animationIndex].getHeight();
+
+	Rect rect;
+
+	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
+	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
+	rect.setWidth(width);
+	rect.setHeight(height);
+	return rect;
+}
+
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;

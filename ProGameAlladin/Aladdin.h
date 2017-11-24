@@ -42,6 +42,8 @@ public:
 
 	Vec2 getVelocity()const;
 	void setVelocity(const Vec2& velocity);
+
+	Rect getRect() override;
 	
 private:
 

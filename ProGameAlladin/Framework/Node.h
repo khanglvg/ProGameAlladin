@@ -3,6 +3,7 @@
 
 #include "Matrix.h"
 #include "Vec2.h"
+#include "Rect.h"
 
 NS_JK_BEGIN
 class Node
@@ -35,6 +36,8 @@ public:
 	virtual void render();
 
 	virtual void init();
+
+	virtual Rect getRect();
 
 protected:
 
