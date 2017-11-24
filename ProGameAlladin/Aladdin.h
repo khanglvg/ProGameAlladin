@@ -41,6 +41,7 @@ public:
 	std::map<string, vector<Rect>> _animations;
 
 	Vec2 getVelocity()const;
+	void setVelocity(const Vec2& velocity);
 	
 private:
 

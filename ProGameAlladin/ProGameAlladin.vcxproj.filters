@@ -419,6 +419,15 @@
     <ClInclude Include="Ground.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="State\IdleToLook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\QuadTree.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -633,6 +642,15 @@
     </ClCompile>
     <ClCompile Include="Ground.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\IdleToLook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\QuadTree.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

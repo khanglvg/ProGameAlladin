@@ -7,7 +7,7 @@ US_NS_JK
 
 Aladdin::Aladdin()
 {
-	_rigidAla = new RigidBody(Vec2(0,-200), Vec2(200,0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,0), Size(50,50));
+	_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
 	setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 
 #pragma region READ - XML
@@ -45,7 +45,7 @@ Aladdin::~Aladdin()
 void Aladdin::init()
 {
 	_textureAla.setName("Aladdin.jpg");
-	_textureAla.setSrcFile("Resources/texture3.png");
+	_textureAla.setSrcFile("Resources/ala.png");
 	Graphics::getInstance()->loadTexture(_textureAla);
 }
 
@@ -56,8 +56,8 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
-	_position = _rigidAla->getPosition() - _rigidAla->getOffset();
-
+	 _position = _rigidAla->getPosition() - _rigidAla->getOffset();
+	OutputDebugString(std::to_string(_position.getY()).c_str());
 	_currentState->onUpdate();
 	
 
@@ -149,6 +149,11 @@ Vec2 Aladdin::getStartPosition() const
 Vec2 Aladdin::getVelocity() const
 {
 	return _rigidAla->getVelocity();
+}
+
+void Aladdin::setVelocity(const Vec2& velocity)
+{
+	_rigidAla->setVelocity(velocity);
 }
 
 void Aladdin::setIndex(const int& index)

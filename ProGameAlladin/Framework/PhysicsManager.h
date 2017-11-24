@@ -30,7 +30,7 @@ public:
 
 	void detachRigidbody(RigidBody *rigidbody);
 
-	void resolveCollision(const Manifold &manifold) const;
+	void resolveCollision(Manifold &manifold) const;
 
 	static float dotProduct(const Vec2& v1, const Vec2& v2);
 
@@ -39,6 +39,8 @@ public:
 	void update();
 
 	bool AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
+
+	float sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
 
 	static PhysicsManager* getIntance();
 private:

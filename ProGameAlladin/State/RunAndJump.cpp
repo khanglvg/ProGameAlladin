@@ -23,9 +23,15 @@ void RunAndJump::onEnter()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
 		aladdin->setScale(Vec2(-1, 1));
+		//aladdin->setVelocity(Vec2(0, -300));
+	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
 		aladdin->setScale(Vec2(1, 1));
+		//aladdin->setVelocity(Vec2(0, -300));
+	}
 
 	aladdin->setActionName("RunAndJump");
 }

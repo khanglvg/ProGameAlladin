@@ -25,10 +25,16 @@ void Run::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
 		aladdin->setScale(Vec2(-1, 1));
-
+		aladdin->setVelocity(Vec2(-200, aladdin->getVelocity().getY()));
+	}
+	
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
 		aladdin->setScale(Vec2(1, 1));
+		aladdin->setVelocity(Vec2(200, aladdin->getVelocity().getY()));
+	}
 
 	aladdin->setActionName("Run");
 }

@@ -20,6 +20,8 @@ void Jump::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+
+	aladdin->setVelocity(Vec2(0, -300));
 	
 	aladdin->setActionName("Jump");
 }
@@ -28,26 +30,12 @@ void Jump::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_D) && _state == NONE)
-	{
-		_state = JUMP;
-	}
-	if (_state == JUMP)
-	{
-		aladdin->setPosition(Vec2(aladdin->getPosition().getX(), aladdin->getPosition().getY() - 2));
-		if (aladdin->getPosition().getY() < aladdin->getMaxHeight())
-			_state = FALL;
-	}
-	if(_state == FALL)
-	{
-		aladdin->setPosition(Vec2(aladdin->getPosition().getX(), aladdin->getPosition().getY() + 2));
-		if (aladdin->getPosition().getY() >= aladdin->getYGround())
-			_state = NONE;
-	}
 }
 
 State* Jump::checkTransition()
 {
+	auto aladdin = static_cast<Aladdin*>(_node);
+
 	if (Input::getInstance()->getKey(KEY_A))
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
@@ -56,16 +44,14 @@ State* Jump::checkTransition()
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
-	if (Input::getInstance()->isAnyKeyDown())
-		return new Idle(_node);
+	
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
 	
-	if (Input::getInstance()->getKey(KEY_D)){}
-	// ??
+	//if (aladdin->getVelocity().getX() == 0 && aladdin->getVelocity().getY() == 0)
+	//return new Idle(_node);
 
-	if (_state == NONE)
-		return new Idle(_node);
+	
 
 	return nullptr;
 }

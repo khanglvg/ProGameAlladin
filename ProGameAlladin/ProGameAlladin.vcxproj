@@ -200,6 +200,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Framework\Application.h" />
     <ClInclude Include="Framework\Camera.h" />
     <ClInclude Include="Framework\Color.h" />
@@ -210,6 +211,7 @@
     <ClInclude Include="Framework\Matrix.h" />
     <ClInclude Include="Framework\Node.h" />
     <ClInclude Include="Framework\PhysicsManager.h" />
+    <ClInclude Include="Framework\QuadTree.h" />
     <ClInclude Include="Framework\Rect.h" />
     <ClInclude Include="Framework\RigidBody.h" />
     <ClInclude Include="Framework\Scene.h" />
@@ -268,6 +270,7 @@
   <ItemGroup>
     <ClCompile Include="Aladdin.cpp" />
     <ClCompile Include="BackgroundLv1Scene.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Framework\Application.cpp" />
     <ClCompile Include="Framework\Camera.cpp" />
     <ClCompile Include="Framework\Color.cpp" />
@@ -277,6 +280,7 @@
     <ClCompile Include="Framework\Matrix.cpp" />
     <ClCompile Include="Framework\Node.cpp" />
     <ClCompile Include="Framework\PhysicsManager.cpp" />
+    <ClCompile Include="Framework\QuadTree.cpp" />
     <ClCompile Include="Framework\Rect.cpp" />
     <ClCompile Include="Framework\RigidBody.cpp" />
     <ClCompile Include="Framework\Scene.cpp" />
