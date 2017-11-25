@@ -1,35 +1,38 @@
-#pragma once
+#ifndef __QUADTREE_H__
 
+#define __QUADTREE_H__
 #include <d3dx9.h>
 #include <d3d9.h>
 #include <vector>
 #include "Node.h"
 #include "Rect.h"
 
-US_NS_JK
+NS_JK_BEGIN
 
 class QuadTree
 {
 public:
 
-    QuadTree(int level, Rect* bound);
+    QuadTree(const int& level, Rect* bound);
     ~QuadTree();
-    void Clear();
+
+    void clear();
+
     void insertObject(Node *object);
     
     void getObjectsCollideAble(std::vector<Node*> &objectresult,Node *object); 
 
     void getAllObjects(std::vector<Node*> &objectresult);
 
-    int getTotalObjects();
+    int getTotalObjects() const;
 
     Rect* Bound;
 
-    QuadTree **GetNodes();
+    QuadTree** getQuadNodes() const;
 
 protected:
-    QuadTree **Nodes;
-    std::vector<Node*> mListObject;
+    QuadTree** _quadNodes;
+    std::vector<Node*> _listObject;
 
     /*lay vi tri cua Entity 
     0: nam trong Node con goc trai tren
@@ -37,10 +40,15 @@ protected:
     2: nam trong Node con goc trai duoi
     3: nam trong Node con goc phai duoi
     -1: bi dinh > 2 node con*/
-    int getIndex(Rect body);
+    int getIndex(Rect body) const;
 
     void split();
 
-    bool isContain(Node *object);
-    int mLevel;
+    bool isContain(Node *object) const;
+
+    int _level;
 };
+
+NS_JK_END
+
+#endif __QUADTREE_H__

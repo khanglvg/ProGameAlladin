@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="Apple.h" />
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -269,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Framework\Application.cpp" />

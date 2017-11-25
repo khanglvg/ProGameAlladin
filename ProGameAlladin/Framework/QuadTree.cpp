@@ -1,8 +1,10 @@
 #include "QuadTree.h"
 
-QuadTree::QuadTree(int level, Rect* bound)
+US_NS_JK
+
+QuadTree::QuadTree(const int& level, Rect* bound)
 {
-	this->mLevel = level;
+	this->_level = level;
 	this->Bound = bound;
 }
 
@@ -10,63 +12,63 @@ QuadTree::~QuadTree()
 {
 }
 
-void QuadTree::Clear()
+void QuadTree::clear()
 {
-	if (Nodes)
+	if (_quadNodes)
 	{
-		for (int i = 0; i < 4; i++)
+		for (auto i = 0; i < 4; i++)
 		{
-			Nodes[i]->Clear();
-			delete Nodes[i];
+			_quadNodes[i]->clear();
+			delete _quadNodes[i];
 		}
-		delete[] Nodes;
+		delete[] _quadNodes;
 	}
 }
 
 void QuadTree::insertObject(Node * object)
 {
-	int index = getIndex(object->getRect());
+	const auto index = getIndex(object->getRect());
 
-	if (Nodes != NULL)
+	if (_quadNodes != nullptr)
 	{
 		if (index != -1)
 		{
-			Nodes[index]->insertObject(object);
+			_quadNodes[index]->insertObject(object);
 			return;
 		}
 	}
 
 	if (index == -1)
 	{
-		this->mListObject.push_back(object);
+		this->_listObject.push_back(object);
 	}
 	else
 	{
-		if (Nodes == NULL)
+		if (_quadNodes == nullptr)
 		{
 			split();
 		}
 
-		Nodes[index]->insertObject(object);
+		_quadNodes[index]->insertObject(object);
 	}
 }
 
 void QuadTree::getObjectsCollideAble(std::vector<Node*>& objectresult, Node * object)
 {
-	int index = this->getIndex(object->getRect());
+	const auto index = this->getIndex(object->getRect());
 
 	if (index != -1)
 	{
 		//nhung Entity o day se la nam tren 2 node con nen chung ta cung se lay de set va cham
-		for (auto child : mListObject)
+		for (auto child : _listObject)
 		{
 			objectresult.push_back(child);
 		}
 
-		if (Nodes != NULL)
+		if (_quadNodes != nullptr)
 		{
 			//kiem tra va lay cac node trong node con
-			Nodes[index]->getObjectsCollideAble(objectresult, object);
+			_quadNodes[index]->getObjectsCollideAble(objectresult, object);
 		}
 	}
 	else
@@ -77,44 +79,44 @@ void QuadTree::getObjectsCollideAble(std::vector<Node*>& objectresult, Node * ob
 
 void QuadTree::getAllObjects(std::vector<Node*>& objectresult)
 {
-	for (auto child : mListObject)
+	for (auto child : _listObject)
 	{
 		objectresult.push_back(child);
 	}
 
-	if (Nodes)
+	if (_quadNodes)
 	{
 		for (size_t i = 0; i < 4; i++)
 		{
-			Nodes[i]->getAllObjects(objectresult);
+			_quadNodes[i]->getAllObjects(objectresult);
 		}
 	}
 }
 
-int QuadTree::getTotalObjects()
+int QuadTree::getTotalObjects() const
 {
-	int total = mListObject.size();
+	int total = _listObject.size();
 
-	if (Nodes)
+	if (_quadNodes)
 	{
 		for (size_t i = 0; i < 4; i++)
 		{
-			total += Nodes[i]->getTotalObjects();
+			total += _quadNodes[i]->getTotalObjects();
 		}
 	}
 
 	return total;
 }
 
-QuadTree ** QuadTree::GetNodes()
+QuadTree ** QuadTree::getQuadNodes() const
 {
-	return Nodes;
+	return _quadNodes;
 }
 
-int QuadTree::getIndex(Rect body)
+int QuadTree::getIndex(Rect body) const
 {
-	float middleVerticle = Bound->getX() + Bound->getWidth() / 2.0f;
-	float middleHorizontal = Bound->getY() + Bound->getHeight() / 2.0f;
+	const auto middleVerticle = Bound->getX() + Bound->getWidth() / 2.0f;
+	const auto middleHorizontal = Bound->getY() + Bound->getHeight() / 2.0f;
 
 	if (body.getY() > Bound->getY() && (body.getY() + body.getHeight()) < middleHorizontal)
 	{
@@ -150,22 +152,22 @@ int QuadTree::getIndex(Rect body)
 
 void QuadTree::split()
 {
-	Nodes = new QuadTree*[4];
+	_quadNodes = new QuadTree*[4];
 
-	Nodes[0] = new QuadTree(mLevel + 1,
+	_quadNodes[0] = new QuadTree(_level + 1,
 		new Rect(Bound->getX(), Bound->getY(), Bound->getWidth() / 2, Bound->getHeight() / 2));
-	Nodes[1] = new QuadTree(mLevel + 1,
+	_quadNodes[1] = new QuadTree(_level + 1,
 		new Rect(Bound->getX() + Bound->getWidth() / 2, Bound->getY(), Bound->getWidth() / 2, Bound->getHeight() / 2));
-	Nodes[2] = new QuadTree(mLevel + 1,
+	_quadNodes[2] = new QuadTree(_level + 1,
 		new Rect(Bound->getX(), Bound->getY() + Bound->getHeight() / 2, Bound->getWidth() / 2, Bound->getHeight() / 2));
-	Nodes[3] = new QuadTree(mLevel + 1,
+	_quadNodes[3] = new QuadTree(_level + 1,
 		new Rect(Bound->getX() + Bound->getWidth() / 2,
 			Bound->getY() + Bound->getHeight() / 2, Bound->getWidth() / 2, Bound->getHeight() / 2));
 }
 
-bool QuadTree::isContain(Node * object)
+bool QuadTree::isContain(Node * object) const
 {
-	Rect rect = object->getRect();
+	auto rect = object->getRect();
 
 	return !(rect.getX() + rect.getWidth() < Bound->getX() ||
 		rect.getY() + rect.getHeight() < Bound->getY() ||

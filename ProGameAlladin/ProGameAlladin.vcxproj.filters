@@ -428,6 +428,9 @@
     <ClInclude Include="Framework\QuadTree.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Apple.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -651,6 +654,9 @@
     </ClCompile>
     <ClCompile Include="Framework\QuadTree.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Apple.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

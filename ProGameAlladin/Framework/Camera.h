@@ -27,9 +27,10 @@ public: // SET-GET
 	float getHeight() const;
 	void setHeight(const float& height);
 
-	void stop();
 
 public:
+
+	Camera();
 	// Constructor
 	Camera(const float& width, const float& height);
 
@@ -39,6 +40,8 @@ public:
 	void update() override;
 
 	void release() override;
+
+	void stop();
 
 	// tạo ra ma trận biến hình (-x,-y)
 	//Matrix getTransformMatrix();  

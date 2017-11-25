@@ -25,7 +25,7 @@ private:
 
 	// Loại vật thể: có 3 loại:
 	//		DYNAMIC:	vật thể bình thường (nhân vật, quái vật,...)
-	//		RINEMATIC:	vật thể di chuyển được nhưng không va chạm được
+	//		KINEMATIC:	vật thể di chuyển được nhưng không va chạm được
 	//		STATIC:		vật thể không di chuyển được nhưng va chạm được (mặt đất)
 	int _bodyType;
 

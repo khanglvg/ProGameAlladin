@@ -2,6 +2,9 @@
 
 US_NS_JK
 
+Camera::Camera()
+{
+}
 
 Camera::Camera(const float& width, const float& height):Node()
 {
@@ -48,6 +51,8 @@ void Camera::setHeight(const float& height)
 {
 	_height = height;
 }
+
+
 
 void Camera::stop()
 {
