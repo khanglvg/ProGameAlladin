@@ -229,6 +229,7 @@
     <ClInclude Include="State\Brake.h" />
     <ClInclude Include="State\Climb.h" />
     <ClInclude Include="State\Fall.h" />
+    <ClInclude Include="State\Flip.h" />
     <ClInclude Include="State\HeadUp.h" />
     <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
@@ -299,6 +300,7 @@
     <ClCompile Include="State\Brake.cpp" />
     <ClCompile Include="State\Climb.cpp" />
     <ClCompile Include="State\Fall.cpp" />
+    <ClCompile Include="State\Flip.cpp" />
     <ClCompile Include="State\HeadUp.cpp" />
     <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />

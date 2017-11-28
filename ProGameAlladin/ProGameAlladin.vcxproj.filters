@@ -431,6 +431,9 @@
     <ClInclude Include="Apple.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="State\Flip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -656,6 +659,9 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Apple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Flip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

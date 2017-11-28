@@ -171,7 +171,7 @@
     <sprite x="266" y="1070" w="82" h="59" oX="266" oY="1070" oW="1126" oH="397" />
     <sprite x="361" y="1087" w="58" h="54" oX="361" oY="1087" oW="1126" oH="397" />
   </Animation>
-  <Animation name="Front Flip" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="Flip" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="12" y="1154" w="49" h="53" oX="12" oY="1154" oW="1215" oH="457" />
     <sprite x="76" y="1162" w="37" h="31" oX="76" oY="1162" oW="1215" oH="457" />
     <sprite x="135" y="1160" w="35" h="33" oX="135" oY="1160" oW="1215" oH="457" />

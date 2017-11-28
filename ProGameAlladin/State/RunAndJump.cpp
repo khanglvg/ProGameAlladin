@@ -25,12 +25,12 @@ void RunAndJump::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		//aladdin->setVelocity(Vec2(0, -300));
+		aladdin->setVelocity(Vec2(-100, -300));
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		//aladdin->setVelocity(Vec2(0, -300));
+		aladdin->setVelocity(Vec2(100, -300));
 	}
 
 	aladdin->setActionName("RunAndJump");
@@ -49,11 +49,23 @@ void RunAndJump::onUpdate()
 	{
 		_state = JUMP;
 	}
-	if (_state == JUMP)
-	{
-	}
 	if (_state == FALL)
 	{
+	}
+	if(aladdin->getisOnTheGround()== false)
+	{
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		{
+			aladdin->setScale(Vec2(-1, 1));
+			aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+		}
+		
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			aladdin->setScale(Vec2(1, 1));
+			aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+		}
+			
 	}
 }
 
@@ -72,7 +84,8 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	
+	if (aladdin->getisOnTheGround())
+		return new Idle(_node);
 
 	return nullptr;
 }

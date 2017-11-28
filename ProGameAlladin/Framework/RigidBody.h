@@ -16,7 +16,12 @@ enum
 
 class RigidBody
 {
+	friend class PhysicsManager;
 private:
+	std::vector<std::string> _collidingBodies;
+
+	std::string _tag;
+
 	// Vị trí Objects
 	Vec2 _position;
 
@@ -75,6 +80,11 @@ public:
 
 
 #pragma region GET-SET
+	const vector<string>& getCollidingBodies() const;
+	
+	string getTag() const;
+	void setTag(const string& tag);
+
 	Vec2 getPosition() const;
 	void setPosition(const Vec2& position);
 

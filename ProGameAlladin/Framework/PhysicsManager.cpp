@@ -29,6 +29,10 @@ void PhysicsManager::detachRigidbody(RigidBody* rigidbody)
 
 void PhysicsManager::update()
 {
+	for(auto rigid:_rigidBodies)
+	{
+		rigid->_collidingBodies.clear();
+	}
 	for (auto rigid : _rigidBodies)
 	{
 		const auto deltaTime = GameManager::getInstance()->getDeltaTime();
@@ -50,6 +54,8 @@ void PhysicsManager::update()
 			Manifold manifold;
 			if (AABBvAABB(*it1, *it2, manifold))
 			{
+				(*it1)->_collidingBodies.push_back((*it2)->_tag);
+				(*it2)->_collidingBodies.push_back((*it1)->_tag);
 				resolveCollision(manifold);
 			}
 			//if(sweptAABB(*it1,*it2,manifold)<1.0f) // có va chạm
