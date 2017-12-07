@@ -42,11 +42,6 @@ void Jump::onUpdate()
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
 		
 	}
-	
-
-		
-
-
 }
 
 State* Jump::checkTransition()
@@ -59,21 +54,17 @@ State* Jump::checkTransition()
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);
-	/*if (aladdin->getIndex() >= 8)
-		return new Idle(_node);*/
-	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		return new Run(_node);
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		return new Run(_node);*/
-	
-	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-		return new IdleToSit(_node);
+	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
+		return new IdleToSit(_node);*/
 
 	if (aladdin->getisOnTheGround())
 		return new Idle(_node);
-		//tiep dat
-	//if (aladdin->getVelocity().getX() == 0 && aladdin->getVelocity().getY() == 0)
-	//return new Idle(_node);
+	//if (aladdin->getisOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
+	//{
+	//	return new Idle(_node);
+	//}
+	
+	
 
 	
 

@@ -142,7 +142,7 @@
     <sprite x="504" y="810" w="34" h="92" oX="504" oY="810" oW="888" oH="627" />
     <sprite x="564" y="812" w="34" h="92" oX="564" oY="812" oW="888" oH="627" />
   </Animation>
-  <Animation name="Unknown 1" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="Grounding" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="15" y="901" w="54" h="82" oX="15" oY="901" oW="1030" oH="984" />
     <sprite x="87" y="911" w="54" h="64" oX="87" oY="911" oW="1030" oH="984" />
     <sprite x="145" y="942" w="67" h="36" oX="145" oY="942" oW="1030" oH="984" />

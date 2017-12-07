@@ -7,6 +7,10 @@
 #include "Slash.h"
 #include "Throw.h"
 #include "../Aladdin.h"
+#include <iostream>
+#include "Random.h"
+#include "Idle2.h"
+#include "Idle3.h"
 
 
 US_NS_JK
@@ -20,6 +24,7 @@ Idle::~Idle()
 {
 }
 
+
 void Idle::onEnter()
 {
 	// TODO: setScale()
@@ -30,20 +35,43 @@ void Idle::onEnter()
 
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));*/
-
-	aladdin->setVelocity(Vec2(0, 0));
-
 	aladdin->setActionName("Idle1");
+	aladdin->setVelocity(Vec2(0, 0));
 	
+	
+}
+
+void Idle::onUpdate()
+{
+	
+
 }
 
 State* Idle::checkTransition()
 {
+	auto const aladdin = static_cast<Aladdin*>(_node);
+
+	//int n = 1000;
+	//for (int i = 0; i < n; i++)
+	//{
+	//	Random::getInstance()->generateRdnum();
+	//	int _temp = Random::getInstance()->getRdNumb();
+
+	//	if (0 <= _temp < 500)
+	//	{
+	//		return new Idle2(_node);
+	//	}
+	//	if (50 <= _temp < 1000)
+	//	{
+	//		return new Idle3(_node);
+	//	}
+	//}
+
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		return new Run(_node);
-	if (Input::getInstance()->getKey(KEY_D))
+	if (Input::getInstance()->isKeyDown(KEY_D))
 		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);

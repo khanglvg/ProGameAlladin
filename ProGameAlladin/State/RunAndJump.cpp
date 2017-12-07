@@ -78,9 +78,9 @@ State* RunAndJump::checkTransition()
 		return new JumpAndSlash(_node);
 	if (_state == NONE && Input::getInstance()->isAnyKeyDown())
 		return new Idle(_node);
-	if (_state == NONE && Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	if (_state == NONE && Input::getInstance()->isKeyDown(KEY_LEFT_ARROW))
 		return new Run(_node);
-	if (_state == NONE && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	if (_state == NONE && Input::getInstance()->isKeyDown(KEY_RIGHT_ARROW))
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;

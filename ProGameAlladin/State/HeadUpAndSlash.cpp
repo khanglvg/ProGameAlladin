@@ -45,5 +45,6 @@ State* HeadUpAndSlash::checkTransition()
 		return new Flip(_node);
 	if (aladdin->getIndex() >= 11)
 		return new Idle(_node);
+	
 	return nullptr;
 }
