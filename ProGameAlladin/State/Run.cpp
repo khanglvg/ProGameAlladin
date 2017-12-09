@@ -8,6 +8,9 @@
 #include "IdleToSit.h"
 #include "HeadUp.h"
 #include "Push.h"
+#include "Idle3.h"
+#include "Idle2.h"
+#include "Random.h"
 
 US_NS_JK
 
@@ -56,9 +59,43 @@ State* Run::checkTransition()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	if (Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW) )
-		return new Idle(_node);
+	{
+			Random::getInstance()->generateRdnum();
+		int _temp = Random::getInstance()->getRdNumb();
+		{
+			if (0 <= _temp && _temp<33)
+			{
+				return new Idle(_node);
+			}
+
+			if (33 <= _temp && _temp< 66)
+			{
+				return new Idle2(_node);
+			}
+			if (66 <= _temp&& _temp <= 100)
+			{
+				return new Idle3(_node);
+			}
+		}
+	}
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) )
-		return new Idle(_node);
+	{
+			Random::getInstance()->generateRdnum();
+		int _temp = Random::getInstance()->getRdNumb();
+		if (0 <= _temp && _temp<33)
+		{
+			return new Idle(_node);
+		}
+
+		if (33 <= _temp && _temp< 66)
+		{
+			return new Idle2(_node);
+		}
+		if (66 <= _temp&& _temp <= 100)
+		{
+			return new Idle3(_node);
+		}
+	}
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))

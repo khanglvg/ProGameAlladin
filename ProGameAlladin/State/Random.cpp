@@ -27,8 +27,6 @@ int Random::getRdNumb()
 
 int Random::generateRdnum()
 {
-	int n = 100;
-	for (int i =0;i<n;i++)
 	{
 		srand(time(NULL));
 		_rdnum = rand() % 100 + 1;
