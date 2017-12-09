@@ -8,9 +8,9 @@
 
 
 NS_JK_BEGIN
-	class Graphics;
+class Graphics;
 
-	class Camera: public Node
+class Camera : public Node
 {
 private:
 	// width - height of Camera
@@ -35,6 +35,8 @@ private:
 
 	static Camera *_instance;
 
+	bool _isUp = false;
+
 public: // SET-GET
 	float getWidth() const;
 	void setWidth(const float& width);
@@ -42,7 +44,8 @@ public: // SET-GET
 	float getHeight() const;
 	void setHeight(const float& height);
 
-
+	bool isUp() const;
+	void setUp(const bool& isUp);
 public:
 	// Constructor
 	Camera();
@@ -68,6 +71,8 @@ public:
 	void setTransform(Graphics *pDevice) const;
 
 	static D3DXMATRIX convertToDirectMatrix(const Matrix &matrix);
+
+	Rect getRect() override;
 
 };
 

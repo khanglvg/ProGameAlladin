@@ -7,13 +7,18 @@ US_NS_JK
 
 ThinEnemy::ThinEnemy()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
+	float _startX = SCREEN_WIDTH / 10;
+	float _startY = SCREEN_HEIGHT - 50;
+	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
+	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), DYNAMIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
+	_rigid = new RigidBody(Vec2(_startX +200,_startY), Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(0, -25), Size(500, 5000));
+
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
-	setPosition(_startPosition);
+	setPosition(Vec2(_startX +200,_startY));
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
+	_rigid->setTag("ground");
 }
 
 ThinEnemy::ThinEnemy(GameObject * player):Enemy(player)
@@ -67,6 +72,7 @@ void ThinEnemy::release()
 
 void ThinEnemy::update()
 {
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	//_position = _rigidAla->getPosition() - _rigidAla->getOffset();
 	_currentState->onUpdate();
 
