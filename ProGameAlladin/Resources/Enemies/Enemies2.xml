@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="KnifeEnemy-Idle" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="8" y="157" w="48" h="80" oX="8" oY="157" oW="233" oH="662" />
+    <sprite x="438" y="151" w="51" h="86" oX="438" oY="151" oW="233" oH="662" />
+    <sprite x="127" y="156" w="38" h="81" oX="127" oY="156" oW="233" oH="662" />
+    <sprite x="179" y="160" w="50" h="77" oX="179" oY="160" oW="233" oH="662" />
+    <sprite x="240" y="160" w="64" h="77" oX="240" oY="160" oW="233" oH="662" />
+    <sprite x="314" y="170" w="55" h="67" oX="314" oY="170" oW="233" oH="662" />
+    <sprite x="376" y="158" w="56" h="79" oX="376" oY="158" oW="233" oH="662" />
+    <sprite x="67" y="152" w="46" h="85" oX="67" oY="152" oW="233" oH="662" />
+    <sprite x="502" y="156" w="62" h="81" oX="502" oY="156" oW="233" oH="662" />
+    <sprite x="568" y="159" w="47" h="78" oX="568" oY="159" oW="233" oH="662" />
+    <sprite x="628" y="160" w="61" h="77" oX="628" oY="160" oW="233" oH="662" />
+  </Animation>
+  <Animation name="Knife-Animation" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="599" y="272" w="40" h="20" oX="599" oY="272" oW="-443" oH="214" />
+    <sprite x="665" y="265" w="21" h="37" oX="665" oY="265" oW="-443" oH="214" />
+    <sprite x="709" y="280" w="40" h="12" oX="709" oY="280" oW="-443" oH="214" />
+    <sprite x="762" y="263" w="18" h="36" oX="762" oY="263" oW="-443" oH="214" />
+  </Animation>
+  <Animation name="HideEnemy-Idle" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="18" y="360" w="35" h="38" oX="18" oY="360" oW="397" oH="244" />
+  </Animation>
+  <Animation name="HideEnemy-InRange" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="18" y="360" w="35" h="38" oX="18" oY="360" oW="397" oH="244" />
+    <sprite x="60" y="366" w="39" h="31" oX="60" oY="366" oW="397" oH="244" />
+    <sprite x="109" y="335" w="32" h="63" oX="109" oY="335" oW="397" oH="244" />
+    <sprite x="147" y="349" w="33" h="48" oX="147" oY="349" oW="397" oH="244" />
+    <sprite x="186" y="350" w="37" h="45" oX="186" oY="350" oW="397" oH="244" />
+    <sprite x="226" y="350" w="37" h="45" oX="226" oY="350" oW="397" oH="244" />
+    <sprite x="147" y="349" w="34" h="0" oX="147" oY="349" oW="397" oH="244" />
+    <sprite x="18" y="360" w="36" h="0" oX="18" oY="360" oW="397" oH="244" />
+  </Animation>
+  <Animation name="HideEnemy-Attack" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="289" y="355" w="35" h="38" oX="289" oY="355" oW="102" oH="166" />
+    <sprite x="335" y="355" w="35" h="39" oX="335" oY="355" oW="102" oH="166" />
+    <sprite x="379" y="353" w="49" h="39" oX="379" oY="353" oW="102" oH="166" />
+    <sprite x="433" y="353" w="60" h="39" oX="433" oY="353" oW="102" oH="166" />
+  </Animation>
+  <Animation name="HideEnemy-Walk" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="20" y="428" w="52" h="45" oX="20" oY="428" oW="457" oH="605" />
+    <sprite x="79" y="423" w="44" h="45" oX="79" oY="423" oW="457" oH="605" />
+    <sprite x="126" y="417" w="43" h="50" oX="126" oY="417" oW="457" oH="605" />
+    <sprite x="174" y="416" w="38" h="50" oX="174" oY="416" oW="457" oH="605" />
+    <sprite x="217" y="415" w="38" h="50" oX="217" oY="415" oW="457" oH="605" />
+    <sprite x="263" y="417" w="38" h="48" oX="263" oY="417" oW="457" oH="605" />
+    <sprite x="307" y="415" w="54" h="45" oX="307" oY="415" oW="457" oH="605" />
+    <sprite x="370" y="414" w="43" h="47" oX="370" oY="414" oW="457" oH="605" />
+    <sprite x="422" y="409" w="43" h="51" oX="422" oY="409" oW="457" oH="605" />
+    <sprite x="470" y="407" w="38" h="52" oX="470" oY="407" oW="457" oH="605" />
+    <sprite x="517" y="406" w="38" h="52" oX="517" oY="406" oW="457" oH="605" />
+    <sprite x="566" y="409" w="38" h="49" oX="566" oY="409" oW="457" oH="605" />
+  </Animation>
+  <Animation name="WallEnemy-Attack" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="11" y="35" w="11" h="21" oX="11" oY="35" oW="-338" oH="383" />
+    <sprite x="42" y="32" w="17" h="24" oX="42" oY="32" oW="-338" oH="383" />
+    <sprite x="73" y="29" w="22" h="31" oX="73" oY="29" oW="-338" oH="383" />
+    <sprite x="107" y="29" w="29" h="30" oX="107" oY="29" oW="-338" oH="383" />
+    <sprite x="145" y="26" w="41" h="35" oX="145" oY="26" oW="-338" oH="383" />
+    <sprite x="194" y="26" w="41" h="40" oX="194" oY="26" oW="-338" oH="383" />
+    <sprite x="251" y="27" w="43" h="40" oX="251" oY="27" oW="-338" oH="383" />
+    <sprite x="306" y="31" w="25" h="21" oX="306" oY="31" oW="-338" oH="383" />
+    <sprite x="345" y="36" w="18" h="12" oX="345" oY="36" oW="-338" oH="383" />
+    <sprite x="382" y="37" w="8" h="5" oX="382" oY="37" oW="-338" oH="383" />
+  </Animation>
+  <Animation name="WallEnemy-Bullet" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="15" y="97" w="28" h="20" oX="15" oY="97" oW="110" oH="221" />
+    <sprite x="56" y="95" w="24" h="23" oX="56" oY="95" oW="110" oH="221" />
+    <sprite x="90" y="95" w="26" h="21" oX="90" oY="95" oW="110" oH="221" />
+    <sprite x="127" y="98" w="26" h="15" oX="127" oY="98" oW="110" oH="221" />
+    <sprite x="164" y="92" w="24" h="23" oX="164" oY="92" oW="110" oH="221" />
+    <sprite x="204" y="94" w="21" h="24" oX="204" oY="94" oW="110" oH="221" />
+  </Animation>
+  <Animation name="WallEnemy-BulletBroken" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="235" y="100" w="37" h="14" oX="235" oY="100" oW="-782" oH="724" />
+    <sprite x="292" y="94" w="67" h="21" oX="292" oY="94" oW="-782" oH="724" />
+    <sprite x="376" y="94" w="75" h="25" oX="376" oY="94" oW="-782" oH="724" />
+    <sprite x="472" y="88" w="85" h="33" oX="472" oY="88" oW="-782" oH="724" />
+    <sprite x="578" y="85" w="95" h="32" oX="578" oY="85" oW="-782" oH="724" />
+    <sprite x="695" y="83" w="95" h="35" oX="695" oY="83" oW="-782" oH="724" />
+    <sprite x="814" y="84" w="101" h="35" oX="814" oY="84" oW="-782" oH="724" />
+    <sprite x="954" y="81" w="101" h="29" oX="954" oY="81" oW="-782" oH="724" />
+  </Animation>
+</Animations>

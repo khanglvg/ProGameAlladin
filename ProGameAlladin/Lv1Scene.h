@@ -4,6 +4,8 @@
 #define __LV1SCENE_H_
 
 #include "Framework/Scene.h"
+#include "Framework/QuadTree.h"
+#include "Framework/GameMap.h"
 
 #include "Aladdin.h"
 
@@ -19,7 +21,15 @@ public:
 	void update() override;
 	void render() override;
 
+protected:
+	void checkVisibility();
+	vector<Node*> listVisible;
+	vector<Node*> staticobject;
+
 private:
+	GameMap* _gameMap;
+	QuadTree *mQuadTree;
+	Node* mAladdin;
 	
 };
 
