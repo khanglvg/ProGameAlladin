@@ -274,9 +274,13 @@
     <ClInclude Include="State\Brake.h" />
     <ClInclude Include="State\Climb.h" />
     <ClInclude Include="State\Fall.h" />
+    <ClInclude Include="State\Flip.h" />
+    <ClInclude Include="State\Grounding.h" />
     <ClInclude Include="State\HeadUp.h" />
     <ClInclude Include="State\HeadUpAndSlash.h" />
     <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\Idle2.h" />
+    <ClInclude Include="State\Idle3.h" />
     <ClInclude Include="State\IdleToLook.h" />
     <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
@@ -285,6 +289,7 @@
     <ClInclude Include="State\JumpAndThrow.h" />
     <ClInclude Include="State\JumpWhileClimb.h" />
     <ClInclude Include="State\Push.h" />
+    <ClInclude Include="State\Random.h" />
     <ClInclude Include="State\Run.h" />
     <ClInclude Include="State\RunAndJump.h" />
     <ClInclude Include="State\RunAndSlash.h" />
@@ -388,9 +393,13 @@
     <ClCompile Include="State\Brake.cpp" />
     <ClCompile Include="State\Climb.cpp" />
     <ClCompile Include="State\Fall.cpp" />
+    <ClCompile Include="State\Flip.cpp" />
+    <ClCompile Include="State\Grounding.cpp" />
     <ClCompile Include="State\HeadUp.cpp" />
     <ClCompile Include="State\HeadUpAndSlash.cpp" />
     <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\Idle2.cpp" />
+    <ClCompile Include="State\Idle3.cpp" />
     <ClCompile Include="State\IdleToLook.cpp" />
     <ClCompile Include="State\IdleWhenWing.cpp" />
     <ClCompile Include="State\Jump.cpp" />
@@ -399,6 +408,7 @@
     <ClCompile Include="State\JumpWhileClimb.cpp" />
     <ClCompile Include="State\IdleWhenClimb.cpp" />
     <ClCompile Include="State\Push.cpp" />
+    <ClCompile Include="State\Random.cpp" />
     <ClCompile Include="State\Run.cpp" />
     <ClCompile Include="State\RunAndJump.cpp" />
     <ClCompile Include="State\RunAndSlash.cpp" />

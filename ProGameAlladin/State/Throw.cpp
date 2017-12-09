@@ -47,10 +47,10 @@ State* Throw::checkTransition()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 
-	if(aladdin->getIndex() >= 5)
-	{
-		return new Idle(_node);
-	}
+	//if(aladdin->getIndex() >= 5)
+	//{
+	//	return new Idle(_node);
+	//}
 
 	return nullptr;
 }

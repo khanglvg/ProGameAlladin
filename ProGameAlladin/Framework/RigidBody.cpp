@@ -37,6 +37,20 @@ RigidBody::~RigidBody()
 	PhysicsManager::getIntance()->detachRigidbody(this);
 }
 
+const vector<string>& RigidBody::getCollidingBodies() const
+{
+	return _collidingBodies;
+}
+
+void RigidBody::setTag(const string& tag)
+{
+	_tag=tag;
+}
+string RigidBody::getTag() const
+{
+	return _tag;
+}
+
 
 #pragma region GET-SET
 Vec2 RigidBody::getPosition() const

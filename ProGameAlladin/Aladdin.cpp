@@ -47,7 +47,7 @@ Aladdin::~Aladdin()
 void Aladdin::init()
 {
 	_textureAla.setName("Aladdin.jpg");
-	_textureAla.setSrcFile("Resources/ala.png");
+	_textureAla.setSrcFile("Resources/texture3.png");
 	Graphics::getInstance()->loadTexture(_textureAla);
 }
 
@@ -61,10 +61,32 @@ void Aladdin::update()
 	 _position = _rigidAla->getPosition() - _rigidAla->getOffset();
 	OutputDebugString(std::to_string(_position.getY()).c_str());
 	_currentState->onUpdate();
+
+	if (_rigidAla->getCollidingBodies().size() == 0)
+	{
+		isOnTheGround = false;
+	}
+	else
+	{
+		auto const collider = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"ground" );
+
+
+
+		if (collider == _rigidAla->getCollidingBodies().end())
+		{
+			isOnTheGround = false;
+		}
+		else
+		{
+			isOnTheGround = true;
+
+		}
+	}
 	
 
-	State* newState = _currentState->checkTransition();
 
+	State* newState = _currentState->checkTransition();
+	
 	if (newState != nullptr)
 	{
 		_currentState->onExit();
@@ -72,6 +94,9 @@ void Aladdin::update()
 		_currentState = newState;
 		_currentState->onEnter();
 	}
+
+
+	
 }
 
 void Aladdin::render()
@@ -170,6 +195,11 @@ Rect Aladdin::getRect()
 	rect.setWidth(width);
 	rect.setHeight(height);
 	return rect;
+}
+
+bool Aladdin::getisOnTheGround() const
+{
+	return isOnTheGround;
 }
 
 void Aladdin::setIndex(const int& index)

@@ -70,8 +70,8 @@ State* Run::checkTransition()
 	if (Input::getInstance()->getKey(KEY_D))
 		return new RunAndJump(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->getPosition().getX() < aladdin->getXGround() - 82)
-		return new Push(_node);
+	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->getPosition().getX() < aladdin->getXGround() - 82)
+		return new Push(_node);*/
 	
 	return nullptr;
 }

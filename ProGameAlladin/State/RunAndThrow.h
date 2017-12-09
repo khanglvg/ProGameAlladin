@@ -12,6 +12,7 @@ public:
 	RunAndThrow(Node* node);
 	~RunAndThrow() override;
 	void onEnter() override;
+	void onUpdate() override;
 	State* checkTransition() override;
 
 };

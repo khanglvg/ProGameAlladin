@@ -44,7 +44,7 @@ public:
 	void setVelocity(const Vec2& velocity);
 
 	Rect getRect() override;
-	
+	bool getisOnTheGround() const;
 private:
 
 	Texture _textureAla;
@@ -61,6 +61,7 @@ private:
 	State* _currentState;
 
 	RigidBody* _rigidAla;
+	bool isOnTheGround;
 };
 
 NS_JK_END

@@ -6,6 +6,7 @@
 #include "HeadUp.h"
 #include "Sit.h"
 #include "Run.h"
+#include "Slash.h"
 US_NS_JK
 
 RunAndSlash::RunAndSlash(Node* node):State(node)
@@ -38,18 +39,18 @@ void RunAndSlash::onUpdate()
 	{
 		_state = RUN;
 	}
-	if (_state == RUN)
+	/*if (_state == RUN)
 	{
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 			aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2,aladdin->getPosition().getY()));
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2,aladdin->getPosition().getY()));
-	
-	}
+	}*/
 }
 
 State* RunAndSlash::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_D))
@@ -62,6 +63,11 @@ State* RunAndSlash::checkTransition()
 		return new Run(_node);
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 		return new Idle(_node);
+
+	//if (aladdin->getIndex() >= 5)
+	//{ 
+	//	return new Idle(_node);
+	//}
 
 
 	return nullptr;
