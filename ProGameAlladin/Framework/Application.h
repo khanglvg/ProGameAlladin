@@ -2,7 +2,7 @@
 #define __APPLICATION_H__
 
 #include "definitions.h"
-#include "Windows.h"
+#include "Camera.h"
 #include "Graphics.h"
 #include "Input.h"
 #include "GameManager.h"
@@ -19,7 +19,7 @@ public:
 
 	void initWindow();
 	void gameLoop();
-	void initComponents() const;
+	void initComponents();
 
 	// Mỗi frame sẽ chạy lại hàm processGame() 
 	void processGame();
@@ -27,6 +27,7 @@ public:
 	void updateGame();
 	void renderGraphics();
 	void updatePhysicsManager();
+	void updateCamera(Node *follow);
 
 	float getDeltaTime() const;
 
@@ -61,6 +62,7 @@ private:
 
 	float _deltaTime; // khoang cach giua vong lap trc va vong lap sau: current - last
 	Scene* _startScene;
+
 };
 NS_JK_END
 #endif __APPLICATION_H__

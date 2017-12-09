@@ -2,8 +2,9 @@
 
 US_NS_JK
 
-BackgroundLv1Scene::BackgroundLv1Scene()
+BackgroundLv1Scene::BackgroundLv1Scene(const string& srcFile)
 {
+	_srcFile = srcFile;
 }
 
 BackgroundLv1Scene::~BackgroundLv1Scene()
@@ -17,13 +18,13 @@ void BackgroundLv1Scene::release()
 
 void BackgroundLv1Scene::init()
 {
-	_textureBackground.setName("BackGround.jpg");
-	_textureBackground.setSrcFile("Resources/smallmarketBG.png");
+	_textureBackground.setName(_srcFile + ".jpg");
+	_textureBackground.setSrcFile(_srcFile);
 
 	Graphics::getInstance()->loadTexture(_textureBackground);
 }
 
 void BackgroundLv1Scene::render()
 {
-	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(225, 225, 255, 255), Rect(0, 0, 1429, 683), 0);
+	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, 4773, 689), 0);
 }

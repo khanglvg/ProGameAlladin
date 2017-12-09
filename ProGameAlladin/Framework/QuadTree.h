@@ -20,11 +20,15 @@ public:
 
     void insertObject(Node *object);
     
-    void getObjectsCollideAble(std::vector<Node*> &objectresult,Node *object); 
+    void getObjectsCollideAble(vector<Node*> &objectresult,Node *object); 
 
     void getAllObjects(std::vector<Node*> &objectresult);
 
     int getTotalObjects() const;
+
+	Rect getVisibilityArea(Node *object) const;
+
+	void getObjectsVisibility(vector<Node*> &objectresult, Rect visibleRect, int _level);
 
     Rect* Bound;
 
@@ -32,7 +36,7 @@ public:
 
 protected:
     QuadTree** _quadNodes;
-    std::vector<Node*> _listObject;
+    vector<Node*> _listObject;
 
     /*lay vi tri cua Entity 
     0: nam trong Node con goc trai tren

@@ -14,12 +14,12 @@ Application::Application(
 	const bool& isFullScreen,
 	Scene* startScene)
 {
-	_hInstance = hInstance;
-	_windowClassName = appName;
-	_width = width;
-	_height = height;
-	_isFullScreen = isFullScreen;
-	_startScene = startScene;
+	this->_hInstance = hInstance;
+	this->_windowClassName = appName;
+	this->_width = width;
+	this->_height = height;
+	this->_isFullScreen = isFullScreen;
+	this->_startScene = startScene;
 }
 
 
@@ -44,6 +44,7 @@ Application::~Application ( )
 	GameManager::getInstance()->release();
 	Graphics::getInstance()->release();
 	Input::getInstance()->release();
+	Camera::getInstance()->release();
 }
 
 void Application::processMessage()
@@ -172,7 +173,7 @@ void Application::gameLoop()
 	}
 }
 
-void Application::initComponents() const
+void Application::initComponents()
 {
 	// Graphics
 	Graphics* graphics = Graphics::getInstance();
@@ -196,6 +197,13 @@ void Application::initComponents() const
 	gameManager->setScreenWidth(_width);
 	gameManager->setScreenHeight(_height);
 	gameManager->init(_startScene);
+
+	// Camera
+	/*Camera *camera = Camera::getInstance();
+	if(camera)
+	{
+		camera->setTransform(graphics);
+	}*/
 }
 
 void Application::processGame()
@@ -209,8 +217,13 @@ void Application::processGame()
 	//update Physics
 	updatePhysicsManager();
 
+
+	//update Camera
+	updateCamera(Camera::getInstance()->nodeIsFollowing());
+
 	//render
 	renderGraphics();
+
 }
 
 void Application::updateInput()
@@ -225,15 +238,31 @@ void Application::updateGame()
 
 void Application::renderGraphics()
 {
+	
 	Graphics::getInstance()->beginRender();
 	//render running scene
 	GameManager::getInstance()->render();
+	
 	Graphics::getInstance()->endRender();
 }
 
 void Application::updatePhysicsManager()
 {
 	PhysicsManager::getIntance()->update();
+}
+
+void Application::updateCamera(Node *follow)
+{
+	Camera* camera = Camera::getInstance();
+	if(camera)
+	{
+		if(!camera->isFollowing())
+		{
+			camera->follow(follow);
+		}
+	}
+
+	camera->update();
 }
 
 float Application::getDeltaTime() const

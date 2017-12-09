@@ -1,27 +1,40 @@
 ﻿#include "Lv1Scene.h"
 #include "BackgroundLv1Scene.h"
 #include "Framework/Camera.h"
-#include "Ground.h"
-#include "Enemy.h"
+#include "GameObject/Ground/Ground.h"
+#include "GameObject/Enemies/Enemy.h"
 
 US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	_vectNode.push_back(new Aladdin());
+	Aladdin *ala = new Aladdin();
+	_vectNode.push_back(ala);
 	_vectNode.push_back(new BackgroundLv1Scene());
 	_vectNode.push_back(new Enemy());
-	_vectNode.push_back(new Camera(800,600));
 	_vectNode.push_back(new Ground());
+
+	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
+	Camera::getInstance()->follow(ala);
+	_vectNode.push_back(Camera::getInstance());
 }
+
+
 
 Lv1Scene::~Lv1Scene()
 {
+	_gameMap->~GameMap();
 }
 
 void Lv1Scene::init()
 {
+	_gameMap->init();
 	Scene::init();
+	//for (auto object : staticobject)
+	//{
+	//	object->init();
+	//	mQuadTree->insertObject(object);
+	//}
 }
 
 void Lv1Scene::release()
@@ -31,10 +44,24 @@ void Lv1Scene::release()
 
 void Lv1Scene::update()
 {
+	checkVisibility();
 	Scene::update();
+	_gameMap->update();
 }
 
 void Lv1Scene::render()
 {
+	_gameMap->draw();
 	Scene::render();
+	//for (auto object : listVisible)
+	//{
+	//	object->render();
+	//}
+}
+
+void Lv1Scene::checkVisibility()
+{
+	listVisible.clear();
+
+ 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
 }

@@ -70,21 +70,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\DirectX\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\DirectX\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\DirectX\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\DirectX\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <CallingConvention>StdCall</CallingConvention>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;d3dx9.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,7 +127,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aladdin.h" />
-    <ClInclude Include="Apple.h" />
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -201,7 +202,9 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\Enemy.h" />
     <ClInclude Include="Framework\Application.h" />
     <ClInclude Include="Framework\Camera.h" />
     <ClInclude Include="Framework\Color.h" />
@@ -219,8 +222,50 @@
     <ClInclude Include="Framework\Size.h" />
     <ClInclude Include="Framework\Texture.h" />
     <ClInclude Include="Framework\Vec2.h" />
-    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Framework\GameMap.h" />
+    <ClInclude Include="GameObject\Enemies\EnemyState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
+    <ClInclude Include="GameObject\GameObject.h" />
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
+    <ClInclude Include="GameObject\Ground\Ground.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
+    <ClInclude Include="GameObject\Items\Apple\Apple.h" />
+    <ClInclude Include="GameObject\Items\Camel\Camel.h" />
+    <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
+    <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="Lv1Scene.h" />
+    <ClInclude Include="MapReader\base64.h" />
+    <ClInclude Include="MapReader\tinyxml2.h" />
+    <ClInclude Include="MapReader\TmxEllipse.h" />
+    <ClInclude Include="MapReader\TmxImage.h" />
+    <ClInclude Include="MapReader\TmxImageLayer.h" />
+    <ClInclude Include="MapReader\TmxLayer.h" />
+    <ClInclude Include="MapReader\TmxMap.h" />
+    <ClInclude Include="MapReader\TmxMapTile.h" />
+    <ClInclude Include="MapReader\TmxObject.h" />
+    <ClInclude Include="MapReader\TmxObjectGroup.h" />
+    <ClInclude Include="MapReader\TmxPoint.h" />
+    <ClInclude Include="MapReader\TmxPolygon.h" />
+    <ClInclude Include="MapReader\TmxPolyline.h" />
+    <ClInclude Include="MapReader\TmxPropertySet.h" />
+    <ClInclude Include="MapReader\TmxTerrain.h" />
+    <ClInclude Include="MapReader\TmxTerrainArray.h" />
+    <ClInclude Include="MapReader\TmxTile.h" />
+    <ClInclude Include="MapReader\TmxTileLayer.h" />
+    <ClInclude Include="MapReader\TmxTileOffset.h" />
+    <ClInclude Include="MapReader\TmxTileset.h" />
+    <ClInclude Include="MapReader\TmxUtil.h" />
+    <ClInclude Include="MapReader\zconf.h" />
+    <ClInclude Include="MapReader\zlib.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
     <ClInclude Include="State\BeingAttacked.h" />
@@ -262,6 +307,8 @@
     <ClInclude Include="State\ThrowWhenWing.h" />
     <ClInclude Include="State\ThrowWhenClimb.h" />
     <ClInclude Include="State\Wing.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -272,12 +319,14 @@
     <None Include="DirectX\Include\xnamathmatrix.inl" />
     <None Include="DirectX\Include\xnamathmisc.inl" />
     <None Include="DirectX\Include\xnamathvector.inl" />
+    <None Include="MapReader\Tmx.h.in" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aladdin.cpp" />
-    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="BackgroundLv1Scene.cpp" />
-    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\Enemy.cpp" />
     <ClCompile Include="Framework\Application.cpp" />
     <ClCompile Include="Framework\Camera.cpp" />
     <ClCompile Include="Framework\Color.cpp" />
@@ -294,9 +343,49 @@
     <ClCompile Include="Framework\Size.cpp" />
     <ClCompile Include="Framework\Texture.cpp" />
     <ClCompile Include="Framework\Vec2.cpp" />
-    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Framework\GameMap.cpp" />
+    <ClCompile Include="GameObject\Enemies\EnemyState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\GameObject.cpp" />
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
+    <ClCompile Include="GameObject\Ground\Ground.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
+    <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MapReader\base64.cpp" />
+    <ClCompile Include="MapReader\miniz.c" />
+    <ClCompile Include="MapReader\tinyxml2.cpp" />
+    <ClCompile Include="MapReader\TmxEllipse.cpp" />
+    <ClCompile Include="MapReader\TmxImage.cpp" />
+    <ClCompile Include="MapReader\TmxImageLayer.cpp" />
+    <ClCompile Include="MapReader\TmxLayer.cpp" />
+    <ClCompile Include="MapReader\TmxMap.cpp" />
+    <ClCompile Include="MapReader\TmxObject.cpp" />
+    <ClCompile Include="MapReader\TmxObjectGroup.cpp" />
+    <ClCompile Include="MapReader\TmxPolygon.cpp" />
+    <ClCompile Include="MapReader\TmxPolyline.cpp" />
+    <ClCompile Include="MapReader\TmxPropertySet.cpp" />
+    <ClCompile Include="MapReader\TmxTerrain.cpp" />
+    <ClCompile Include="MapReader\TmxTerrainArray.cpp" />
+    <ClCompile Include="MapReader\TmxTile.cpp" />
+    <ClCompile Include="MapReader\TmxTileLayer.cpp" />
+    <ClCompile Include="MapReader\TmxTileOffset.cpp" />
+    <ClCompile Include="MapReader\TmxTileset.cpp" />
+    <ClCompile Include="MapReader\TmxUtil.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
     <ClCompile Include="State\BeingAttacked.cpp" />
     <ClCompile Include="State\BeingAttackedAndDie.cpp" />
@@ -336,6 +425,7 @@
     <ClCompile Include="State\ThrowWhenClimb.cpp" />
     <ClCompile Include="State\ThrowWhenWing.cpp" />
     <ClCompile Include="State\Wing.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -370,6 +460,9 @@
     <Xml Include="Resources\action2.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="Resources\Enemies\Camel.xml" />
+    <Xml Include="Resources\Enemies\Enemies.xml" />
+    <Xml Include="Resources\Enemies\Enemies2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />

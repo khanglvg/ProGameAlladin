@@ -6,19 +6,34 @@
 #include "Rect.h"
 #include "Node.h"
 
-NS_JK_BEGIN
 
-class Camera: public Node
+NS_JK_BEGIN
+	class Graphics;
+
+	class Camera: public Node
 {
 private:
-	// is Camera pause?
-	bool _isStop;
-
 	// width - height of Camera
 	float _width, _height;
 
-	float _startX;
-	float _startY;
+	// Node that the camera will follow is.
+	Node *_following;
+
+	// Matrix view the camare show.
+	D3DXMATRIX _viewMatrix;
+
+	//
+	D3DXMATRIX _identityMatrix;
+
+	//
+	D3DXMATRIX _orthographicMatrix;
+
+	//
+	Vec2 _scaleFactors;
+
+	float _angle;
+
+	static Camera *_instance;
 
 public: // SET-GET
 	float getWidth() const;
@@ -29,22 +44,31 @@ public: // SET-GET
 
 
 public:
-
-	Camera();
 	// Constructor
-	Camera(const float& width, const float& height);
+	Camera();
+	Camera(const float& width, const float& height, const float& angle, const Vec2& scaleFactors);
 
 	// virtual Destructor
 	virtual ~Camera();
+
+	static Camera* getInstance();
 
 	void update() override;
 
 	void release() override;
 
-	void stop();
+	void follow(Node *player);
 
-	// tạo ra ma trận biến hình (-x,-y)
-	//Matrix getTransformMatrix();  
+	Node* nodeIsFollowing() const;
+
+	bool isFollowing() const;
+
+	void unFollow();
+
+	void setTransform(Graphics *pDevice) const;
+
+	static D3DXMATRIX convertToDirectMatrix(const Matrix &matrix);
+
 };
 
 NS_JK_END

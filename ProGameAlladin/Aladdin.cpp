@@ -7,8 +7,10 @@ US_NS_JK
 
 Aladdin::Aladdin()
 {
-	_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
-	setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
+	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
+	_rigidAla = new RigidBody(Vec2(_startX, _startY), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(0, -25), Size(50, 50));
+	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
+	setPosition(_rigidAla->getPosition());
 
 #pragma region READ - XML
 	pugi::xml_document doc;
