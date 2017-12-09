@@ -10,6 +10,18 @@ Matrix::Matrix()
 								
 }
 
+Matrix::Matrix(const float& m11, const float& m12, const float& m13, const float& m14, 
+				const float& m21, const float& m22, const float& m23, const float& m24, 
+				const float& m31, const float& m32, const float& m33, const float& m34, 
+				const float& m41, const float& m42, const float& m43, const float& m44)
+{
+	_11 = m11; _12 = m12; _13 = m13; _14 = m14;
+	_21 = m21; _22 = m22; _23 = m23; _24 = m24;			
+	_31 = m31; _32 = m32; _33 = m33; _34 = m34;			
+	_41 = m41; _42 = m42; _43 = m43; _44 = m44;
+}
+
+
 Matrix::~Matrix()
 {
 }

@@ -8,11 +8,13 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	_vectNode.push_back(new Aladdin());
+	Aladdin *ala = new Aladdin();
+	_vectNode.push_back(ala);
 	_vectNode.push_back(new BackgroundLv1Scene());
 	_vectNode.push_back(new Enemy());
-	_vectNode.push_back(new Camera(800,600));
 	_vectNode.push_back(new Ground());
+	Camera::getInstance()->follow(ala);
+	_vectNode.push_back(Camera::getInstance());
 }
 
 Lv1Scene::~Lv1Scene()

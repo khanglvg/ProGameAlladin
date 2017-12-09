@@ -145,12 +145,19 @@ Graphics* Graphics::getInstance()
 
 void Graphics::beginRender()
 {
-	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x000000, 0.0f, 0) != D3D_OK)
+	if(_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0x000000, 1.0f, 0) != D3D_OK)
 	{
 		_pDevice->Present(0, 0, 0, 0);
 	}
 	_pDevice->BeginScene();
-	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT); // D3DXSPRITE_ALPHABLEND hỗ trợ vẽ trong suốt nếu không thì để giá trị NULL
+
+	if (Camera::getInstance())
+	{
+		Camera::getInstance()->setTransform(Graphics::getInstance());
+	}
+	// D3DXSPRITE_ALPHABLEND hỗ trợ vẽ trong suốt nếu không thì để giá trị NULL
+	// D3DXSPRITE_OBJECTSPACE is needed for the camera to work
+	_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_SORT_DEPTH_BACKTOFRONT | D3DXSPRITE_OBJECTSPACE);
 }
 
 void Graphics::endRender()
