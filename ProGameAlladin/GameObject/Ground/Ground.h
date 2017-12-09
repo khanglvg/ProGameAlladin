@@ -2,14 +2,15 @@
 
 #define __GROUND_H__
 
-#include "Framework/Node.h"
-#include "Framework/Texture.h"
-#include "Framework/Graphics.h"
-#include "Framework/RigidBody.h"
+#include "../../Framework/Node.h"
+#include "../../Framework/Texture.h"
+#include "../../Framework/Graphics.h"
+#include "../../Framework/RigidBody.h"
+#include "../GameObject.h"
 
 NS_JK_BEGIN
 
-class Ground : public Node
+class Ground : public GameObject
 {
 public:
 	Ground();

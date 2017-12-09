@@ -30,6 +30,51 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{401560a3-2122-4258-b09f-318daa0a7ede}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\MapReader">
+      <UniqueIdentifier>{a049369b-5f05-4abc-a11d-b38ad59bb4bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{ae65843d-3f32-4827-a190-f9a7d75107af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies">
+      <UniqueIdentifier>{e7215cfc-5ce5-48e5-986c-1edd65bd4928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\ThinEnemy">
+      <UniqueIdentifier>{37c4d3a3-30eb-4267-bfc5-dd80e022604b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Ground">
+      <UniqueIdentifier>{57c69c6a-3340-45d9-9ecd-577ba06dd0aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\BigEnemy">
+      <UniqueIdentifier>{31cc6f3d-e371-4043-88ae-d73651f350d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Items">
+      <UniqueIdentifier>{d6aadf76-4cdd-4417-8fb8-2ecfb54e64c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Items\Apple">
+      <UniqueIdentifier>{64686d27-b40a-4520-a621-719c626f9292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\FatEnemy">
+      <UniqueIdentifier>{6948532a-2298-481a-b1c2-58d85af885e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\KnifeEnemy">
+      <UniqueIdentifier>{840a5aa9-94be-4bb3-9e7c-1dcaa9470f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\HideEnemy">
+      <UniqueIdentifier>{e540a85b-89ed-4d32-86b2-d39a10f8e4bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Items\Camel">
+      <UniqueIdentifier>{db4e45c1-658f-4e53-9621-1423619b4339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Enemies\WallEnemy">
+      <UniqueIdentifier>{212dd958-5a7b-4e92-a107-9714bfe17c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Ground\FloatGround">
+      <UniqueIdentifier>{17ee4f90-dace-468b-89e8-e2ead3bbef44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Ground\SpringBoard">
+      <UniqueIdentifier>{33be7112-e33a-4b8d-ab17-160aae958b58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\Include\audiodefs.h">
@@ -416,20 +461,170 @@
     <ClInclude Include="Framework\Size.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="State\IdleToLook.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Framework\QuadTree.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="Apple.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="MapReader\tinyxml2.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxEllipse.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxImage.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxImageLayer.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxLayer.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxMap.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxMapTile.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxObject.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxObjectGroup.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPoint.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPolygon.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPolyline.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxPropertySet.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTerrain.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTerrainArray.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTile.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileLayer.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileOffset.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxTileset.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\TmxUtil.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\zconf.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\zlib.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader\base64.h">
+      <Filter>Framework\MapReader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h">
+      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\Enemy.h">
+      <Filter>GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\GameObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameMap.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\EnemyState.h">
+      <Filter>GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\BigEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h">
+      <Filter>GameObjects\Enemies\BigEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Items\Apple\Apple.h">
+      <Filter>GameObjects\Items\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\FatEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h">
+      <Filter>GameObjects\Enemies\FatEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\HideEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h">
+      <Filter>GameObjects\Enemies\HideEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h">
+      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Items\Camel\Camel.h">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Items\Camel\CamelState.h">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Ground\Ground.h">
+      <Filter>GameObjects\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h">
+      <Filter>GameObjects\Ground\FloatGround</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Flip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Grounding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Idle2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Idle3.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -455,6 +650,9 @@
       <Filter>DirectX\Include</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="MapReader\Tmx.h.in">
+      <Filter>Framework\MapReader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Application.cpp">
@@ -643,19 +841,160 @@
     <ClCompile Include="Framework\Size.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State\IdleToLook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Framework\QuadTree.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Apple.cpp">
+    <ClCompile Include="MapReader\miniz.c">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\tinyxml2.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxEllipse.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxImage.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxImageLayer.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxLayer.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxMap.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxObject.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxObjectGroup.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPolygon.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPolyline.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxPropertySet.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTerrain.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTerrainArray.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTile.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileLayer.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileOffset.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxTileset.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\TmxUtil.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="MapReader\base64.cpp">
+      <Filter>Framework\MapReader</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\Enemy.cpp">
+      <Filter>GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\GameObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameMap.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\EnemyState.cpp">
+      <Filter>GameObjects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp">
+      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\BigEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp">
+      <Filter>GameObjects\Enemies\BigEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Items\Apple\Apple.cpp">
+      <Filter>GameObjects\Items\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\FatEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp">
+      <Filter>GameObjects\Enemies\FatEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\HideEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp">
+      <Filter>GameObjects\Enemies\HideEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp">
+      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Items\Camel\Camel.cpp">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Items\Camel\CamelState.cpp">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp">
+      <Filter>GameObjects\Items\Camel</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Ground\Ground.cpp">
+      <Filter>GameObjects\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp">
+      <Filter>GameObjects\Ground\FloatGround</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp">
+      <Filter>GameObjects\Ground\SpringBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Flip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Grounding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Idle2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Idle3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -746,6 +1085,9 @@
     <Xml Include="Resources\action2.xml">
       <Filter>Resources</Filter>
     </Xml>
+    <Xml Include="Resources\Enemies\Enemies.xml" />
+    <Xml Include="Resources\Enemies\Camel.xml" />
+    <Xml Include="Resources\Enemies\Enemies2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\smallmarketBG.png">

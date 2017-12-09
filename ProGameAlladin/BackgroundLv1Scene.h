@@ -11,7 +11,7 @@ NS_JK_BEGIN
 class BackgroundLv1Scene: public Node
 {
 public:
-	BackgroundLv1Scene();
+	BackgroundLv1Scene(const string& srcFile);
 
 	~BackgroundLv1Scene();
 
@@ -22,6 +22,7 @@ public:
 	void render() override;
 
 private:
+	string _srcFile;
 	Texture _textureBackground;
 };
 

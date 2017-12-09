@@ -1,14 +1,15 @@
 ﻿#include "Ground.h"
-#include "Aladdin.h"
+#include "../../Aladdin.h"
 US_NS_JK
 
 Ground::Ground()
 {
-	_rigidGround = new RigidBody(Vec2(0, 0), Vec2(0,0), STATIC, 1 , 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(360, -405/2), Size(733, 405));
+	_rigidGround = new RigidBody(Vec2(0, 0), Vec2(0,0), STATIC, 1 , 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(360, -405/2), Size(7330, 405));
 	_rigidGround->setPosition(Vec2(300, SCREEN_HEIGHT + 405/2 - 50));
 	setPosition(Vec2(100, SCREEN_HEIGHT + 405 / 2 - 50));
+	_rigidGround->setTag("ground");
 }
-
+	
 Ground::~Ground()
 {
 }
@@ -28,6 +29,7 @@ void Ground::init()
 void Ground::update()
 {
 	_position = _rigidGround->getPosition() - _rigidGround->getOffset();
+
 
 }
 

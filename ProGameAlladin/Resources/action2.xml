@@ -142,7 +142,7 @@
     <sprite x="504" y="810" w="34" h="92" oX="504" oY="810" oW="888" oH="627" />
     <sprite x="564" y="812" w="34" h="92" oX="564" oY="812" oW="888" oH="627" />
   </Animation>
-  <Animation name="Unknown 1" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="Grounding" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="15" y="901" w="54" h="82" oX="15" oY="901" oW="1030" oH="984" />
     <sprite x="87" y="911" w="54" h="64" oX="87" oY="911" oW="1030" oH="984" />
     <sprite x="145" y="942" w="67" h="36" oX="145" oY="942" oW="1030" oH="984" />
@@ -171,7 +171,7 @@
     <sprite x="266" y="1070" w="82" h="59" oX="266" oY="1070" oW="1126" oH="397" />
     <sprite x="361" y="1087" w="58" h="54" oX="361" oY="1087" oW="1126" oH="397" />
   </Animation>
-  <Animation name="Front Flip" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="Flip" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="12" y="1154" w="49" h="53" oX="12" oY="1154" oW="1215" oH="457" />
     <sprite x="76" y="1162" w="37" h="31" oX="76" oY="1162" oW="1215" oH="457" />
     <sprite x="135" y="1160" w="35" h="33" oX="135" oY="1160" oW="1215" oH="457" />

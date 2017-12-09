@@ -12,6 +12,7 @@ public:
 	SitAndThrow(Node *node);
 	~SitAndThrow() override;
 	void onEnter() override;
+	void onUpdate() override;
 	State* checkTransition() override;
 
 };
