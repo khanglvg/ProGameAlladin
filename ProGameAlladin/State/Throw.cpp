@@ -4,6 +4,7 @@
 #include "Jump.h"
 #include "Run.h"
 #include "../Aladdin.h"
+#include "../AppleToThrow.h"
 
 US_NS_JK
 
@@ -28,6 +29,7 @@ void Throw::onEnter()
 		aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("Throw");
+	
 }
 
 void Throw::onExit()

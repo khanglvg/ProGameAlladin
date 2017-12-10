@@ -29,7 +29,7 @@ public:
 	//Vec2 getVelocity()const;
 	//void setVelocity(const Vec2& velocity);
 
-	virtual Rect getRect();
+	virtual Rect getRect() override;
 
 	std::map<string, vector<Rect>> _animations;
 

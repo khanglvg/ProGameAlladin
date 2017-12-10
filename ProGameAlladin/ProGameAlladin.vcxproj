@@ -127,6 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="AppleToThrow.h" />
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -323,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="AppleToThrow.cpp" />
     <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
@@ -466,8 +468,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />
+    <Image Include="Resources\apple.png" />
     <Image Include="Resources\ground.png" />
     <Image Include="Resources\market BG.png" />
+    <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
   </ItemGroup>

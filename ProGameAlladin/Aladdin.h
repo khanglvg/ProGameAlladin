@@ -7,8 +7,8 @@
 #include "Framework/Rect.h"
 #include "pugixml/pugixml.hpp"
 #include "State/State.h"
-#include "State/Idle.h"
 #include "Framework/RigidBody.h"
+#include "State/Idle.h"
 
 NS_JK_BEGIN
 
@@ -45,9 +45,12 @@ public:
 
 	Rect getRect() override;
 	bool getisOnTheGround() const;
+
+
 private:
 
 	Texture _textureAla;
+	Texture _textureRigid;
 	float _startX = SCREEN_WIDTH / 10;
 	float _startY = SCREEN_HEIGHT - 350;
 	float _max = SCREEN_HEIGHT - 120;
@@ -62,6 +65,7 @@ private:
 
 	RigidBody* _rigidAla;
 	bool isOnTheGround;
+
 };
 
 NS_JK_END

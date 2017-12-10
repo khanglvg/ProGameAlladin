@@ -7,8 +7,10 @@ US_NS_JK
 
 Aladdin::Aladdin()
 {
+	float size_x = 50;
+	float size_y = 50;
 	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
-	_rigidAla = new RigidBody(Vec2(_startX, _startY), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(0, -25), Size(50, 50));
+	_rigidAla = new RigidBody(Vec2(_startX, _startY), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/5, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 	setPosition(_rigidAla->getPosition());
 
@@ -49,6 +51,10 @@ void Aladdin::init()
 	_textureAla.setName("Aladdin.jpg");
 	_textureAla.setSrcFile("Resources/texture3.png");
 	Graphics::getInstance()->loadTexture(_textureAla);
+
+	_textureRigid.setName("AladdinRigid.png");
+	_textureRigid.setSrcFile("Resources/red_rect.png");
+	Graphics::getInstance()->loadTexture(_textureRigid);
 }
 
 void Aladdin::release()
@@ -112,6 +118,7 @@ void Aladdin::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(_rigidAla->getOffset().getX(), _rigidAla->getOffset().getY(), _rigidAla->getSize().getWidth(), _rigidAla->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)

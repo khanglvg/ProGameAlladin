@@ -1,8 +1,8 @@
 ﻿#include "Lv1Scene.h"
-#include "BackgroundLv1Scene.h"
 #include "Framework/Camera.h"
 #include "GameObject/Ground/Ground.h"
 #include "GameObject/Enemies/Enemy.h"
+#include "AppleToThrow.h"
 
 US_NS_JK
 
@@ -10,10 +10,12 @@ Lv1Scene::Lv1Scene()
 {
 	_vectNode.push_back(mAladdin);
 	_vectNode.push_back(new Ground());
+	_vectNode.push_back(new ThinEnemy());
+	//_vectNode.push_back(new AppleToThrow());
 
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
-	_vectNode.push_back(new ThinEnemy);
+
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
 }
 

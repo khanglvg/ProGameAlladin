@@ -1,7 +1,6 @@
 ﻿#include "Camera.h"
 #include "Graphics.h"
 #include "Input.h"
-
 US_NS_JK
 
 Camera* Camera::_instance = nullptr;
@@ -32,7 +31,7 @@ Camera* Camera::getInstance()
 {
 	if(_instance == nullptr)
 	{
-		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(2, 2));
+		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(2,2));
 	}
 	return _instance;
 }
@@ -45,13 +44,13 @@ void Camera::update()
 
 	if (this->_following && _isUp == false)
 	{
-		cameraX = this->_following->getPosition().getX();
-		cameraY = this->_following->getPosition().getY();
+		cameraX = this->_following->getPosition().getX() + 150;
+		cameraY = this->_following->getPosition().getY() - 70;
 	}
 	else if (this->_following && _isUp != false)
 	{
-		cameraX = this->_following->getPosition().getX();
-		cameraY = this->_following->getPosition().getY() - 100;
+		cameraX = this->_following->getPosition().getX() + 150;
+		cameraY = this->_following->getPosition().getY() - 70 - 50;
 	}
 
 

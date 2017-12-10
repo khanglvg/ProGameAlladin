@@ -617,14 +617,17 @@
     <ClInclude Include="State\Grounding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="State\Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="State\Idle2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="State\Idle3.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppleToThrow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Random.h">
+      <Filter>State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -988,14 +991,17 @@
     <ClCompile Include="State\Grounding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="State\Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State\Idle2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="State\Idle3.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppleToThrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Random.cpp">
+      <Filter>State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1101,6 +1107,12 @@
     </Image>
     <Image Include="Resources\texture3.png" />
     <Image Include="Resources\ground.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\red_rect.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\apple.png">
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>

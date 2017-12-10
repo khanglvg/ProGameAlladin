@@ -20,6 +20,9 @@ public:
 	void render() override;
 
 	Rect getRect() override;
+
+	RigidBody *_rigidThinEnemy;
+	Texture _textureThinEnemy;
 };
 
 NS_JK_END

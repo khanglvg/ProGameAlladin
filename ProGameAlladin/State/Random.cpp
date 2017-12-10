@@ -6,7 +6,7 @@ US_NS_JK
 Random*Random::_instance = nullptr;
 
 
-JaKa::Random* JaKa::Random::getInstance()
+Random* Random::getInstance()
 {
 	if (_instance == nullptr)
 	{
