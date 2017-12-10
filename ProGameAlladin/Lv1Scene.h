@@ -21,6 +21,7 @@ public:
 	void update() override;
 	void render() override;
 
+
 protected:
 	void checkVisibility();
 	vector<Node*> listVisible;

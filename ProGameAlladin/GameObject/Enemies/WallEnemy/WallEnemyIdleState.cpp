@@ -1,5 +1,5 @@
 #include "WallEnemyIdleState.h"
-#include "WallEnemy.h"
+#include "Wall1.h"
 
 US_NS_JK
 
@@ -9,7 +9,7 @@ WallEnemyIdleState::WallEnemyIdleState()
 
 WallEnemyIdleState::WallEnemyIdleState(Enemy * enemy) : EnemyState(enemy, EnemyState::StateName::Idle)
 {
-	auto wallEnemy = static_cast<WallEnemy*>(enemy);
+	auto wallEnemy = static_cast<Wall1*>(enemy);
 	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	aladdin->setScale(Vec2(-1, 1));
 

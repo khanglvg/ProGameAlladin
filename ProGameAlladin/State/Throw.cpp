@@ -29,6 +29,10 @@ void Throw::onEnter()
 		aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("Throw");
+
+	auto apple = new AppleToThrow();
+	apple->init();
+	apple->setVelocity(Vec2(20, 0));
 	
 }
 

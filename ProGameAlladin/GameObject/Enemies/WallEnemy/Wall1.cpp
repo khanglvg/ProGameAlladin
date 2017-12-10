@@ -1,22 +1,24 @@
-#include "WallEnemy.h"
+#include "Wall1.h"
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
 #include "../../Framework/PhysicsManager.h"
 
 US_NS_JK
 
-WallEnemy::WallEnemy()
+Wall1::Wall1()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
+	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
+	float size_x = 30;
+	float size_y = 470;
+	Vec2 wallPosition = Vec2(1480, 200);
+	_rigidWall = new RigidBody(wallPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 	setPosition(_startPosition);
 	setScale(Vec2(1, 1));
 
-	_currentState = new WallEnemyIdleState(this);
 }
 
-WallEnemy::WallEnemy(GameObject * player):Enemy(player)
+Wall1::Wall1(GameObject * player):Enemy(player)
 {
 
 //	_startPosition = Vec2(this->getPosition().getX(),this->getPosition().getY());
@@ -49,66 +51,36 @@ WallEnemy::WallEnemy(GameObject * player):Enemy(player)
 //	_currentState = new ThinEnemyIdleState(this);
 }
 
-WallEnemy::~WallEnemy()
+Wall1::~Wall1()
 {
 }
 
-void WallEnemy::init()
+void Wall1::init()
 {
-	_textureEnemy.setName("WallEnemy.jpg");
-	_textureEnemy.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Civilian Enemies.png");
-	Graphics::getInstance()->loadTexture(_textureEnemy);
+	_textureWallRigid.setName("Wall1.jpg");
+	_textureWallRigid.setSrcFile("Resources/red_rect.png");
+	Graphics::getInstance()->loadTexture(_textureWallRigid);
 }
 
-void WallEnemy::release()
+void Wall1::release()
 {
 	delete this;
 }
 
-void WallEnemy::update()
+void Wall1::update()
 {
-	//_position = _rigidAla->getPosition() - _rigidAla->getOffset();
-	_currentState->onUpdate();
+	_position = _rigidWall->getPosition() - _rigidWall->getOffset();
 
-	EnemyState* newState = _currentState->checkTransition();
-
-	if (newState != nullptr)
-	{
-		_currentState->onExit();
-		delete _currentState;
-		_currentState = newState;
-	}
 }
 
-void WallEnemy::render()
+void Wall1::render()
 {
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
+	Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
+		Rect(0,0, _rigidWall->getSize().getWidth(), _rigidWall->getSize().getHeight()), 1);
 
-	const auto rect = _animations[_actionName][_animationIndex];
-
-	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
-
-	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
-
-	if (_index <= expect)
-	{
-
-		Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
-		_index += GameManager::getInstance()->getDeltaTime();
-	}
-	else
-	{
-		_index = 0;
-		_animationIndex++;
-		if (_animationIndex == _animations[_actionName].size())
-			_animationIndex = 0;
-
-	}
 }
 
-Rect WallEnemy::getRect()
+Rect Wall1::getRect()
 {
 	auto width = _animations[_actionName][_animationIndex].getWidth();
 	auto height = _animations[_actionName][_animationIndex].getHeight();

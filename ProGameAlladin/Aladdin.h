@@ -51,7 +51,7 @@ private:
 
 	Texture _textureAla;
 	Texture _textureRigid;
-	float _startX = SCREEN_WIDTH / 10;
+	float _startX = 1500;
 	float _startY = SCREEN_HEIGHT - 350;
 	float _max = SCREEN_HEIGHT - 120;
 

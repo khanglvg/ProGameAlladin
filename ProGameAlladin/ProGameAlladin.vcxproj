@@ -231,7 +231,16 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
-    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall10.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall2.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall3.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall4.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall5.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall6.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall7.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall8.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall9.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall1.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
@@ -354,7 +363,16 @@
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp" />
-    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall10.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall2.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall3.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall4.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall5.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall6.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall7.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall8.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall9.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall1.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
@@ -469,6 +487,7 @@
   <ItemGroup>
     <Image Include="Resources\ala.png" />
     <Image Include="Resources\apple.png" />
+    <Image Include="Resources\apple1.png" />
     <Image Include="Resources\ground.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\red_rect.png" />

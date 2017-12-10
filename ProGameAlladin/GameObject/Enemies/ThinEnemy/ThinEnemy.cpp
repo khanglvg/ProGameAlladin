@@ -9,11 +9,11 @@ ThinEnemy::ThinEnemy()
 {
 	float _startX = SCREEN_WIDTH / 10;
 	float _startY = SCREEN_HEIGHT - 75;
-	float size_x = 20;
+	float size_x = 40;
 	float size_y = 55;
 	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
 	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), DYNAMIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
-	_rigidThinEnemy = new RigidBody(Vec2(_startX + 200, _startY), Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(size_x/5, -size_y /2), Size(size_x, size_y));
+	_rigidThinEnemy = new RigidBody(Vec2(_startX + 200, _startY), Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y /2), Size(size_x, size_y));
 	setPosition(_rigidThinEnemy->getPosition());
 
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
@@ -103,7 +103,7 @@ void ThinEnemy::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
-	Graphics::getInstance()->drawSprite(_textureThinEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(_rigidThinEnemy->getOffset().getX(), _rigidThinEnemy->getOffset().getY(), _rigidThinEnemy->getSize().getWidth(), _rigidThinEnemy->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureThinEnemy, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidThinEnemy->getSize().getWidth(), _rigidThinEnemy->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)

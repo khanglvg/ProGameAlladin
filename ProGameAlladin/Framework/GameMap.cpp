@@ -119,9 +119,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 
 				_listEnemies.push_back(enemy);
 			}
-			if (objectGroup->GetName() == "WallEnemy")
+			if (objectGroup->GetName() == "Wall1")
 			{
-				Enemy *enemy = new WallEnemy();
+				Enemy *enemy = new Wall1();
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
