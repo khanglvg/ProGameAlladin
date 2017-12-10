@@ -8,15 +8,14 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	Aladdin *ala = new Aladdin();
-	_vectNode.push_back(ala);
-	_vectNode.push_back(new BackgroundLv1Scene());
+	
+	_vectNode.push_back(mAladdin);
 	_vectNode.push_back(new Enemy());
 	_vectNode.push_back(new Ground());
+	Camera::getInstance()->follow(mAladdin);
+	_vectNode.push_back(Camera::getInstance());
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
-	Camera::getInstance()->follow(ala);
-	_vectNode.push_back(Camera::getInstance());
 }
 
 

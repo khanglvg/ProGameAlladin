@@ -29,7 +29,7 @@ protected:
 private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
-	Node* mAladdin;
+	Node* mAladdin = new Aladdin();
 	
 };
 
