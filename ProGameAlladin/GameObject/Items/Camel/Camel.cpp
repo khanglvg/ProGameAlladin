@@ -6,8 +6,11 @@ US_NS_JK
 
 Camel::Camel()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	setPosition(_startPosition);
+	
+}
+
+Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position, size, tag)
+{
 	setScale(Vec2(1, 1));
 
 #pragma region READ - XML
@@ -35,10 +38,6 @@ Camel::Camel()
 	_currentState = new CamelIdleState(this);
 }
 
-Camel::Camel(GameObject * target) : GameObject(GameObject::GameObjectType::Camels)
-{
-
-}
 
 Camel::~Camel()
 {

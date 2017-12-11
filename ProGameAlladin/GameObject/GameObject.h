@@ -2,6 +2,8 @@
 #define __GAMEOBJECT_H__
 
 #include "../Framework/Node.h"
+#include "../Framework/Texture.h"
+#include "../Framework/RigidBody.h"
 
 NS_JK_BEGIN
 class GameObject:public Node
@@ -10,6 +12,7 @@ public:
 
 	enum GameObjectType
 	{
+<<<<<<< HEAD
 		None, 
 		Players, 
 		Enemies, 
@@ -23,25 +26,42 @@ public:
 		Springboard, 
 		Camels,
 		FireGround
+=======
+		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	};
 
-	GameObject(GameObjectType tag = None);
+	GameObject();
+	GameObject(const Vec2& position, const Size& size, GameObjectType tag = NONE);
 	~GameObject();
 
-	//Getter, setter
-	int getWidth();
-	virtual void setWidth(int width);
+	void update() override;
+	void init() override; 
+	void render() override;
+	void release() override;
 
-	int getHeight();
-	virtual void setHeight(int height);
 
-	GameObject::GameObjectType getTag();
+#pragma region GET-SET
+	virtual Size getSize() const;
+	virtual Vec2 getRigidPosition() const;
 
-	bool isVisible();
+	virtual void setSize(const Size& size);
+	virtual void setRigidPosition(const Vec2& position);
 
-private:
+	GameObject::GameObjectType getTag() const;
+#pragma endregion
+
+	bool isVisible() const;
+
+protected:
 	GameObjectType _tag;
-	int _width, _height;
+
+	Size _size;
+	Vec2 _rigidPosition;
+
+	Texture _textureRigid;
+	RigidBody* _rigid;
+
 
 	bool _isVisible;
 };

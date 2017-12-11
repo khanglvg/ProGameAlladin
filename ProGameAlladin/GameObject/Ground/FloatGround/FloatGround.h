@@ -13,20 +13,19 @@ class FloatGround : public GameObject
 {
 public:
 	FloatGround();//not use
-	FloatGround(GameObject * target);
+	FloatGround(const Vec2& position, const Size& size, const GameObjectType& tag);
 
 	~FloatGround() override;
 
-	void init();
-	void release();
-	void update();
-	void render();
+	void init() override;
+	void release() override;
+	void update() override;
+	void render() override;
 
-	Rect getRect();
+	Rect getRect() override;
 
 protected:
 	Texture _textureFloatGround;
-	Vec2 _startPosition;
 
 	string _actionName;
 	float _index = 0;

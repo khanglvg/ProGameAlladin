@@ -5,40 +5,38 @@
 US_NS_JK
 
 SpringBoard::SpringBoard()
+{	
+}
+
+SpringBoard::SpringBoard(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position,size,tag)
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	setPosition(_startPosition);
 	setScale(Vec2(1, 1));
 
-//#pragma region READ - XML
-//	pugi::xml_document doc;
-//	const auto result = doc.load_file("Resources/Items/Camel.xml");
-//
-//	if (result)
-//	{
-//		for (auto animation : doc.child("Animations").children())
-//		{
-//			const pugi::char_t* name = animation.attribute("name").value();
-//			vector<Rect> rects;
-//
-//			for (auto rect : animation.children())
-//			{
-//				rects.push_back(Rect(rect.attribute("x").as_float(),
-//					rect.attribute("y").as_float(),
-//					rect.attribute("w").as_float(),
-//					rect.attribute("h").as_float()));
-//			}
-//			_animations.emplace(name, rects);
-//		}
-//	}
-//
-//	_currentState = new SpringBoardIdleState(this);
+	//#pragma region READ - XML
+	//	pugi::xml_document doc;
+	//	const auto result = doc.load_file("Resources/Items/Camel.xml");
+	//
+	//	if (result)
+	//	{
+	//		for (auto animation : doc.child("Animations").children())
+	//		{
+	//			const pugi::char_t* name = animation.attribute("name").value();
+	//			vector<Rect> rects;
+	//
+	//			for (auto rect : animation.children())
+	//			{
+	//				rects.push_back(Rect(rect.attribute("x").as_float(),
+	//					rect.attribute("y").as_float(),
+	//					rect.attribute("w").as_float(),
+	//					rect.attribute("h").as_float()));
+	//			}
+	//			_animations.emplace(name, rects);
+	//		}
+	//	}
+	//
+	//	_currentState = new SpringBoardIdleState(this);
 }
 
-SpringBoard::SpringBoard(GameObject * target) : GameObject(GameObject::GameObjectType::Springboard)
-{
-
-}
 
 SpringBoard::~SpringBoard()
 {
@@ -100,7 +98,7 @@ void SpringBoard::render()
 	//}
 }
 
-void SpringBoard::setActionName(string actionName)
+void SpringBoard::setActionName(const string actionName)
 {
 	_actionName = actionName;
 }
@@ -112,8 +110,8 @@ string SpringBoard::getActionName() const
 
 Rect SpringBoard::getRect()
 {
-	auto width = _animations[_actionName][_animationIndex].getWidth();
-	auto height = _animations[_actionName][_animationIndex].getHeight();
+	const auto width = _animations[_actionName][_animationIndex].getWidth();
+	const auto height = _animations[_actionName][_animationIndex].getHeight();
 
 	Rect rect;
 	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());

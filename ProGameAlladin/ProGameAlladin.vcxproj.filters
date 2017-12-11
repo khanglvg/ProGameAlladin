@@ -75,6 +75,9 @@
     <Filter Include="GameObjects\Ground\SpringBoard">
       <UniqueIdentifier>{33be7112-e33a-4b8d-ab17-160aae958b58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects\Wall">
+      <UniqueIdentifier>{307f1ed8-c573-4d98-bc3a-064bb8cb7172}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\Include\audiodefs.h">
@@ -587,9 +590,6 @@
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h">
       <Filter>GameObjects\Items\Camel</Filter>
     </ClInclude>
@@ -614,15 +614,13 @@
     <ClInclude Include="State\Grounding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="State\Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="State\Idle2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="State\Idle3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -634,6 +632,19 @@
     </ClInclude>
     <ClInclude Include="GameObject\Aladdin.h">
       <Filter>Source Files</Filter>
+=======
+    <ClInclude Include="AppleToThrow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State\Random.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Wall\Wall.h">
+      <Filter>GameObjects\Wall</Filter>
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -967,9 +978,6 @@
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp">
       <Filter>GameObjects\Items\Camel</Filter>
     </ClCompile>
@@ -994,15 +1002,13 @@
     <ClCompile Include="State\Grounding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="State\Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State\Idle2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="State\Idle3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1014,6 +1020,19 @@
     </ClCompile>
     <ClCompile Include="GameObject\Aladdin.cpp">
       <Filter>Source Files</Filter>
+=======
+    <ClCompile Include="AppleToThrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State\Random.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
+      <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Wall\Wall.cpp">
+      <Filter>GameObjects\Wall</Filter>
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1119,6 +1138,15 @@
     </Image>
     <Image Include="Resources\texture3.png" />
     <Image Include="Resources\ground.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\red_rect.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\apple.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\apple1.png">
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>

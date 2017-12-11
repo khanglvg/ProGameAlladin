@@ -74,8 +74,8 @@
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\DirectX\Include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\DirectX\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -126,7 +126,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="GameObject\Aladdin.h" />
+=======
+    <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="AppleToThrow.h" />
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -245,6 +250,7 @@
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
+    <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -325,7 +331,12 @@
     <None Include="MapReader\Tmx.h.in" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="GameObject\Aladdin.cpp" />
+=======
+    <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="AppleToThrow.cpp" />
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
@@ -370,6 +381,7 @@
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
+    <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -472,8 +484,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />
+    <Image Include="Resources\apple.png" />
+    <Image Include="Resources\apple1.png" />
     <Image Include="Resources\ground.png" />
     <Image Include="Resources\market BG.png" />
+    <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
   </ItemGroup>

@@ -21,6 +21,7 @@ public:
 	void update() override;
 	void render() override;
 
+
 protected:
 	void checkVisibility();
 	vector<Node*> listVisible;
@@ -29,7 +30,11 @@ protected:
 private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
+<<<<<<< HEAD
 	GameObject* mAladdin;
+=======
+	Node* mAladdin = new Aladdin();
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	
 };
 

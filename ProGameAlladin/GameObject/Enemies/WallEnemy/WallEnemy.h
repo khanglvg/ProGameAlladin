@@ -11,7 +11,7 @@ class WallEnemy : public Enemy
 {
 public:
 	WallEnemy();
-	WallEnemy(GameObject * player);
+	WallEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject * player);
 	~WallEnemy();
 
 	void init() override;
@@ -20,6 +20,9 @@ public:
 	void render() override;
 
 	Rect getRect() override;
+private:
+
+	Texture _textureWallRigid;
 };
 
 NS_JK_END

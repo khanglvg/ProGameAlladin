@@ -1,6 +1,6 @@
 ﻿#include "Camera.h"
 #include "Graphics.h"
-
+#include "Input.h"
 US_NS_JK
 
 Camera* Camera::_instance = nullptr;
@@ -19,6 +19,8 @@ Camera::Camera(const float& width, const float& height, const float& angle, cons
 	D3DXMatrixOrthoLH(&_orthographicMatrix, width, -height, 0.0f, 1.0f);
 
 	D3DXMatrixIdentity(&_identityMatrix);
+
+	_isUp = false;
 }
 
 Camera::~Camera()
@@ -29,7 +31,11 @@ Camera* Camera::getInstance()
 {
 	if(_instance == nullptr)
 	{
+<<<<<<< HEAD
 		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(1, 1));
+=======
+		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(0.8,0.8));
+>>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	}
 	return _instance;
 }
@@ -40,10 +46,15 @@ void Camera::update()
 	int cameraX = this->_width / 2;
 	int cameraY = this->_height / 2;
 
-	if (this->_following)
+	if (this->_following && _isUp == false)
 	{
-		cameraX = this->_following->getPosition().getX();
-		cameraY = this->_following->getPosition().getY();
+		cameraX = this->_following->getPosition().getX() + 150;
+		cameraY = this->_following->getPosition().getY() - 70 - 150;
+	}
+	else if (this->_following && _isUp != false)
+	{
+		cameraX = this->_following->getPosition().getX() + 150;
+		cameraY = this->_following->getPosition().getY() - 70 - 50;
 	}
 
 
@@ -117,6 +128,16 @@ void Camera::setHeight(const float& height)
 {
 	_height = height;
 }
+
+bool Camera::isUp() const
+{
+	return _isUp;
+}
+
+void Camera::setUp(const bool& isUp)
+{
+	_isUp = isUp;
+}
 #pragma endregion 
 
 
@@ -146,5 +167,18 @@ D3DXMATRIX Camera::convertToDirectMatrix(const Matrix &matrix)
 	d3DxMatrix._44 = matrix.get44();
 
 	return d3DxMatrix;
+}
+
+Rect Camera::getRect()
+{
+	int cameraX = this->_width / 2;
+	int cameraY = this->_height / 2;
+
+	if (this->_following)
+	{
+		cameraX = this->_following->getPosition().getX();
+		cameraY = this->_following->getPosition().getY();
+	}
+	return Rect(cameraX, cameraY, getWidth(), getHeight());
 }
 

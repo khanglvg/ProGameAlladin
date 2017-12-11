@@ -15,25 +15,24 @@ class SpringBoard : public GameObject
 {
 public:
 	SpringBoard();//not use
-	SpringBoard(GameObject * target);
+	SpringBoard(const Vec2& position, const Size& size, const GameObjectType& tag);
 
 	~SpringBoard() override;
 
-	void init();
-	void release();
-	void update();
-	void render();
+	void init()override;
+	void release()override;
+	void update()override;
+	void render()override;
 
 	void setActionName(string);
 	string getActionName() const;
 
-	Rect getRect();
+	Rect getRect()override;
 
 	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureSpringBoard;
-	Vec2 _startPosition;
 
 	int _animationIndex = 0;
 	string _actionName;
