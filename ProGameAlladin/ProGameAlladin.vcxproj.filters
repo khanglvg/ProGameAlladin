@@ -75,6 +75,9 @@
     <Filter Include="GameObjects\Ground\SpringBoard">
       <UniqueIdentifier>{33be7112-e33a-4b8d-ab17-160aae958b58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObjects\Wall">
+      <UniqueIdentifier>{307f1ed8-c573-4d98-bc3a-064bb8cb7172}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX\Include\audiodefs.h">
@@ -629,6 +632,9 @@
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\Wall.h">
+      <Filter>GameObjects\Wall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -1002,6 +1008,9 @@
     </ClCompile>
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Wall.cpp">
+      <Filter>GameObjects\Wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
