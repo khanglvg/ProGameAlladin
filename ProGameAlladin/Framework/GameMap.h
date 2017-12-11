@@ -38,6 +38,8 @@ private:
 	std::vector<FloatGround*> _listFloatGrounds;
 	std::vector<SpringBoard*> _listSpringboards;
 	std::vector<GameObject*> _listGround;
+	std::vector<GameObject*> _listStairGround;
+	
 public:
 	GameMap();
 	//use QuadTree* &quadTree because quadTree is init in this function

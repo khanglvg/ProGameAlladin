@@ -11,7 +11,7 @@ class ThinEnemy : public Enemy
 {
 public:
 	ThinEnemy();
-	ThinEnemy(GameObject * player);
+	ThinEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
 	~ThinEnemy();
 
 	void init() override;
@@ -21,7 +21,6 @@ public:
 
 	Rect getRect() override;
 
-	RigidBody *_rigidThinEnemy;
 	Texture _textureThinEnemy;
 };
 

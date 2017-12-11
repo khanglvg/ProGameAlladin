@@ -11,7 +11,7 @@ class KnifeEnemy : public Enemy
 {
 public:
 	KnifeEnemy();
-	KnifeEnemy(GameObject * player);
+	KnifeEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
 	~KnifeEnemy();
 
 	void init() override;

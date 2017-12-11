@@ -137,10 +137,16 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				GameObject *gameObject = new GameObject(object->GetWidth(), object->GetHeight(),Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()),GameObject::GameObjectType::Ground);
+				auto *gameObject = new GameObject(object->GetWidth(), object->GetHeight(),Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()),GameObject::GameObjectType::Ground);
 		
-
-				_listGround.push_back(gameObject);
+				if(object->GetName() == "StairGround")
+				{
+					_listStairGround.push_back(gameObject);
+				}
+				else
+				{
+					_listGround.push_back(gameObject);
+				}
 				_quadTree->insertObject(gameObject);
 			}
 

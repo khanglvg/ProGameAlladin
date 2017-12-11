@@ -11,7 +11,7 @@ class FatEnemy : public Enemy
 {
 public:
 	FatEnemy();
-	FatEnemy(GameObject * player);
+	FatEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
 	~FatEnemy();
 
 	void init() override;
