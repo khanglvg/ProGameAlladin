@@ -243,7 +243,7 @@
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
-    <ClInclude Include="GameObject\Wall.h" />
+    <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -313,6 +313,7 @@
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\Khang Le\Documents\Wall_Position_and_Size.docx" />
     <None Include="ClassDiagram.cd" />
     <None Include="DirectX\Include\D3DX10math.inl" />
     <None Include="DirectX\Include\d3dx9math.inl" />
@@ -367,7 +368,7 @@
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
-    <ClCompile Include="GameObject\Wall.cpp" />
+    <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />

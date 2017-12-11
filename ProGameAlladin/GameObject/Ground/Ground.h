@@ -15,6 +15,8 @@ class Ground : public GameObject
 public:
 	Ground();
 
+	Ground(const float& sizeX, const float& sizeY, const Vec2& rigidPosition);
+
 	~Ground();
 
 	void release() override;

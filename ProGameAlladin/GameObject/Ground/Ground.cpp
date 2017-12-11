@@ -9,7 +9,14 @@ Ground::Ground()
 	setPosition(Vec2(100, SCREEN_HEIGHT + 405 / 2 - 50));
 	_rigidGround->setTag("ground");
 }
-	
+
+Ground::Ground(const float& sizeX, const float& sizeY, const Vec2& rigidPosition)
+{
+	_rigidGround = new RigidBody(rigidPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(sizeX/2, -sizeY / 2), Size(sizeX, sizeY));
+	setPosition(_rigidGround->getPosition() - _rigidGround->getOffset());
+	_rigidGround->setTag("ground");
+}
+
 Ground::~Ground()
 {
 }
@@ -35,5 +42,6 @@ void Ground::update()
 
 void Ground::render()
 {
-	Graphics::getInstance()->drawSprite(_textureGround, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0,0,7330,405) , 1);
+	Graphics::getInstance()->drawSprite(_textureGround, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
+		Rect(0,0, _rigidGround->getSize().getWidth(), _rigidGround->getSize().getHeight()) , 1);
 }

@@ -632,7 +632,7 @@
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Wall.h">
+    <ClInclude Include="GameObject\Wall\Wall.h">
       <Filter>GameObjects\Wall</Filter>
     </ClInclude>
   </ItemGroup>
@@ -661,6 +661,9 @@
     <None Include="ClassDiagram.cd" />
     <None Include="MapReader\Tmx.h.in">
       <Filter>Framework\MapReader</Filter>
+    </None>
+    <None Include="C:\Users\Khang Le\Documents\Wall_Position_and_Size.docx">
+      <Filter>GameObjects\Wall</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1009,7 +1012,7 @@
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Wall.cpp">
+    <ClCompile Include="GameObject\Wall\Wall.cpp">
       <Filter>GameObjects\Wall</Filter>
     </ClCompile>
   </ItemGroup>

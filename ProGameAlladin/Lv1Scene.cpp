@@ -14,7 +14,7 @@ Lv1Scene::Lv1Scene()
 	_vectNode.push_back(new ThinEnemy());
 	_vectNode.push_back(new AppleToThrow());
 
-	const auto wall_0 = new Wall(30,350,Vec2(0, 340));
+	const auto wall_0 = new Wall(30,600,Vec2(0, 340));
 	const auto wall_1 = new Wall(30,470,Vec2(1480, 200));
 	const auto wall_2 = new Wall(30, 390, Vec2(2240, 500));
 	const auto wall_3 = new Wall(30, 230, Vec2(2640, 290));
