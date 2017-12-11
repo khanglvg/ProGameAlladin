@@ -12,11 +12,11 @@ public:
 
 	enum GameObjectType
 	{
-		None, Players, Enemies, Apple, Weapons, AppleWeapon, Ground, Rope, HorizontalBar, FloatGround, Springboard, Camels
+		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS
 	};
 
 	GameObject();
-	GameObject(const Vec2& position, const Size& size, GameObjectType tag = None);
+	GameObject(const Vec2& position, const Size& size, GameObjectType tag = NONE);
 	~GameObject();
 
 	void update() override;

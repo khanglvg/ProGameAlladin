@@ -41,7 +41,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init apple
 			if (objectGroup->GetName() == "Apple")
 			{
-				Apple *apple = new Apple(object->GetWidth(), object->GetHeight(), Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto apple = new Apple(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
 				_listApples.push_back(apple);
 
 				//_quadTree->insertObject(apple);
@@ -50,7 +50,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
 			{
-				FloatGround *floatGround = new FloatGround();
+				auto *floatGround = new FloatGround(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND);
 				floatGround->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listFloatGrounds.push_back(floatGround);
@@ -61,7 +61,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init Springboard
 			if (objectGroup->GetName() == "Springboard")
 			{
-				SpringBoard *springBoard = new SpringBoard();
+				auto *springBoard = new SpringBoard(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::SPRINGBOARD);
 				springBoard->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listSpringboards.push_back(springBoard);
@@ -72,21 +72,21 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init Enemies
 			if (objectGroup->GetName() == "Enemy_1")
 			{
-				Enemy *enemy = new ThinEnemy();
+				auto enemy = new ThinEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")
 			{
-				Enemy *enemy = new BigEnemy();
+				auto enemy = new BigEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
 			{
-				Enemy *enemy = new FatEnemy();
+				auto enemy = new FatEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
@@ -94,7 +94,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			}
 			if (objectGroup->GetName() == "Enemy_4_Left")
 			{
-				Enemy *enemy = new KnifeEnemy();
+				auto enemy = new KnifeEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 				enemy->setScale(Vec2(-1, 1));
 
@@ -102,7 +102,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			}
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
-				Enemy *enemy = new KnifeEnemy();
+				auto enemy = new KnifeEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 				enemy->setScale(Vec2(1, 1));
 
@@ -110,14 +110,14 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			}
 			if (objectGroup->GetName() == "Enemy_5")
 			{
-				Enemy *enemy = new HideEnemy();
+				auto enemy = new HideEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
-				Enemy *enemy = new WallEnemy();
+				auto enemy = new WallEnemy(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
@@ -126,7 +126,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//camel
 			if (objectGroup->GetName() == "Camel")
 			{
-				Camel *camel = new Camel();
+				auto camel = new Camel(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
 				camel->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listCamels.push_back(camel);
@@ -137,7 +137,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				auto *gameObject = new GameObject(object->GetWidth(), object->GetHeight(),Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()),GameObject::GameObjectType::Ground);
+				auto *gameObject = new GameObject(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
 		
 				if(object->GetName() == "StairGround")
 				{
