@@ -9,25 +9,21 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-<<<<<<< HEAD
 	mAladdin = new Aladdin();
 	_vectNode.push_back(mAladdin);
 	/*_vectNode.push_back(new BackgroundLv1Scene());
 	_vectNode.push_back(new Enemy());*/
-	FloatGround* enemy = new FloatGround();
-	enemy->setPosition(Vec2(SCREEN_WIDTH +200, SCREEN_HEIGHT -50));
-	enemy->getRect();
-=======
-	_vectNode.push_back(mAladdin);
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
-	_vectNode.push_back(new Ground());
-	_vectNode.push_back(new ThinEnemy());
-	_vectNode.push_back(new AppleToThrow());
+	//FloatGround* enemy = new FloatGround();
+	//enemy->setPosition(Vec2(SCREEN_WIDTH +200, SCREEN_HEIGHT -50));
+	//enemy->getRect();
 
-<<<<<<< HEAD
+	/*_vectNode.push_back(new Ground());
+	_vectNode.push_back(new ThinEnemy());
+	_vectNode.push_back(new AppleToThrow());*/
+
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
-=======
-	const auto wall_0 = new Wall(30,600,Vec2(0, 340));
+
+	/*const auto wall_0 = new Wall(30,600,Vec2(0, 340));
 	const auto wall_1 = new Wall(30,470,Vec2(1480, 200));
 	const auto wall_2 = new Wall(30, 390, Vec2(2240, 500));
 	const auto wall_3 = new Wall(30, 230, Vec2(2640, 290));
@@ -49,14 +45,10 @@ Lv1Scene::Lv1Scene()
 	_vectNode.push_back(wall_7);
 	_vectNode.push_back(wall_8);
 	_vectNode.push_back(wall_9);
-	_vectNode.push_back(wall_10);
+	_vectNode.push_back(wall_10);*/
 
-
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
-
-	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
 
 	for (auto ground : _gameMap->getListGround())
 	{

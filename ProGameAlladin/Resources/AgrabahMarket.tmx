@@ -164,11 +164,11 @@
   <object id="179" gid="5" x="3458.25" y="182" width="43" height="18"/>
   <object id="180" gid="5" x="4228.67" y="136" width="43" height="18"/>
  </objectgroup>
- <objectgroup name="Enemy_1" visible="0">
+ <objectgroup name="Enemy_1">
   <object id="186" gid="6" x="681.5" y="634" width="44" height="58"/>
   <object id="187" gid="7" x="2706" y="406" width="44" height="58"/>
  </objectgroup>
- <objectgroup name="Enemy_2" visible="0">
+ <objectgroup name="Enemy_2">
   <object id="188" gid="8" x="950.333" y="634.667" width="55" height="52"/>
   <object id="189" gid="8" x="1699" y="278" width="55" height="52"/>
   <object id="190" gid="8" x="3238.33" y="662.917" width="55" height="52"/>
@@ -178,7 +178,7 @@
   <object id="196" gid="8" x="4428.33" y="214.667" width="55" height="52"/>
   <object id="193" gid="9" x="3679.67" y="485.333" width="55" height="52"/>
  </objectgroup>
- <objectgroup name="Enemy_3" visible="0">
+ <objectgroup name="Enemy_3">
   <object id="197" gid="10" x="1692.33" y="663" width="43" height="50"/>
   <object id="199" gid="10" x="2027" y="277.5" width="43" height="50"/>
   <object id="200" gid="10" x="3475.5" y="664" width="43" height="50"/>
@@ -190,19 +190,19 @@
   <object id="203" gid="11" x="3208" y="486" width="43" height="50"/>
   <object id="204" gid="11" x="2949" y="422.5" width="43" height="50"/>
  </objectgroup>
- <objectgroup name="Enemy_4_Left" visible="0">
+ <objectgroup name="Enemy_4_Left">
   <object id="208" gid="14" x="1308" y="582.667" width="48" height="81"/>
   <object id="209" gid="14" x="2513.5" y="526.5" width="48" height="81"/>
   <object id="212" gid="14" x="2966" y="166" width="48" height="81"/>
  </objectgroup>
- <objectgroup name="Enemy_4_Right" visible="0">
+ <objectgroup name="Enemy_4_Right">
   <object id="214" gid="13" x="2550" y="165.333" width="48" height="81"/>
   <object id="215" gid="13" x="4358.33" y="471" width="48" height="81"/>
  </objectgroup>
- <objectgroup name="Enemy_5" visible="0">
+ <objectgroup name="Enemy_5">
   <object id="213" gid="15" x="2840.67" y="422.667" width="36" height="39"/>
  </objectgroup>
- <objectgroup name="Camel" visible="0">
+ <objectgroup name="Camel">
   <object id="218" gid="16" x="1538" y="664.152" width="63" height="44"/>
  </objectgroup>
  <layer name="Tile Layer 2" width="1" height="1">
@@ -210,7 +210,7 @@
    eJxjYmBgAAAADAAD
   </data>
  </layer>
- <objectgroup name="Ground" visible="0">
+ <objectgroup name="Ground">
   <object id="99" x="0" y="635" width="1461.97" height="53.6667"/>
   <object id="114" name="StairsGround" x="1348" y="574.333" width="127.333" height="56.5"/>
   <object id="115" name="StairsGround" x="1310.67" y="582.333" width="164.667" height="49"/>
@@ -276,20 +276,20 @@
   <object id="293" name="Trigger-Left" x="2644.5" y="614.5" width="15.5" height="49"/>
   <object id="294" name="Trigger-Right" x="2243.5" y="520" width="15" height="60.5"/>
  </objectgroup>
- <objectgroup name="Fire" visible="0">
+ <objectgroup name="Fire">
   <object id="220" x="461.333" y="621.333" width="128" height="33.3333"/>
   <object id="222" x="830.667" y="618.667" width="125.333" height="38.6667"/>
   <object id="224" x="1006.67" y="618.667" width="129.333" height="37.3333"/>
   <object id="225" x="2014.67" y="654.667" width="129.333" height="33.3333"/>
   <object id="226" x="3070.67" y="652" width="162.667" height="34.6667"/>
  </objectgroup>
- <objectgroup name="Rope" visible="0" opacity="0">
+ <objectgroup name="Rope" opacity="0">
   <object id="125" x="2090" y="317.333" width="4" height="305.818"/>
   <object id="126" x="1546" y="143.5" width="3.5" height="239"/>
   <object id="127" x="4713" y="355" width="5" height="220.5"/>
   <object id="144" x="2698" y="83" width="3" height="268.5"/>
  </objectgroup>
- <objectgroup name="HorizontalBar" visible="0">
+ <objectgroup name="HorizontalBar">
   <object id="173" x="4355.33" y="307.333" width="410.667" height="8"/>
   <object id="174" x="4355.33" y="82" width="204.667" height="9.33333"/>
  </objectgroup>

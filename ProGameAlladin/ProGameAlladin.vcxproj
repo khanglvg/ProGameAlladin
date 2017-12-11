@@ -126,12 +126,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="GameObject\Aladdin.h" />
-=======
-    <ClInclude Include="Aladdin.h" />
     <ClInclude Include="AppleToThrow.h" />
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -331,12 +327,8 @@
     <None Include="MapReader\Tmx.h.in" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="GameObject\Aladdin.cpp" />
-=======
-    <ClCompile Include="Aladdin.cpp" />
     <ClCompile Include="AppleToThrow.cpp" />
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
     <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />

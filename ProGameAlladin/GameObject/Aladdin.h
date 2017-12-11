@@ -2,7 +2,6 @@
 
 #define __ALADDIN_H_
 
-<<<<<<< HEAD:ProGameAlladin/GameObject/Aladdin.h
 #include "../Framework/Texture.h"
 #include "../Framework/Rect.h"
 #include "../pugixml/pugixml.hpp"
@@ -10,15 +9,6 @@
 #include "../State/Idle.h"
 #include "../Framework/RigidBody.h"
 #include "GameObject.h"
-=======
-#include "Framework/Node.h"
-#include "Framework/Texture.h"
-#include "Framework/Rect.h"
-#include "pugixml/pugixml.hpp"
-#include "State/State.h"
-#include "Framework/RigidBody.h"
-#include "State/Idle.h"
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16:ProGameAlladin/Aladdin.h
 
 NS_JK_BEGIN
 
@@ -60,13 +50,10 @@ public:
 private:
 
 	Texture _textureAla;
-<<<<<<< HEAD:ProGameAlladin/GameObject/Aladdin.h
 	//float _startX = 600;
-	float _startX = SCREEN_WIDTH / 10;
-=======
+	//float _startX = SCREEN_WIDTH / 10;
 	Texture _textureRigid;
 	float _startX = 1500;
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16:ProGameAlladin/Aladdin.h
 	float _startY = SCREEN_HEIGHT - 350;
 	float _max = SCREEN_HEIGHT - 120;
 

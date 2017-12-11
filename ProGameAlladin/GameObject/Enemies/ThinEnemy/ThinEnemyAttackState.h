@@ -14,8 +14,11 @@ public:
 	ThinEnemyAttackState(Enemy* enemy);
 	~ThinEnemyAttackState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
+private:
+	Enemy* _enemy;
 };
 
 

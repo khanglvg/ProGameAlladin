@@ -10,7 +10,7 @@ Aladdin::Aladdin()
 	float size_x = 50;
 	float size_y = 55;
 	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
-	_rigidAla = new RigidBody(Vec2(3200, _startY), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
+	_rigidAla = new RigidBody(Vec2(300, SCREEN_HEIGHT - 50), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 	setPosition(_rigidAla->getPosition());
 
@@ -64,8 +64,7 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
-	 _position = _rigidAla->getPosition() - _rigidAla->getOffset();
-	OutputDebugString(std::to_string(_position.getY()).c_str());
+	_position = _rigidAla->getPosition() - _rigidAla->getOffset();
 	_currentState->onUpdate();
 
 	if (_rigidAla->getCollidingBodies().size() == 0)
@@ -115,17 +114,19 @@ void Aladdin::render()
 
 	const auto rect = _animations[_actionName][_animationIndex];
 
+	//_rigidAla->setPosition(Vec2(getPosition().getX()+ rect.getWidth() / 2, getPosition().getY() + rect.getHeight() / 2));
 	//_rigidAla->setSize(Size(rect.getWidth(), rect.getHeight()));
+	//_rigidAla->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
-	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidAla->getSize().getWidth(), _rigidAla->getSize().getHeight()), 1);
-	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidAla->getSize().getWidth(), _rigidAla->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

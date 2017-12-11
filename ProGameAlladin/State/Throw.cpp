@@ -3,12 +3,8 @@
 #include "Slash.h"
 #include "Jump.h"
 #include "Run.h"
-<<<<<<< HEAD
 #include "../GameObject/Aladdin.h"
-=======
-#include "../Aladdin.h"
 #include "../AppleToThrow.h"
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 
 US_NS_JK
 

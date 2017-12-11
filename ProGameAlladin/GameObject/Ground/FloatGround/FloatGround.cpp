@@ -43,12 +43,7 @@ Rect FloatGround::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX());
 	rect.setY(this->getPosition().getY());
-<<<<<<< HEAD
-	rect.setWidth(33);
-	rect.setHeight(14);
-=======
 	rect.setWidth(_rigid->getSize().getWidth());
 	rect.setHeight(_rigid->getSize().getHeight());
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	return rect;
 }

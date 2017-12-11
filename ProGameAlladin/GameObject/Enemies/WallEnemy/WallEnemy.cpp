@@ -25,7 +25,7 @@ WallEnemy::~WallEnemy()
 void WallEnemy::init()
 {
 	_textureWallRigid.setName("WallEnemy.jpg");
-	_textureWallRigid.setSrcFile("Resources/red_rect.png");
+	_textureWallRigid.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Civilian Enemies.png");
 	Graphics::getInstance()->loadTexture(_textureWallRigid);
 }
 
@@ -42,7 +42,7 @@ void WallEnemy::update()
 
 void WallEnemy::render()
 {
-	Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
+	Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
 		Rect(0,0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
 
 }

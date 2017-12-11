@@ -29,7 +29,6 @@ public:
 	Vec2 getVelocity()const;
 	void setVelocity(const Vec2& velocity);
 
-<<<<<<< HEAD
 	bool isTargetInViewRange();
 	bool isTargetInAttackRange();
 
@@ -39,6 +38,12 @@ public:
 	int getDamage();
 	void setDamage(int newDamage);
 
+	int getViewRange();
+	void setViewRange(int viewRange);
+
+	int getAttackRange();
+	void setAttackRange(int attackRange);
+
 	bool isRight();
 	void setIsRight(bool right);
 
@@ -46,9 +51,8 @@ public:
 	bool isAllowMoveRight();
 	void allowMoveLeft(bool allow);
 	void allowMoveRight(bool allow);
-=======
+
 	Rect getRect() override;
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 
 	std::map<string, vector<Rect>> _animations;
 
@@ -64,6 +68,9 @@ protected:
 
 	int _health, _damage;
 	float _speed;
+	int _boundaryLeft, _boundaryRight;
+
+	Vec2 _startPosition;
 
 	// use to detect the target being near
 	int _viewRange, _attackRange;

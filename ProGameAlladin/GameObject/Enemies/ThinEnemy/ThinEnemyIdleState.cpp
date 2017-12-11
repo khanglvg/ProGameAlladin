@@ -1,5 +1,6 @@
 #include "ThinEnemyIdleState.h"
 #include "ThinEnemyWalkState.h"
+#include "ThinEnemyAttackState.h"
 #include "ThinEnemy.h"
 
 US_NS_JK
@@ -10,20 +11,18 @@ ThinEnemyIdleState::ThinEnemyIdleState()
 
 ThinEnemyIdleState::ThinEnemyIdleState(Enemy * enemy) : EnemyState(enemy, EnemyState::StateName::Idle)
 {
-	auto thinEnemy = static_cast<ThinEnemy*>(enemy);
-	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	aladdin->setScale(Vec2(-1, 1));
-
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	aladdin->setScale(Vec2(1, 1));*/
-
-	//thinEnemy->setVelocity(Vec2(0, 0));
-
-	thinEnemy->setActionName("ThinEnemy-Idle");
+	_enemy = enemy;
+	_enemy->setActionName("ThinEnemy-Idle");
+	_enemy->setVelocity(Vec2(0, 0));
 }
 
 ThinEnemyIdleState::~ThinEnemyIdleState()
 {
+}
+
+void ThinEnemyIdleState::onUpdate()
+{
+	auto thinEnemy = static_cast<ThinEnemy*>(_enemy);
 }
 
 void ThinEnemyIdleState::onExit()
@@ -32,9 +31,20 @@ void ThinEnemyIdleState::onExit()
 
 EnemyState * ThinEnemyIdleState::checkTransition()
 {
+	if (_enemy->isTargetInAttackRange())
+	{
+		return new ThinEnemyAttackState(_enemy);
+	}
 	if (_enemy->isTargetInViewRange())
 	{
-		return new ThinEnemyWalkState(_enemy);
+		if (!_enemy->isRight() && _enemy->isAllowMoveLeft())
+		{
+			return new ThinEnemyWalkState(_enemy);
+		}
+		if (_enemy->isRight() && _enemy->isAllowMoveRight())
+		{
+			return new ThinEnemyWalkState(_enemy);
+		}
 	}
 	return nullptr;
 }

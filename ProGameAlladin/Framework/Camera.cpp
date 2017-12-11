@@ -31,11 +31,7 @@ Camera* Camera::getInstance()
 {
 	if(_instance == nullptr)
 	{
-<<<<<<< HEAD
-		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(1, 1));
-=======
 		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(0.8,0.8));
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 	}
 	return _instance;
 }

@@ -8,32 +8,7 @@ Enemy::Enemy()
 
 Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* target) :GameObject(position, size, tag)
 {
-#pragma region READ - XML
-	pugi::xml_document doc;
-	const auto result = doc.load_file("Resources/Enemies/Enemies.xml");
-
-	if (result)
-	{
-		for (auto animation : doc.child("Animations").children())
-		{
-			const pugi::char_t* name = animation.attribute("name").value();
-			vector<Rect> rects;
-
-			for (auto rect : animation.children())
-			{
-				rects.push_back(Rect(rect.attribute("x").as_float(),
-					rect.attribute("y").as_float(),
-					rect.attribute("w").as_float(),
-					rect.attribute("h").as_float()));
-			}
-			_animations.emplace(name, rects);
-		}
-	}
-}
-
-<<<<<<< HEAD
-Enemy::Enemy(GameObject * target) : GameObject(GameObject::GameObjectType::Enemies)
-{
+	_startPosition = position;
 	_target = target;
 	_distanceToTarget = _target->getPosition() - _position;
 
@@ -42,8 +17,10 @@ Enemy::Enemy(GameObject * target) : GameObject(GameObject::GameObjectType::Enemi
 	_health = 100;
 	_damage = 5;
 	_speed = 10;
-	_viewRange = 200;
-	_attackRange = 80;
+	_boundaryLeft = _startPosition.x - 50;
+	_boundaryRight = _startPosition.x + 50;
+	_viewRange = 250;
+	_attackRange = 100;
 	_isRight = false;
 	_allowMoveLeft = _allowMoveRight = true;
 
@@ -70,8 +47,6 @@ Enemy::Enemy(GameObject * target) : GameObject(GameObject::GameObjectType::Enemi
 	}
 }
 
-=======
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 Enemy::~Enemy()
 {
 }
@@ -96,25 +71,28 @@ void Enemy::update()
 	else if (_distanceToTarget.x < 0)
 		_isRight = false;
 
+	_allowMoveLeft = (_position.x > _boundaryLeft) ? true : false;
+
+	_allowMoveRight = (_position.x < _boundaryRight) ? true : false;
 	//move
-	if (isTargetInViewRange() && !isTargetInAttackRange())
-	{
-		if (_distanceToTarget.x > 0 && _allowMoveRight)
-		{
-			//move right
-			_velocity.x = _speed;
-		}
-		else if (_distanceToTarget.x < 0 && _allowMoveLeft)
-		{
-			//move left
-			_velocity.x = -1 * _speed;
-		}
-	}
-	else
-	{
-		//v=0
-		_velocity.x = 0;
-	}
+	//if (isTargetInViewRange() && !isTargetInAttackRange())
+	//{
+	//	if (_distanceToTarget.x > 0 && _allowMoveRight)
+	//	{
+	//		//move right
+	//		_velocity.x = _speed;
+	//	}
+	//	else if (_distanceToTarget.x < 0 && _allowMoveLeft)
+	//	{
+	//		//move left
+	//		_velocity.x = -1 * _speed;
+	//	}
+	//}
+	//else
+	//{
+	//	//v=0
+	//	_velocity.x = 0;
+	//}
 
 	//fix foot posY
 	//_position.y = _footPosY - getHeight() / 2;
@@ -147,14 +125,14 @@ void Enemy::setVelocity(const Vec2& velocity)
 
 bool Enemy::isTargetInViewRange()
 {
-	if (abs(_distanceToTarget.x) <= _viewRange || abs(_distanceToTarget.y) < getHeight())
+	if (abs(_distanceToTarget.x) <= _viewRange)
 		return true;
 	return false;
 }
 
 bool Enemy::isTargetInAttackRange()
 {
-	if (abs(_distanceToTarget.x) <= _attackRange && abs(_distanceToTarget.y) < getHeight())
+	if (abs(_distanceToTarget.x) <= _attackRange && abs(_distanceToTarget.y) < getSize().getHeight())
 		return true;
 	return false;
 }
@@ -177,6 +155,26 @@ int Enemy::getDamage()
 void Enemy::setDamage(int newDamage)
 {
 	_damage = newDamage;
+}
+
+int Enemy::getViewRange()
+{
+	return _viewRange;
+}
+
+void Enemy::setViewRange(int viewRange)
+{
+	_viewRange = viewRange;
+}
+
+int Enemy::getAttackRange()
+{
+	return _attackRange;
+}
+
+void Enemy::setAttackRange(int attackRange)
+{
+	_attackRange = attackRange;
 }
 
 bool Enemy::isRight()
@@ -209,8 +207,13 @@ void Enemy::allowMoveRight(bool allow)
 	_allowMoveRight = allow;
 }
 
+Rect Enemy::getRect()
+{
+	return Rect();
+}
+
 void Enemy::setFootPosY()
 {
 	if (_footPosY == 0)
-		_footPosY = _position.y + getHeight() / 2;
+		_footPosY = _position.y + getSize().getHeight() / 2;
 }

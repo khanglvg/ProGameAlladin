@@ -12,23 +12,7 @@ public:
 
 	enum GameObjectType
 	{
-<<<<<<< HEAD
-		None, 
-		Players, 
-		Enemies, 
-		Apple, 
-		Weapons, 
-		AppleWeapon, 
-		Ground, 
-		Rope, 
-		HorizontalBar, 
-		FloatGround, 
-		Springboard, 
-		Camels,
-		FireGround
-=======
-		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
+		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS, FIREGROUND
 	};
 
 	GameObject();

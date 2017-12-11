@@ -7,7 +7,6 @@ US_NS_JK
 
 ThinEnemy::ThinEnemy()
 {
-<<<<<<< HEAD
 	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
 	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
 	////setPosition(_rigid->getPosition() - _rigid->getOffset());
@@ -17,28 +16,16 @@ ThinEnemy::ThinEnemy()
 	//_currentState = new ThinEnemyIdleState(this);
 }
 
-ThinEnemy::ThinEnemy(GameObject * player, Vec2 position):Enemy(player)
-{
-	_target = player;
-	_position = position;
-	_rigid = new RigidBody(_position, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
-	//setPosition(_rigid->getPosition() - _rigid->getOffset());
-	setPosition(_position);
-	setScale(Vec2(1, 1));
-
-	_currentState = new ThinEnemyIdleState(this);
-=======
-	
-}
-
 ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player) 
 :Enemy(position, size, tag, player)
 {
+	_attackRange = 80;
+	_boundaryLeft = position.x - 90;
+	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
 	_rigid->setTag("ground");
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
 }
 
 ThinEnemy::~ThinEnemy()
@@ -64,12 +51,9 @@ void ThinEnemy::release()
 
 void ThinEnemy::update()
 {
-<<<<<<< HEAD
-	_position = _rigid->getPosition();
-=======
-//	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
->>>>>>> ba5bb69c3100c6c6b2daac93517ca4734804ab16
+
 	_currentState->onUpdate();
 
 	Enemy::update();

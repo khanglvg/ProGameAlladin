@@ -10,19 +10,17 @@ ThinEnemyInAttackedState::ThinEnemyInAttackedState()
 ThinEnemyInAttackedState::ThinEnemyInAttackedState(Enemy * enemy) : EnemyState(enemy, EnemyState::StateName::Damage)
 {
 	auto thinEnemy = static_cast<ThinEnemy*>(enemy);
-	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	aladdin->setScale(Vec2(-1, 1));
-
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	aladdin->setScale(Vec2(1, 1));*/
-
-	//thinEnemy->setVelocity(Vec2(0, 0));
-
-	thinEnemy->setActionName("KnifeEnemy-Attacked");
+	_enemy = enemy;
+	_enemy->setActionName("KnifeEnemy-Attacked");
 }
 
 ThinEnemyInAttackedState::~ThinEnemyInAttackedState()
 {
+}
+
+void ThinEnemyInAttackedState::onUpdate()
+{
+	auto thinEnemy = static_cast<ThinEnemy*>(_enemy);
 }
 
 void ThinEnemyInAttackedState::onExit()
