@@ -1,5 +1,5 @@
 #include "WallEnemyIdleState.h"
-#include "Wall1.h"
+#include "WallEnemy.h"
 
 US_NS_JK
 

@@ -1,11 +1,11 @@
-#include "Wall1.h"
+#include "WallEnemy.h"
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
 #include "../../Framework/PhysicsManager.h"
 
 US_NS_JK
 
-Wall1::Wall1()
+WallEnemy::WallEnemy()
 {
 	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
 	float size_x = 30;
@@ -18,7 +18,7 @@ Wall1::Wall1()
 
 }
 
-Wall1::Wall1(GameObject * player):Enemy(player)
+WallEnemy::WallEnemy(GameObject * player):Enemy(player)
 {
 
 //	_startPosition = Vec2(this->getPosition().getX(),this->getPosition().getY());
@@ -51,36 +51,36 @@ Wall1::Wall1(GameObject * player):Enemy(player)
 //	_currentState = new ThinEnemyIdleState(this);
 }
 
-Wall1::~Wall1()
+WallEnemy::~WallEnemy()
 {
 }
 
-void Wall1::init()
+void WallEnemy::init()
 {
-	_textureWallRigid.setName("Wall1.jpg");
+	_textureWallRigid.setName("WallEnemy.jpg");
 	_textureWallRigid.setSrcFile("Resources/red_rect.png");
 	Graphics::getInstance()->loadTexture(_textureWallRigid);
 }
 
-void Wall1::release()
+void WallEnemy::release()
 {
 	delete this;
 }
 
-void Wall1::update()
+void WallEnemy::update()
 {
 	_position = _rigidWall->getPosition() - _rigidWall->getOffset();
 
 }
 
-void Wall1::render()
+void WallEnemy::render()
 {
 	Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
 		Rect(0,0, _rigidWall->getSize().getWidth(), _rigidWall->getSize().getHeight()), 1);
 
 }
 
-Rect Wall1::getRect()
+Rect WallEnemy::getRect()
 {
 	auto width = _animations[_actionName][_animationIndex].getWidth();
 	auto height = _animations[_actionName][_animationIndex].getHeight();

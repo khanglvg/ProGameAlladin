@@ -626,34 +626,7 @@
     <ClInclude Include="State\Random.h">
       <Filter>State</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall2.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall3.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall4.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall5.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall6.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall7.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall8.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall9.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall10.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\Wall1.h">
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1027,34 +1000,7 @@
     <ClCompile Include="State\Random.cpp">
       <Filter>State</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall2.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall3.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall4.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall5.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall6.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall7.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall8.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall9.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall10.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\Wall1.cpp">
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
       <Filter>GameObjects\Enemies\WallEnemy</Filter>
     </ClCompile>
   </ItemGroup>

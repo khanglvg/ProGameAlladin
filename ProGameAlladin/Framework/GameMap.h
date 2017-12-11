@@ -13,7 +13,7 @@
 #include "../GameObject/Enemies/FatEnemy/FatEnemy.h"
 #include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
 #include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
-#include "../GameObject/Enemies/WallEnemy/Wall1.h"
+#include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
 #include "../GameObject/Ground/FloatGround/FloatGround.h"
 #include "../GameObject/Ground/SpringBoard/SpringBoard.h"
 #include "../GameObject/Items/Camel/Camel.h"

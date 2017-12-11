@@ -1,18 +1,18 @@
-﻿#ifndef __WALL4_H__
+#ifndef __WALLENEMY_H__
 
-#define __WALL4_H__
+#define __WALLENEMY_H__
 
 #include "../Enemy.h"
 #include "WallEnemyIdleState.h"
 
 NS_JK_BEGIN
 
-class Wall4 : public Enemy
+class WallEnemy : public Enemy
 {
 public:
-	Wall4();
-	Wall4(GameObject * player);
-	~Wall4();
+	WallEnemy();
+	WallEnemy(GameObject * player);
+	~WallEnemy();
 
 	void init() override;
 	void release() override;
