@@ -1,10 +1,10 @@
 ﻿#ifndef __WALL_H__
 
 #define _WALL_H__
-#include "../Framework/definitions.h"
-#include "GameObject.h"
-#include "../Framework/Texture.h"
-#include "../Framework/RigidBody.h"
+#include "../../Framework/definitions.h"
+#include "../GameObject.h"
+#include "../../Framework/Texture.h"
+#include "../../Framework/RigidBody.h"
 
 NS_JK_BEGIN
 

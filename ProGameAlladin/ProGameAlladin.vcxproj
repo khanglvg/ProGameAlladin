@@ -313,7 +313,6 @@
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Khang Le\Documents\Wall_Position_and_Size.docx" />
     <None Include="ClassDiagram.cd" />
     <None Include="DirectX\Include\D3DX10math.inl" />
     <None Include="DirectX\Include\d3dx9math.inl" />

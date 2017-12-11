@@ -3,7 +3,7 @@
 #include "GameObject/Ground/Ground.h"
 #include "GameObject/Enemies/Enemy.h"
 #include "AppleToThrow.h"
-#include "GameObject/Wall.h"
+#include "GameObject/Wall/Wall.h"
 
 US_NS_JK
 

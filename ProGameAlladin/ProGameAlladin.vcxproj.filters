@@ -662,9 +662,6 @@
     <None Include="MapReader\Tmx.h.in">
       <Filter>Framework\MapReader</Filter>
     </None>
-    <None Include="C:\Users\Khang Le\Documents\Wall_Position_and_Size.docx">
-      <Filter>GameObjects\Wall</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Application.cpp">
