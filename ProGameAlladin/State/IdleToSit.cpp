@@ -3,7 +3,7 @@
 #include "Jump.h"
 #include "SitAndSlash.h"
 #include "SitAndThrow.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Sit.h"
 US_NS_JK
 

@@ -6,7 +6,7 @@
 #include "IdleToSit.h"
 #include "Slash.h"
 #include "Throw.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include <iostream>
 #include "Random.h"
 #include "Idle2.h"

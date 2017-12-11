@@ -8,14 +8,17 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	Aladdin *ala = new Aladdin();
-	_vectNode.push_back(ala);
-	_vectNode.push_back(new BackgroundLv1Scene());
-	_vectNode.push_back(new Enemy());
+	mAladdin = new Aladdin();
+	_vectNode.push_back(mAladdin);
+	/*_vectNode.push_back(new BackgroundLv1Scene());
+	_vectNode.push_back(new Enemy());*/
+	FloatGround* enemy = new FloatGround();
+	enemy->setPosition(Vec2(SCREEN_WIDTH +200, SCREEN_HEIGHT -50));
+	enemy->getRect();
 	_vectNode.push_back(new Ground());
 
-	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
-	Camera::getInstance()->follow(ala);
+	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
+	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
 }
 

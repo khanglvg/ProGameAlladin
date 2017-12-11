@@ -1,5 +1,5 @@
 ﻿#include "Ground.h"
-#include "../../Aladdin.h"
+#include "../Aladdin.h"
 US_NS_JK
 
 Ground::Ground()

@@ -43,7 +43,7 @@ Rect Apple::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX());
 	rect.setY(this->getPosition().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(11);
+	rect.setHeight(12);
 	return rect;
 }

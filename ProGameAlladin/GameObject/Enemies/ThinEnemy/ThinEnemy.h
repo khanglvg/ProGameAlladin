@@ -11,7 +11,7 @@ class ThinEnemy : public Enemy
 {
 public:
 	ThinEnemy();
-	ThinEnemy(GameObject * player);
+	ThinEnemy(GameObject * player, Vec2 position);
 	~ThinEnemy();
 
 	void init() override;

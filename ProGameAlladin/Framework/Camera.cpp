@@ -29,7 +29,7 @@ Camera* Camera::getInstance()
 {
 	if(_instance == nullptr)
 	{
-		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(0.5, 0.5));
+		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(1, 1));
 	}
 	return _instance;
 }

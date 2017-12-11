@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpWhileClimb.h"
 #include "SlashWhenClimb.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 

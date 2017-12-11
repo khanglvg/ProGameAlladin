@@ -35,7 +35,7 @@ void FloatGround::update()
 
 void FloatGround::render()
 {
-	Graphics::getInstance()->drawSprite(_textureFloatGround, Vec2(0.0f, 0.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0,0,43,41), 1);
+	Graphics::getInstance()->drawSprite(_textureFloatGround, Vec2(0.0f, 0.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0,0,33,14), 1);
 }
 
 Rect FloatGround::getRect()
@@ -43,7 +43,7 @@ Rect FloatGround::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX());
 	rect.setY(this->getPosition().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(33);
+	rect.setHeight(14);
 	return rect;
 }

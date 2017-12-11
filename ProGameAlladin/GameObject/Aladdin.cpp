@@ -1,7 +1,7 @@
 ﻿#include "Aladdin.h"
-#include "Framework/Graphics.h"
-#include "Framework/GameManager.h"
-#include "Framework/PhysicsManager.h"
+#include "../Framework/Graphics.h"
+#include "../Framework/GameManager.h"
+#include "../Framework/PhysicsManager.h"
 
 US_NS_JK
 

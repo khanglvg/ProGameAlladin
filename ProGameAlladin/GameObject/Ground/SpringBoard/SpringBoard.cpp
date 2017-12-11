@@ -118,7 +118,7 @@ Rect SpringBoard::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
 	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(width);
+	rect.setHeight(height);
 	return rect;
 }

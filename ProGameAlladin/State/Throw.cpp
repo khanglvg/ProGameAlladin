@@ -3,7 +3,7 @@
 #include "Slash.h"
 #include "Jump.h"
 #include "Run.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 

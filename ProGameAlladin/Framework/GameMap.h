@@ -40,7 +40,7 @@ private:
 public:
 	GameMap();
 	//use QuadTree* &quadTree because quadTree is init in this function
-	GameMap(char* filePath, QuadTree* &quadTree);
+	GameMap(char* filePath, QuadTree* &quadTree, GameObject* player);
 	~GameMap();
 
 	void init();

@@ -4,7 +4,7 @@
 #include "RunAndThrow.h"
 #include "RunAndSlash.h"
 #include "RunAndJump.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "IdleToSit.h"
 #include "HeadUp.h"
 #include "Push.h"

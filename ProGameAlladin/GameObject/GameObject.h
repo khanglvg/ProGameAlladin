@@ -10,7 +10,19 @@ public:
 
 	enum GameObjectType
 	{
-		None, Players, Enemies, Apple, Weapons, AppleWeapon, Ground, Rope, HorizontalBar, FloatGround, Springboard, Camels
+		None, 
+		Players, 
+		Enemies, 
+		Apple, 
+		Weapons, 
+		AppleWeapon, 
+		Ground, 
+		Rope, 
+		HorizontalBar, 
+		FloatGround, 
+		Springboard, 
+		Camels,
+		FireGround
 	};
 
 	GameObject(GameObjectType tag = None);

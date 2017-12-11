@@ -1,4 +1,5 @@
 #include "ThinEnemyIdleState.h"
+#include "ThinEnemyWalkState.h"
 #include "ThinEnemy.h"
 
 US_NS_JK
@@ -31,6 +32,10 @@ void ThinEnemyIdleState::onExit()
 
 EnemyState * ThinEnemyIdleState::checkTransition()
 {
+	if (_enemy->isTargetInViewRange())
+	{
+		return new ThinEnemyWalkState(_enemy);
+	}
 	return nullptr;
 }
  

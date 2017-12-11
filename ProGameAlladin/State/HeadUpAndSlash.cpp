@@ -5,7 +5,7 @@
 #include "HeadUp.h"
 #include "IdleToSit.h"
 #include "Throw.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Flip.h"
 US_NS_JK
 

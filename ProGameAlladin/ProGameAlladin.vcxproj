@@ -126,7 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="GameObject\Aladdin.h" />
     <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -230,6 +230,9 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
     <ClInclude Include="GameObject\GameObject.h" />
@@ -322,7 +325,7 @@
     <None Include="MapReader\Tmx.h.in" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="GameObject\Aladdin.cpp" />
     <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
@@ -351,6 +354,9 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />

@@ -6,7 +6,7 @@
 #include "HeadUpAndSlash.h"
 #include "Throw.h"
 #include "Idle.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "IdleToLook.h"
 
 US_NS_JK

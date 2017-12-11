@@ -7,46 +7,25 @@ US_NS_JK
 
 ThinEnemy::ThinEnemy()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
+	//_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
 	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
+	////setPosition(_rigid->getPosition() - _rigid->getOffset());
+	//setPosition(_startPosition);
+	//setScale(Vec2(1, 1));
+
+	//_currentState = new ThinEnemyIdleState(this);
+}
+
+ThinEnemy::ThinEnemy(GameObject * player, Vec2 position):Enemy(player)
+{
+	_target = player;
+	_position = position;
+	_rigid = new RigidBody(_position, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
-	setPosition(_startPosition);
+	setPosition(_position);
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
-}
-
-ThinEnemy::ThinEnemy(GameObject * player):Enemy(player)
-{
-
-//	_startPosition = Vec2(this->getPosition().getX(),this->getPosition().getY());
-//	//_rigid = new RigidBody(_startPosition, Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(-10, 0), Size(50, 100));
-//	//setPosition(_rigid->getPosition() - _rigid->getOffset());
-//	setPosition(_startPosition);
-//	setScale(Vec2(-1, 1));
-//
-//#pragma region READ - XML
-//	pugi::xml_document doc;
-//	const auto result = doc.load_file("Resources/Enemies/Enemies.xml");
-//
-//	if (result)
-//	{
-//		for (auto animation : doc.child("Animations").children())
-//		{
-//			const pugi::char_t* name = animation.attribute("name").value();
-//			vector<Rect> rects;
-//
-//			for (auto rect : animation.children())
-//			{
-//				rects.push_back(Rect(rect.attribute("x").as_float(),
-//					rect.attribute("y").as_float(),
-//					rect.attribute("w").as_float(),
-//					rect.attribute("h").as_float()));
-//			}
-//			_animations.emplace(name, rects);
-//		}
-//	}
-//	_currentState = new ThinEnemyIdleState(this);
 }
 
 ThinEnemy::~ThinEnemy()
@@ -67,8 +46,10 @@ void ThinEnemy::release()
 
 void ThinEnemy::update()
 {
-	//_position = _rigidAla->getPosition() - _rigidAla->getOffset();
+	_position = _rigid->getPosition();
 	_currentState->onUpdate();
+
+	Enemy::update();
 
 	EnemyState* newState = _currentState->checkTransition();
 
@@ -116,7 +97,7 @@ Rect ThinEnemy::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
 	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(width);
+	rect.setHeight(height);
 	return rect;
 }

@@ -1,5 +1,5 @@
 ﻿#include "ThrowWhenWing.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "../Framework/Input.h"
 US_NS_JK
 

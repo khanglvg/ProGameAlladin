@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpAndThrow.h"
 #include "JumpAndSlash.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "IdleToSit.h"
 US_NS_JK

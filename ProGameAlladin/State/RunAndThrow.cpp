@@ -1,7 +1,7 @@
 ﻿#include "RunAndThrow.h"
 #include "../Framework/Input.h"
 #include "Idle.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 US_NS_JK
 
 RunAndThrow::RunAndThrow(Node* node):State(node)	

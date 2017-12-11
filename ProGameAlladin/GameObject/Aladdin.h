@@ -2,17 +2,17 @@
 
 #define __ALADDIN_H_
 
-#include "Framework/Node.h"
-#include "Framework/Texture.h"
-#include "Framework/Rect.h"
-#include "pugixml/pugixml.hpp"
-#include "State/State.h"
-#include "State/Idle.h"
-#include "Framework/RigidBody.h"
+#include "../Framework/Texture.h"
+#include "../Framework/Rect.h"
+#include "../pugixml/pugixml.hpp"
+#include "../State/State.h"
+#include "../State/Idle.h"
+#include "../Framework/RigidBody.h"
+#include "GameObject.h"
 
 NS_JK_BEGIN
 
-class Aladdin: public Node
+class Aladdin: public GameObject
 {
 public:
 		
@@ -48,6 +48,7 @@ public:
 private:
 
 	Texture _textureAla;
+	//float _startX = 600;
 	float _startX = SCREEN_WIDTH / 10;
 	float _startY = SCREEN_HEIGHT - 350;
 	float _max = SCREEN_HEIGHT - 120;

@@ -1,5 +1,5 @@
 ﻿#include "Flip.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "../Framework/Input.h"
 #include "HeadUpAndSlash.h"
 US_NS_JK

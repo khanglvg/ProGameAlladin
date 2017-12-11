@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpAndThrow.h"
 #include "JumpAndSlash.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "Fall.h"
 US_NS_JK
@@ -25,12 +25,12 @@ void RunAndJump::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-100, -300));
+		aladdin->setVelocity(Vec2(-200, -300));
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(100, -300));
+		aladdin->setVelocity(Vec2(200, -300));
 	}
 
 	aladdin->setActionName("RunAndJump");

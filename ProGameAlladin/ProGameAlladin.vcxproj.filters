@@ -341,9 +341,6 @@
     <ClInclude Include="Lv1Scene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Aladdin.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="BackgroundLv1Scene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -626,6 +623,18 @@
     <ClInclude Include="State\Idle3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Aladdin.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -695,9 +704,6 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Lv1Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Aladdin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BackgroundLv1Scene.cpp">
@@ -995,6 +1001,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="State\Idle3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Aladdin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

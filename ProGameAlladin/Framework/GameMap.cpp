@@ -5,7 +5,7 @@ US_NS_JK
 GameMap::GameMap()
 {}
 
-GameMap::GameMap(char * filePath, QuadTree* &quadTree)
+GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 {
 	_map = new Tmx::Map();
 	_map->ParseFile(filePath);
@@ -55,7 +55,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			if (objectGroup->GetName() == "FloatGround")
 			{
 				FloatGround *floatGround = new FloatGround();
-				floatGround->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				floatGround->setPosition(Vec2(object->GetX(), object->GetY() - object->GetHeight() / 2));
 
 				_listFloatGrounds.push_back(floatGround);
 
@@ -76,8 +76,8 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init Enemies
 			if (objectGroup->GetName() == "Enemy_1")
 			{
-				Enemy *enemy = new ThinEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				Enemy *enemy = new ThinEnemy(player, Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				//enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
@@ -115,14 +115,14 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			if (objectGroup->GetName() == "Enemy_5")
 			{
 				Enemy *enemy = new HideEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				enemy->setPosition(Vec2(object->GetX(), object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
 				Enemy *enemy = new WallEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 3, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
@@ -164,6 +164,17 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			if (objectGroup->GetName() == "HorizontalBar")
 			{
 				GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
+				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+				gameObject->setWidth(object->GetWidth());
+				gameObject->setHeight(object->GetHeight());
+
+				//_quadTree->InsertStaticObject(gameObject);
+			}
+
+			//init FireGround
+			if (objectGroup->GetName() == "Fire")
+			{
+				GameObject *gameObject = new GameObject(GameObject::GameObjectType::FireGround);
 				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
 				gameObject->setWidth(object->GetWidth());
 				gameObject->setHeight(object->GetHeight());
