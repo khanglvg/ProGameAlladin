@@ -19,12 +19,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 
 		if (layer->GetName() == "Tile Layer 1")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png");
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png", 0);
 			_backgroundTextures.push_back(background);
 		}
 		if (layer->GetName() == "Tile Layer 2")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png");
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 0);
 			_backgroundTextures.push_back(background);
 		}
 	}
@@ -41,11 +41,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init apple
 			if (objectGroup->GetName() == "Apple")
 			{
-				Apple *apple = new Apple();
-				apple->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
-				apple->setWidth(object->GetWidth());
-				apple->setHeight(object->GetHeight());
-
+				Apple *apple = new Apple(object->GetWidth(), object->GetHeight(), Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 				_listApples.push_back(apple);
 
 				//_quadTree->insertObject(apple);
@@ -141,35 +137,34 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::Ground);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+				GameObject *gameObject = new GameObject(object->GetWidth(), object->GetHeight(),Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()),GameObject::GameObjectType::Ground);
+		
 
+				_listGround.push_back(gameObject);
 				_quadTree->insertObject(gameObject);
 			}
 
 			//init rope
-			if (objectGroup->GetName() == "Rope")
-			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::Rope);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+			//if (objectGroup->GetName() == "Rope")
+			//{
+			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::Rope);
+			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+			//	gameObject->setWidth(object->GetWidth());
+			//	gameObject->setHeight(object->GetHeight());
 
-				//_quadTree->InsertStaticObject(gameObject);
-			}
+			//	//_quadTree->InsertStaticObject(gameObject);
+			//}
 
 			//init HorizontalBar
-			if (objectGroup->GetName() == "HorizontalBar")
-			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+			//if (objectGroup->GetName() == "HorizontalBar")
+			//{
+			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
+			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+			//	gameObject->setWidth(object->GetWidth());
+			//	gameObject->setHeight(object->GetHeight());
 
-				//_quadTree->InsertStaticObject(gameObject);
-			}
+			//	//_quadTree->InsertStaticObject(gameObject);
+			//}
 		}
 	}
 }
@@ -421,6 +416,11 @@ void GameMap::draw()
 	{
 		_listSpringboards[i]->render();
 	}
+}
+
+vector<GameObject*> GameMap::getListGround() const
+{
+	return _listGround;
 }
 
 //Aladdin * GameMap::getPlayer()

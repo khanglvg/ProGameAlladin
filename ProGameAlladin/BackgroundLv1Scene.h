@@ -11,7 +11,7 @@ NS_JK_BEGIN
 class BackgroundLv1Scene: public Node
 {
 public:
-	BackgroundLv1Scene(const string& srcFile);
+	BackgroundLv1Scene(const string& srcFile, const int& layer);
 
 	~BackgroundLv1Scene();
 
@@ -24,6 +24,7 @@ public:
 private:
 	string _srcFile;
 	Texture _textureBackground;
+	int _layer;
 };
 
 NS_JK_END

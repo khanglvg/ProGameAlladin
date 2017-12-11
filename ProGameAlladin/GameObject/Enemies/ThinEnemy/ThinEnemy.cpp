@@ -103,7 +103,7 @@ void ThinEnemy::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
-	Graphics::getInstance()->drawSprite(_textureThinEnemy, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidThinEnemy->getSize().getWidth(), _rigidThinEnemy->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureThinEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidThinEnemy->getSize().getWidth(), _rigidThinEnemy->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)

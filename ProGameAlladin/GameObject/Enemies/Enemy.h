@@ -14,14 +14,14 @@ NS_JK_BEGIN
 {
 public:
 	Enemy();//not use
-	Enemy(GameObject * target);
+	Enemy(const Vec2& position, const Size& size, const GameObjectType& tag,GameObject* target);
 
 	~Enemy() override;
 
-	virtual void init();
-	virtual void release();
-	virtual void update();
-	virtual void render();
+	void init() override;
+	void release() override;
+	void update() override;
+	void render() override;
 
 	void setActionName(string);
 	string getActionName() const;
@@ -29,14 +29,12 @@ public:
 	//Vec2 getVelocity()const;
 	//void setVelocity(const Vec2& velocity);
 
-	virtual Rect getRect() override;
+	Rect getRect() override;
 
 	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureEnemy;
-	Vec2 _startPosition;
-	RigidBody *_rigid;
 
 	int _animationIndex = 0;
 	string _actionName;

@@ -2,6 +2,7 @@
 #include "../../Framework/Graphics.h"
 US_NS_JK
 
+
 Wall::Wall()
 {
 	float size_x = 30;

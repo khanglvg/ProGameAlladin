@@ -38,10 +38,16 @@ Lv1Scene::Lv1Scene()
 	_vectNode.push_back(wall_9);
 	_vectNode.push_back(wall_10);
 
+
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
+
+	for (auto ground : _gameMap->getListGround())
+	{
+		_vectNode.push_back(ground);
+	}
 }
 
 

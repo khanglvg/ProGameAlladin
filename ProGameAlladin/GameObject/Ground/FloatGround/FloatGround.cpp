@@ -3,15 +3,15 @@ US_NS_JK
 
 FloatGround::FloatGround()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	setPosition(_startPosition);
+	
+}
+
+FloatGround::FloatGround(const Vec2& position, const Size& size, const GameObjectType& tag) :GameObject(position, size, tag)
+{
 	setScale(Vec2(1, 1));
 }
 
-FloatGround::FloatGround(GameObject * target) : GameObject(GameObject::GameObjectType::Apple)
-{
 
-}
 
 FloatGround::~FloatGround()
 {
@@ -43,7 +43,7 @@ Rect FloatGround::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX());
 	rect.setY(this->getPosition().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(_rigid->getSize().getWidth());
+	rect.setHeight(_rigid->getSize().getHeight());
 	return rect;
 }

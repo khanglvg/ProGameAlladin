@@ -2,6 +2,8 @@
 #define __GAMEOBJECT_H__
 
 #include "../Framework/Node.h"
+#include "../Framework/Texture.h"
+#include "../Framework/RigidBody.h"
 
 NS_JK_BEGIN
 class GameObject:public Node
@@ -13,23 +15,37 @@ public:
 		None, Players, Enemies, Apple, Weapons, AppleWeapon, Ground, Rope, HorizontalBar, FloatGround, Springboard, Camels
 	};
 
-	GameObject(GameObjectType tag = None);
+	GameObject();
+	GameObject(const Vec2& position, const Size& size, GameObjectType tag = None);
 	~GameObject();
 
-	//Getter, setter
-	int getWidth();
-	virtual void setWidth(int width);
+	void update() override;
+	void init() override; 
+	void render() override;
+	void release() override;
 
-	int getHeight();
-	virtual void setHeight(int height);
 
-	GameObject::GameObjectType getTag();
+#pragma region GET-SET
+	virtual Size getSize() const;
+	virtual Vec2 getRigidPosition() const;
 
-	bool isVisible();
+	virtual void setSize(const Size& size);
+	virtual void setRigidPosition(const Vec2& position);
 
-private:
+	GameObject::GameObjectType getTag() const;
+#pragma endregion
+
+	bool isVisible() const;
+
+protected:
 	GameObjectType _tag;
-	int _width, _height;
+
+	Size _size;
+	Vec2 _rigidPosition;
+
+	Texture _textureRigid;
+	RigidBody* _rigid;
+
 
 	bool _isVisible;
 };
