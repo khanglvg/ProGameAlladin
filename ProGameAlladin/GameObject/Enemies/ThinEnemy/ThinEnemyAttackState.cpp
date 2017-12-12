@@ -33,7 +33,10 @@ EnemyState * ThinEnemyAttackState::checkTransition()
 {
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		return new ThinEnemyWalkState(_enemy);
+		if (_enemy->getIndex() >= 5)
+		{
+			return new ThinEnemyWalkState(_enemy);
+		}
 	}
 	return nullptr;
 }

@@ -23,7 +23,8 @@ Lv1Scene::Lv1Scene()
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
-	/*const auto wall_0 = new Wall(30,600,Vec2(0, 340));
+	const auto wall_0 = new Wall(30, 600, Vec2(0, 340));
+	/*
 	const auto wall_1 = new Wall(30,470,Vec2(1480, 200));
 	const auto wall_2 = new Wall(30, 390, Vec2(2240, 500));
 	const auto wall_3 = new Wall(30, 230, Vec2(2640, 290));
@@ -35,7 +36,6 @@ Lv1Scene::Lv1Scene()
 	const auto wall_9 = new Wall(30, 225, Vec2(4750, 110));
 	const auto wall_10 = new Wall(30, 470, Vec2(4790, 460));
 
-	_vectNode.push_back(wall_0);
 	_vectNode.push_back(wall_1);
 	_vectNode.push_back(wall_2);
 	_vectNode.push_back(wall_3);
@@ -46,6 +46,7 @@ Lv1Scene::Lv1Scene()
 	_vectNode.push_back(wall_8);
 	_vectNode.push_back(wall_9);
 	_vectNode.push_back(wall_10);*/
+	_vectNode.push_back(wall_0);
 
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());

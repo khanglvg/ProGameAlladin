@@ -51,6 +51,8 @@ public:
 	bool isAllowMoveRight();
 	void allowMoveLeft(bool allow);
 	void allowMoveRight(bool allow);
+	
+	int getIndex();
 
 	Rect getRect() override;
 
