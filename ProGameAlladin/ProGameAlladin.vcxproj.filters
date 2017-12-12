@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="AppleToThrow.cpp" />
-    <ClCompile Include="BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\Enemy.cpp" />
@@ -110,14 +108,17 @@
     <ClCompile Include="State\ThrowWhenWing.cpp" />
     <ClCompile Include="State\Wing.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+=======
+    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+>>>>>>> 06383088eb4784f901aa4e98a7126c0cc1906e0b
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
-    <ClInclude Include="AppleToThrow.h" />
-    <ClInclude Include="BackgroundLv1Scene.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
     <ClInclude Include="DirectX\Include\D2D1.h" />
@@ -303,9 +304,14 @@
     <ClInclude Include="State\Wing.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
+<<<<<<< HEAD
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+=======
+    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+>>>>>>> 06383088eb4784f901aa4e98a7126c0cc1906e0b
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -335,12 +341,14 @@
     <Library Include="DirectX\Lib\xapobased.lib" />
     <Library Include="DirectX\Lib\XAPOFX.lib" />
     <Library Include="DirectX\Lib\XInput.lib" />
+    <Library Include="zlib.lib" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\action2.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
+    <Xml Include="Resources\Items\Camel.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />
@@ -351,6 +359,31 @@
     <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
+    <Image Include="Resources\AgrabahMarket.png" />
+    <Image Include="Resources\AgrabahMarket1.png" />
+    <Image Include="Resources\AgrabahMarket2.png" />
+    <Image Include="Resources\Aladdin1.png" />
+    <Image Include="Resources\background.jpg" />
+    <Image Include="Resources\demo_tmx\apple.png" />
+    <Image Include="Resources\demo_tmx\Camel.png" />
+    <Image Include="Resources\demo_tmx\Enemy-1.png" />
+    <Image Include="Resources\demo_tmx\Enemy-2.png" />
+    <Image Include="Resources\demo_tmx\Enemy-3.png" />
+    <Image Include="Resources\demo_tmx\Enemy-4.png" />
+    <Image Include="Resources\demo_tmx\Enemy-5.png" />
+    <Image Include="Resources\demo_tmx\FloatGround.png" />
+    <Image Include="Resources\demo_tmx\Player.png" />
+    <Image Include="Resources\demo_tmx\springboard.png" />
+    <Image Include="Resources\demo_tmx\WallEnemy.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Civilian Enemies.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Enemy Explosions.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Guards.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
+    <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\FloatGround.png" />
+    <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
+    <Image Include="Resources\Items\springboard.png" />
+    <Image Include="RunAndSlash.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -362,5 +395,7 @@
     <None Include="DirectX\Include\xnamathmisc.inl" />
     <None Include="DirectX\Include\xnamathvector.inl" />
     <None Include="MapReader\Tmx.h.in" />
+    <None Include="Resources\AgrabahMarket.tmx" />
+    <None Include="zlibwapi.dll" />
   </ItemGroup>
 </Project>
