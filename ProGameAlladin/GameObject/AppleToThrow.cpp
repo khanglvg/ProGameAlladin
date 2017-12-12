@@ -20,6 +20,7 @@ AppleToThrow::AppleToThrow()
 
 	_rigidApple = new RigidBody(position, velocity, bodyType, density, restitution, gravityScale, forces, impulse, offset, size);
 	setPosition(_rigidApple->getPosition());
+	setScale(Vec2(2,2));
 }
 
 AppleToThrow::~AppleToThrow()

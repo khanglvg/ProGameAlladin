@@ -74,7 +74,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			{
 				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
-
+				
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")

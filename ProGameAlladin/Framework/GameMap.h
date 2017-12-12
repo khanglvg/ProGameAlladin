@@ -2,7 +2,7 @@
 
 #define __GAMEMAP_H_
 
-#include "../BackgroundLv1Scene.h"
+#include "../GameObject/BackgroundLv1Scene.h"
 #include "QuadTree.h"
 #include "../MapReader/Tmx.h.in"
 #include "Node.h"

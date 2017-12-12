@@ -2,9 +2,9 @@
 
 #define __BGLV1SCENE_H__
 
-#include "Framework/Node.h"
-#include "Framework/Texture.h"
-#include "Framework/Graphics.h"
+#include "../Framework/Node.h"
+#include "../Framework/Texture.h"
+#include "../Framework/Graphics.h"
 
 NS_JK_BEGIN
 

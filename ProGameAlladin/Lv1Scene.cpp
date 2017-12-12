@@ -18,35 +18,11 @@ Lv1Scene::Lv1Scene()
 	//enemy->getRect();
 
 	/*_vectNode.push_back(new Ground());
-	_vectNode.push_back(new ThinEnemy());
-	_vectNode.push_back(new AppleToThrow());*/
+	_vectNode.push_back(new ThinEnemy());*/
+	_vectNode.push_back(new AppleToThrow());
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
-	const auto wall_0 = new Wall(30, 600, Vec2(0, 340));
-	/*
-	const auto wall_1 = new Wall(30,470,Vec2(1480, 200));
-	const auto wall_2 = new Wall(30, 390, Vec2(2240, 500));
-	const auto wall_3 = new Wall(30, 230, Vec2(2640, 290));
-	const auto wall_4 = new Wall(30, 100, Vec2(2820, 620));
-	const auto wall_5 = new Wall(30, 120, Vec2(2820, 235));
-	const auto wall_6 = new Wall(30, 70, Vec2(3060, 470));
-	const auto wall_7 = new Wall(30, 180, Vec2(3200, 90));
-	const auto wall_8 = new Wall(30, 210, Vec2(3600, 230));
-	const auto wall_9 = new Wall(30, 225, Vec2(4750, 110));
-	const auto wall_10 = new Wall(30, 470, Vec2(4790, 460));
-
-	_vectNode.push_back(wall_1);
-	_vectNode.push_back(wall_2);
-	_vectNode.push_back(wall_3);
-	_vectNode.push_back(wall_4);
-	_vectNode.push_back(wall_5);
-	_vectNode.push_back(wall_6);
-	_vectNode.push_back(wall_7);
-	_vectNode.push_back(wall_8);
-	_vectNode.push_back(wall_9);
-	_vectNode.push_back(wall_10);*/
-	_vectNode.push_back(wall_0);
 
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
