@@ -12,6 +12,9 @@ BigEnemy::BigEnemy()
 BigEnemy::BigEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
+	_attackRange = 80;
+	_boundaryLeft = position.x - 90;
+	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));
 	_currentState = new BigEnemyIdleState(this);
 }
@@ -34,8 +37,11 @@ void BigEnemy::release()
 
 void BigEnemy::update()
 {
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
+
+	Enemy::update();
 
 	const auto newState = _currentState->checkTransition();
 

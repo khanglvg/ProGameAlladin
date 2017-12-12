@@ -8,6 +8,7 @@ Enemy::Enemy()
 
 Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* target) :GameObject(position, size, tag)
 {
+	_rigid->setDensity(0.001);
 	_startPosition = position;
 	_target = target;
 	_distanceToTarget = _target->getPosition() - _position;

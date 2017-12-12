@@ -108,8 +108,14 @@
     <ClCompile Include="State\ThrowWhenWing.cpp" />
     <ClCompile Include="State\Wing.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+=======
     <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+>>>>>>> 06383088eb4784f901aa4e98a7126c0cc1906e0b
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -298,8 +304,14 @@
     <ClInclude Include="State\Wing.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
+<<<<<<< HEAD
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+=======
     <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+>>>>>>> 06383088eb4784f901aa4e98a7126c0cc1906e0b
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

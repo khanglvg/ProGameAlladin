@@ -32,6 +32,9 @@ public:
 	virtual void setSize(const Size& size);
 	virtual void setRigidPosition(const Vec2& position);
 
+	void setRigidTag(const string& rigidTag);
+	string getRigidTag() const;
+
 	GameObject::GameObjectType getTag() const;
 #pragma endregion
 

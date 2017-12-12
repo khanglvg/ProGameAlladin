@@ -205,6 +205,9 @@
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\Enemy.h" />
     <ClInclude Include="Framework\Application.h" />
     <ClInclude Include="Framework\Camera.h" />
@@ -334,6 +337,9 @@
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\Enemy.cpp" />
     <ClCompile Include="Framework\Application.cpp" />
     <ClCompile Include="Framework\Camera.cpp" />

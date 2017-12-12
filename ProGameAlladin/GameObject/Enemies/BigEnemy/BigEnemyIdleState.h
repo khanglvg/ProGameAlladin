@@ -14,6 +14,7 @@ public:
 	BigEnemyIdleState(Enemy* enemy);
 	~BigEnemyIdleState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
 };

@@ -7,8 +7,8 @@ US_NS_JK
 
 Aladdin::Aladdin()
 {
-	float size_x = 50;
-	float size_y = 65;
+	float size_x = 25;
+	float size_y = 55;
 	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
 	_rigidAla = new RigidBody(Vec2(300, SCREEN_HEIGHT - 50), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());

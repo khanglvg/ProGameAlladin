@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="297">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="322">
  <tileset firstgid="1" name="AgrabahMarket" tilewidth="4773" tileheight="689" tilecount="2" columns="1">
   <image source="AgrabahMarket.png" trans="3f48cc" width="4773" height="1378"/>
  </tileset>
@@ -169,7 +169,7 @@
   <object id="187" gid="7" x="2706" y="406" width="44" height="58"/>
  </objectgroup>
  <objectgroup name="Enemy_2">
-  <object id="188" gid="8" x="950.333" y="634.667" width="55" height="52"/>
+  <object id="188" gid="8" x="950.333" y="631.667" width="55" height="52"/>
   <object id="189" gid="8" x="1699" y="278" width="55" height="52"/>
   <object id="190" gid="8" x="3238.33" y="662.917" width="55" height="52"/>
   <object id="191" gid="8" x="3711.67" y="663.333" width="55" height="52"/>
@@ -212,20 +212,14 @@
  </layer>
  <objectgroup name="Ground">
   <object id="99" x="0" y="635" width="1461.97" height="53.6667"/>
-  <object id="114" name="StairsGround" x="1348" y="574.333" width="127.333" height="56.5"/>
-  <object id="115" name="StairsGround" x="1310.67" y="582.333" width="164.667" height="49"/>
-  <object id="117" name="StairsGround" x="1268.67" y="590" width="206" height="42"/>
-  <object id="118" name="StairsGround" x="1228.67" y="598.666" width="246.667" height="32.6667"/>
-  <object id="119" name="StairsGround" x="1188" y="607.334" width="288" height="24"/>
-  <object id="120" name="StairsGround" x="1148" y="614.667" width="328" height="17.3334"/>
+  <object id="114" name="StairsGround" x="1348" y="574.333" width="95.333" height="56.5"/>
+  <object id="115" name="StairsGround" x="1310.67" y="582.333" width="132.667" height="49"/>
+  <object id="117" name="StairsGround" x="1268.67" y="590" width="175.333" height="42"/>
+  <object id="118" name="StairsGround" x="1228.67" y="598.666" width="214.667" height="32.6667"/>
+  <object id="119" name="StairsGround" x="1188" y="607.334" width="257.333" height="24"/>
+  <object id="120" name="StairsGround" x="1148" y="614.667" width="296" height="17.3334"/>
   <object id="122" name="StairsGround" x="1387.33" y="566.417" width="112" height="10.9167"/>
   <object id="123" x="1462.67" y="664" width="2910.33" height="25.3333"/>
-  <object id="124" x="2205.33" y="293.333" width="37.3333" height="395.333"/>
-  <object id="128" x="1748.67" y="439.333" width="292.667" height="13.3333"/>
-  <object id="129" x="1474.33" y="438.667" width="105.333" height="12"/>
-  <object id="130" x="1475.67" y="390.667" width="39.3333" height="12"/>
-  <object id="131" x="1445.33" y="1.33333" width="28" height="458.667"/>
-  <object id="132" x="1590.67" y="278.667" width="682.667" height="12"/>
   <object id="133" name="StairsGround" x="2560.33" y="518.333" width="187" height="11.3333"/>
   <object id="134" name="StairsGround" x="2512" y="528" width="64.5" height="13"/>
   <object id="135" name="StairsGround" x="2456.5" y="535.5" width="70.5" height="12"/>
@@ -235,34 +229,13 @@
   <object id="140" name="StairsGround" x="2329" y="567" width="43.5" height="12"/>
   <object id="141" name="StairsGround" x="2294.5" y="574.5" width="44" height="7"/>
   <object id="142" name="StairsGround" x="2243" y="578.5" width="48.5" height="12"/>
-  <object id="143" x="2736.5" y="567.5" width="107" height="11.5"/>
-  <object id="145" x="2642.5" y="406.5" width="174.5" height="13.5"/>
-  <object id="146" x="2788.5" y="423" width="296" height="10"/>
-  <object id="147" x="2745" y="167.5" width="83.5" height="10"/>
-  <object id="148" x="2518.5" y="167" width="133" height="12.5"/>
-  <object id="149" x="2798" y="295.333" width="398" height="8.66667"/>
-  <object id="150" x="2969.33" y="167.333" width="216.667" height="11.3333"/>
-  <object id="151" x="3059" y="487" width="797" height="12"/>
   <object id="152" name="StairsGround" x="4470" y="623.166" width="302.667" height="37.5"/>
   <object id="153" name="StairsGround" x="4427.5" y="631" width="197" height="57.5"/>
   <object id="155" name="StairsGround" x="4389.67" y="638.167" width="228.833" height="49.3333"/>
   <object id="156" name="StairsGround" x="4355.5" y="646.167" width="260.25" height="42.3106"/>
-  <object id="157" x="4609.45" y="503.455" width="74.9091" height="11.2727"/>
-  <object id="158" x="4304.33" y="471.333" width="91.3333" height="12"/>
   <object id="160" name="StairsGround" x="3867.33" y="456.333" width="111.667" height="23.1667"/>
   <object id="161" name="StairsGround" x="3827.33" y="471.333" width="115" height="23.3333"/>
-  <object id="162" x="2769.5" y="580.5" width="50" height="109.5"/>
-  <object id="166" x="2609.33" y="168.333" width="32.6667" height="251.667"/>
-  <object id="167" x="3186" y="327.333" width="378.667" height="13.3333"/>
-  <object id="168" x="3566" y="130.833" width="36.6667" height="215.167"/>
-  <object id="170" x="3505.33" y="120.667" width="107.333" height="9.33333"/>
-  <object id="171" x="3603" y="215.5" width="1112.5" height="13"/>
-  <object id="172" x="4298" y="61" width="57" height="167"/>
-  <object id="175" x="3022" y="426.5" width="36.5" height="97.5"/>
-  <object id="176" x="2498.5" y="0" width="24" height="241.5"/>
-  <object id="177" x="2785.5" y="174.333" width="33.5" height="130.167"/>
   <object id="181" name="StairsGround" x="3917.5" y="440" width="156.667" height="22"/>
-  <object id="182" x="4701" y="1" width="72" height="229"/>
   <object id="283" name="StairsGround" x="2283" y="587" width="40" height="10.5"/>
   <object id="284" name="StairsGround" x="2309" y="595.5" width="47" height="10.5"/>
   <object id="285" name="StairsGround" x="2345" y="602.5" width="42.5" height="13"/>
@@ -273,6 +246,40 @@
   <object id="290" name="StairsGround" x="2517.5" y="643.5" width="45" height="11"/>
   <object id="291" name="StairsGround" x="2546.5" y="651" width="41" height="10"/>
   <object id="292" name="StairsGround" x="2573" y="659" width="31" height="3.5"/>
+ </objectgroup>
+  <objectgroup name="platform">
+    <object id="128" name="Platform" x="1748.67" y="439.333" width="292.667" height="13.3333"/>
+    <object id="129" name="Platform" x="1474.33" y="438.667" width="105.333" height="12"/>
+    <object id="130" name="Platform" x="1475.67" y="390.667" width="39.3333" height="12"/>
+    <object id="132" name="Platform" x="1590.67" y="278.667" width="682.667" height="12"/>
+    <object id="143" name="Platform" x="2736.5" y="567.5" width="107" height="11.5"/>
+    <object id="145" name="Platform" x="2642.5" y="406.5" width="174.5" height="13.5"/>
+    <object id="146" name="Platform" x="2788.5" y="423" width="296" height="10"/>
+    <object id="147" name="Platform" x="2745" y="167.5" width="83.5" height="10"/>
+    <object id="148" name="Platform" x="2518.5" y="167" width="133" height="12.5"/>
+    <object id="149" name="Platform" x="2798" y="295.333" width="398" height="8.66667"/>
+    <object id="150" name="Platform" x="2969.33" y="167.333" width="216.667" height="11.3333"/>
+    <object id="151" name="Platform" x="3059" y="487" width="797" height="12"/>
+    <object id="157" name="Platform" x="4609.45" y="503.455" width="74.9091" height="11.2727"/>
+    <object id="158" name="Platform" x="4304.33" y="471.333" width="91.3333" height="12"/>
+    <object id="167" name="Platform" x="3186" y="327.333" width="378.667" height="13.3333"/>
+    <object id="170" name="Platform" x="3505.33" y="120.667" width="107.333" height="9.33333"/>
+    <object id="171" name="Platform" x="3603" y="215.5" width="1112.5" height="13"/>
+  </objectgroup>
+ <objectgroup name="Wall">
+  <object id="124" x="2205.33" y="293.333" width="37.3333" height="395.333"/>
+  <object id="131" x="1445.33" y="1.33333" width="28" height="458.667"/>
+  <object id="162" x="2769.5" y="580.5" width="50" height="109.5"/>
+  <object id="166" x="2609.33" y="168.333" width="32.6667" height="251.667"/>
+  <object id="168" x="3566" y="130.833" width="36.6667" height="215.167"/>
+  <object id="172" x="4298" y="61" width="57" height="167"/>
+  <object id="175" x="3022" y="434.5" width="36.5" height="89.5"/>
+  <object id="176" x="2498.5" y="0" width="24" height="241.5"/>
+  <object id="177" x="2785.5" y="174.333" width="33.5" height="130.167"/>
+  <object id="182" x="4770.33" y="226.333" width="72" height="394.333"/>
+  <object id="320" x="-26.6667" y="173.333" width="29.3333" height="461.333"/>
+ </objectgroup>
+ <objectgroup name="Trigger">
   <object id="293" name="Trigger-Left" x="2644.5" y="614.5" width="15.5" height="49"/>
   <object id="294" name="Trigger-Right" x="2243.5" y="520" width="15" height="60.5"/>
  </objectgroup>

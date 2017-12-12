@@ -23,6 +23,15 @@ ThinEnemyAttackState::~ThinEnemyAttackState()
 void ThinEnemyAttackState::onUpdate()
 {
 	auto thinEnemy = static_cast<ThinEnemy*>(_enemy);
+
+	if (_enemy->isRight())
+	{
+		_enemy->setScale(Vec2(-1, 1));
+	}
+	else
+	{
+		_enemy->setScale(Vec2(1, 1));
+	}
 }
 
 void ThinEnemyAttackState::onExit()

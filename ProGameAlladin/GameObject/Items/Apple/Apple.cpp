@@ -8,6 +8,7 @@ Apple::Apple()
 
 Apple::Apple(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position,size,tag)
 {
+	_rigid->setDensity(0);
 	setScale(Vec2(1, 1));
 }
 
