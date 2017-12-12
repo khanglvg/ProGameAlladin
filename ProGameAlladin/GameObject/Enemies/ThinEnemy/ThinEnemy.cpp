@@ -78,13 +78,22 @@ void ThinEnemy::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
-	Graphics::getInstance()->drawSprite(_textureThinEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
-	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+	
+	auto origin = Vec2(0.3f, 1.0f);
+
+	if (_actionName == "ThinEnemy-Attack" && _animationIndex >1 && _animationIndex <5)
+	{
+		origin = Vec2(0.8f, 1.0f);
+	}
+
+
+	Graphics::getInstance()->drawSprite(_textureThinEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
@@ -95,6 +104,9 @@ void ThinEnemy::render()
 			_animationIndex = 0;
 
 	}
+
+	
+	
 }
 
 Rect ThinEnemy::getRect()

@@ -207,6 +207,11 @@ void Enemy::allowMoveRight(bool allow)
 	_allowMoveRight = allow;
 }
 
+int Enemy::getIndex()
+{
+	return _animationIndex;
+}
+
 Rect Enemy::getRect()
 {
 	return Rect();
