@@ -33,6 +33,7 @@ public:
 
 protected:
 	Texture _textureCamel;
+	Texture _textureCamelRigid;
 
 	int _animationIndex = 0;
 	string _actionName;

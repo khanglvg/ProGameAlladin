@@ -11,7 +11,7 @@ ThinEnemyInAttackedState::ThinEnemyInAttackedState(Enemy * enemy) : EnemyState(e
 {
 	auto thinEnemy = static_cast<ThinEnemy*>(enemy);
 	_enemy = enemy;
-	_enemy->setActionName("KnifeEnemy-Attacked");
+	_enemy->setActionName("ThinEnemy-Attacked");
 }
 
 ThinEnemyInAttackedState::~ThinEnemyInAttackedState()

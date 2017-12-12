@@ -72,7 +72,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init Enemies
 			if (objectGroup->GetName() == "Enemy_1")
 			{
-				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
+				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
@@ -126,7 +126,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//camel
 			if (objectGroup->GetName() == "Camel")
 			{
-				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
+				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
 				camel->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listCamels.push_back(camel);
@@ -137,8 +137,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
-		
+				auto *gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
+				gameObject->setRigidTag("ground");
+
 				if(object->GetName() == "StairGround")
 				{
 					_listStairGround.push_back(gameObject);
@@ -148,6 +149,14 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 					_listGround.push_back(gameObject);
 				}
 				_quadTree->insertObject(gameObject);
+			}
+
+			if (objectGroup->GetName() == "Platform")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 20, object->GetY() + object->GetHeight() / 3), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
+				gameObject->setRigidTag("ground");
+
+				_listGround.push_back(gameObject);
 			}
 
 			//init rope

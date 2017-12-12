@@ -110,6 +110,9 @@
     <ClCompile Include="State\ThrowWhenWing.cpp" />
     <ClCompile Include="State\Wing.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -300,6 +303,9 @@
     <ClInclude Include="State\Wing.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
