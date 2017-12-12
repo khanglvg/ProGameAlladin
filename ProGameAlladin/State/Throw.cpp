@@ -4,7 +4,7 @@
 #include "Jump.h"
 #include "Run.h"
 #include "../GameObject/Aladdin.h"
-#include "../AppleToThrow.h"
+#include "../GameObject/AppleToThrow.h"
 
 US_NS_JK
 

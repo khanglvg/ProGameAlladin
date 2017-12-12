@@ -71,7 +71,7 @@ State* JumpAndSlash::checkTransition()
 		return new JumpAndThrow(_node);
 
 
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround())
 		return new Grounding(_node);
 	
 

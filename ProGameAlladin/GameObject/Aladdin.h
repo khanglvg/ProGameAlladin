@@ -34,17 +34,19 @@ public:
 
 	int getIndex() const;
 	void setIndex(const int& index);
-	Texture getTexture();
+	Texture getTexture() const;
 
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
 
 	Vec2 getVelocity()const;
-	void setVelocity(const Vec2& velocity);
+	void setVelocity(const Vec2& velocity) const;
 
 	Rect getRect() override;
-	bool getisOnTheGround() const;
+	bool isOnTheGround() const;
+	bool isBesideTheWall() const;
+	bool isBesideTheStair() const;
 
 
 private:
@@ -66,7 +68,9 @@ private:
 	State* _currentState;
 
 	RigidBody* _rigidAla;
-	bool isOnTheGround;
+	bool _isOnTheGround;
+	bool _isBesideTheStair;
+	bool _isBesideTheWall;
 
 };
 

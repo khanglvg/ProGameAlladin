@@ -52,7 +52,7 @@ void RunAndJump::onUpdate()
 	if (_state == FALL)
 	{
 	}
-	if(aladdin->getisOnTheGround()== false)
+	if(aladdin->isOnTheGround()== false)
 	{
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
@@ -84,7 +84,7 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround())
 		return new Idle(_node);
 
 	return nullptr;

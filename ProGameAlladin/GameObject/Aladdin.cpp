@@ -8,7 +8,7 @@ US_NS_JK
 Aladdin::Aladdin()
 {
 	float size_x = 50;
-	float size_y = 55;
+	float size_y = 65;
 	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
 	_rigidAla = new RigidBody(Vec2(300, SCREEN_HEIGHT - 50), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
@@ -69,23 +69,39 @@ void Aladdin::update()
 
 	if (_rigidAla->getCollidingBodies().size() == 0)
 	{
-		isOnTheGround = false;
+		_isOnTheGround = false;
 	}
 	else
 	{
-		auto const collider = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"ground" );
+		auto const collisionWithGround = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"ground" );;
+		auto const collisionWithWall = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"wall" );
+		auto const collisionWithStair = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"stair" );
 
 
 
-		if (collider == _rigidAla->getCollidingBodies().end())
-		{
-			isOnTheGround = false;
-		}
+		//
+		//	collision with ground
+		//
+		if (collisionWithGround == _rigidAla->getCollidingBodies().end())
+			_isOnTheGround = false;
 		else
-		{
-			isOnTheGround = true;
+			_isOnTheGround = true;
 
-		}
+		//
+		//	collision with stair
+		//
+		if (collisionWithStair == _rigidAla->getCollidingBodies().end())
+			_isBesideTheStair = false;
+		else
+			_isBesideTheStair = true;
+
+		//
+		//	collision with wall
+		//
+		if (collisionWithWall == _rigidAla->getCollidingBodies().end())
+			_isBesideTheWall = false;
+		else
+			_isBesideTheWall = true;
 	}
 	
 
@@ -118,7 +134,7 @@ void Aladdin::render()
 	//_rigidAla->setSize(Size(rect.getWidth(), rect.getHeight()));
 	//_rigidAla->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
+	const auto expect = 0.1;
 
 	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidAla->getSize().getWidth(), _rigidAla->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
@@ -142,7 +158,8 @@ void Aladdin::render()
 
 }
 
-void Aladdin::setActionName(string actionName)
+#pragma region GET-SET
+void Aladdin::setActionName(const string actionName)
 {
 	_actionName = actionName;
 }
@@ -172,7 +189,7 @@ int Aladdin::getIndex() const
 	return _animationIndex;
 }
 
-Texture Aladdin::getTexture()
+Texture Aladdin::getTexture() const
 {
 	return _textureAla;
 }
@@ -187,15 +204,15 @@ Vec2 Aladdin::getVelocity() const
 	return _rigidAla->getVelocity();
 }
 
-void Aladdin::setVelocity(const Vec2& velocity)
+void Aladdin::setVelocity(const Vec2& velocity) const
 {
 	_rigidAla->setVelocity(velocity);
 }
 
 Rect Aladdin::getRect()
-{ 
-	auto width = _animations[_actionName][_animationIndex].getWidth();
-	auto height = _animations[_actionName][_animationIndex].getHeight();
+{
+	const auto width = _animations[_actionName][_animationIndex].getWidth();
+	const auto height = _animations[_actionName][_animationIndex].getHeight();
 
 	Rect rect;
 
@@ -206,12 +223,23 @@ Rect Aladdin::getRect()
 	return rect;
 }
 
-bool Aladdin::getisOnTheGround() const
+bool Aladdin::isOnTheGround() const
 {
-	return isOnTheGround;
+	return _isOnTheGround;
+}
+
+bool Aladdin::isBesideTheWall() const
+{
+	return _isBesideTheWall;
+}
+
+bool Aladdin::isBesideTheStair() const
+{
+	return _isBesideTheStair;
 }
 
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;
 }
+#pragma endregion

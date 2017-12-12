@@ -57,9 +57,9 @@ State* Jump::checkTransition()
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);*/
 
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround())
 		return new Idle(_node);
-	//if (aladdin->getisOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
+	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{
 	//	return new Idle(_node);
 	//}

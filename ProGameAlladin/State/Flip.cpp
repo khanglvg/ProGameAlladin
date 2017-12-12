@@ -26,7 +26,7 @@ State* Flip::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround())
 		return new Idle(_node);
 
 	return nullptr;
