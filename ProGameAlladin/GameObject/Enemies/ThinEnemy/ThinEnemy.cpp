@@ -25,7 +25,6 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
-	_rigid->setTag("ground");
 }
 
 ThinEnemy::~ThinEnemy()
@@ -87,13 +86,13 @@ void ThinEnemy::render()
 	}
 
 
-	Graphics::getInstance()->drawSprite(_textureThinEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
-	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+	Graphics::getInstance()->drawSprite(_textureThinEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

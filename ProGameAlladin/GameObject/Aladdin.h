@@ -47,6 +47,8 @@ public:
 	bool isOnTheGround() const;
 	bool isBesideTheWall() const;
 	bool isBesideTheStair() const;
+	bool isCollisionWithEnemy() const;
+	bool isOnThePlatform() const;
 
 
 private:
@@ -68,6 +70,8 @@ private:
 	bool _isOnTheGround;
 	bool _isBesideTheStair;
 	bool _isBesideTheWall;
+	bool _isCollisionWithEnemy;
+	bool _isOnThePlatform;
 
 };
 

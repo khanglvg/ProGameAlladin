@@ -8,7 +8,7 @@ US_NS_JK
 KnifeToThrow::KnifeToThrow(const Vec2 & position, const Size & size) :GameObject(position, size, APPLES)
 {
 	_rigid->setBodyType(DYNAMIC);
-	_rigid->setDensity(0.5);
+	_rigid->setDensity(0.1);
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
@@ -87,12 +87,12 @@ void KnifeToThrow::render()
 	const auto expect = 0.07;
 
 	Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
-		rect, 1);
+		rect, 2);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

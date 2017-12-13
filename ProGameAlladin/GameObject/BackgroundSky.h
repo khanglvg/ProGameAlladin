@@ -1,6 +1,6 @@
-﻿#ifndef __BGLV1SCENE_H__
+﻿#ifndef __BACKGROUNDSKY_H__
 
-#define __BGLV1SCENE_H__
+#define __BACKGROUNDSKY_H__
 
 #include "../Framework/Node.h"
 #include "../Framework/Texture.h"
@@ -14,6 +14,8 @@ public:
 	BackgroundSky(const string& srcFile, const int& layer);
 
 	~BackgroundSky();
+
+	void update() override;
 
 	void release() override;
 
@@ -29,5 +31,5 @@ private:
 
 NS_JK_END
 
-#endif __BGLV1SCENE_H__
+#endif __BACKGROUNDSKY_H__
 

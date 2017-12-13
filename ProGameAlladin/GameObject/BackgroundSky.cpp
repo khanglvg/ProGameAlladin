@@ -12,6 +12,11 @@ BackgroundSky::~BackgroundSky()
 {
 }
 
+void BackgroundSky::update()
+{
+	_position -= Vec2(8,0);
+}
+
 void BackgroundSky::release()
 {
 	delete this;

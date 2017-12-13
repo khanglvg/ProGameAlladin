@@ -1,5 +1,12 @@
 #include "GameMap.h"
 
+#include "../GameObject/Enemies/ThinEnemy/ThinEnemy.h"
+#include "../GameObject/Enemies/BigEnemy/BigEnemy.h"
+#include "../GameObject/Enemies/FatEnemy/FatEnemy.h"
+#include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
+#include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
+#include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
+
 US_NS_JK
 
 GameMap::GameMap()
@@ -19,12 +26,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 
 		if (layer->GetName() == "Tile Layer 1")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png", 0);
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png", 1);
 			_backgroundTextures.push_back(background);
 		}
 		if (layer->GetName() == "Tile Layer 2")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 1);
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 2);
 			_backgroundTextures.push_back(background);
 		}
 	}

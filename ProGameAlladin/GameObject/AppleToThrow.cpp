@@ -5,7 +5,7 @@ US_NS_JK
 AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(position,size, APPLES)
 {
 	_rigid->setBodyType(DYNAMIC);
-	_rigid->setDensity(0.5);
+	_rigid->setDensity(0.1);
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
@@ -61,7 +61,7 @@ void AppleToThrow::release()
 void AppleToThrow::render()
 {
 	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
-		Rect(0, 0, 11, 12), 1);
+		Rect(0, 0, 11, 12), 2);
 }
 
 Texture AppleToThrow::getTexture() const

@@ -84,6 +84,8 @@ void Aladdin::update()
 		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
 		auto const wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
 		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
+		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
+		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
 
 
 
@@ -112,6 +114,24 @@ void Aladdin::update()
 			_isBesideTheWall = false;
 		else
 			_isBesideTheWall = true;
+
+		//
+		//	collision with enemy
+		//
+		if (enemy == _rigid->getCollidingBodies().end())
+			_isCollisionWithEnemy = false;
+		else
+			_isCollisionWithEnemy = true;
+		
+		//
+		//	collision with platform
+		//
+		if (platform == _rigid->getCollidingBodies().end())
+			_isOnThePlatform = false;
+		else
+			_isOnThePlatform = true;
+
+		
 	}
 	
 
@@ -146,13 +166,13 @@ void Aladdin::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	const auto expect = 0.05;
 
-	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
-	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
@@ -246,6 +266,16 @@ bool Aladdin::isBesideTheWall() const
 bool Aladdin::isBesideTheStair() const
 {
 	return _isBesideTheStair;
+}
+
+bool Aladdin::isCollisionWithEnemy() const
+{
+	return _isCollisionWithEnemy;
+}
+
+bool Aladdin::isOnThePlatform() const
+{
+	return _isOnThePlatform;
 }
 
 void Aladdin::setIndex(const int& index)
