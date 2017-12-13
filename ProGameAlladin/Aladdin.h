@@ -45,6 +45,7 @@ public:
 
 	Rect getRect() override;
 	bool getisOnTheGround() const;
+	bool getisOnRope() const;
 private:
 
 	Texture _textureAla;
@@ -62,6 +63,7 @@ private:
 
 	RigidBody* _rigidAla;
 	bool isOnTheGround;
+	bool isOnRope;
 };
 
 NS_JK_END

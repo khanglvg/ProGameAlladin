@@ -5,6 +5,7 @@
 #include "../Aladdin.h"
 #include "Run.h"
 #include "IdleToSit.h"
+#include "Climb.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -40,7 +41,6 @@ void Jump::onUpdate()
 	{
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
-		
 	}
 }
 
@@ -56,7 +56,8 @@ State* Jump::checkTransition()
 		return new JumpAndSlash(_node);
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);*/
-
+	if (aladdin->getisOnRope())
+		return new Climb(_node);
 	if (aladdin->getisOnTheGround())
 		return new Idle(_node);
 	//if (aladdin->getisOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))

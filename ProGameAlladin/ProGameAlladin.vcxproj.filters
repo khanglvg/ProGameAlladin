@@ -626,6 +626,9 @@
     <ClInclude Include="State\Idle3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\Rope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
@@ -997,6 +1000,9 @@
     <ClCompile Include="State\Idle3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject\Rope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib">
@@ -1103,5 +1109,6 @@
     <Image Include="Resources\ground.png">
       <Filter>Resources</Filter>
     </Image>
+    <Image Include="Resources\Rope.png" />
   </ItemGroup>
 </Project>
