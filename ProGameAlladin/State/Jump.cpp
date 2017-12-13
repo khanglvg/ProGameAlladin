@@ -21,7 +21,7 @@ void Jump::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -300)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -230)); // -300 is High jump (hold D), -200 is a normal jump
 	
 	aladdin->setActionName("Jump");
 }
