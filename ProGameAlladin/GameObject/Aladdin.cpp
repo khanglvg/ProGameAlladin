@@ -98,8 +98,6 @@ void Aladdin::update()
 		else
 		{
 			_isBesideTheStair = true;
-			//if(_rigid->getPosition().getY() > )
-			_rigid->setPosition(Vec2(_rigid->getPosition().getX(), _rigid->getPosition().getY() - 5));
 		}
 
 		//

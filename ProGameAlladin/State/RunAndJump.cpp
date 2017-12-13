@@ -25,12 +25,12 @@ void RunAndJump::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-250, -230));
+		aladdin->setVelocity(Vec2(-150, -230));
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(250, -230));
+		aladdin->setVelocity(Vec2(150, -230));
 	}
 
 	aladdin->setActionName("RunAndJump");
@@ -57,13 +57,13 @@ void RunAndJump::onUpdate()
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
 			aladdin->setScale(Vec2(-1, 1));
-			aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+			aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
 		}
 		
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->setScale(Vec2(1, 1));
-			aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+			aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
 		}
 			
 	}

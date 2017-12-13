@@ -21,6 +21,7 @@ Camera::Camera(const float& width, const float& height, const float& angle, cons
 	D3DXMatrixIdentity(&_identityMatrix);
 
 	_isUp = false;
+	_isStart = true;
 }
 
 Camera::~Camera()
@@ -38,27 +39,65 @@ Camera* Camera::getInstance()
 
 void Camera::update()
 {
-	// Camera's position
-	int cameraX = this->_width / 2;
-	int cameraY = this->_height / 2;
+	if(!this->_following)
+	{
+		_cameraX = this->_width / 2;
+		_cameraY = this->_height / 2;
+	}
 
 	if (this->_following && _isUp == false)
 	{
-		cameraX = this->_following->getPosition().getX() + 150;
-		cameraY = this->_following->getPosition().getY() - 70 - 150;
+		_cameraX = this->_following->getPosition().getX() + 150;
+		_cameraY = this->_following->getPosition().getY() - 70 - 150;
 	}
 	else if (this->_following && _isUp != false)
 	{
-		cameraX = this->_following->getPosition().getX() + 150;
-		cameraY = this->_following->getPosition().getY() - 70 - 50;
+		_cameraX = this->_following->getPosition().getX() + 150;
+		_cameraY = this->_following->getPosition().getY() - 70 - 50;
 	}
+
+	/*if (this->_following)
+	{
+		if (_isStart)
+		{		
+			_cameraX = this->_following->getPosition().getX() + 100;
+			_cameraY = this->_following->getPosition().getY() - 70;
+			_oldCameraX = _cameraX;
+			_oldCameraY = _cameraY;
+			_isStart = false;
+		}
+		else
+		{
+			if (Input::getInstance()->isAnyKeyDown())
+			{
+				_cameraX = _oldCameraX;
+				_cameraY = _oldCameraY;
+			}
+			if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+			{
+				_cameraX = this->_following->getPosition().getX() - 100;
+				_cameraY = this->_following->getPosition().getY() - 70;
+				_oldCameraX = _cameraX;
+				_oldCameraY = _cameraY;
+			}
+
+			if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+			{
+				_cameraX = this->_following->getPosition().getX() + 100;
+				_cameraY = this->_following->getPosition().getY() - 70;
+				_oldCameraX = _cameraX;
+				_oldCameraY = _cameraY;
+			}
+		}
+		
+	}*/
 
 
 	this->_viewMatrix = D3DXMATRIX(
 		_scaleFactors.getX() * cos(_angle), _scaleFactors.getX() * sin(_angle), 0, 0,
 		-_scaleFactors.getY() * sin(_angle), _scaleFactors.getY() * cos(_angle), 0, 0,
 		0, 0, 1, 0,
-		-cameraX * _scaleFactors.getX() * cos(_angle) + cameraY * _scaleFactors.getY() * sin(_angle), -cameraX * _scaleFactors.getY() * sin(_angle) - cameraY * _scaleFactors.getY() * cos(_angle), 0, 1
+		-_cameraX * _scaleFactors.getX() * cos(_angle) + _cameraY * _scaleFactors.getY() * sin(_angle), -_cameraX * _scaleFactors.getY() * sin(_angle) - _cameraY * _scaleFactors.getY() * cos(_angle), 0, 1
 	);
 
 }
@@ -133,6 +172,26 @@ bool Camera::isUp() const
 void Camera::setUp(const bool& isUp)
 {
 	_isUp = isUp;
+}
+
+float Camera::getCameraX() const
+{
+	return _cameraX;
+}
+
+void Camera::setCameraX(const float& cameraX)
+{
+	_cameraX = cameraX;
+}
+
+float Camera::getCameraY() const
+{
+	return _cameraY;
+}
+
+void Camera::setCameraY(const float& cameraY)
+{
+	_cameraY = cameraY;
 }
 #pragma endregion 
 

@@ -9,7 +9,7 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	mAladdin = new Aladdin(Vec2(300,500),Size(25,60));
+	mAladdin = new Aladdin(Vec2(1200,500),Size(25,60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 	/*_vectNode.push_back(new BackgroundLv1Scene());

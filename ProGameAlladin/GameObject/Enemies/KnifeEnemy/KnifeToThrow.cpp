@@ -78,7 +78,7 @@ void KnifeToThrow::release()
 
 void KnifeToThrow::render()
 {
-	if (_animationIndex >= _animations.size())
+	if (_animationIndex == _animations.size())
 		_animationIndex = 0;
 
 	const auto rect = _animations[_animationIndex];

@@ -31,6 +31,16 @@ private:
 	//
 	Vec2 _scaleFactors;
 
+	// Camera's position
+	float _cameraX;
+	float _cameraY;
+
+	// Camera's position old
+	float _oldCameraX;
+	float _oldCameraY;
+
+	bool _isStart;
+
 	float _angle;
 
 	static Camera *_instance;
@@ -46,6 +56,12 @@ public: // SET-GET
 
 	bool isUp() const;
 	void setUp(const bool& isUp);
+
+	float getCameraX() const;
+	void setCameraX(const float& cameraX);
+
+	float getCameraY() const;
+	void setCameraY(const float& cameraY);
 public:
 	// Constructor
 	Camera();
