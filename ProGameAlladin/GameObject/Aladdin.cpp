@@ -5,7 +5,7 @@
 
 US_NS_JK
 
-Aladdin::Aladdin()
+Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, size, PLAYER)
 {
 	float size_x = 25;
 	float size_y = 55;
@@ -13,6 +13,11 @@ Aladdin::Aladdin()
 	_rigidAla = new RigidBody(Vec2(1800, SCREEN_HEIGHT - 50), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 	setPosition(_rigidAla->getPosition());
+	_rigid->setBodyType(DYNAMIC);
+	_rigid->setDensity(1);
+	_rigid->setRestitution(0.5);
+	_rigid->setGravityScale(1);
+	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -64,25 +69,25 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
-	_position = _rigidAla->getPosition() - _rigidAla->getOffset();
+	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
-	if (_rigidAla->getCollidingBodies().size() == 0)
+	if (_rigid->getCollidingBodies().size() == 0)
 	{
 		_isOnTheGround = false;
 	}
 	else
 	{
-		auto const collisionWithGround = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"ground" );;
-		auto const collisionWithWall = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"wall" );
-		auto const collisionWithStair = std::find(std::begin(_rigidAla->getCollidingBodies()), std::end(_rigidAla->getCollidingBodies()),"stair" );
+		auto const collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
+		auto const collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
+		auto const collisionWithStair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 
 
 
 		//
 		//	collision with ground
 		//
-		if (collisionWithGround == _rigidAla->getCollidingBodies().end())
+		if (collisionWithGround == _rigid->getCollidingBodies().end())
 			_isOnTheGround = false;
 		else
 			_isOnTheGround = true;
@@ -90,7 +95,7 @@ void Aladdin::update()
 		//
 		//	collision with stair
 		//
-		if (collisionWithStair == _rigidAla->getCollidingBodies().end())
+		if (collisionWithStair == _rigid->getCollidingBodies().end())
 			_isBesideTheStair = false;
 		else
 			_isBesideTheStair = true;
@@ -98,7 +103,7 @@ void Aladdin::update()
 		//
 		//	collision with wall
 		//
-		if (collisionWithWall == _rigidAla->getCollidingBodies().end())
+		if (collisionWithWall == _rigid->getCollidingBodies().end())
 			_isBesideTheWall = false;
 		else
 			_isBesideTheWall = true;
@@ -130,13 +135,13 @@ void Aladdin::render()
 
 	const auto rect = _animations[_actionName][_animationIndex];
 
-	//_rigidAla->setPosition(Vec2(getPosition().getX()+ rect.getWidth() / 2, getPosition().getY() + rect.getHeight() / 2));
-	//_rigidAla->setSize(Size(rect.getWidth(), rect.getHeight()));
-	//_rigidAla->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
+	//_rigid->setPosition(Vec2(getPosition().getX()+ rect.getWidth() / 2, getPosition().getY() + rect.getHeight() / 2));
+	//_rigid->setSize(Size(rect.getWidth(), rect.getHeight()));
+	//_rigid->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	const auto expect = 0.05;
 
-	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigidAla->getSize().getWidth(), _rigidAla->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)
@@ -201,12 +206,12 @@ Vec2 Aladdin::getStartPosition() const
 
 Vec2 Aladdin::getVelocity() const
 {
-	return _rigidAla->getVelocity();
+	return _rigid->getVelocity();
 }
 
 void Aladdin::setVelocity(const Vec2& velocity) const
 {
-	_rigidAla->setVelocity(velocity);
+	_rigid->setVelocity(velocity);
 }
 
 Rect Aladdin::getRect()

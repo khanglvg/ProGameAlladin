@@ -6,6 +6,7 @@
 #include "Rect.h"
 
 NS_JK_BEGIN
+class Scene;
 class Node
 {
 public:
@@ -39,7 +40,13 @@ public:
 
 	virtual Rect getRect();
 
+	virtual Scene* getCurrentScene() const;
+
+	virtual void setCurrentScene(Scene* scene);
+
 protected:
+
+	Scene* _currentScene;
 
 	Vec2 _origin;
 

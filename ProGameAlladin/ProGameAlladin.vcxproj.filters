@@ -116,6 +116,11 @@
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -312,6 +317,11 @@
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

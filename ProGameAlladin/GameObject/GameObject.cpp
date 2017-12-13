@@ -10,12 +10,10 @@ GameObject::GameObject()
 
 GameObject::GameObject(const Vec2 & position, const Size & size, const GameObjectType tag)
 {
-	_size = size;
-	_rigid = new RigidBody(position, Vec2(0, 0), STATIC, 100, 0, 0, Vec2(0, 0), 0, Vec2(size.getWidth() / 2, -size.getHeight() / 2), _size);
+	_rigid = new RigidBody(position, Vec2(0, 0), STATIC, 100, 0, 0, Vec2(0, 0), 0, Vec2(size.getWidth() / 2, -size.getHeight() / 2), size);
 	setPosition(_rigid->getPosition() - _rigid->getOffset());
 	_tag = tag;
-	_isVisible = true;
-	
+	_isVisible = true;	
 }
 
 
@@ -25,7 +23,7 @@ GameObject::~GameObject()
 
 void GameObject::init()
 {
-	_textureRigid.setName("AladdinRigid.png");
+	_textureRigid.setName("GameObjectRigid.png");
 	_textureRigid.setSrcFile("Resources/red_rect.png");
 	Graphics::getInstance()->loadTexture(_textureRigid);
 }
@@ -59,22 +57,22 @@ bool GameObject::isVisible() const
 
 Size GameObject::getSize() const
 {
-	return _size;
+	return _rigid->getSize();
 }
 
 Vec2 GameObject::getRigidPosition() const
 {
-	return _rigidPosition;
+	return _rigid->getPosition();
 }
 
-void GameObject::setSize(const Size& sizeX)
+void GameObject::setSize(const Size& size)
 {
-	_size = sizeX;
+	_rigid->setSize(size);
 }
 
 void GameObject::setRigidPosition(const Vec2& position)
 {
-	_rigidPosition = position;
+	_rigid->setPosition(position);
 }
 void GameObject::setRigidTag(const string & rigidTag)
 {
@@ -83,5 +81,10 @@ void GameObject::setRigidTag(const string & rigidTag)
 string GameObject::getRigidTag() const
 {
 	return 	_rigid->getTag();
+}
+
+RigidBody* GameObject::getRigidBody() const
+{
+	return _rigid;
 }
 #pragma endregion 

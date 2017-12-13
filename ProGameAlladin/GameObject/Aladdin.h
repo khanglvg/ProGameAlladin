@@ -16,7 +16,7 @@ class Aladdin: public GameObject
 {
 public:
 		
-	Aladdin();
+	Aladdin(const Vec2& position, const Size& size);
 
 	~Aladdin() override;
 
@@ -52,8 +52,6 @@ public:
 private:
 
 	Texture _textureAla;
-	//float _startX = 600;
-	//float _startX = SCREEN_WIDTH / 10;
 	Texture _textureRigid;
 	float _startX = 1500;
 	float _startY = SCREEN_HEIGHT - 350;
@@ -67,7 +65,6 @@ private:
 	float _index = 0;
 	State* _currentState;
 
-	RigidBody* _rigidAla;
 	bool _isOnTheGround;
 	bool _isBesideTheStair;
 	bool _isBesideTheWall;

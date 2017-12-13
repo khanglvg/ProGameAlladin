@@ -2,15 +2,15 @@
 
 #define __APPLETOTHROW_H__
 #include "../Framework/definitions.h"
-#include "../Framework/Node.h"
 #include "../Framework/Texture.h"
 #include "../Framework/RigidBody.h"
+#include "GameObject.h"
 
 NS_JK_BEGIN
-	class AppleToThrow: public Node
+	class AppleToThrow: public GameObject
 {
 public:
-	AppleToThrow();
+	AppleToThrow(const Vec2 & position, const Size & size);
 	~AppleToThrow();
 
 	void init() override;
@@ -21,13 +21,12 @@ public:
 #pragma region GET-SET
 	Texture getTexture() const;
 	void setVelocity(const Vec2& velocity);
-	
+	bool isCollision() const;
 #pragma endregion 
 
 private:
 	Texture _textureApple;
-	RigidBody *_rigidApple;
-
+	bool _isCollision;
 };
 NS_JK_END
 #endif

@@ -109,6 +109,7 @@ State* Run::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->isBesideTheWall())
 		return new Push(_node);
+
 	
 	return nullptr;
 }

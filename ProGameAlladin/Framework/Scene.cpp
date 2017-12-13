@@ -20,6 +20,22 @@ void Scene::init()
 
 void Scene::update()
 {
+	for(auto node: _nodesToAdd)
+	{
+		_vectNode.push_back(node);
+		node->init();
+	}
+	_nodesToAdd.clear();
+
+	for (auto node : _nodesToRemove)
+	{
+		const auto nodeToRemove = std::find(std::begin(_vectNode), std::end(_vectNode), node);
+		_vectNode.erase(nodeToRemove);
+	}
+	_nodesToRemove.clear();
+
+	OutputDebugString(std::to_string(_vectNode.size()).c_str());
+
 	for(auto node: _vectNode)
 	{
 		node->update();
@@ -40,4 +56,19 @@ void Scene::render()
 	{
 		node->render();
 	}
+}
+
+vector<Node*> Scene::getAllNodes() const
+{
+	return _vectNode;
+}
+
+void Scene::addNode(Node* node)
+{
+	_nodesToAdd.push_back(node);
+}
+
+void Scene::removeNode(Node* node)
+{
+	_nodesToRemove.push_back(node);
 }
