@@ -21,7 +21,7 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 {
 	_attackRange = 80;
 	_boundaryLeft = position.x - 90;
-	_boundaryRight = position.x + 90;
+	_boundaryRight = position.x + 80;
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
@@ -76,7 +76,7 @@ void ThinEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
+	auto expect = 0.05;
 
 	
 	auto origin = Vec2(0.3f, 1.0f);

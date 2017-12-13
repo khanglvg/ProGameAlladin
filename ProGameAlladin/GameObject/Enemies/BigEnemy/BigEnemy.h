@@ -20,6 +20,8 @@ public:
 	void render() override;
 
 	Rect getRect() override;
+private:
+	Texture _textureBigEnemy;
 };
 
 NS_JK_END

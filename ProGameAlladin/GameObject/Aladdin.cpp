@@ -7,6 +7,11 @@ US_NS_JK
 
 Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, size, PLAYER)
 {
+	float size_x = 25;
+	float size_y = 55;
+	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
+	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
+	setPosition(_rigid->getPosition());
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(1);
 	_rigid->setRestitution(0.5);
@@ -139,7 +144,7 @@ void Aladdin::render()
 	//_rigid->setSize(Size(rect.getWidth(), rect.getHeight()));
 	//_rigid->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	const auto expect = 0.1;
+	const auto expect = 0.05;
 
 	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);

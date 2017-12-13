@@ -21,8 +21,7 @@ public:
 
 	Rect getRect() override;
 private:
-
-	Texture _textureWallRigid;
+	Texture _textureWallEnemy;
 };
 
 NS_JK_END

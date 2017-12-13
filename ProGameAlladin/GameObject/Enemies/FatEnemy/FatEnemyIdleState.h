@@ -14,6 +14,7 @@ public:
 	FatEnemyIdleState(Enemy* enemy);
 	~FatEnemyIdleState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
 };

@@ -12,6 +12,9 @@ HideEnemy::HideEnemy()
 HideEnemy::HideEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
+	_attackRange = 50;
+	_boundaryLeft = position.x;
+	_boundaryRight = position.x + 80;
 	_currentState = new HideEnemyIdleState(this);
 }
 
@@ -24,6 +27,10 @@ void HideEnemy::init()
 	_textureEnemy.setName("HideEnemy.jpg");
 	_textureEnemy.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Civilian Enemies.png");
 	Graphics::getInstance()->loadTexture(_textureEnemy);
+
+	_textureHideEnemy.setName("HideEnemyRigid.png");
+	_textureHideEnemy.setSrcFile("Resources/red_rect.png");
+	Graphics::getInstance()->loadTexture(_textureHideEnemy);
 }
 
 void HideEnemy::release()
@@ -33,8 +40,11 @@ void HideEnemy::release()
 
 void HideEnemy::update()
 {
-	//_position = _rigidAla->getPosition() - _rigidAla->getOffset();
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
+	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
+
+	Enemy::update();
 
 	EnemyState* newState = _currentState->checkTransition();
 
@@ -56,6 +66,7 @@ void HideEnemy::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
+	Graphics::getInstance()->drawSprite(_textureHideEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)

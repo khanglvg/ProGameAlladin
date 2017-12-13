@@ -24,6 +24,10 @@ void KnifeEnemy::init()
 	_textureEnemy.setName("KnifeEnemy.jpg");
 	_textureEnemy.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Civilian Enemies.png");
 	Graphics::getInstance()->loadTexture(_textureEnemy);
+
+	_textureKnifeEnemy.setName("KnifeEnemyRigid.png");
+	_textureKnifeEnemy.setSrcFile("Resources/red_rect.png");
+	Graphics::getInstance()->loadTexture(_textureKnifeEnemy);
 }
 
 void KnifeEnemy::release()
@@ -33,6 +37,7 @@ void KnifeEnemy::release()
 
 void KnifeEnemy::update()
 {
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
@@ -54,14 +59,27 @@ void KnifeEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
+	auto expect = 0.05;
 
-	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+	auto origin = Vec2(1.0f, 1.0f);
+
+	//if (_actionName == "KnifeEnemy-Idle" && _animationIndex == 5)
+	//{
+	//	origin = Vec2(0.9f, 1.0f);
+	//}
+	if (_actionName == "KnifeEnemy-Idle" && _animationIndex >6 && _animationIndex <11)
+	{
+		origin = Vec2(0.9f, 1.0f);
+	}
+
+
+	Graphics::getInstance()->drawSprite(_textureKnifeEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
+	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

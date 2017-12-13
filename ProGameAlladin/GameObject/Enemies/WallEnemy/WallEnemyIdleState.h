@@ -14,6 +14,7 @@ public:
 	WallEnemyIdleState(Enemy* enemy);
 	~WallEnemyIdleState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
 };
