@@ -135,7 +135,7 @@ bool Enemy::isTargetInViewRange()
 
 bool Enemy::isTargetInAttackRange()
 {
-	if (abs(_distanceToTarget.x) <= _attackRange && abs(_distanceToTarget.y) < getSize().getHeight())
+	if (abs(_distanceToTarget.x) <= _attackRange && _distanceToTarget.y < _target->getSize().getHeight())
 		return true;
 	return false;
 }
@@ -213,6 +213,11 @@ void Enemy::allowMoveRight(bool allow)
 int Enemy::getIndex()
 {
 	return _animationIndex;
+}
+
+GameObject * Enemy::getTarget() const
+{
+	return _target;
 }
 
 Rect Enemy::getRect()

@@ -21,7 +21,7 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 {
 	_attackRange = 80;
 	_boundaryLeft = position.x - 90;
-	_boundaryRight = position.x + 90;
+	_boundaryRight = position.x + 80;
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);

@@ -54,6 +54,8 @@ public:
 	
 	int getIndex();
 
+	GameObject* getTarget() const;
+
 	Rect getRect() override;
 
 	std::map<string, vector<Rect>> _animations;

@@ -33,7 +33,6 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
@@ -121,6 +120,27 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Application.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Camera.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Color.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\GameManager.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\GameMap.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Graphics.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Input.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Matrix.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Node.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\PhysicsManager.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\QuadTree.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Rect.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\RigidBody.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Scene.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Size.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Texture.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Vec2.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -230,7 +250,6 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
@@ -322,6 +341,28 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
     <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Application.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Camera.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Color.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\definitions.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\GameManager.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\GameMap.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Graphics.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Input.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Matrix.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Node.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\PhysicsManager.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\QuadTree.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Rect.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\RigidBody.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Scene.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Size.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Texture.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Vec2.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

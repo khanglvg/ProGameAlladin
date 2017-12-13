@@ -10,9 +10,8 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	float size_x = 25;
 	float size_y = 55;
 	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
-	_rigidAla = new RigidBody(Vec2(1800, SCREEN_HEIGHT - 50), Vec2(0, 0), DYNAMIC, 1, 0.5, 1, Vec2(0.0f, 0.0f), 0, Vec2(size_x/2, -size_y/2), Size(size_x, size_y));
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
-	setPosition(_rigidAla->getPosition());
+	setPosition(_rigid->getPosition());
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(1);
 	_rigid->setRestitution(0.5);
