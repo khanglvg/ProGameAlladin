@@ -6,6 +6,8 @@
 #include "../GameObject/Aladdin.h"
 #include "../GameObject/AppleToThrow.h"
 
+#include "../Framework/Scene.h"
+
 US_NS_JK
 
 Throw::Throw(Node* node):State(node)
@@ -30,9 +32,15 @@ void Throw::onEnter()
 
 	aladdin->setActionName("Throw");
 
-	auto apple = new AppleToThrow();
-	apple->init();
-	apple->setVelocity(Vec2(20, 0));
+	if (Input::getInstance()->getKey(KEY_A))
+	{
+		const auto apple = new AppleToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
+		apple->getRigidBody()->setVelocity(Vec2(400, 0));
+		apple->setCurrentScene(aladdin->getCurrentScene());
+		aladdin->getCurrentScene()->addNode(apple);
+	}
+
+	
 	
 }
 
@@ -53,10 +61,10 @@ State* Throw::checkTransition()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 
-	//if(aladdin->getIndex() >= 5)
-	//{
-	//	return new Idle(_node);
-	//}
+	if(!Input::getInstance()->getKey(KEY_A) && aladdin->getIndex() >= 5)
+	{
+		return new Idle(_node);
+	}
 
 	return nullptr;
 }

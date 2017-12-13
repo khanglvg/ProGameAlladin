@@ -2,25 +2,17 @@
 #include "../Framework/Graphics.h"
 US_NS_JK
 
-AppleToThrow::AppleToThrow()
+AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(position,size, APPLES)
 {
-	float size_x = 5;
-	float size_y = 5;
+	_rigid->setBodyType(DYNAMIC);
+	_rigid->setDensity(0.5);
+	_rigid->setRestitution(0);
+	_rigid->setGravityScale(1);
+	setPosition(_rigid->getPosition());
+	setScale(Vec2(1.8, 1.8));
+	_rigid->setTag("appletothrow");
 
-	auto position = Vec2(100,500);
-	auto velocity = Vec2(20, 0);
-	auto bodyType = DYNAMIC;
-	auto density = 1;
-	auto restitution = 0.5;
-	auto gravityScale = 1;
-	auto forces = Vec2(0, 0);
-	auto impulse = 0;
-	auto offset = Vec2(size_x / 5, -size_y / 2);
-	auto size = Size(size_x, size_y);
-
-	_rigidApple = new RigidBody(position, velocity, bodyType, density, restitution, gravityScale, forces, impulse, offset, size);
-	setPosition(_rigidApple->getPosition());
-	setScale(Vec2(2,2));
+	_isCollision = false;
 }
 
 AppleToThrow::~AppleToThrow()
@@ -36,12 +28,33 @@ void AppleToThrow::init()
 
 void AppleToThrow::update()
 {
-	this->_position = _rigidApple->getPosition() - _rigidApple->getOffset();
+	this->_position = _rigid->getPosition() - _rigid->getOffset();
+
+	const auto collisionWithEnemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enermy");
+	const auto collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall");
+	const auto collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground");
+	const auto collisionWithPlatform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform");
+
+	if (collisionWithEnemy == _rigid->getCollidingBodies().end())
+		_isCollision = false;
+	else if (collisionWithWall == _rigid->getCollidingBodies().end())
+		_isCollision = false;
+	else if (collisionWithGround == _rigid->getCollidingBodies().end())
+		_isCollision = false;
+	else if (collisionWithPlatform == _rigid->getCollidingBodies().end())
+		_isCollision = false;
+	else
+		_isCollision = true;
+
+	if(_isCollision)
+	{
+		//getCurrentScene()->removeNode(this);
+	}
 }
 
 void AppleToThrow::release()
 {
-	delete _rigidApple;
+	delete _rigid;
 	delete this;
 }
 
@@ -58,5 +71,10 @@ Texture AppleToThrow::getTexture() const
 
 void AppleToThrow::setVelocity(const Vec2& velocity)
 {
-	_rigidApple->setVelocity(velocity);
+	_rigid->setVelocity(velocity);
+}
+
+bool AppleToThrow::isCollision() const
+{
+	return _isCollision;
 }

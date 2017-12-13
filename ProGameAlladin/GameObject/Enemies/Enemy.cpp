@@ -25,6 +25,8 @@ Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_isRight = false;
 	_allowMoveLeft = _allowMoveRight = true;
 
+	_rigid->setTag("enemy");
+
 #pragma region READ - XML
 	pugi::xml_document doc;
 	const auto result = doc.load_file("Resources/Enemies/Enemies.xml");

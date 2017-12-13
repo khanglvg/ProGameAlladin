@@ -35,6 +35,8 @@ public:
 	void setRigidTag(const string& rigidTag);
 	string getRigidTag() const;
 
+	RigidBody* getRigidBody() const;
+
 	GameObject::GameObjectType getTag() const;
 #pragma endregion
 
@@ -43,8 +45,6 @@ public:
 protected:
 	GameObjectType _tag;
 
-	Size _size;
-	Vec2 _rigidPosition;
 
 	Texture _textureRigid;
 	RigidBody* _rigid;

@@ -110,6 +110,16 @@ Rect Node::getRect()
 	return Rect(0, 0, 0, 0);
 }
 
+Scene* Node::getCurrentScene() const
+{
+	return _currentScene;
+}
+
+void Node::setCurrentScene(Scene* scene)
+{
+	_currentScene = scene;
+}
+
 
 #pragma endregion 
 
