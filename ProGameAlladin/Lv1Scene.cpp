@@ -4,6 +4,7 @@
 #include "GameObject/Enemies/Enemy.h"
 #include "GameObject//AppleToThrow.h"
 #include "GameObject/Wall/Wall.h"
+#include "GameObject/BackgroundSky.h"
 
 US_NS_JK
 
@@ -12,15 +13,7 @@ Lv1Scene::Lv1Scene()
 	mAladdin = new Aladdin(Vec2(1200,500),Size(25,60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
-	/*_vectNode.push_back(new BackgroundLv1Scene());
-	_vectNode.push_back(new Enemy());*/
-	//FloatGround* enemy = new FloatGround();
-	//enemy->setPosition(Vec2(SCREEN_WIDTH +200, SCREEN_HEIGHT -50));
-	//enemy->getRect();
-
-	/*_vectNode.push_back(new Ground());
-	_vectNode.push_back(new ThinEnemy());*/
-	//_vectNode.push_back(new AppleToThrow());
+	_vectNode.push_back(new BackgroundSky("Resources/background_sky.jpg", 1.5));
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 

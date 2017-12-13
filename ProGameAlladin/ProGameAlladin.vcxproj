@@ -203,6 +203,7 @@
     <ClInclude Include="DirectX\Include\xnamath.h" />
     <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\BackgroundSky.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
@@ -360,6 +361,7 @@
     <ClCompile Include="GameObject\Aladdin.cpp" />
     <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\BackgroundSky.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />

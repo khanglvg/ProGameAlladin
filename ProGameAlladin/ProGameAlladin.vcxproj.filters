@@ -142,6 +142,7 @@
     <ClCompile Include="GameObject\Enemies\WallEnemy\Framework\Vec2.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundSky.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -365,6 +366,7 @@
     <ClInclude Include="GameObject\Enemies\WallEnemy\Framework\Vec2.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundSky.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
