@@ -1,10 +1,9 @@
 ﻿#include "Climb.h"
 #include "../Framework/Input.h"
 #include "JumpWhileClimb.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "SlashWhenClimb.h"
 #include "ThrowWhenClimb.h"
-#include "../Framework/RigidBody.h"
 US_NS_JK
 
 Climb::Climb(Node* node):State(node)

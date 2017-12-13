@@ -1,5 +1,5 @@
 ﻿#include "Rope.h"
-#include "../../Aladdin.h"
+#include "../GameObject//Aladdin.h"
 US_NS_JK
 Rope::Rope()
 {
