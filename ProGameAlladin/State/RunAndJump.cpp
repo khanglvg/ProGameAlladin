@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpAndThrow.h"
 #include "JumpAndSlash.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "Fall.h"
 US_NS_JK
@@ -25,12 +25,12 @@ void RunAndJump::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-100, -300));
+		aladdin->setVelocity(Vec2(-150, -230));
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(100, -300));
+		aladdin->setVelocity(Vec2(150, -230));
 	}
 
 	aladdin->setActionName("RunAndJump");
@@ -52,18 +52,18 @@ void RunAndJump::onUpdate()
 	if (_state == FALL)
 	{
 	}
-	if(aladdin->getisOnTheGround()== false)
+	if(aladdin->isOnTheGround()== false)
 	{
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
 			aladdin->setScale(Vec2(-1, 1));
-			aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+			aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
 		}
 		
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->setScale(Vec2(1, 1));
-			aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+			aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
 		}
 			
 	}
@@ -84,7 +84,7 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
 		return new Idle(_node);
 
 	return nullptr;

@@ -1,5 +1,5 @@
 ﻿#include "Sit.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "../Framework/Graphics.h"
 #include "../Framework/Input.h"
 #include "SitAndSlash.h"

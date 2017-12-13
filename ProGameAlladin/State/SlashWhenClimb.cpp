@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpWhileClimb.h"
 #include "ThrowWhenClimb.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 US_NS_JK
 
 SlashWhenClimb::SlashWhenClimb(Node* node):State(node)

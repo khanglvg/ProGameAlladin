@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpAndThrow.h"
 #include "JumpAndSlash.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "IdleToSit.h"
 #include "Climb.h"
@@ -22,7 +22,7 @@ void Jump::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -300)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -230)); // -300 is High jump (hold D), -200 is a normal jump
 	
 	aladdin->setActionName("Jump");
 }
@@ -56,11 +56,10 @@ State* Jump::checkTransition()
 		return new JumpAndSlash(_node);
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);*/
-	if (aladdin->getisOnRope())
-		return new Climb(_node);
-	if (aladdin->getisOnTheGround())
+
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
 		return new Idle(_node);
-	//if (aladdin->getisOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
+	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{
 	//	return new Idle(_node);
 	//}

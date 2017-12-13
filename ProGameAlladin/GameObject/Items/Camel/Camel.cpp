@@ -6,9 +6,13 @@ US_NS_JK
 
 Camel::Camel()
 {
-	_startPosition = Vec2(this->getPosition().getX(), this->getPosition().getY());
-	setPosition(_startPosition);
+	
+}
+
+Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position, size, tag)
+{
 	setScale(Vec2(1, 1));
+	_rigid->setDensity(0.001);
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -35,10 +39,6 @@ Camel::Camel()
 	_currentState = new CamelIdleState(this);
 }
 
-Camel::Camel(GameObject * target) : GameObject(GameObject::GameObjectType::Camels)
-{
-
-}
 
 Camel::~Camel()
 {
@@ -49,6 +49,10 @@ void Camel::init()
 	_textureCamel.setName("Camel.jpg");
 	_textureCamel.setSrcFile("Resources/Items/Genesis 32X SCD - Aladdin - Camel.png");
 	Graphics::getInstance()->loadTexture(_textureCamel);
+
+	_textureCamelRigid.setName("CamelRigid.png");
+	_textureCamelRigid.setSrcFile("Resources/red_rect.png");
+	Graphics::getInstance()->loadTexture(_textureCamelRigid);
 }
 
 void Camel::release()
@@ -80,6 +84,7 @@ void Camel::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.1;
 
+	Graphics::getInstance()->drawSprite(_textureCamelRigid, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 1);
 	Graphics::getInstance()->drawSprite(_textureCamel, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
 
 	if (_index <= expect)
@@ -116,7 +121,7 @@ Rect Camel::getRect()
 	Rect rect;
 	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
 	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
-	rect.setWidth(this->getWidth());
-	rect.setHeight(this->getHeight());
+	rect.setWidth(width);
+	rect.setHeight(height);
 	return rect;
 }

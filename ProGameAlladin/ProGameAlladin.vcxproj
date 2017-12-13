@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>D:\DirectX\Include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\DirectX\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\DirectX\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -126,8 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Aladdin.h" />
-    <ClInclude Include="BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\Aladdin.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
     <ClInclude Include="DirectX\Include\D2D1.h" />
@@ -202,8 +201,14 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\BackgroundSky.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\Enemy.h" />
     <ClInclude Include="Framework\Application.h" />
     <ClInclude Include="Framework\Camera.h" />
@@ -224,12 +229,22 @@
     <ClInclude Include="Framework\Vec2.h" />
     <ClInclude Include="Framework\GameMap.h" />
     <ClInclude Include="GameObject\Enemies\EnemyState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
     <ClInclude Include="GameObject\GameObject.h" />
@@ -242,6 +257,7 @@
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
+    <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
@@ -321,12 +337,19 @@
     <None Include="DirectX\Include\xnamathmisc.inl" />
     <None Include="DirectX\Include\xnamathvector.inl" />
     <None Include="MapReader\Tmx.h.in" />
+    <None Include="Resources\AgrabahMarket.tmx" />
+    <None Include="zlibwapi.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Aladdin.cpp" />
-    <ClCompile Include="BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\BackgroundSky.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\Enemy.cpp" />
     <ClCompile Include="Framework\Application.cpp" />
     <ClCompile Include="Framework\Camera.cpp" />
@@ -346,13 +369,23 @@
     <ClCompile Include="Framework\Vec2.cpp" />
     <ClCompile Include="Framework\GameMap.cpp" />
     <ClCompile Include="GameObject\Enemies\EnemyState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
@@ -365,6 +398,7 @@
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
+    <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -457,6 +491,7 @@
     <Library Include="DirectX\Lib\xapobased.lib" />
     <Library Include="DirectX\Lib\XAPOFX.lib" />
     <Library Include="DirectX\Lib\XInput.lib" />
+    <Library Include="zlib.lib" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\action2.xml">
@@ -465,14 +500,44 @@
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
+    <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
+    <Xml Include="Resources\Items\Camel.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\AgrabahMarket.png" />
+    <Image Include="Resources\AgrabahMarket1.png" />
+    <Image Include="Resources\AgrabahMarket2.png" />
     <Image Include="Resources\ala.png" />
+    <Image Include="Resources\Aladdin1.png" />
+    <Image Include="Resources\apple.png" />
+    <Image Include="Resources\apple1.png" />
+    <Image Include="Resources\background.jpg" />
+    <Image Include="Resources\demo_tmx\apple.png" />
+    <Image Include="Resources\demo_tmx\Camel.png" />
+    <Image Include="Resources\demo_tmx\Enemy-1.png" />
+    <Image Include="Resources\demo_tmx\Enemy-2.png" />
+    <Image Include="Resources\demo_tmx\Enemy-3.png" />
+    <Image Include="Resources\demo_tmx\Enemy-4.png" />
+    <Image Include="Resources\demo_tmx\Enemy-5.png" />
+    <Image Include="Resources\demo_tmx\FloatGround.png" />
+    <Image Include="Resources\demo_tmx\Player.png" />
+    <Image Include="Resources\demo_tmx\springboard.png" />
+    <Image Include="Resources\demo_tmx\WallEnemy.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Civilian Enemies.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Enemy Explosions.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Guards.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
     <Image Include="Resources\ground.png" />
+    <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\FloatGround.png" />
+    <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
+    <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
+    <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\Rope.png" />
     <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
+    <Image Include="RunAndSlash.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

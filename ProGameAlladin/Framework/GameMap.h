@@ -2,18 +2,12 @@
 
 #define __GAMEMAP_H_
 
-#include "../BackgroundLv1Scene.h"
+#include "../GameObject/BackgroundLv1Scene.h"
 #include "QuadTree.h"
 #include "../MapReader/Tmx.h.in"
 #include "Node.h"
 #include "../GameObject/GameObject.h"
 #include "../GameObject/Enemies/Enemy.h"
-#include "../GameObject/Enemies/ThinEnemy/ThinEnemy.h"
-#include "../GameObject/Enemies/BigEnemy/BigEnemy.h"
-#include "../GameObject/Enemies/FatEnemy/FatEnemy.h"
-#include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
-#include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
-#include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
 #include "../GameObject/Ground/FloatGround/FloatGround.h"
 #include "../GameObject/Ground/SpringBoard/SpringBoard.h"
 #include "../GameObject/Items/Camel/Camel.h"
@@ -37,10 +31,13 @@ private:
 	std::vector<Camel*> _listCamels;
 	std::vector<FloatGround*> _listFloatGrounds;
 	std::vector<SpringBoard*> _listSpringboards;
+	std::vector<GameObject*> _listGround;
+	std::vector<GameObject*> _listStairGround;
+	
 public:
 	GameMap();
 	//use QuadTree* &quadTree because quadTree is init in this function
-	GameMap(char* filePath, QuadTree* &quadTree);
+	GameMap(char* filePath, QuadTree* &quadTree, GameObject* player);
 	~GameMap();
 
 	void init();
@@ -50,6 +47,7 @@ public:
 
 	/*Aladdin* getPlayer();*/
 
+	vector<GameObject*> getListGround() const;
 	int getWidth();
 	int getHeight();
 };

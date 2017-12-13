@@ -15,25 +15,25 @@ class Camel : public GameObject
 {
 public:
 	Camel();//not use
-	Camel(GameObject * target);
+	Camel(const Vec2& position, const Size& size, const GameObjectType& tag);
 
 	~Camel() override;
 
-	void init();
-	void release();
-	void update();
-	void render();
+	void init() override;
+	void release() override;
+	void update() override;
+	void render() override;
 
 	void setActionName(string);
 	string getActionName() const;
 
-	Rect getRect();
+	Rect getRect() override;
 
 	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureCamel;
-	Vec2 _startPosition;
+	Texture _textureCamelRigid;
 
 	int _animationIndex = 0;
 	string _actionName;

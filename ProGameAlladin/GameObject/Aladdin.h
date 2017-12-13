@@ -2,21 +2,21 @@
 
 #define __ALADDIN_H_
 
-#include "Framework/Node.h"
-#include "Framework/Texture.h"
-#include "Framework/Rect.h"
-#include "pugixml/pugixml.hpp"
-#include "State/State.h"
-#include "State/Idle.h"
-#include "Framework/RigidBody.h"
+#include "../Framework/Texture.h"
+#include "../Framework/Rect.h"
+#include "../pugixml/pugixml.hpp"
+#include "../State/State.h"
+#include "../State/Idle.h"
+#include "../Framework/RigidBody.h"
+#include "GameObject.h"
 
 NS_JK_BEGIN
 
-class Aladdin: public Node
+class Aladdin: public GameObject
 {
 public:
 		
-	Aladdin();
+	Aladdin(const Vec2& position, const Size& size);
 
 	~Aladdin() override;
 
@@ -34,22 +34,28 @@ public:
 
 	int getIndex() const;
 	void setIndex(const int& index);
-	Texture getTexture();
+	Texture getTexture() const;
 
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
 
 	Vec2 getVelocity()const;
-	void setVelocity(const Vec2& velocity);
+	void setVelocity(const Vec2& velocity) const;
 
 	Rect getRect() override;
-	bool getisOnTheGround() const;
-	bool getisOnRope() const;
+	bool isOnTheGround() const;
+	bool isBesideTheWall() const;
+	bool isBesideTheStair() const;
+	bool isCollisionWithEnemy() const;
+	bool isOnThePlatform() const;
+
+
 private:
 
 	Texture _textureAla;
-	float _startX = SCREEN_WIDTH / 10;
+	Texture _textureRigid;
+	float _startX = 1500;
 	float _startY = SCREEN_HEIGHT - 350;
 	float _max = SCREEN_HEIGHT - 120;
 
@@ -61,9 +67,12 @@ private:
 	float _index = 0;
 	State* _currentState;
 
-	RigidBody* _rigidAla;
-	bool isOnTheGround;
-	bool isOnRope;
+	bool _isOnTheGround;
+	bool _isBesideTheStair;
+	bool _isBesideTheWall;
+	bool _isCollisionWithEnemy;
+	bool _isOnThePlatform;
+
 };
 
 NS_JK_END

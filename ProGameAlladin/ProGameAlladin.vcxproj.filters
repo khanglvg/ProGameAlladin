@@ -1,1111 +1,423 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="DirectX">
-      <UniqueIdentifier>{b5af328b-d4b4-4f3c-a563-edfd25e17e0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DirectX\Include">
-      <UniqueIdentifier>{c5e5c4fc-c75c-4788-ad8f-b72885d308e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework">
-      <UniqueIdentifier>{e2bd6f9a-b2f1-4375-b14e-5835e318de9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DirectX\Lib">
-      <UniqueIdentifier>{d5d29041-82e7-459b-86ae-e1101f36ddf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pugixml">
-      <UniqueIdentifier>{8001d485-fc03-48d2-9a64-e0c342c3132a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="State">
-      <UniqueIdentifier>{e62cfcda-4cb1-4b9e-95f6-b2cb72437e1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{401560a3-2122-4258-b09f-318daa0a7ede}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\MapReader">
-      <UniqueIdentifier>{a049369b-5f05-4abc-a11d-b38ad59bb4bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects">
-      <UniqueIdentifier>{ae65843d-3f32-4827-a190-f9a7d75107af}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies">
-      <UniqueIdentifier>{e7215cfc-5ce5-48e5-986c-1edd65bd4928}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\ThinEnemy">
-      <UniqueIdentifier>{37c4d3a3-30eb-4267-bfc5-dd80e022604b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Ground">
-      <UniqueIdentifier>{57c69c6a-3340-45d9-9ecd-577ba06dd0aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\BigEnemy">
-      <UniqueIdentifier>{31cc6f3d-e371-4043-88ae-d73651f350d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Items">
-      <UniqueIdentifier>{d6aadf76-4cdd-4417-8fb8-2ecfb54e64c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Items\Apple">
-      <UniqueIdentifier>{64686d27-b40a-4520-a621-719c626f9292}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\FatEnemy">
-      <UniqueIdentifier>{6948532a-2298-481a-b1c2-58d85af885e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\KnifeEnemy">
-      <UniqueIdentifier>{840a5aa9-94be-4bb3-9e7c-1dcaa9470f7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\HideEnemy">
-      <UniqueIdentifier>{e540a85b-89ed-4d32-86b2-d39a10f8e4bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Items\Camel">
-      <UniqueIdentifier>{db4e45c1-658f-4e53-9621-1423619b4339}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Enemies\WallEnemy">
-      <UniqueIdentifier>{212dd958-5a7b-4e92-a107-9714bfe17c0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Ground\FloatGround">
-      <UniqueIdentifier>{17ee4f90-dace-468b-89e8-e2ead3bbef44}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Ground\SpringBoard">
-      <UniqueIdentifier>{33be7112-e33a-4b8d-ab17-160aae958b58}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\Enemy.cpp" />
+    <ClCompile Include="Framework\Application.cpp" />
+    <ClCompile Include="Framework\Camera.cpp" />
+    <ClCompile Include="Framework\Color.cpp" />
+    <ClCompile Include="Framework\GameManager.cpp" />
+    <ClCompile Include="Framework\Graphics.cpp" />
+    <ClCompile Include="Framework\Input.cpp" />
+    <ClCompile Include="Framework\Matrix.cpp" />
+    <ClCompile Include="Framework\Node.cpp" />
+    <ClCompile Include="Framework\PhysicsManager.cpp" />
+    <ClCompile Include="Framework\QuadTree.cpp" />
+    <ClCompile Include="Framework\Rect.cpp" />
+    <ClCompile Include="Framework\RigidBody.cpp" />
+    <ClCompile Include="Framework\Scene.cpp" />
+    <ClCompile Include="Framework\Size.cpp" />
+    <ClCompile Include="Framework\Texture.cpp" />
+    <ClCompile Include="Framework\Vec2.cpp" />
+    <ClCompile Include="Framework\GameMap.cpp" />
+    <ClCompile Include="GameObject\Enemies\EnemyState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\GameObject.cpp" />
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
+    <ClCompile Include="GameObject\Ground\Ground.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
+    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
+    <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
+    <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
+    <ClCompile Include="GameObject\Wall\Wall.cpp" />
+    <ClCompile Include="Lv1Scene.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MapReader\base64.cpp" />
+    <ClCompile Include="MapReader\miniz.c" />
+    <ClCompile Include="MapReader\tinyxml2.cpp" />
+    <ClCompile Include="MapReader\TmxEllipse.cpp" />
+    <ClCompile Include="MapReader\TmxImage.cpp" />
+    <ClCompile Include="MapReader\TmxImageLayer.cpp" />
+    <ClCompile Include="MapReader\TmxLayer.cpp" />
+    <ClCompile Include="MapReader\TmxMap.cpp" />
+    <ClCompile Include="MapReader\TmxObject.cpp" />
+    <ClCompile Include="MapReader\TmxObjectGroup.cpp" />
+    <ClCompile Include="MapReader\TmxPolygon.cpp" />
+    <ClCompile Include="MapReader\TmxPolyline.cpp" />
+    <ClCompile Include="MapReader\TmxPropertySet.cpp" />
+    <ClCompile Include="MapReader\TmxTerrain.cpp" />
+    <ClCompile Include="MapReader\TmxTerrainArray.cpp" />
+    <ClCompile Include="MapReader\TmxTile.cpp" />
+    <ClCompile Include="MapReader\TmxTileLayer.cpp" />
+    <ClCompile Include="MapReader\TmxTileOffset.cpp" />
+    <ClCompile Include="MapReader\TmxTileset.cpp" />
+    <ClCompile Include="MapReader\TmxUtil.cpp" />
+    <ClCompile Include="pugixml\pugixml.cpp" />
+    <ClCompile Include="State\BeingAttacked.cpp" />
+    <ClCompile Include="State\BeingAttackedAndDie.cpp" />
+    <ClCompile Include="State\BeingRescued.cpp" />
+    <ClCompile Include="State\Brake.cpp" />
+    <ClCompile Include="State\Climb.cpp" />
+    <ClCompile Include="State\Fall.cpp" />
+    <ClCompile Include="State\Flip.cpp" />
+    <ClCompile Include="State\Grounding.cpp" />
+    <ClCompile Include="State\HeadUp.cpp" />
+    <ClCompile Include="State\HeadUpAndSlash.cpp" />
+    <ClCompile Include="State\Idle.cpp" />
+    <ClCompile Include="State\Idle2.cpp" />
+    <ClCompile Include="State\Idle3.cpp" />
+    <ClCompile Include="State\IdleToLook.cpp" />
+    <ClCompile Include="State\IdleWhenWing.cpp" />
+    <ClCompile Include="State\Jump.cpp" />
+    <ClCompile Include="State\JumpAndSlash.cpp" />
+    <ClCompile Include="State\JumpAndThrow.cpp" />
+    <ClCompile Include="State\JumpWhileClimb.cpp" />
+    <ClCompile Include="State\IdleWhenClimb.cpp" />
+    <ClCompile Include="State\Push.cpp" />
+    <ClCompile Include="State\Random.cpp" />
+    <ClCompile Include="State\Run.cpp" />
+    <ClCompile Include="State\RunAndJump.cpp" />
+    <ClCompile Include="State\RunAndSlash.cpp" />
+    <ClCompile Include="State\RunAndThrow.cpp" />
+    <ClCompile Include="State\IdleToSit.cpp" />
+    <ClCompile Include="State\Sit.cpp" />
+    <ClCompile Include="State\SitAndSlash.cpp" />
+    <ClCompile Include="State\SitAndThrow.cpp" />
+    <ClCompile Include="State\Slash.cpp" />
+    <ClCompile Include="State\SlashWhenClimb.cpp" />
+    <ClCompile Include="State\SlashWhenWing.cpp" />
+    <ClCompile Include="State\State.cpp" />
+    <ClCompile Include="State\Throw.cpp" />
+    <ClCompile Include="State\ThrowWhenClimb.cpp" />
+    <ClCompile Include="State\ThrowWhenWing.cpp" />
+    <ClCompile Include="State\Wing.cpp" />
+    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
+    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\BackgroundSky.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DirectX\Include\audiodefs.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\comdecl.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D2D1.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D2D1Helper.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D2DBaseTypes.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D2Derr.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3d9.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3d9caps.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3d9types.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D10.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D10_1.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D10_1shader.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D10effect.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3d10misc.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3d10sdklayers.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D10shader.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D11.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D11SDKLayers.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3D11Shader.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3Dcommon.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3Dcompiler.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DCSX.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9anim.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9core.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9effect.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9math.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9mesh.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9shader.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9shape.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9tex.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx9xof.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX10.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\d3dx10async.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX10core.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX10math.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX10mesh.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX10tex.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX11.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX11async.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX11core.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\D3DX11tex.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\Dcommon.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dinput.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dinputd.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dsconf.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dsetup.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dsound.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\DWrite.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dxdiag.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\DxErr.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dxfile.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\DXGI.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\DXGIFormat.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\DXGIType.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\dxsdkver.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\gameux.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\PIXPlugin.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\rmxfguid.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\rmxftmpl.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\rpcsal.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\X3DAudio.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\xact3.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\xact3d3.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\xact3wb.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XAPO.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XAPOBase.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XAPOFX.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XAudio2.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XAudio2fx.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XDSP.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\XInput.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\xma2defs.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX\Include\xnamath.h">
-      <Filter>DirectX\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Application.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\definitions.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Graphics.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Texture.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Matrix.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Color.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Rect.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Vec2.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\GameManager.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Node.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Scene.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Input.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Camera.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Lv1Scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Aladdin.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BackgroundLv1Scene.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pugixml\pugiconfig.hpp">
-      <Filter>pugixml</Filter>
-    </ClInclude>
-    <ClInclude Include="pugixml\pugixml.hpp">
-      <Filter>pugixml</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Idle.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Run.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\State.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\StateInclude.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Throw.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Slash.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Jump.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Climb.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\RunAndJump.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\HeadUp.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\JumpAndSlash.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\JumpAndThrow.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Push.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\HeadUpAndSlash.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\BeingAttacked.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\BeingAttackedAndDie.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\BeingRescued.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Brake.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Fall.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\RunAndSlash.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\SitAndSlash.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\SitAndThrow.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Wing.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\IdleWhenWing.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\ThrowWhenWing.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\SlashWhenWing.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\JumpWhileClimb.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\IdleWhenClimb.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\ThrowWhenClimb.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\SlashWhenClimb.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\RunAndThrow.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\IdleToSit.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Sit.h">
-      <Filter>State</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\RigidBody.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\PhysicsManager.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Size.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="State\IdleToLook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\QuadTree.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\tinyxml2.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxEllipse.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxImage.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxImageLayer.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxLayer.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxMap.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxMapTile.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxObject.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxObjectGroup.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxPoint.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxPolygon.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxPolyline.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxPropertySet.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTerrain.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTerrainArray.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTile.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTileLayer.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTileOffset.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxTileset.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\TmxUtil.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\zconf.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\zlib.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader\base64.h">
-      <Filter>Framework\MapReader</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h">
-      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\Enemy.h">
-      <Filter>GameObjects\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\GameObject.h">
-      <Filter>GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\GameMap.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\EnemyState.h">
-      <Filter>GameObjects\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\BigEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h">
-      <Filter>GameObjects\Enemies\BigEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Items\Apple\Apple.h">
-      <Filter>GameObjects\Items\Apple</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\FatEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h">
-      <Filter>GameObjects\Enemies\FatEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\HideEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h">
-      <Filter>GameObjects\Enemies\HideEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h">
-      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Items\Camel\Camel.h">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Items\Camel\CamelState.h">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Ground\Ground.h">
-      <Filter>GameObjects\Ground</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h">
-      <Filter>GameObjects\Ground\FloatGround</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Flip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Grounding.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Idle2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State\Idle3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Rope.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="GameObject\Aladdin.h" />
+    <ClInclude Include="DirectX\Include\audiodefs.h" />
+    <ClInclude Include="DirectX\Include\comdecl.h" />
+    <ClInclude Include="DirectX\Include\D2D1.h" />
+    <ClInclude Include="DirectX\Include\D2D1Helper.h" />
+    <ClInclude Include="DirectX\Include\D2DBaseTypes.h" />
+    <ClInclude Include="DirectX\Include\D2Derr.h" />
+    <ClInclude Include="DirectX\Include\D3D10.h" />
+    <ClInclude Include="DirectX\Include\D3D10effect.h" />
+    <ClInclude Include="DirectX\Include\d3d10misc.h" />
+    <ClInclude Include="DirectX\Include\d3d10sdklayers.h" />
+    <ClInclude Include="DirectX\Include\D3D10shader.h" />
+    <ClInclude Include="DirectX\Include\D3D10_1.h" />
+    <ClInclude Include="DirectX\Include\D3D10_1shader.h" />
+    <ClInclude Include="DirectX\Include\D3D11.h" />
+    <ClInclude Include="DirectX\Include\D3D11SDKLayers.h" />
+    <ClInclude Include="DirectX\Include\D3D11Shader.h" />
+    <ClInclude Include="DirectX\Include\d3d9.h" />
+    <ClInclude Include="DirectX\Include\d3d9caps.h" />
+    <ClInclude Include="DirectX\Include\d3d9types.h" />
+    <ClInclude Include="DirectX\Include\D3Dcommon.h" />
+    <ClInclude Include="DirectX\Include\D3Dcompiler.h" />
+    <ClInclude Include="DirectX\Include\D3DCSX.h" />
+    <ClInclude Include="DirectX\Include\D3DX10.h" />
+    <ClInclude Include="DirectX\Include\d3dx10async.h" />
+    <ClInclude Include="DirectX\Include\D3DX10core.h" />
+    <ClInclude Include="DirectX\Include\D3DX10math.h" />
+    <ClInclude Include="DirectX\Include\D3DX10mesh.h" />
+    <ClInclude Include="DirectX\Include\D3DX10tex.h" />
+    <ClInclude Include="DirectX\Include\D3DX11.h" />
+    <ClInclude Include="DirectX\Include\D3DX11async.h" />
+    <ClInclude Include="DirectX\Include\D3DX11core.h" />
+    <ClInclude Include="DirectX\Include\D3DX11tex.h" />
+    <ClInclude Include="DirectX\Include\d3dx9.h" />
+    <ClInclude Include="DirectX\Include\d3dx9anim.h" />
+    <ClInclude Include="DirectX\Include\d3dx9core.h" />
+    <ClInclude Include="DirectX\Include\d3dx9effect.h" />
+    <ClInclude Include="DirectX\Include\d3dx9math.h" />
+    <ClInclude Include="DirectX\Include\d3dx9mesh.h" />
+    <ClInclude Include="DirectX\Include\d3dx9shader.h" />
+    <ClInclude Include="DirectX\Include\d3dx9shape.h" />
+    <ClInclude Include="DirectX\Include\d3dx9tex.h" />
+    <ClInclude Include="DirectX\Include\d3dx9xof.h" />
+    <ClInclude Include="DirectX\Include\Dcommon.h" />
+    <ClInclude Include="DirectX\Include\dinput.h" />
+    <ClInclude Include="DirectX\Include\dinputd.h" />
+    <ClInclude Include="DirectX\Include\dsconf.h" />
+    <ClInclude Include="DirectX\Include\dsetup.h" />
+    <ClInclude Include="DirectX\Include\dsound.h" />
+    <ClInclude Include="DirectX\Include\DWrite.h" />
+    <ClInclude Include="DirectX\Include\dxdiag.h" />
+    <ClInclude Include="DirectX\Include\DxErr.h" />
+    <ClInclude Include="DirectX\Include\dxfile.h" />
+    <ClInclude Include="DirectX\Include\DXGI.h" />
+    <ClInclude Include="DirectX\Include\DXGIFormat.h" />
+    <ClInclude Include="DirectX\Include\DXGIType.h" />
+    <ClInclude Include="DirectX\Include\dxsdkver.h" />
+    <ClInclude Include="DirectX\Include\gameux.h" />
+    <ClInclude Include="DirectX\Include\PIXPlugin.h" />
+    <ClInclude Include="DirectX\Include\rmxfguid.h" />
+    <ClInclude Include="DirectX\Include\rmxftmpl.h" />
+    <ClInclude Include="DirectX\Include\rpcsal.h" />
+    <ClInclude Include="DirectX\Include\X3DAudio.h" />
+    <ClInclude Include="DirectX\Include\xact3.h" />
+    <ClInclude Include="DirectX\Include\xact3d3.h" />
+    <ClInclude Include="DirectX\Include\xact3wb.h" />
+    <ClInclude Include="DirectX\Include\XAPO.h" />
+    <ClInclude Include="DirectX\Include\XAPOBase.h" />
+    <ClInclude Include="DirectX\Include\XAPOFX.h" />
+    <ClInclude Include="DirectX\Include\XAudio2.h" />
+    <ClInclude Include="DirectX\Include\XAudio2fx.h" />
+    <ClInclude Include="DirectX\Include\XDSP.h" />
+    <ClInclude Include="DirectX\Include\XInput.h" />
+    <ClInclude Include="DirectX\Include\xma2defs.h" />
+    <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\Enemy.h" />
+    <ClInclude Include="Framework\Application.h" />
+    <ClInclude Include="Framework\Camera.h" />
+    <ClInclude Include="Framework\Color.h" />
+    <ClInclude Include="Framework\definitions.h" />
+    <ClInclude Include="Framework\GameManager.h" />
+    <ClInclude Include="Framework\Graphics.h" />
+    <ClInclude Include="Framework\Input.h" />
+    <ClInclude Include="Framework\Matrix.h" />
+    <ClInclude Include="Framework\Node.h" />
+    <ClInclude Include="Framework\PhysicsManager.h" />
+    <ClInclude Include="Framework\QuadTree.h" />
+    <ClInclude Include="Framework\Rect.h" />
+    <ClInclude Include="Framework\RigidBody.h" />
+    <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\Size.h" />
+    <ClInclude Include="Framework\Texture.h" />
+    <ClInclude Include="Framework\Vec2.h" />
+    <ClInclude Include="Framework\GameMap.h" />
+    <ClInclude Include="GameObject\Enemies\EnemyState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
+    <ClInclude Include="GameObject\GameObject.h" />
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
+    <ClInclude Include="GameObject\Ground\Ground.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
+    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
+    <ClInclude Include="GameObject\Items\Apple\Apple.h" />
+    <ClInclude Include="GameObject\Items\Camel\Camel.h" />
+    <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
+    <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
+    <ClInclude Include="GameObject\Wall\Wall.h" />
+    <ClInclude Include="Lv1Scene.h" />
+    <ClInclude Include="MapReader\base64.h" />
+    <ClInclude Include="MapReader\tinyxml2.h" />
+    <ClInclude Include="MapReader\TmxEllipse.h" />
+    <ClInclude Include="MapReader\TmxImage.h" />
+    <ClInclude Include="MapReader\TmxImageLayer.h" />
+    <ClInclude Include="MapReader\TmxLayer.h" />
+    <ClInclude Include="MapReader\TmxMap.h" />
+    <ClInclude Include="MapReader\TmxMapTile.h" />
+    <ClInclude Include="MapReader\TmxObject.h" />
+    <ClInclude Include="MapReader\TmxObjectGroup.h" />
+    <ClInclude Include="MapReader\TmxPoint.h" />
+    <ClInclude Include="MapReader\TmxPolygon.h" />
+    <ClInclude Include="MapReader\TmxPolyline.h" />
+    <ClInclude Include="MapReader\TmxPropertySet.h" />
+    <ClInclude Include="MapReader\TmxTerrain.h" />
+    <ClInclude Include="MapReader\TmxTerrainArray.h" />
+    <ClInclude Include="MapReader\TmxTile.h" />
+    <ClInclude Include="MapReader\TmxTileLayer.h" />
+    <ClInclude Include="MapReader\TmxTileOffset.h" />
+    <ClInclude Include="MapReader\TmxTileset.h" />
+    <ClInclude Include="MapReader\TmxUtil.h" />
+    <ClInclude Include="MapReader\zconf.h" />
+    <ClInclude Include="MapReader\zlib.h" />
+    <ClInclude Include="pugixml\pugiconfig.hpp" />
+    <ClInclude Include="pugixml\pugixml.hpp" />
+    <ClInclude Include="State\BeingAttacked.h" />
+    <ClInclude Include="State\BeingAttackedAndDie.h" />
+    <ClInclude Include="State\BeingRescued.h" />
+    <ClInclude Include="State\Brake.h" />
+    <ClInclude Include="State\Climb.h" />
+    <ClInclude Include="State\Fall.h" />
+    <ClInclude Include="State\Flip.h" />
+    <ClInclude Include="State\Grounding.h" />
+    <ClInclude Include="State\HeadUp.h" />
+    <ClInclude Include="State\HeadUpAndSlash.h" />
+    <ClInclude Include="State\Idle.h" />
+    <ClInclude Include="State\Idle2.h" />
+    <ClInclude Include="State\Idle3.h" />
+    <ClInclude Include="State\IdleToLook.h" />
+    <ClInclude Include="State\IdleWhenClimb.h" />
+    <ClInclude Include="State\IdleWhenWing.h" />
+    <ClInclude Include="State\Jump.h" />
+    <ClInclude Include="State\JumpAndSlash.h" />
+    <ClInclude Include="State\JumpAndThrow.h" />
+    <ClInclude Include="State\JumpWhileClimb.h" />
+    <ClInclude Include="State\Push.h" />
+    <ClInclude Include="State\Random.h" />
+    <ClInclude Include="State\Run.h" />
+    <ClInclude Include="State\RunAndJump.h" />
+    <ClInclude Include="State\RunAndSlash.h" />
+    <ClInclude Include="State\RunAndThrow.h" />
+    <ClInclude Include="State\IdleToSit.h" />
+    <ClInclude Include="State\Sit.h" />
+    <ClInclude Include="State\SitAndSlash.h" />
+    <ClInclude Include="State\SitAndThrow.h" />
+    <ClInclude Include="State\Slash.h" />
+    <ClInclude Include="State\SlashWhenWing.h" />
+    <ClInclude Include="State\SlashWhenClimb.h" />
+    <ClInclude Include="State\State.h" />
+    <ClInclude Include="State\StateInclude.h" />
+    <ClInclude Include="State\Throw.h" />
+    <ClInclude Include="State\ThrowWhenWing.h" />
+    <ClInclude Include="State\ThrowWhenClimb.h" />
+    <ClInclude Include="State\Wing.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemy.h" />
+    <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
+    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
+    <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\BackgroundSky.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\d3dx9math.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\D3DX10math.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\xnamathconvert.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\xnamathmatrix.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\xnamathmisc.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="DirectX\Include\xnamathvector.inl">
-      <Filter>DirectX\Include</Filter>
-    </None>
-    <None Include="ClassDiagram.cd" />
-    <None Include="MapReader\Tmx.h.in">
-      <Filter>Framework\MapReader</Filter>
-    </None>
+    <Library Include="DirectX\Lib\d2d1.lib" />
+    <Library Include="DirectX\Lib\d3d10.lib" />
+    <Library Include="DirectX\Lib\d3d10_1.lib" />
+    <Library Include="DirectX\Lib\d3d11.lib" />
+    <Library Include="DirectX\Lib\d3d9.lib" />
+    <Library Include="DirectX\Lib\d3dcompiler.lib" />
+    <Library Include="DirectX\Lib\D3DCSX.lib" />
+    <Library Include="DirectX\Lib\D3DCSXd.lib" />
+    <Library Include="DirectX\Lib\d3dx10.lib" />
+    <Library Include="DirectX\Lib\d3dx10d.lib" />
+    <Library Include="DirectX\Lib\d3dx11.lib" />
+    <Library Include="DirectX\Lib\d3dx11d.lib" />
+    <Library Include="DirectX\Lib\d3dx9.lib" />
+    <Library Include="DirectX\Lib\d3dx9d.lib" />
+    <Library Include="DirectX\Lib\d3dxof.lib" />
+    <Library Include="DirectX\Lib\dinput8.lib" />
+    <Library Include="DirectX\Lib\dsetup.lib" />
+    <Library Include="DirectX\Lib\dsound.lib" />
+    <Library Include="DirectX\Lib\dwrite.lib" />
+    <Library Include="DirectX\Lib\DxErr.lib" />
+    <Library Include="DirectX\Lib\dxgi.lib" />
+    <Library Include="DirectX\Lib\dxguid.lib" />
+    <Library Include="DirectX\Lib\X3DAudio.lib" />
+    <Library Include="DirectX\Lib\xapobase.lib" />
+    <Library Include="DirectX\Lib\xapobased.lib" />
+    <Library Include="DirectX\Lib\XAPOFX.lib" />
+    <Library Include="DirectX\Lib\XInput.lib" />
+    <Library Include="zlib.lib" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\Application.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Graphics.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Texture.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Matrix.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Color.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Rect.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Vec2.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\GameManager.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Node.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Scene.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Input.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Camera.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Lv1Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Aladdin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BackgroundLv1Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pugixml\pugixml.cpp">
-      <Filter>pugixml</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Idle.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Run.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\State.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Throw.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\BeingAttacked.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\BeingAttackedAndDie.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\BeingRescued.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Brake.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Fall.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\RunAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\SitAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\SitAndThrow.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Wing.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Slash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Push.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Climb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\RunAndJump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUp.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\IdleWhenWing.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\ThrowWhenWing.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\SlashWhenWing.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpWhileClimb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Climb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Jump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndThrow.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Push.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\RunAndJump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Sit.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Slash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUp.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\HeadUpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\RunAndThrow.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\IdleWhenClimb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\ThrowWhenClimb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\SlashWhenClimb.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Jump.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndSlash.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\JumpAndThrow.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\IdleToSit.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Sit.cpp">
-      <Filter>State</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\RigidBody.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\PhysicsManager.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Size.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="State\IdleToLook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\QuadTree.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\miniz.c">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\tinyxml2.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxEllipse.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxImage.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxImageLayer.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxLayer.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxMap.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxObject.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxObjectGroup.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxPolygon.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxPolyline.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxPropertySet.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTerrain.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTerrainArray.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTile.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTileLayer.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTileOffset.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxTileset.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\TmxUtil.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="MapReader\base64.cpp">
-      <Filter>Framework\MapReader</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\Enemy.cpp">
-      <Filter>GameObjects\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\GameObject.cpp">
-      <Filter>GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\GameMap.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\EnemyState.cpp">
-      <Filter>GameObjects\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemy.cpp">
-      <Filter>GameObjects\Enemies\ThinEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\BigEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp">
-      <Filter>GameObjects\Enemies\BigEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Items\Apple\Apple.cpp">
-      <Filter>GameObjects\Items\Apple</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\FatEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp">
-      <Filter>GameObjects\Enemies\FatEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\HideEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp">
-      <Filter>GameObjects\Enemies\HideEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp">
-      <Filter>GameObjects\Enemies\KnifeEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Items\Camel\Camel.cpp">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Items\Camel\CamelState.cpp">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemy.cpp">
-      <Filter>GameObjects\Enemies\WallEnemy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp">
-      <Filter>GameObjects\Items\Camel</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Ground\Ground.cpp">
-      <Filter>GameObjects\Ground</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp">
-      <Filter>GameObjects\Ground\FloatGround</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp">
-      <Filter>GameObjects\Ground\SpringBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Flip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Grounding.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Idle2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State\Idle3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject\Rope.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="DirectX\Lib\d2d1.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3d9.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3d10.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3d10_1.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3d11.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dcompiler.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\D3DCSX.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\D3DCSXd.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx9.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx9d.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx10.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx10d.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx11.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dx11d.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\d3dxof.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dinput8.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dsetup.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dsound.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dwrite.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\DxErr.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dxgi.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\dxguid.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\X3DAudio.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\xapobase.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\xapobased.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\XAPOFX.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-    <Library Include="DirectX\Lib\XInput.lib">
-      <Filter>DirectX\Lib</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="Resources\action2.xml">
-      <Filter>Resources</Filter>
-    </Xml>
-    <Xml Include="Resources\Enemies\Enemies.xml" />
+    <Xml Include="Resources\action2.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
+    <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
+    <Xml Include="Resources\Items\Camel.xml" />
+    <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\smallmarketBG.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="Resources\market BG.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="Resources\ala.png">
-      <Filter>Resources</Filter>
-    </Image>
+    <Image Include="Resources\AgrabahMarket.png" />
+    <Image Include="Resources\AgrabahMarket1.png" />
+    <Image Include="Resources\AgrabahMarket2.png" />
+    <Image Include="Resources\ala.png" />
+    <Image Include="Resources\Aladdin1.png" />
+    <Image Include="Resources\apple.png" />
+    <Image Include="Resources\apple1.png" />
+    <Image Include="Resources\background.jpg" />
+    <Image Include="Resources\demo_tmx\apple.png" />
+    <Image Include="Resources\demo_tmx\Camel.png" />
+    <Image Include="Resources\demo_tmx\Enemy-1.png" />
+    <Image Include="Resources\demo_tmx\Enemy-2.png" />
+    <Image Include="Resources\demo_tmx\Enemy-3.png" />
+    <Image Include="Resources\demo_tmx\Enemy-4.png" />
+    <Image Include="Resources\demo_tmx\Enemy-5.png" />
+    <Image Include="Resources\demo_tmx\FloatGround.png" />
+    <Image Include="Resources\demo_tmx\Player.png" />
+    <Image Include="Resources\demo_tmx\springboard.png" />
+    <Image Include="Resources\demo_tmx\WallEnemy.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Civilian Enemies.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Enemy Explosions.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Guards.png" />
+    <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
+    <Image Include="Resources\ground.png" />
+    <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\FloatGround.png" />
+    <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
+    <Image Include="Resources\Items\springboard.png" />
+    <Image Include="Resources\market BG.png" />
+    <Image Include="Resources\red_rect.png" />
+    <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
+    <Image Include="RunAndSlash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="DirectX\Include\D3DX10math.inl" />
+    <None Include="DirectX\Include\d3dx9math.inl" />
+    <None Include="DirectX\Include\D3DX_DXGIFormatConvert.inl" />
+    <None Include="DirectX\Include\xnamathconvert.inl" />
+    <None Include="DirectX\Include\xnamathmatrix.inl" />
+    <None Include="DirectX\Include\xnamathmisc.inl" />
+    <None Include="DirectX\Include\xnamathvector.inl" />
+    <None Include="MapReader\Tmx.h.in" />
+    <None Include="Resources\AgrabahMarket.tmx" />
+    <None Include="zlibwapi.dll" />
     <Image Include="Resources\ground.png">
       <Filter>Resources</Filter>
     </Image>

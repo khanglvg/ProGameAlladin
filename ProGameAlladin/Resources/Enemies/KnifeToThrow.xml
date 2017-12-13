@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="KnifeToThrow" imagePath="Genesis 32X SCD - Aladdin - Civilian Enemies.png" width="1065" height="588">
+    <sprite x="599" y="276" w="40" h="16" oX="599" oY="276" oW="-443" oH="214" />
+    <sprite x="665" y="265" w="21" h="37" oX="665" oY="265" oW="-443" oH="214" />
+    <sprite x="709" y="280" w="40" h="12" oX="709" oY="280" oW="-443" oH="214" />
+    <sprite x="762" y="263" w="18" h="36" oX="762" oY="263" oW="-443" oH="214" />
+  </Animation>
+</Animations>

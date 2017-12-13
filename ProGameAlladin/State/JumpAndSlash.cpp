@@ -1,7 +1,7 @@
 ﻿#include "JumpAndSlash.h"
 #include "../Framework/Input.h"
 #include "JumpAndThrow.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Grounding.h"
 US_NS_JK
 
@@ -71,7 +71,7 @@ State* JumpAndSlash::checkTransition()
 		return new JumpAndThrow(_node);
 
 
-	if (aladdin->getisOnTheGround())
+	if (aladdin->isOnTheGround())
 		return new Grounding(_node);
 	
 

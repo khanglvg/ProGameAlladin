@@ -6,8 +6,9 @@
 #include "HeadUpAndSlash.h"
 #include "Throw.h"
 #include "Idle.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "IdleToLook.h"
+#include "../Framework/Camera.h"
 
 US_NS_JK
 
@@ -41,6 +42,15 @@ void HeadUp::onUpdate()
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(0, 0));
 	}
+	if(Input::getInstance()->getKey(KEY_UP_ARROW))
+	{
+		if(!Camera::getInstance()->isUp())
+		{
+			Camera::getInstance()->setUp(true);
+		}
+	}
+	if (!Input::getInstance()->getKey(KEY_UP_ARROW))
+		Camera::getInstance()->setUp(false);
 	
 }
 

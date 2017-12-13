@@ -1,7 +1,7 @@
 ﻿#include "Push.h"
 #include "../Framework/Input.h"
 #include "Jump.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 

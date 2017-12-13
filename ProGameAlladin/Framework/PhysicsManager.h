@@ -38,13 +38,17 @@ public:
 
 	void update();
 
-	bool AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
+	bool AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold);
 
-	float sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
+	float sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold);
+
+	Vec2 getCollisionNormal() const;
+
+	void setCollisionNormal(Manifold manifold);
 
 	static PhysicsManager* getIntance();
 private:
-	
+	Vec2 _collisionNormal;
 
 	std::vector<RigidBody*> _rigidBodies;
 

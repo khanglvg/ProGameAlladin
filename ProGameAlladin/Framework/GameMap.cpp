@@ -1,11 +1,18 @@
 #include "GameMap.h"
 
+#include "../GameObject/Enemies/ThinEnemy/ThinEnemy.h"
+#include "../GameObject/Enemies/BigEnemy/BigEnemy.h"
+#include "../GameObject/Enemies/FatEnemy/FatEnemy.h"
+#include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
+#include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
+#include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
+
 US_NS_JK
 
 GameMap::GameMap()
 {}
 
-GameMap::GameMap(char * filePath, QuadTree* &quadTree)
+GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 {
 	_map = new Tmx::Map();
 	_map->ParseFile(filePath);
@@ -19,12 +26,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 
 		if (layer->GetName() == "Tile Layer 1")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png");
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket1.png", 1);
 			_backgroundTextures.push_back(background);
 		}
 		if (layer->GetName() == "Tile Layer 2")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png");
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 2);
 			_backgroundTextures.push_back(background);
 		}
 	}
@@ -41,11 +48,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init apple
 			if (objectGroup->GetName() == "Apple")
 			{
-				Apple *apple = new Apple();
-				apple->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
-				apple->setWidth(object->GetWidth());
-				apple->setHeight(object->GetHeight());
-
+				auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
 				_listApples.push_back(apple);
 
 				//_quadTree->insertObject(apple);
@@ -54,75 +57,67 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
 			{
-				FloatGround *floatGround = new FloatGround();
-				floatGround->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto *floatGround = new FloatGround(Vec2(object->GetX() + object->GetWidth()/2 + 8, object->GetY() - object->GetHeight()+5), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND);
 
 				_listFloatGrounds.push_back(floatGround);
 
-				//_quadTree->InsertStaticObject(floatGround);
+				//_quadTree->insertObject(floatGround);
 			}
 
 			//init Springboard
 			if (objectGroup->GetName() == "Springboard")
 			{
-				SpringBoard *springBoard = new SpringBoard();
+				auto *springBoard = new SpringBoard(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::SPRINGBOARD);
 				springBoard->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listSpringboards.push_back(springBoard);
 
-				//_quadTree->InsertStaticObject(springboard);
+				//_quadTree->insertObject(springBoard);
 			}
 
 			//init Enemies
 			if (objectGroup->GetName() == "Enemy_1")
 			{
-				Enemy *enemy = new ThinEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")
 			{
-				Enemy *enemy = new BigEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
 			{
-				Enemy *enemy = new FatEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 
 			}
 			if (objectGroup->GetName() == "Enemy_4_Left")
 			{
-				Enemy *enemy = new KnifeEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(-1, 1));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
-				Enemy *enemy = new KnifeEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(1, 1));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_5")
 			{
-				Enemy *enemy = new HideEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new HideEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
-				Enemy *enemy = new WallEnemy();
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new WallEnemy(Vec2(object->GetX() + object->GetWidth() - 7, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 			}
@@ -130,46 +125,79 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree)
 			//camel
 			if (objectGroup->GetName() == "Camel")
 			{
-				Camel *camel = new Camel();
-				camel->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
 
 				_listCamels.push_back(camel);
 
-				//_quadTree->InsertStaticObject(camel);
+				//_quadTree->insertObject(camel);
 			}
 
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::Ground);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+				auto *gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
+				gameObject->setRigidTag("ground");
 
+				if(object->GetName() == "StairsGround")
+				{
+					gameObject->setRigidTag("stair");
+					_listStairGround.push_back(gameObject);
+				}
+				else
+				{
+					_listGround.push_back(gameObject);
+				}
 				_quadTree->insertObject(gameObject);
 			}
 
-			//init rope
-			if (objectGroup->GetName() == "Rope")
+			if (objectGroup->GetName() == "Platform")
 			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::Rope);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight() / 3), Size(object->GetWidth(), object->GetHeight()), GameObject::PLATFORM);
+				gameObject->setRigidTag("ground");
 
-				//_quadTree->InsertStaticObject(gameObject);
+				_listGround.push_back(gameObject);
 			}
+
+			if (objectGroup->GetName() == "Wall")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::WALL);
+				gameObject->setRigidTag("wall");
+
+				_listGround.push_back(gameObject);
+			}
+
+			//init rope
+			//if (objectGroup->GetName() == "Rope")
+			//{
+			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::Rope);
+			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+			//	gameObject->setWidth(object->GetWidth());
+			//	gameObject->setHeight(object->GetHeight());
+
+			//	//_quadTree->InsertStaticObject(gameObject);
+			//}
+
+			//init FireGround
+			//if (objectGroup->GetName() == "Fire")
+			//{
+			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::FireGround);
+			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+			//	gameObject->setWidth(object->GetWidth());
+			//	gameObject->setHeight(object->GetHeight());
+
+			//	//_quadTree->InsertStaticObject(gameObject);
+			//}
 
 			//init HorizontalBar
-			if (objectGroup->GetName() == "HorizontalBar")
-			{
-				GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
-				gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-				gameObject->setWidth(object->GetWidth());
-				gameObject->setHeight(object->GetHeight());
+			//if (objectGroup->GetName() == "HorizontalBar")
+			//{
+			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
+			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
+			//	gameObject->setWidth(object->GetWidth());
+			//	gameObject->setHeight(object->GetHeight());
 
-				//_quadTree->InsertStaticObject(gameObject);
-			}
+			//	//_quadTree->InsertStaticObject(gameObject);
+			//}
 		}
 	}
 }
@@ -421,6 +449,11 @@ void GameMap::draw()
 	{
 		_listSpringboards[i]->render();
 	}
+}
+
+vector<GameObject*> GameMap::getListGround() const
+{
+	return _listGround;
 }
 
 //Aladdin * GameMap::getPlayer()

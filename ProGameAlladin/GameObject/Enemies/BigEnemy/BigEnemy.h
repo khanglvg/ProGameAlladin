@@ -11,7 +11,7 @@ class BigEnemy : public Enemy
 {
 public:
 	BigEnemy();
-	BigEnemy(GameObject * player);
+	BigEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
 	~BigEnemy();
 
 	void init() override;
@@ -20,6 +20,8 @@ public:
 	void render() override;
 
 	Rect getRect() override;
+private:
+	Texture _textureBigEnemy;
 };
 
 NS_JK_END

@@ -2,11 +2,13 @@
 #include "../Framework/Input.h"
 #include "SitAndSlash.h"
 #include "Jump.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Sit.h"
+#include "../GameObject/AppleToThrow.h"
+#include "../Framework/Scene.h"
 US_NS_JK
 
-SitAndThrow::SitAndThrow(Node* node):State(node)
+SitAndThrow::SitAndThrow(Node* node) :State(node)
 {
 }
 
@@ -27,6 +29,20 @@ void SitAndThrow::onEnter()
 		aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("SitAndThrow");
+
+	const auto apple = new AppleToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5, 5));
+	if (aladdin->getScale() == Vec2(1, 1))
+	{
+		apple->getRigidBody()->setVelocity(Vec2(400, 0));
+	}
+	else
+	{
+		apple->getRigidBody()->setVelocity(Vec2(-400, 0));
+	}
+
+	apple->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(apple);
+
 }
 
 void SitAndThrow::onUpdate()

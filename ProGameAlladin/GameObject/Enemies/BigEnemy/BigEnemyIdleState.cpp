@@ -1,4 +1,6 @@
 #include "BigEnemyIdleState.h"
+#include "BigEnemyAttackState.h"
+#include "BigEnemyWalkState.h"
 #include "BigEnemy.h"
 
 US_NS_JK
@@ -9,20 +11,18 @@ BigEnemyIdleState::BigEnemyIdleState()
 
 BigEnemyIdleState::BigEnemyIdleState(Enemy * enemy) : EnemyState(enemy, EnemyState::StateName::Idle)
 {
-	auto bigEnemy = static_cast<BigEnemy*>(enemy);
-	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	aladdin->setScale(Vec2(-1, 1));
-
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	aladdin->setScale(Vec2(1, 1));*/
-
-	//thinEnemy->setVelocity(Vec2(0, 0));
-
-	bigEnemy->setActionName("BigEnemy-Idle");
+	_enemy = enemy;
+	_enemy->setActionName("BigEnemy-Idle");
+	_enemy->setVelocity(Vec2(0, 0));
 }
 
 BigEnemyIdleState::~BigEnemyIdleState()
 {
+}
+
+void BigEnemyIdleState::onUpdate()
+{
+	auto bigEnemy = static_cast<BigEnemy*>(_enemy);
 }
 
 void BigEnemyIdleState::onExit()
@@ -31,6 +31,21 @@ void BigEnemyIdleState::onExit()
 
 EnemyState * BigEnemyIdleState::checkTransition()
 {
+	if (_enemy->isTargetInAttackRange())
+	{
+		return new BigEnemyAttackState(_enemy);
+	}
+	if (_enemy->isTargetInViewRange())
+	{
+		if (!_enemy->isRight() && _enemy->isAllowMoveLeft())
+		{
+			return new BigEnemyWalkState(_enemy);
+		}
+		if (_enemy->isRight() && _enemy->isAllowMoveRight())
+		{
+			return new BigEnemyWalkState(_enemy);
+		}
+	}
 	return nullptr;
 }
  

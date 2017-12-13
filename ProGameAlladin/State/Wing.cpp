@@ -3,7 +3,7 @@
 #include "Jump.h"
 #include "SlashWhenWing.h"
 #include "ThrowWhenWing.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 

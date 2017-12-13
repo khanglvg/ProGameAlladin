@@ -1,5 +1,5 @@
 ﻿#include "Idle2.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "Throw.h"
 #include "../Framework/Input.h"
 #include "Slash.h"

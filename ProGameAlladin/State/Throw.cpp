@@ -3,7 +3,11 @@
 #include "Slash.h"
 #include "Jump.h"
 #include "Run.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
+#include "../GameObject/AppleToThrow.h"
+
+#include "../Framework/Scene.h"
+#include "../GameObject/Enemies/KnifeEnemy/KnifeToThrow.h"
 
 US_NS_JK
 
@@ -28,6 +32,25 @@ void Throw::onEnter()
 		aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("Throw");
+
+	if (Input::getInstance()->getKey(KEY_A))
+	{
+		const auto apple = new AppleToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
+		if(aladdin->getScale() == Vec2(1,1))
+		{
+			apple->getRigidBody()->setVelocity(Vec2(400, 0));
+		}
+		else
+		{
+			apple->getRigidBody()->setVelocity(Vec2(-400, 0));
+		}
+		
+		apple->setCurrentScene(aladdin->getCurrentScene());
+		aladdin->getCurrentScene()->addNode(apple);
+	}
+
+	
+	
 }
 
 void Throw::onExit()
@@ -47,10 +70,10 @@ State* Throw::checkTransition()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 
-	//if(aladdin->getIndex() >= 5)
-	//{
-	//	return new Idle(_node);
-	//}
+	if(!Input::getInstance()->getKey(KEY_A) && aladdin->getIndex() >= 5)
+	{
+		return new Idle(_node);
+	}
 
 	return nullptr;
 }

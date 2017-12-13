@@ -11,7 +11,7 @@ class HideEnemy : public Enemy
 {
 public:
 	HideEnemy();
-	HideEnemy(GameObject * player);
+	HideEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
 	~HideEnemy();
 
 	void init() override;
@@ -20,6 +20,8 @@ public:
 	void render() override;
 
 	Rect getRect() override;
+private:
+	Texture _textureHideEnemy;
 };
 
 NS_JK_END

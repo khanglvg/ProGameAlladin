@@ -7,7 +7,7 @@
 #include "Framework/QuadTree.h"
 #include "Framework/GameMap.h"
 
-#include "Aladdin.h"
+#include "GameObject/Aladdin.h"
 
 NS_JK_BEGIN
 
@@ -21,6 +21,7 @@ public:
 	void update() override;
 	void render() override;
 
+
 protected:
 	void checkVisibility();
 	vector<Node*> listVisible;
@@ -29,7 +30,7 @@ protected:
 private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
-	Node* mAladdin = new Aladdin();
+	GameObject* mAladdin;
 	
 };
 

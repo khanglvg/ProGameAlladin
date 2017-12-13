@@ -3,7 +3,7 @@
 #include "JumpAndSlash.h"
 #include "JumpAndThrow.h"
 #include "Fall.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 JumpWhileClimb::JumpWhileClimb(Node* node):State(node)

@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "Throw.h"
 #include "RunAndJump.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "HeadUp.h"
 #include "Sit.h"
 #include "Run.h"

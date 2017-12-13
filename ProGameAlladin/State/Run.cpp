@@ -4,13 +4,14 @@
 #include "RunAndThrow.h"
 #include "RunAndSlash.h"
 #include "RunAndJump.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 #include "IdleToSit.h"
 #include "HeadUp.h"
 #include "Push.h"
 #include "Idle3.h"
 #include "Idle2.h"
 #include "Random.h"
+#include "../Framework/Camera.h"
 
 US_NS_JK
 
@@ -27,31 +28,57 @@ void Run::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+	//auto camera = Camera::getInstance();
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-200, aladdin->getVelocity().getY()));
+		aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
+		//camera->setCameraX(aladdin->getPosition().getX() - camera->getWidth() / 2);
 	}
 	
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(200, aladdin->getVelocity().getY()));
+		aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
+		//camera->setCameraX(aladdin->getPosition().getX() + camera->getWidth() / 2);
+		if(aladdin->isBesideTheStair())
+		{
+			aladdin->getRigidBody()->setPosition(Vec2(aladdin->getRigidBody()->getPosition().getX(), aladdin->getRigidBody()->getPosition().getY() - 5));
+		}
 	}
 
 	aladdin->setActionName("Run");
+
+	
 }
 
 void Run::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
+	//auto camera = Camera::getInstance();
 
-	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW)) {
-	//	//aladdin->setPosition(Vec2(aladdin->getPosition().getX() - aladdin->getVelocity().getX(), aladdin->getPosition().getY()));
-	//}
-	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW)) {
-	//	//aladdin->setPosition(Vec2(aladdin->getPosition().getX() + aladdin->getVelocity().getX(), aladdin->getPosition().getY()));
-	//}
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
+		aladdin->setScale(Vec2(-1, 1));
+		aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
+		//camera->setCameraY(150);
+		if (aladdin->isBesideTheStair())
+		{
+			//aladdin->getRigidBody()->setPosition(Vec2(aladdin->getRigidBody()->getPosition().getX(), aladdin->getRigidBody()->getPosition().getY() - 1));
+		}
+	}
+
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
+		aladdin->setScale(Vec2(1, 1));
+		aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
+		//camera->setCameraX(aladdin->getPosition().getX() + camera->getWidth() / 2);
+		if (aladdin->isBesideTheStair())
+		{
+			aladdin->getRigidBody()->setPosition(Vec2(aladdin->getRigidBody()->getPosition().getX(), aladdin->getRigidBody()->getPosition().getY() - 1));
+		}
+	}
+	
 }
 
 State* Run::checkTransition()
@@ -107,8 +134,11 @@ State* Run::checkTransition()
 	if (Input::getInstance()->getKey(KEY_D))
 		return new RunAndJump(_node);
 
-	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->getPosition().getX() < aladdin->getXGround() - 82)
-		return new Push(_node);*/
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW) && aladdin->isBesideTheWall())
+		return new Push(_node);
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW) && aladdin->isBesideTheWall())
+		return new Push(_node);
+
 	
 	return nullptr;
 }

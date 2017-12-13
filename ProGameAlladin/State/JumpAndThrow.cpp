@@ -1,7 +1,7 @@
 ﻿#include "JumpAndThrow.h"
 #include "../Framework/Input.h"
 #include "JumpAndSlash.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 US_NS_JK
 
 JumpAndThrow::JumpAndThrow(Node* node):State(node)

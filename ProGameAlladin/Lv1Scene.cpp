@@ -1,23 +1,31 @@
 ﻿#include "Lv1Scene.h"
-#include "BackgroundLv1Scene.h"
 #include "Framework/Camera.h"
 #include "GameObject/Ground/Ground.h"
 #include "GameObject/Enemies/Enemy.h"
+#include "GameObject//AppleToThrow.h"
+#include "GameObject/Wall/Wall.h"
+#include "GameObject/BackgroundSky.h"
 #include "GameObject/Rope.h"
 
 US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	
+	mAladdin = new Aladdin(Vec2(300,500),Size(25,60));
 	_vectNode.push_back(mAladdin);
-	_vectNode.push_back(new Enemy());
-	_vectNode.push_back(new Ground());
-	_vectNode.push_back(new Rope());
+	mAladdin->setCurrentScene(this);
+	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
+
+	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
+
+
 	Camera::getInstance()->follow(mAladdin);
 	_vectNode.push_back(Camera::getInstance());
 
-	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree);
+	for (auto ground : _gameMap->getListGround())
+	{
+		_vectNode.push_back(ground);
+	}
 }
 
 
@@ -59,6 +67,7 @@ void Lv1Scene::render()
 	//	object->render();
 	//}
 }
+
 
 void Lv1Scene::checkVisibility()
 {

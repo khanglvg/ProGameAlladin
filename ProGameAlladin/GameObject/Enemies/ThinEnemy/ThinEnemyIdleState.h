@@ -14,6 +14,7 @@ public:
 	ThinEnemyIdleState(Enemy* enemy);
 	~ThinEnemyIdleState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
 };
