@@ -24,7 +24,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 		}
 		if (layer->GetName() == "Tile Layer 2")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 0);
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 1);
 			_backgroundTextures.push_back(background);
 		}
 	}
@@ -50,8 +50,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
 			{
-				auto *floatGround = new FloatGround(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND);
-				floatGround->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto *floatGround = new FloatGround(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() - 10), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND);
 
 				_listFloatGrounds.push_back(floatGround);
 
@@ -73,21 +72,18 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_1")
 			{
 				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")
 			{
-				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
 			{
-				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 
 				_listEnemies.push_back(enemy);
 
@@ -95,7 +91,6 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_4_Left")
 			{
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 				enemy->setScale(Vec2(-1, 1));
 
 				_listEnemies.push_back(enemy);
@@ -103,7 +98,6 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 				enemy->setScale(Vec2(1, 1));
 
 				_listEnemies.push_back(enemy);
@@ -111,14 +105,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_5")
 			{
 				auto enemy = new HideEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
 				auto enemy = new WallEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-				enemy->setPosition(Vec2(object->GetX() + object->GetWidth() / 3, object->GetY()));
 
 				_listEnemies.push_back(enemy);
 			}
@@ -126,8 +118,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//camel
 			if (objectGroup->GetName() == "Camel")
 			{
-				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
-				camel->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
 
 				_listCamels.push_back(camel);
 

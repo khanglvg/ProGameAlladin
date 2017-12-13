@@ -36,6 +36,7 @@ void BigEnemyAttackState::onUpdate()
 
 void BigEnemyAttackState::onExit()
 {
+
 }
 
 EnemyState * BigEnemyAttackState::checkTransition()

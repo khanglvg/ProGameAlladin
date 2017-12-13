@@ -76,7 +76,7 @@ void ThinEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
+	auto expect = 0.05;
 
 	
 	auto origin = Vec2(0.3f, 1.0f);

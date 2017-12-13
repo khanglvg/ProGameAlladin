@@ -41,8 +41,8 @@
    eJxjZGBgAAAACAAC
   </data>
  </layer>
- <objectgroup name="Player" visible="0">
-  <object id="207" gid="12" x="108.333" y="633.333" width="37" height="50"/>
+ <objectgroup name="Player">
+  <object id="207" gid="12" x="823.333" y="634" width="37" height="50"/>
  </objectgroup>
  <objectgroup name="Apple">
   <object id="1" gid="3" x="477.333" y="553" width="11" height="12"/>
@@ -114,8 +114,8 @@
   <object id="67" gid="3" x="4558" y="359" width="11" height="12"/>
   <object id="68" gid="3" x="4503" y="343" width="11" height="12"/>
   <object id="69" gid="3" x="4454" y="360.5" width="11" height="12"/>
-  <object id="70" gid="3" x="4213" y="418" width="11" height="12"/>
-  <object id="71" gid="3" x="4108" y="441" width="11" height="12"/>
+  <object id="70" gid="3" x="4215" y="418" width="11" height="12"/>
+  <object id="71" gid="3" x="4115" y="441" width="11" height="12"/>
   <object id="72" gid="3" x="3933.5" y="362.5" width="11" height="12"/>
   <object id="73" gid="3" x="3903.5" y="376.5" width="11" height="12"/>
   <object id="74" gid="3" x="3857.5" y="408.5" width="11" height="12"/>
@@ -154,12 +154,12 @@
   <object id="241" gid="17" x="4005.5" y="532.5" width="43" height="41"/>
   <object id="242" gid="17" x="3302.5" y="389.833" width="43" height="41"/>
  </objectgroup>
- <objectgroup name="FloatGround" visible="0">
+ <objectgroup name="FloatGround">
   <object id="163" gid="4" x="1630.67" y="454" width="33" height="14"/>
   <object id="164" gid="4" x="4207.67" y="461.667" width="33" height="14"/>
   <object id="165" gid="4" x="4105.67" y="480" width="33" height="14"/>
  </objectgroup>
- <objectgroup name="Springboard" visible="0">
+ <objectgroup name="Springboard">
   <object id="178" gid="5" x="3455.75" y="262.75" width="43" height="18"/>
   <object id="179" gid="5" x="3458.25" y="182" width="43" height="18"/>
   <object id="180" gid="5" x="4228.67" y="136" width="43" height="18"/>
@@ -169,7 +169,7 @@
   <object id="187" gid="7" x="2706" y="406" width="44" height="58"/>
  </objectgroup>
  <objectgroup name="Enemy_2">
-  <object id="188" gid="8" x="950.333" y="631.667" width="55" height="52"/>
+  <object id="188" gid="8" x="950.333" y="633.667" width="55" height="52"/>
   <object id="189" gid="8" x="1699" y="278" width="55" height="52"/>
   <object id="190" gid="8" x="3238.33" y="662.917" width="55" height="52"/>
   <object id="191" gid="8" x="3711.67" y="663.333" width="55" height="52"/>
@@ -179,7 +179,7 @@
   <object id="193" gid="9" x="3679.67" y="485.333" width="55" height="52"/>
  </objectgroup>
  <objectgroup name="Enemy_3">
-  <object id="197" gid="10" x="1692.33" y="663" width="43" height="50"/>
+  <object id="197" gid="10" x="1716.33" y="663" width="43" height="50"/>
   <object id="199" gid="10" x="2027" y="277.5" width="43" height="50"/>
   <object id="200" gid="10" x="3475.5" y="664" width="43" height="50"/>
   <object id="201" gid="10" x="4572.5" y="623.5" width="43" height="50"/>
@@ -210,7 +210,7 @@
    eJxjYmBgAAAADAAD
   </data>
  </layer>
- <objectgroup name="Ground">
+ <objectgroup name="Ground" opacity="0">
   <object id="99" x="0" y="635" width="1461.97" height="53.6667"/>
   <object id="114" name="StairsGround" x="1348" y="574.333" width="95.333" height="56.5"/>
   <object id="115" name="StairsGround" x="1310.67" y="582.333" width="132.667" height="49"/>
@@ -247,26 +247,26 @@
   <object id="291" name="StairsGround" x="2546.5" y="651" width="41" height="10"/>
   <object id="292" name="StairsGround" x="2573" y="659" width="31" height="3.5"/>
  </objectgroup>
-  <objectgroup name="platform">
-    <object id="128" name="Platform" x="1748.67" y="439.333" width="292.667" height="13.3333"/>
-    <object id="129" name="Platform" x="1474.33" y="438.667" width="105.333" height="12"/>
-    <object id="130" name="Platform" x="1475.67" y="390.667" width="39.3333" height="12"/>
-    <object id="132" name="Platform" x="1590.67" y="278.667" width="682.667" height="12"/>
-    <object id="143" name="Platform" x="2736.5" y="567.5" width="107" height="11.5"/>
-    <object id="145" name="Platform" x="2642.5" y="406.5" width="174.5" height="13.5"/>
-    <object id="146" name="Platform" x="2788.5" y="423" width="296" height="10"/>
-    <object id="147" name="Platform" x="2745" y="167.5" width="83.5" height="10"/>
-    <object id="148" name="Platform" x="2518.5" y="167" width="133" height="12.5"/>
-    <object id="149" name="Platform" x="2798" y="295.333" width="398" height="8.66667"/>
-    <object id="150" name="Platform" x="2969.33" y="167.333" width="216.667" height="11.3333"/>
-    <object id="151" name="Platform" x="3059" y="487" width="797" height="12"/>
-    <object id="157" name="Platform" x="4609.45" y="503.455" width="74.9091" height="11.2727"/>
-    <object id="158" name="Platform" x="4304.33" y="471.333" width="91.3333" height="12"/>
-    <object id="167" name="Platform" x="3186" y="327.333" width="378.667" height="13.3333"/>
-    <object id="170" name="Platform" x="3505.33" y="120.667" width="107.333" height="9.33333"/>
-    <object id="171" name="Platform" x="3603" y="215.5" width="1112.5" height="13"/>
-  </objectgroup>
- <objectgroup name="Wall">
+ <objectgroup name="platform" opacity="0">
+  <object id="128" name="Platform" x="1748.67" y="439.333" width="292.667" height="13.3333"/>
+  <object id="129" name="Platform" x="1474.33" y="438.667" width="105.333" height="12"/>
+  <object id="130" name="Platform" x="1475.67" y="390.667" width="39.3333" height="12"/>
+  <object id="132" name="Platform" x="1590.67" y="278.667" width="682.667" height="12"/>
+  <object id="143" name="Platform" x="2736.5" y="567.5" width="107" height="11.5"/>
+  <object id="145" name="Platform" x="2642.5" y="406.5" width="174.5" height="13.5"/>
+  <object id="146" name="Platform" x="2788.5" y="423" width="296" height="10"/>
+  <object id="147" name="Platform" x="2745" y="167.5" width="83.5" height="10"/>
+  <object id="148" name="Platform" x="2518.5" y="167" width="133" height="12.5"/>
+  <object id="149" name="Platform" x="2798" y="295.333" width="398" height="8.66667"/>
+  <object id="150" name="Platform" x="2969.33" y="167.333" width="216.667" height="11.3333"/>
+  <object id="151" name="Platform" x="3059" y="487" width="797" height="12"/>
+  <object id="157" name="Platform" x="4609.45" y="503.455" width="74.9091" height="11.2727"/>
+  <object id="158" name="Platform" x="4304.33" y="471.333" width="91.3333" height="12"/>
+  <object id="167" name="Platform" x="3186" y="327.333" width="378.667" height="13.3333"/>
+  <object id="170" name="Platform" x="3505.33" y="120.667" width="107.333" height="9.33333"/>
+  <object id="171" name="Platform" x="3603" y="215.5" width="1112.5" height="13"/>
+ </objectgroup>
+ <objectgroup name="Wall" opacity="0">
   <object id="124" x="2205.33" y="293.333" width="37.3333" height="395.333"/>
   <object id="131" x="1445.33" y="1.33333" width="28" height="458.667"/>
   <object id="162" x="2769.5" y="580.5" width="50" height="109.5"/>
@@ -283,7 +283,7 @@
   <object id="293" name="Trigger-Left" x="2644.5" y="614.5" width="15.5" height="49"/>
   <object id="294" name="Trigger-Right" x="2243.5" y="520" width="15" height="60.5"/>
  </objectgroup>
- <objectgroup name="Fire">
+ <objectgroup name="Fire" opacity="0">
   <object id="220" x="461.333" y="621.333" width="128" height="33.3333"/>
   <object id="222" x="830.667" y="618.667" width="125.333" height="38.6667"/>
   <object id="224" x="1006.67" y="618.667" width="129.333" height="37.3333"/>

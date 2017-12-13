@@ -228,6 +228,9 @@
     <ClInclude Include="Framework\Vec2.h" />
     <ClInclude Include="Framework\GameMap.h" />
     <ClInclude Include="GameObject\Enemies\EnemyState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.h" />
+    <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemy.h" />
     <ClInclude Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemy.h" />
@@ -359,6 +362,9 @@
     <ClCompile Include="Framework\Vec2.cpp" />
     <ClCompile Include="Framework\GameMap.cpp" />
     <ClCompile Include="GameObject\Enemies\EnemyState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyInAttackedState.cpp" />
+    <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\FatEnemy\FatEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemy.cpp" />
