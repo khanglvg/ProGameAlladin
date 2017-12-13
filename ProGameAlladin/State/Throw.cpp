@@ -7,6 +7,7 @@
 #include "../GameObject/AppleToThrow.h"
 
 #include "../Framework/Scene.h"
+#include "../GameObject/Enemies/KnifeEnemy/KnifeToThrow.h"
 
 US_NS_JK
 
@@ -34,8 +35,16 @@ void Throw::onEnter()
 
 	if (Input::getInstance()->getKey(KEY_A))
 	{
-		const auto apple = new AppleToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
-		apple->getRigidBody()->setVelocity(Vec2(400, 0));
+		const auto apple = new KnifeToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
+		if(aladdin->getScale() == Vec2(1,1))
+		{
+			apple->getRigidBody()->setVelocity(Vec2(400, 0));
+		}
+		else
+		{
+			apple->getRigidBody()->setVelocity(Vec2(-400, 0));
+		}
+		
 		apple->setCurrentScene(aladdin->getCurrentScene());
 		aladdin->getCurrentScene()->addNode(apple);
 	}

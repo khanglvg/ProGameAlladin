@@ -234,6 +234,7 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
@@ -365,6 +366,7 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
@@ -482,6 +484,7 @@
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
+    <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
     <Xml Include="Resources\Items\Camel.xml" />
   </ItemGroup>
   <ItemGroup>

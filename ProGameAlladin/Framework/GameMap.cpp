@@ -140,8 +140,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 				auto *gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
 				gameObject->setRigidTag("ground");
 
-				if(object->GetName() == "StairGround")
+				if(object->GetName() == "StairsGround")
 				{
+					gameObject->setRigidTag("stair");
 					_listStairGround.push_back(gameObject);
 				}
 				else

@@ -113,6 +113,7 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
+    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -306,6 +307,7 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
     <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
+    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -343,6 +345,7 @@
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
     <Xml Include="Resources\Items\Camel.xml" />
+    <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ala.png" />

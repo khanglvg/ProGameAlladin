@@ -13,6 +13,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_rigid->setGravityScale(1);
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 	setPosition(_rigid->getPosition());
+	_rigid->setTag("aladdin");
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -70,19 +71,21 @@ void Aladdin::update()
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
 		_isOnTheGround = false;
+		_isBesideTheStair = false;
+		_isBesideTheStair = false;
 	}
 	else
 	{
-		auto const collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
-		auto const collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
-		auto const collisionWithStair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
+		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
+		auto const wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
+		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 
 
 
 		//
 		//	collision with ground
 		//
-		if (collisionWithGround == _rigid->getCollidingBodies().end())
+		if (ground == _rigid->getCollidingBodies().end())
 			_isOnTheGround = false;
 		else
 			_isOnTheGround = true;
@@ -90,15 +93,19 @@ void Aladdin::update()
 		//
 		//	collision with stair
 		//
-		if (collisionWithStair == _rigid->getCollidingBodies().end())
+		if (stair == _rigid->getCollidingBodies().end())
 			_isBesideTheStair = false;
 		else
+		{
 			_isBesideTheStair = true;
+			//if(_rigid->getPosition().getY() > )
+			_rigid->setPosition(Vec2(_rigid->getPosition().getX(), _rigid->getPosition().getY() - 5));
+		}
 
 		//
 		//	collision with wall
 		//
-		if (collisionWithWall == _rigid->getCollidingBodies().end())
+		if (wall == _rigid->getCollidingBodies().end())
 			_isBesideTheWall = false;
 		else
 			_isBesideTheWall = true;

@@ -107,8 +107,7 @@ void PhysicsManager::update()
 
 
 
-float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const
-{
+float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) {
 	// Entry là khoảng cách gần nhất giữa 2 vật để bắt đầu va chạm
 	// Exit là khoảng cách gần nhất giữa 2 vật để va chạm kết thúc
 	float dxEntry;
@@ -210,10 +209,12 @@ float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) 
 			if (dxEntry > 0.0f)
 			{
 				manifold.collisionNormal = Vec2(1.0f, 0.0f); // hướng từ phải sang trái
+				setCollisionNormal(manifold);
 			}
 			else
 			{
 				manifold.collisionNormal = Vec2(-1.0f, 0.0f); // hướng từ trái sang phải
+				setCollisionNormal(manifold);
 			}
 		}
 		else
@@ -221,10 +222,12 @@ float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) 
 			if (dyEntry > 0.0f)
 			{
 				manifold.collisionNormal = Vec2(0.0f, 1.0f); // hướng từ trên xuống
+				setCollisionNormal(manifold);
 			}
 			else
 			{
 				manifold.collisionNormal = Vec2(0.0f, -1.0f); // hướng từ dưới lên
+				setCollisionNormal(manifold);
 			}
 		}
 
@@ -233,7 +236,15 @@ float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) 
 
 }
 
+Vec2 PhysicsManager::getCollisionNormal() const
+{
+	return _collisionNormal;
+}
 
+void PhysicsManager::setCollisionNormal(const Manifold manifold)
+{
+	_collisionNormal = manifold.collisionNormal;
+}
 
 
 void PhysicsManager::resolveCollision(Manifold &manifold) const
@@ -338,7 +349,7 @@ PhysicsManager* PhysicsManager::getIntance()
 
 
 
-bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const
+bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold)
 {
 	manifold.rigid1 = a;
 	manifold.rigid2 = b;
@@ -368,18 +379,32 @@ bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold) c
 			if (x_overlap < y_overlap)
 			{
 				if (vecAtoB.getX() < 0)
+				{
 					manifold.collisionNormal = Vec2(-1, 0);
+					setCollisionNormal(manifold);
+				}
 				else
+				{
 					manifold.collisionNormal = Vec2(1, 0);
+					setCollisionNormal(manifold);
+				}
+					
 				manifold.penetration = x_overlap;
 				return true;
 			}
 			else
 			{
 				if (vecAtoB.getY() < 0)
+				{
 					manifold.collisionNormal = Vec2(0, -1);
+					setCollisionNormal(manifold);
+				}
 				else
+				{
 					manifold.collisionNormal = Vec2(0, 1);
+					setCollisionNormal(manifold);
+				}
+
 				manifold.penetration = y_overlap;
 				return true;
 			}

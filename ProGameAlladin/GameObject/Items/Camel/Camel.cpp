@@ -12,6 +12,7 @@ Camel::Camel()
 Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position, size, tag)
 {
 	setScale(Vec2(1, 1));
+	_rigid->setDensity(0.001);
 
 #pragma region READ - XML
 	pugi::xml_document doc;

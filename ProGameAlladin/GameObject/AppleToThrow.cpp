@@ -9,7 +9,7 @@ AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
-	setScale(Vec2(1.8, 1.8));
+	setScale(Vec2(1.1, 1.1));
 	_rigid->setTag("appletothrow");
 
 	_isCollision = false;
@@ -22,7 +22,7 @@ AppleToThrow::~AppleToThrow()
 void AppleToThrow::init()
 {
 	_textureApple.setName("AppleToThrow.png");
-	_textureApple.setSrcFile("Resources/apple1.png");
+	_textureApple.setSrcFile("Resources/Items/Apple.png");
 	Graphics::getInstance()->loadTexture(_textureApple);
 }
 
@@ -61,7 +61,7 @@ void AppleToThrow::release()
 void AppleToThrow::render()
 {
 	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
-		Rect(0, 0, 5, 6), 1);
+		Rect(0, 0, 11, 12), 1);
 }
 
 Texture AppleToThrow::getTexture() const
