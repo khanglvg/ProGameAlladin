@@ -52,7 +52,7 @@ void Apple::render()
 										Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 
 										1);
 
-	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0,0,11,12), 1);
+	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0,0,11,12), 2);
 }
 
 Rect Apple::getRect()

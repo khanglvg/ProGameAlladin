@@ -259,6 +259,7 @@
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="GameObject\Rope.h" />
+    <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -400,6 +401,7 @@
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
+    <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -509,9 +511,8 @@
     <Image Include="Resources\AgrabahMarket2.png" />
     <Image Include="Resources\ala.png" />
     <Image Include="Resources\Aladdin1.png" />
-    <Image Include="Resources\apple.png" />
     <Image Include="Resources\apple1.png" />
-    <Image Include="Resources\background.jpg" />
+    <Image Include="Resources\bg_sky.jpg" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />
@@ -535,7 +536,6 @@
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\Rope.png" />
-    <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
     <Image Include="RunAndSlash.png" />
   </ItemGroup>

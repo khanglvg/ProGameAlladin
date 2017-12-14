@@ -19,6 +19,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 	setPosition(_rigid->getPosition());
 	_rigid->setTag("aladdin");
+	this->setIsOwnerRight(true);
 
 #pragma region READ - XML
 	pugi::xml_document doc;

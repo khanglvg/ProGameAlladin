@@ -47,17 +47,21 @@ void PhysicsManager::update()
 	}
 
 	// Duyệt tất cả các Objects
-	for (auto it1 = _rigidBodies.begin(); it1 != _rigidBodies.end(); ++it1)
+	for (auto it1 = 0;  it1 <= _rigidBodies.size() - 1; it1++)
 	{
-		for (auto it2 = it1 + 1; it2 != _rigidBodies.end(); ++it2)
+		for (auto it2 = 0;  it2 <= _rigidBodies.size() - 1; it2++)
 		{
 			Manifold manifold;
-			if (AABBvAABB(*it1, *it2, manifold))
+			if(_rigidBodies[it1]->isActived() && _rigidBodies[it2]->isActived())
 			{
-				(*it1)->_collidingBodies.push_back((*it2)->_tag);
-				(*it2)->_collidingBodies.push_back((*it1)->_tag);
-				resolveCollision(manifold);
+				if (AABBvAABB(_rigidBodies[it1], _rigidBodies[it2], manifold))
+				{
+					(_rigidBodies[it1])->_collidingBodies.push_back((_rigidBodies[it2])->_tag);
+					(_rigidBodies[it2])->_collidingBodies.push_back((_rigidBodies[it1])->_tag);
+					resolveCollision(manifold);
+				}
 			}
+			
 			//if(sweptAABB(*it1,*it2,manifold)<1.0f) // có va chạm
 			//{
 			//	// v = v*swept

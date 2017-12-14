@@ -29,6 +29,7 @@ RigidBody::RigidBody(	const Vec2& position,
 	_impulse = impulse;
 	_offset = offset;
 	_size = size;
+	_isActived = true;
 	PhysicsManager::getIntance()->attachRigidbody(this);
 }
 
@@ -151,6 +152,16 @@ Size RigidBody::getSize() const
 void RigidBody::setSize(const Size& size)
 {
 	_size = size;
+}
+
+bool RigidBody::isActived() const
+{
+	return _isActived;
+}
+
+void RigidBody::setActive(const bool& isActived)
+{
+	_isActived = isActived;
 }
 
 

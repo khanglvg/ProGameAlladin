@@ -50,6 +50,16 @@ GameObject::GameObjectType GameObject::getTag() const
 	return _tag;
 }
 
+bool GameObject::isOwnerRight() const
+{
+	return _isOwnerRight;
+}
+
+void GameObject::setIsOwnerRight(const bool& isOwnerRight)
+{
+	_isOwnerRight = isOwnerRight;
+}
+
 bool GameObject::isVisible() const
 {
 	return _isVisible;

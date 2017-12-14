@@ -1,8 +1,9 @@
 ﻿#include "AppleToThrow.h"
 #include "../Framework/Graphics.h"
+#include "../Framework/Scene.h"
 US_NS_JK
 
-AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(position,size, APPLES)
+AppleToThrow::AppleToThrow(GameObject* owner, const Vec2 & position, const Size & size):GameObject(position,size, APPLES)
 {
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(0.1);
@@ -12,6 +13,7 @@ AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(
 	setScale(Vec2(1.1, 1.1));
 	_rigid->setTag("appletothrow");
 
+	_owner = owner;
 	_isCollision = false;
 }
 
@@ -30,25 +32,26 @@ void AppleToThrow::update()
 {
 	_position = _rigid->getPosition() - _rigid->getOffset();
 
-	const auto collisionWithEnemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enermy");
+	const auto collisionWithEnemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy");
 	const auto collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall");
 	const auto collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground");
 	const auto collisionWithPlatform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform");
 
-	if (collisionWithEnemy == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else if (collisionWithWall == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else if (collisionWithGround == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else if (collisionWithPlatform == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else
+	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
 		_isCollision = true;
+	else if (collisionWithWall != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (collisionWithGround != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (collisionWithPlatform != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else
+		_isCollision = false;
 
 	if(_isCollision)
 	{
 		//getCurrentScene()->removeNode(this);
+		_owner->getCurrentScene()->removeNode(this);
 	}
 }
 
