@@ -5,6 +5,7 @@
 #include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "IdleToSit.h"
+#include "Climb.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -21,7 +22,7 @@ void Jump::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -230)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -250)); // -300 is High jump (hold D), -200 is a normal jump
 	
 	aladdin->setActionName("Jump");
 }
@@ -40,7 +41,6 @@ void Jump::onUpdate()
 	{
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
-		
 	}
 }
 

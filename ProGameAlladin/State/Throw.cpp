@@ -7,6 +7,7 @@
 #include "../GameObject/Weapons/AppleToThrow.h"
 
 #include "../Framework/Scene.h"
+#include "JumpAndThrow.h"
 
 US_NS_JK
 
@@ -62,8 +63,6 @@ State* Throw::checkTransition()
 	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new Slash(_node);
-	if (Input::getInstance()->getKey(KEY_D))
-		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))

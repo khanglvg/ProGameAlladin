@@ -13,7 +13,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 	setPosition(_rigid->getPosition());
 	_rigid->setBodyType(DYNAMIC);
-	_rigid->setDensity(1);
+	_rigid->setDensity(10);
 	_rigid->setRestitution(0.5);
 	_rigid->setGravityScale(1);
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());

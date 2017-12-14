@@ -28,7 +28,7 @@ void AppleToThrow::init()
 
 void AppleToThrow::update()
 {
-	this->_position = _rigid->getPosition() - _rigid->getOffset();
+	_position = _rigid->getPosition() - _rigid->getOffset();
 
 	const auto collisionWithEnemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enermy");
 	const auto collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall");

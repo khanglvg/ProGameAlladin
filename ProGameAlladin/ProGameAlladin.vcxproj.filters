@@ -418,5 +418,9 @@
     <None Include="MapReader\Tmx.h.in" />
     <None Include="Resources\AgrabahMarket.tmx" />
     <None Include="zlibwapi.dll" />
+    <Image Include="Resources\ground.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\Rope.png" />
   </ItemGroup>
 </Project>
