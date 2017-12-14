@@ -25,6 +25,7 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 	setScale(Vec2(1, 1));
 
 	_currentState = new ThinEnemyIdleState(this);
+	_isCollisionWithAladdin = false;
 }
 
 ThinEnemy::~ThinEnemy()
@@ -50,8 +51,19 @@ void ThinEnemy::release()
 
 void ThinEnemy::update()
 {
-	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
-	_position = _rigid->getPosition() - _rigid->getOffset();
+	_rigid->setSize(Size(getRect().getWidth()*1.6+_rigid->getOffset().getX()*2, getRect().getHeight()));
+	_position = _rigid->getPosition() -_rigid->getOffset();
+
+	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
+
+	if(aladdin == _rigid->getCollidingBodies().end())
+	{
+		_isCollisionWithAladdin =  false;
+	}
+	else
+	{
+		_isCollisionWithAladdin = true;
+	}
 
 	_currentState->onUpdate();
 
@@ -75,7 +87,7 @@ void ThinEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.05;
+	const auto expect = 0.05;
 
 	
 	auto origin = Vec2(0.3f, 1.0f);
@@ -120,3 +132,4 @@ Rect ThinEnemy::getRect()
 	rect.setHeight(height);
 	return rect;
 }
+

@@ -21,6 +21,8 @@ public:
 
 	Rect getRect() override;
 
+	
+private:
 	Texture _textureThinEnemy;
 };
 

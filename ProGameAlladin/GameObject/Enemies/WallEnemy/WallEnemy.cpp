@@ -11,7 +11,7 @@ WallEnemy::WallEnemy()
 
 }
 
-WallEnemy::WallEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player):Enemy(position,size,tag,player)
+WallEnemy::WallEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player) :Enemy(position, size, tag, player)
 {
 	_viewRange = 50;
 	setScale(Vec2(1, 1));
@@ -63,12 +63,16 @@ void WallEnemy::render()
 	if (_animationIndex >= _animations[_actionName].size())
 		_animationIndex = 0;
 
-	const auto rect = _animations[_actionName][_animationIndex];
+	auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.05;
+	const auto expect = 0.05;
+	if (_actionName == "WallEnemy-Idle")
+	{
+		rect = Rect(0, 0, 0, 0);
+	}
+	
 
-	//Graphics::getInstance()->drawSprite(_textureWallEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)
@@ -83,19 +87,20 @@ void WallEnemy::render()
 		_animationIndex++;
 		if (_animationIndex == _animations[_actionName].size())
 			_animationIndex = 0;
-
 	}
+	
+	
 }
 
-Rect WallEnemy::getRect()
-{
-	const auto width = _animations[_actionName][_animationIndex].getWidth();
-	const auto height = _animations[_actionName][_animationIndex].getHeight();
+	Rect WallEnemy::getRect()
+	{
+		const auto width = _animations[_actionName][_animationIndex].getWidth();
+		const auto height = _animations[_actionName][_animationIndex].getHeight();
 
-	Rect rect;
-	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
-	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
-	rect.setWidth(width);
-	rect.setHeight(height);
-	return rect;
-}
+		Rect rect;
+		rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
+		rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
+		rect.setWidth(width);
+		rect.setHeight(height);
+		return rect;
+	}

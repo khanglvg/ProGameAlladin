@@ -58,10 +58,14 @@ public:
 
 	Rect getRect() override;
 
+	bool getIsCollisionWithAladdin() const;
+
 	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureEnemy;
+
+	bool _isCollisionWithAladdin;
 
 	int _animationIndex = 0;
 	string _actionName;

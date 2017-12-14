@@ -67,36 +67,36 @@ void PhysicsManager::update()
 			//(*it1)->setPosition(Vec2((*it1)->getPosition() + (*it1)->getVelocity()*GameManager::getInstance()->getDeltaTime()));
 		}
 
-		// Nếu Object đang xét là DYNAMIC thì thực hiện tiếp
-		if ((*it1)->getBodyType() == DYNAMIC)
-		{
-			// Nếu vận tốc = 0 thì đâu có di chuyển mà xét :)))~
-			if ((*it1)->getVelocity() != Vec2(0.0f, 0.0f))
-			{
-				// Ý tưởng là duyệt hết các phần từ (trừ phần tử đang xét = A) với các collider còn lại
-				// nếu collider nào có thể va chạm với A và gần A nhất thì lôi ra xét :)))~			
+		//// Nếu Object đang xét là DYNAMIC thì thực hiện tiếp
+		//if ((*it1)->getBodyType() == DYNAMIC)
+		//{
+		//	// Nếu vận tốc = 0 thì đâu có di chuyển mà xét :)))~
+		//	if ((*it1)->getVelocity() != Vec2(0.0f, 0.0f))
+		//	{
+		//		// Ý tưởng là duyệt hết các phần từ (trừ phần tử đang xét = A) với các collider còn lại
+		//		// nếu collider nào có thể va chạm với A và gần A nhất thì lôi ra xét :)))~			
 
-				// Vị trí Object gần A nhất
-				auto nearestIt1 = INFINITY;
+		//		// Vị trí Object gần A nhất
+		//		auto nearestIt1 = INFINITY;
 
-				// Duyệt hết các phần tử trong mảng
-				for (auto it2 = _rigidBodies.begin(); it2 != it1 && it2 != _rigidBodies.end(); ++it2)
-				{
-					// Khoảng cách giữa 2 vật là căn bậc 2 của ((X2 - X1)^2 + (Y2 - Y1)^2)
-					const auto currentPosition = sqrt(pow((*it2)->getPosition().getX() - (*it1)->getPosition().getX(), 2) + pow((*it2)->getPosition().getY() - (*it1)->getPosition().getY(), 2));
+		//		// Duyệt hết các phần tử trong mảng
+		//		for (auto it2 = _rigidBodies.begin(); it2 != it1 && it2 != _rigidBodies.end(); ++it2)
+		//		{
+		//			// Khoảng cách giữa 2 vật là căn bậc 2 của ((X2 - X1)^2 + (Y2 - Y1)^2)
+		//			const auto currentPosition = sqrt(pow((*it2)->getPosition().getX() - (*it1)->getPosition().getX(), 2) + pow((*it2)->getPosition().getY() - (*it1)->getPosition().getY(), 2));
 
-					Manifold manifold;
-					// Nếu collider đang xét có thể va chạm với A (it1) và có vị trí gần nhất A nhất
-					// Nếu ở frame sau có va chạm thì swept < 1
-					// Khi 2 vật đang va chạm ở frame này thì swept trả về 1
-					if (sweptAABB(*it1, *it2, manifold) < 1.0f && currentPosition < nearestIt1)
-					{
-						nearestIt1 = currentPosition;
-						resolveCollision(manifold);
-					}
-				}
-			}
-		}
+		//			Manifold manifold;
+		//			// Nếu collider đang xét có thể va chạm với A (it1) và có vị trí gần nhất A nhất
+		//			// Nếu ở frame sau có va chạm thì swept < 1
+		//			// Khi 2 vật đang va chạm ở frame này thì swept trả về 1
+		//			if (sweptAABB(*it1, *it2, manifold) < 1.0f && currentPosition < nearestIt1)
+		//			{
+		//				nearestIt1 = currentPosition;
+		//				resolveCollision(manifold);
+		//			}
+		//		}
+		//	}
+		//}
 
 	}
 }
