@@ -2,6 +2,7 @@
 
 #define __SLASH_H__
 #include "State.h"
+#include "../GameObject/Weapon.h"
 
 
 NS_JK_BEGIN
@@ -13,8 +14,11 @@ public:
 	~Slash() override;
 
 	void onEnter() override;
+	void onExit() override;
 	State* checkTransition() override;
 
+private:
+	Weapon* _weapon;
 };
 
 NS_JK_END

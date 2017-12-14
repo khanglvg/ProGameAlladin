@@ -10,7 +10,7 @@ NS_JK_BEGIN
 	class AppleToThrow: public GameObject
 {
 public:
-	AppleToThrow(const Vec2 & position, const Size & size);
+	AppleToThrow(GameObject* owner, const Vec2 & position, const Size & size);
 	~AppleToThrow();
 
 	void init() override;
@@ -27,6 +27,7 @@ public:
 private:
 	Texture _textureApple;
 	bool _isCollision;
+	GameObject* _owner;
 };
 NS_JK_END
 #endif

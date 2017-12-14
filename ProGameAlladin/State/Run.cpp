@@ -32,6 +32,8 @@ void Run::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
+		aladdin->setIsOwnerRight(false);
+		aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
 		aladdin->setVelocity(Vec2(-200, aladdin->getVelocity().getY()));
 		//camera->setCameraX(aladdin->getPosition().getX() - camera->getWidth() / 2);
 	}
@@ -39,6 +41,8 @@ void Run::onEnter()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
+		aladdin->setIsOwnerRight(true);
+		aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
 		aladdin->setVelocity(Vec2(200, aladdin->getVelocity().getY()));
 		//camera->setCameraX(aladdin->getPosition().getX() + camera->getWidth() / 2);
 		if(aladdin->isBesideTheStair())

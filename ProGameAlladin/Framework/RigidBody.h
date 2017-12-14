@@ -63,6 +63,8 @@ private:
 	Vec2 _offset;
 	Size _size;
 
+	bool _isActived;
+
 public:
 	RigidBody();
 	RigidBody(const Vec2& position,
@@ -114,6 +116,9 @@ public:
 
 	Size getSize() const;
 	void setSize(const Size& size);
+
+	bool isActived() const;
+	void setActive(const bool& isActive);
 #pragma endregion 
 
 

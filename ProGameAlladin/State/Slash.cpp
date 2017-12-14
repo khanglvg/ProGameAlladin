@@ -5,6 +5,7 @@
 #include "Run.h"
 #include "HeadUp.h"
 #include "IdleToSit.h"
+#include "../Framework/Scene.h"
 #include "../GameObject/Aladdin.h"
 US_NS_JK
 
@@ -23,13 +24,30 @@ void Slash::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	//	aladdin->setScale(Vec2(-1, 1));
-
-	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	//	aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("Slash");
+
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(10, 30), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getOwner()->setIsOwnerRight(true);
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getOwner()->setIsOwnerRight(false);
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
+}
+
+void Slash::onExit()
+{
+	const auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* Slash::checkTransition()
