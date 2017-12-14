@@ -156,7 +156,7 @@
     <sprite x="853" y="926" w="101" h="59" oX="853" oY="926" oW="1030" oH="984" />
     <sprite x="968" y="928" w="101" h="49" oX="968" oY="928" oW="1030" oH="984" />
   </Animation>
-  <Animation name="Unknown 2" imagePath="oie_transparent.png" width="1121" height="2718">
+  <Animation name="JumpAndThrow" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="19" y="1005" w="49" h="54" oX="19" oY="1005" oW="1046" oH="287" />
     <sprite x="77" y="1007" w="43" h="51" oX="77" oY="1007" oW="1046" oH="287" />
     <sprite x="132" y="1008" w="38" h="52" oX="132" oY="1008" oW="1046" oH="287" />

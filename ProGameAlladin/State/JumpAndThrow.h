@@ -12,6 +12,7 @@ public:
 	JumpAndThrow(Node* node);
 	~JumpAndThrow() override;
 	void onEnter() override;
+	void onUpdate() override;
 	State* checkTransition() override;
 
 };

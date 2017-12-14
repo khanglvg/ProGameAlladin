@@ -24,7 +24,7 @@ void JumpWhileClimb::onEnter()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));
 
-	aladdin->setActionName("JumpWhileClimp");
+	aladdin->setActionName("JumpWhileClimb");
 }
 
 State* JumpWhileClimb::checkTransition()
