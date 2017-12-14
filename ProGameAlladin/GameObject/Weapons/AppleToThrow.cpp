@@ -1,5 +1,5 @@
 ﻿#include "AppleToThrow.h"
-#include "../Framework/Graphics.h"
+#include "../../Framework/Graphics.h"
 US_NS_JK
 
 AppleToThrow::AppleToThrow(const Vec2 & position, const Size & size):GameObject(position,size, APPLES)

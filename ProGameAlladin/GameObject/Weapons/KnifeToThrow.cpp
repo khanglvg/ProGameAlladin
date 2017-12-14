@@ -1,7 +1,7 @@
 ﻿#include "KnifeToThrow.h"
-#include "../../../Framework/Graphics.h"
-#include "../../../Framework/GameManager.h"
-#include "../../../pugixml/pugixml.hpp"
+#include "../../Framework/Graphics.h"
+#include "../../Framework/GameManager.h"
+#include "../../pugixml/pugixml.hpp"
 US_NS_JK
 
 
@@ -78,7 +78,7 @@ void KnifeToThrow::release()
 
 void KnifeToThrow::render()
 {
-	if (_animationIndex == _animations.size())
+	if (_animationIndex >= _animations.size())
 		_animationIndex = 0;
 
 	const auto rect = _animations[_animationIndex];

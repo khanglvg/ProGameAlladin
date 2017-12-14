@@ -4,7 +4,7 @@
 #include "Jump.h"
 #include "../GameObject/Aladdin.h"
 #include "Sit.h"
-#include "../GameObject/AppleToThrow.h"
+#include "../GameObject/Weapons/AppleToThrow.h"
 #include "../Framework/Scene.h"
 US_NS_JK
 

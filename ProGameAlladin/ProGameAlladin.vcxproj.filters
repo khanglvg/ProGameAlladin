@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
@@ -124,8 +123,9 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
+    <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -203,7 +203,6 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
@@ -330,8 +329,9 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
+    <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

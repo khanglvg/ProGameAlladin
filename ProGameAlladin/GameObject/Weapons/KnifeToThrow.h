@@ -3,8 +3,8 @@
 #define __KnifeToThrow_H__
 #include "../../Framework/Texture.h"
 #include "../../Framework/RigidBody.h"
-#include "../../GameObject.h"
-#include "../../../Framework/definitions.h"
+#include "../GameObject.h"
+#include "../../Framework/definitions.h"
 
 NS_JK_BEGIN
 class KnifeToThrow : public GameObject
