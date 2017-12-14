@@ -82,7 +82,9 @@ void ThinEnemy::update()
 void ThinEnemy::render()
 {
 	if (_animationIndex >= _animations[_actionName].size())
+	{
 		_animationIndex = 0;
+	}
 
 	const auto rect = _animations[_actionName][_animationIndex];
 
@@ -115,9 +117,6 @@ void ThinEnemy::render()
 			_animationIndex = 0;
 
 	}
-
-	
-	
 }
 
 Rect ThinEnemy::getRect()

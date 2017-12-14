@@ -4,10 +4,9 @@
 #include "Jump.h"
 #include "Run.h"
 #include "../GameObject/Aladdin.h"
-#include "../GameObject/AppleToThrow.h"
+#include "../GameObject/Weapons/AppleToThrow.h"
 
 #include "../Framework/Scene.h"
-#include "../GameObject/Enemies/KnifeEnemy/KnifeToThrow.h"
 #include "JumpAndThrow.h"
 
 US_NS_JK

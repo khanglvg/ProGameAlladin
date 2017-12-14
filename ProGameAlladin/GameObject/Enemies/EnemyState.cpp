@@ -1,4 +1,5 @@
 #include "EnemyState.h"
+#include "Enemy.h"
 
 US_NS_JK
 

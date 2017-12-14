@@ -213,6 +213,11 @@ void Enemy::allowMoveRight(const bool allow)
 	_allowMoveRight = allow;
 }
 
+bool Enemy::isAnimationDone()
+{
+	return _isAnimationDone;
+}
+
 int Enemy::getIndex()
 {
 	return _animationIndex;

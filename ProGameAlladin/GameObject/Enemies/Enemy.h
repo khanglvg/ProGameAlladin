@@ -51,6 +51,8 @@ public:
 	bool isAllowMoveRight();
 	void allowMoveLeft(bool allow);
 	void allowMoveRight(bool allow);
+
+	bool isAnimationDone();
 	
 	int getIndex();
 
@@ -71,6 +73,8 @@ protected:
 	string _actionName;
 	float _index = 0;
 	EnemyState* _currentState;
+
+	bool _isAnimationDone = false;
 
 	GameObject* _target;
 

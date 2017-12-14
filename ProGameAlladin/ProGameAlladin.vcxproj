@@ -201,7 +201,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
@@ -240,7 +240,7 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
@@ -343,7 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
@@ -381,7 +381,7 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />

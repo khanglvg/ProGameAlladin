@@ -1,6 +1,8 @@
 ﻿#include "AppleToThrow.h"
-#include "../Framework/Graphics.h"
-#include "../Framework/Scene.h"
+#include "../../Framework/Graphics.h"
+#include "../../Framework/Scene.h"
+#include "../../Framework/Graphics.h"
+
 US_NS_JK
 
 AppleToThrow::AppleToThrow(GameObject* owner, const Vec2 & position, const Size & size):GameObject(position,size, APPLES)
