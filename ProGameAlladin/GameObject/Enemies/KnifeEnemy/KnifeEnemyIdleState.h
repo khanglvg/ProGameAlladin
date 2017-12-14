@@ -14,8 +14,11 @@ public:
 	KnifeEnemyIdleState(Enemy* enemy);
 	~KnifeEnemyIdleState();
 
+	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
+private:
+	bool _isThrew;
 };
 
 

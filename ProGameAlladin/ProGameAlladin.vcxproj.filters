@@ -117,7 +117,6 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
@@ -126,6 +125,7 @@
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Rope.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -323,7 +323,6 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
@@ -332,6 +331,7 @@
     <ClInclude Include="GameObject\BackgroundSky.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Rope.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

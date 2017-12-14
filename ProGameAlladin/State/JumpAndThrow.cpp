@@ -2,7 +2,7 @@
 #include "../Framework/Input.h"
 #include "JumpAndSlash.h"
 #include "../GameObject/Aladdin.h"
-#include "../GameObject/AppleToThrow.h"
+#include "../GameObject/Weapons/AppleToThrow.h"
 #include "../Framework/Scene.h"
 US_NS_JK
 

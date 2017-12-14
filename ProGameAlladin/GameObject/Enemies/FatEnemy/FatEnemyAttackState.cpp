@@ -34,20 +34,28 @@ void FatEnemyAttackState::onUpdate()
 	{
 		_enemy->setScale(Vec2(1, 1));
 	}
-	if (_enemy->getIndex() >= 4)
+	if (_enemy->getIndex() == 3)
 	{
-		/*const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY() - 20), Size(5, 5));
-		if (_enemy->getScale() == Vec2(1, 1))
+		if (!_isThrew)
 		{
-			knife->getRigidBody()->setVelocity(Vec2(-400, 0));
-		}
-		else
-		{
-			knife->getRigidBody()->setVelocity(Vec2(400, 0));
-		}
+			const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
+			if (_enemy->getScale() == Vec2(1, 1))
+			{
+				knife->getRigidBody()->setVelocity(Vec2(-400, 0));
+			}
+			else
+			{
+				knife->getRigidBody()->setVelocity(Vec2(400, 0));
+			}
 
-		knife->setCurrentScene(_enemy->getCurrentScene());
-		_enemy->getTarget()->getCurrentScene()->addNode(knife);*/
+			knife->setCurrentScene(_enemy->getCurrentScene());
+			_enemy->getTarget()->getCurrentScene()->addNode(knife);
+			_isThrew = true;
+		}
+	}
+	else
+	{
+		_isThrew = false;
 	}
 }
 

@@ -10,7 +10,7 @@ KnifeToThrow::KnifeToThrow(const Vec2 & position, const Size & size) :GameObject
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(0.1);
 	_rigid->setRestitution(0);
-	_rigid->setGravityScale(1);
+	_rigid->setGravityScale(0.7);
 	setPosition(_rigid->getPosition());
 	setScale(Vec2(1, 1));
 	_rigid->setTag("knifetothrow");
@@ -46,7 +46,7 @@ KnifeToThrow::~KnifeToThrow()
 void KnifeToThrow::init()
 {
 	_textureKnife.setName("KnifeToThrow.png");
-	_textureKnife.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Civilian Enemies.png");
+	_textureKnife.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Guards.png");
 	Graphics::getInstance()->loadTexture(_textureKnife);
 }
 
@@ -84,7 +84,7 @@ void KnifeToThrow::render()
 	const auto rect = _animations[_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	const auto expect = 0.07;
+	const auto expect = 0.01;
 
 	Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
 		rect, 2);
@@ -118,4 +118,9 @@ void KnifeToThrow::setVelocity(const Vec2& velocity)
 bool KnifeToThrow::isCollision() const
 {
 	return _isCollision;
+}
+
+void KnifeToThrow::setGravityScale(const float & gravity)
+{
+	_rigid->setGravityScale(gravity);
 }

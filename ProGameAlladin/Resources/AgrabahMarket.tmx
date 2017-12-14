@@ -193,10 +193,10 @@
  <objectgroup name="Enemy_4_Left">
   <object id="208" gid="14" x="1308" y="582.667" width="48" height="81"/>
   <object id="209" gid="14" x="2513.5" y="526.5" width="48" height="81"/>
-  <object id="212" gid="14" x="2966" y="166" width="48" height="81"/>
+  <object id="212" gid="14" x="2970" y="166" width="48" height="81"/>
  </objectgroup>
  <objectgroup name="Enemy_4_Right">
-  <object id="214" gid="13" x="2604" y="165.333" width="48" height="81"/>
+  <object id="214" gid="13" x="2540" y="165.333" width="48" height="81"/>
   <object id="215" gid="13" x="4358.33" y="471" width="48" height="81"/>
  </objectgroup>
  <objectgroup name="Enemy_5">
