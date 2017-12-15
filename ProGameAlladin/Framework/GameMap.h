@@ -33,6 +33,7 @@ private:
 	std::vector<SpringBoard*> _listSpringboards;
 	std::vector<GameObject*> _listGround;
 	std::vector<GameObject*> _listStairGround;
+	std::vector<GameObject*> _listRope;
 	
 public:
 	GameMap();

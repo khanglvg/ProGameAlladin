@@ -4,7 +4,7 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 #include <vector>
-#include "Node.h"
+#include "../GameObject/GameObject.h"
 #include "Rect.h"
 
 NS_JK_BEGIN
@@ -18,17 +18,15 @@ public:
 
     void clear();
 
-    void insertObject(Node *object);
-    
-    void getObjectsCollideAble(vector<Node*> &objectresult,Node *object); 
+    void insertObject(GameObject *object);
 
-    void getAllObjects(std::vector<Node*> &objectresult);
+    void getAllObjects(std::vector<GameObject*> &objectresult);
 
     int getTotalObjects() const;
 
-	Rect getVisibilityArea(Node *object) const;
+	Rect getVisibilityArea(GameObject *object) const;
 
-	void getObjectsVisibility(vector<Node*> &objectresult, Rect visibleRect, int _level);
+	void getObjectsVisibility(vector<GameObject*> &objectresult, Rect visibleRect, int _level);
 
     Rect* Bound;
 
@@ -36,7 +34,7 @@ public:
 
 protected:
     QuadTree** _quadNodes;
-    vector<Node*> _listObject;
+    vector<GameObject*> _listObject;
 
     /*lay vi tri cua Entity 
     0: nam trong Node con goc trai tren
@@ -48,7 +46,7 @@ protected:
 
     void split();
 
-    bool isContain(Node *object) const;
+    bool isContain(GameObject *object) const;
 
     int _level;
 };

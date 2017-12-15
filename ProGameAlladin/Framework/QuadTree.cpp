@@ -25,7 +25,7 @@ void QuadTree::clear()
 	}
 }
 
-void QuadTree::insertObject(Node * object)
+void QuadTree::insertObject(GameObject * object)
 {
 	const auto index = getIndex(object->getRect());
 
@@ -53,31 +53,7 @@ void QuadTree::insertObject(Node * object)
 	}
 }
 
-void QuadTree::getObjectsCollideAble(vector<Node*>& objectresult, Node * object)
-{
-	const auto index = this->getIndex(object->getRect());
-
-	if (index != -1)
-	{
-		//nhung Entity o day se la nam tren 2 node con nen chung ta cung se lay de set va cham
-		for (auto child : _listObject)
-		{
-			objectresult.push_back(child);
-		}
-
-		if (_quadNodes != nullptr)
-		{
-			//kiem tra va lay cac node trong node con
-			_quadNodes[index]->getObjectsCollideAble(objectresult, object);
-		}
-	}
-	else
-	{
-		getAllObjects(objectresult);
-	}
-}
-
-void QuadTree::getAllObjects(vector<Node*>& objectresult)
+void QuadTree::getAllObjects(vector<GameObject*>& objectresult)
 {
 	for (auto child : _listObject)
 	{
@@ -108,7 +84,7 @@ int QuadTree::getTotalObjects() const
 	return total;
 }
 
-Rect QuadTree::getVisibilityArea(Node *object) const
+Rect QuadTree::getVisibilityArea(GameObject *object) const
 {
 	Rect objectRect = object->getRect();
 	Rect result;
@@ -124,7 +100,7 @@ Rect QuadTree::getVisibilityArea(Node *object) const
 	return result;
 }
 
-void QuadTree::getObjectsVisibility(vector<Node*>& objectresult, Rect visibleRect, int _level)
+void QuadTree::getObjectsVisibility(vector<GameObject*>& objectresult, Rect visibleRect, int _level)
 {
 	const auto index = this->getIndex(visibleRect);
 	if (this->_level < _level && index != -1)
@@ -217,7 +193,7 @@ void QuadTree::split()
 			Bound->getY() + Bound->getHeight() / 2, Bound->getWidth() / 2, Bound->getHeight() / 2));
 }
 
-bool QuadTree::isContain(Node * object) const
+bool QuadTree::isContain(GameObject * object) const
 {
 	auto rect = object->getRect();
 

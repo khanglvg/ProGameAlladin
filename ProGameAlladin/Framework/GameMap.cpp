@@ -167,15 +167,15 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			}
 
 			//init rope
-			//if (objectGroup->GetName() == "Rope")
-			//{
-			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::Rope);
-			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-			//	gameObject->setWidth(object->GetWidth());
-			//	gameObject->setHeight(object->GetHeight());
+			if (objectGroup->GetName() == "Rope")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE);
+				gameObject->setRigidTag("rope");
 
-			//	//_quadTree->InsertStaticObject(gameObject);
-			//}
+				_listRope.push_back(gameObject);
+
+				//_quadTree->InsertStaticObject(gameObject);
+			}
 
 			//init FireGround
 			//if (objectGroup->GetName() == "Fire")
@@ -252,6 +252,13 @@ GameMap::~GameMap()
 			delete _listApples[i];
 	}
 	_listApples.clear();
+
+	for (size_t i = 0; i < _listRope.size(); i++)
+	{
+		if (_listRope[i])
+			delete _listRope[i];
+	}
+	_listRope.clear();
 }
 
 void GameMap::init()
@@ -280,6 +287,10 @@ void GameMap::init()
 	for (size_t i = 0; i < _listSpringboards.size(); i++)
 	{
 		_listSpringboards[i]->init();
+	}
+	for (size_t i = 0; i < _listRope.size(); i++)
+	{
+		_listRope[i]->init();
 	}
 }
 
@@ -448,6 +459,10 @@ void GameMap::draw()
 	for (size_t i = 0; i < _listSpringboards.size(); i++)
 	{
 		_listSpringboards[i]->render();
+	}
+	for (size_t i = 0; i < _listRope.size(); i++)
+	{
+		_listRope[i]->render();
 	}
 }
 

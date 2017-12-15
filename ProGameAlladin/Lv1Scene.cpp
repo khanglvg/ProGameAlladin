@@ -55,7 +55,7 @@ void Lv1Scene::release()
 
 void Lv1Scene::update()
 {
-	checkVisibility();
+	//checkVisibility();
 	Scene::update();
 	_gameMap->update();
 }
@@ -70,10 +70,10 @@ void Lv1Scene::render()
 	//}
 }
 
-
-void Lv1Scene::checkVisibility()
-{
-	listVisible.clear();
-
- 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
-}
+//
+//void Lv1Scene::checkVisibility()
+//{
+//	listVisible.clear();
+//
+// 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
+//}
