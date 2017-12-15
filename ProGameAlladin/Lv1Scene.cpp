@@ -15,6 +15,7 @@ Lv1Scene::Lv1Scene()
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
+	_vectNode.push_back(new Rope(Vec2(300,440),Size(10,200)));
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 

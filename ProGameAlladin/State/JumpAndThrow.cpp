@@ -20,11 +20,11 @@ void JumpAndThrow::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		aladdin->setScale(Vec2(-1, 1));
+	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	//	aladdin->setScale(Vec2(-1, 1));
 
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		aladdin->setScale(Vec2(1, 1));
+	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	//	aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("JumpAndThrow");
 
@@ -49,10 +49,15 @@ void JumpAndThrow::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
 		aladdin->setScale(Vec2(-1, 1));
+		aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
 		aladdin->setScale(Vec2(1, 1));
-
+		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+	}
 }
 
 State* JumpAndThrow::checkTransition()

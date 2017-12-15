@@ -298,6 +298,7 @@
     <ClInclude Include="State\Idle.h" />
     <ClInclude Include="State\Idle2.h" />
     <ClInclude Include="State\Idle3.h" />
+    <ClInclude Include="State\IdleToClimb.h" />
     <ClInclude Include="State\IdleToLook.h" />
     <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
@@ -436,6 +437,7 @@
     <ClCompile Include="State\Idle.cpp" />
     <ClCompile Include="State\Idle2.cpp" />
     <ClCompile Include="State\Idle3.cpp" />
+    <ClCompile Include="State\IdleToClimb.cpp" />
     <ClCompile Include="State\IdleToLook.cpp" />
     <ClCompile Include="State\IdleWhenWing.cpp" />
     <ClCompile Include="State\Jump.cpp" />
@@ -512,6 +514,7 @@
     <Image Include="Resources\apple.png" />
     <Image Include="Resources\apple1.png" />
     <Image Include="Resources\background.jpg" />
+    <Image Include="Resources\bg_sky.jpg" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />

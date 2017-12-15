@@ -77,7 +77,8 @@ void Aladdin::update()
 	{
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
-		_isBesideTheStair = false;
+		_isBesideTheWall = false;
+		_isOnTheRope = false;
 	}
 	else
 	{
@@ -86,6 +87,7 @@ void Aladdin::update()
 		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
 		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
+		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
 
 
 
@@ -131,7 +133,13 @@ void Aladdin::update()
 		else
 			_isOnThePlatform = true;
 
-		
+		//
+		// collision with rope
+		//
+		if (rope == _rigid->getCollidingBodies().end())
+			_isOnTheRope = false;
+		else
+			_isOnTheRope = true;
 	}
 	
 
@@ -276,6 +284,11 @@ bool Aladdin::isCollisionWithEnemy() const
 bool Aladdin::isOnThePlatform() const
 {
 	return _isOnThePlatform;
+}
+
+bool Aladdin::isOnTheRope() const
+{
+	return _isOnTheRope;
 }
 
 void Aladdin::setIndex(const int& index)

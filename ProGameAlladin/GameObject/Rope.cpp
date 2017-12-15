@@ -1,12 +1,12 @@
 ﻿#include "Rope.h"
 #include "../GameObject//Aladdin.h"
 US_NS_JK
-Rope::Rope()
+
+
+Rope::Rope(const Vec2& position, const Size& size, GameObjectType tag):GameObject(position, size, GameObject::GameObjectType::NONE)
 {
-	_rigidRope = new RigidBody(Vec2(0, 0), Vec2(0, 0), STATIC, 1, 0, 0, Vec2(0.0f, 0.0f), 0, Vec2(0, -100/2), Size(12, 350));
-	_rigidRope->setPosition(Vec2(300, SCREEN_HEIGHT/2));
-	setPosition(_rigidRope->getPosition());
-	_rigidRope->setTag("rope");
+	_rigid->setDensity(1);
+	_rigid->setTag("rope");
 }
 
 Rope::~Rope()
@@ -20,22 +20,22 @@ void Rope::release()
 
 void Rope::init()
 {
-	_textureRope.setName("Rope.png");
+	/*_textureRope.setName("Rope.png");
 	_textureRope.setSrcFile("Resources/Rope.png");
 	Graphics::getInstance()->loadTexture(_textureRope);
-
+*/
 	_textureRigid.setName("Khang");
-	_textureRigid.setSrcFile("Resources/ground.png");
+	_textureRigid.setSrcFile("Resources/red_rect.png");
 	Graphics::getInstance()->loadTexture(_textureRigid);
 }
 
 void Rope::update()
 {
-	_position = _rigidRope->getPosition() - _rigidRope->getOffset();
+	_position = _rigid->getPosition() - _rigid->getOffset();
 }
 
 void Rope::render()
 {
-	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 0.5f), getTransformMatrix(), Color(255, 255, 255, 255), 
-		Rect(_rigidRope->getPosition().getX(), _rigidRope->getPosition().getY(), _rigidRope->getSize().getWidth(), _rigidRope->getSize().getHeight() - 100 / 2), 1);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
+		Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 }

@@ -58,8 +58,11 @@ State* Idle::checkTransition()
 			return new Run(_node);
 		if (Input::getInstance()->isKeyDown(KEY_D))
 			return new Jump(_node);
-		if (Input::getInstance()->getKey(KEY_UP_ARROW))
+		if (Input::getInstance()->getKey(KEY_UP_ARROW) && aladdin->isOnTheGround())
+		{
 			return new HeadUp(_node);
+		}
+
 		if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 			return new IdleToSit(_node);
 		if (Input::getInstance()->getKey(KEY_S))

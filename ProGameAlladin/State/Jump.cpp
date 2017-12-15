@@ -6,6 +6,7 @@
 #include "Run.h"
 #include "IdleToSit.h"
 #include "Climb.h"
+#include "IdleToClimb.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -59,6 +60,10 @@ State* Jump::checkTransition()
 
 	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
 		return new Idle(_node);
+
+	if (aladdin->isOnTheRope())
+		return new IdleToClimb(_node);
+
 	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{
 	//	return new Idle(_node);
