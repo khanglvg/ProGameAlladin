@@ -22,10 +22,10 @@ public:
 	void render() override;
 
 
-protected:
-	void checkVisibility();
-	vector<Node*> listVisible;
-	vector<Node*> staticobject;
+//protected:
+//	void checkVisibility();
+//	vector<Node*> listVisible;
+//	vector<Node*> staticobject;
 
 private:
 	GameMap* _gameMap;
