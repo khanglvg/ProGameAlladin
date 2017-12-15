@@ -128,6 +128,8 @@
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
+    <ClCompile Include="GameObject\Rope.cpp" />
+    <ClCompile Include="State\IdleToClimb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -336,6 +338,8 @@
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
     <ClInclude Include="GameObject\Rope.h" />
+    <ClInclude Include="GameObject\Rope.h" />
+    <ClInclude Include="State\IdleToClimb.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -368,12 +372,12 @@
     <Library Include="zlib.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Resources\action2.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
     <Xml Include="Resources\Items\Camel.xml" />
     <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
+    <Xml Include="Resources\action2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />

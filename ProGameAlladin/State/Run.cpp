@@ -94,16 +94,16 @@ State* Run::checkTransition()
 			Random::getInstance()->generateRdnum();
 		int _temp = Random::getInstance()->getRdNumb();
 		{
-			if (0 <= _temp && _temp<33)
+			if (0 <= _temp && _temp<50)
 			{
 				return new Idle(_node);
 			}
 
-			if (33 <= _temp && _temp< 66)
+			if (50 <= _temp && _temp< 75)
 			{
 				return new Idle2(_node);
 			}
-			if (66 <= _temp&& _temp <= 100)
+			if (75 <= _temp&& _temp <= 100)
 			{
 				return new Idle3(_node);
 			}
@@ -113,16 +113,16 @@ State* Run::checkTransition()
 	{
 			Random::getInstance()->generateRdnum();
 		int _temp = Random::getInstance()->getRdNumb();
-		if (0 <= _temp && _temp<33)
+		if (0 <= _temp && _temp<50)
 		{
 			return new Idle(_node);
 		}
 
-		if (33 <= _temp && _temp< 66)
+		if (50 <= _temp && _temp< 75)
 		{
 			return new Idle2(_node);
 		}
-		if (66 <= _temp&& _temp <= 100)
+		if (75 <= _temp&& _temp <= 100)
 		{
 			return new Idle3(_node);
 		}

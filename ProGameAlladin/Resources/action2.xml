@@ -211,6 +211,9 @@
     <sprite x="437" y="1300" w="45" h="51" oX="437" oY="1300" oW="1360" oH="547" />
     <sprite x="498" y="1294" w="50" h="56" oX="498" oY="1294" oW="1360" oH="547" />
   </Animation>
+  <Animation name="IdleToClimb" imagePath="oie_transparent.png" width="1121" height="2718">
+    <sprite x="11" y="1362" w="29" h="85" oX="11" oY="1362" oW="1435" oH="425" />
+  </Animation>
   <Animation name="Climb" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="11" y="1362" w="29" h="85" oX="11" oY="1362" oW="1435" oH="425" />
     <sprite x="53" y="1361" w="28" h="88" oX="53" oY="1361" oW="1435" oH="425" />
