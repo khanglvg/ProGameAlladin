@@ -2,6 +2,8 @@
 #include "FatEnemy.h"
 #include "FatEnemyWalkState.h"
 #include "FatEnemyIdleState.h"
+#include "../../Weapons/KnifeToThrow.h"
+#include "../../../Framework/Scene.h"
 
 US_NS_JK
 
@@ -31,6 +33,29 @@ void FatEnemyAttackState::onUpdate()
 	else
 	{
 		_enemy->setScale(Vec2(1, 1));
+	}
+	if (_enemy->getIndex() == 3)
+	{
+		if (!_isThrew)
+		{
+			const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
+			if (_enemy->getScale() == Vec2(1, 1))
+			{
+				knife->getRigidBody()->setVelocity(Vec2(-400, 0));
+			}
+			else
+			{
+				knife->getRigidBody()->setVelocity(Vec2(400, 0));
+			}
+
+			knife->setCurrentScene(_enemy->getCurrentScene());
+			_enemy->getTarget()->getCurrentScene()->addNode(knife);
+			_isThrew = true;
+		}
+	}
+	else
+	{
+		_isThrew = false;
 	}
 }
 

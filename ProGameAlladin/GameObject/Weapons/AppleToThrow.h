@@ -1,17 +1,17 @@
-﻿#ifndef __KnifeToThrow_H_
+﻿#ifndef __APPLETOTHROW_H_
 
-#define __KnifeToThrow_H__
+#define __APPLETOTHROW_H__
+#include "../../Framework/definitions.h"
 #include "../../Framework/Texture.h"
 #include "../../Framework/RigidBody.h"
-#include "../../GameObject.h"
-#include "../../../Framework/definitions.h"
+#include "../GameObject.h"
 
 NS_JK_BEGIN
-class KnifeToThrow : public GameObject
+	class AppleToThrow: public GameObject
 {
 public:
-	KnifeToThrow(const Vec2 & position, const Size & size);
-	~KnifeToThrow();
+	AppleToThrow(GameObject* owner, const Vec2 & position, const Size & size);
+	~AppleToThrow();
 
 	void init() override;
 	void update() override;
@@ -25,12 +25,9 @@ public:
 #pragma endregion 
 
 private:
-	std::map<int, Rect> _animations;
-	int _animationIndex;
-	float _index = 0;
-
-	Texture _textureKnife;
+	Texture _textureApple;
 	bool _isCollision;
+	GameObject* _owner;
 };
 NS_JK_END
 #endif

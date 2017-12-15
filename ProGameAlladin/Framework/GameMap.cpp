@@ -97,14 +97,14 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			}
 			if (objectGroup->GetName() == "Enemy_4_Left")
 			{
-				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
+				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(-1, 1));
 
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
-				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
+				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(1, 1));
 
 				_listEnemies.push_back(enemy);

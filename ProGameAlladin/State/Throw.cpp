@@ -4,10 +4,9 @@
 #include "Jump.h"
 #include "Run.h"
 #include "../GameObject/Aladdin.h"
-#include "../GameObject/AppleToThrow.h"
+#include "../GameObject/Weapons/AppleToThrow.h"
 
 #include "../Framework/Scene.h"
-#include "../GameObject/Enemies/KnifeEnemy/KnifeToThrow.h"
 #include "JumpAndThrow.h"
 
 US_NS_JK
@@ -36,7 +35,7 @@ void Throw::onEnter()
 
 	if (Input::getInstance()->getKey(KEY_A))
 	{
-		const auto apple = new AppleToThrow(Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
+		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
 		if(aladdin->getScale() == Vec2(1,1))
 		{
 			apple->getRigidBody()->setVelocity(Vec2(400, 0));

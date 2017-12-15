@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.cpp" />
@@ -118,14 +117,17 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.cpp" />
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
+    <ClCompile Include="GameObject\Rope.cpp" />
+    <ClCompile Include="GameObject\Weapon.cpp" />
+    <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="State\IdleToClimb.cpp" />
   </ItemGroup>
@@ -205,7 +207,6 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyIdleState.h" />
@@ -326,14 +327,17 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyAttackState.h" />
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
+    <ClInclude Include="GameObject\Rope.h" />
+    <ClInclude Include="GameObject\Weapon.h" />
+    <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="State\IdleToClimb.h" />
   </ItemGroup>
@@ -381,9 +385,7 @@
     <Image Include="Resources\AgrabahMarket2.png" />
     <Image Include="Resources\ala.png" />
     <Image Include="Resources\Aladdin1.png" />
-    <Image Include="Resources\apple.png" />
     <Image Include="Resources\apple1.png" />
-    <Image Include="Resources\background.jpg" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />
@@ -406,7 +408,6 @@
     <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\red_rect.png" />
-    <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
     <Image Include="RunAndSlash.png" />
     <Image Include="Resources\bg_sky.jpg" />

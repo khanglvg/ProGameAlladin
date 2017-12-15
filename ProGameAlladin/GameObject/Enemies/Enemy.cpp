@@ -77,6 +77,9 @@ void Enemy::update()
 	_allowMoveLeft = (_position.x > _boundaryLeft) ? true : false;
 
 	_allowMoveRight = (_position.x < _boundaryRight) ? true : false;
+
+
+	
 	//move
 	//if (isTargetInViewRange() && !isTargetInAttackRange())
 	//{
@@ -200,14 +203,19 @@ bool Enemy::isAllowMoveRight()
 	return _allowMoveRight;
 }
 
-void Enemy::allowMoveLeft(bool allow)
+void Enemy::allowMoveLeft(const bool allow)
 {
 	_allowMoveLeft = allow;
 }
 
-void Enemy::allowMoveRight(bool allow)
+void Enemy::allowMoveRight(const bool allow)
 {
 	_allowMoveRight = allow;
+}
+
+bool Enemy::isAnimationDone()
+{
+	return _isAnimationDone;
 }
 
 int Enemy::getIndex()
@@ -229,4 +237,10 @@ void Enemy::setFootPosY()
 {
 	if (_footPosY == 0)
 		_footPosY = _position.y + getSize().getHeight() / 2;
+}
+
+
+bool Enemy::getIsCollisionWithAladdin() const
+{
+	return _isCollisionWithAladdin;
 }

@@ -1,4 +1,4 @@
-#ifndef __GAMEOBJECT_H__ 
+﻿#ifndef __GAMEOBJECT_H__ 
 #define __GAMEOBJECT_H__
 
 #include "../Framework/Node.h"
@@ -38,6 +38,9 @@ public:
 	RigidBody* getRigidBody() const;
 
 	GameObject::GameObjectType getTag() const;
+
+	bool isOwnerRight() const;
+	void setIsOwnerRight(const bool& isOwnerRight);
 #pragma endregion
 
 	bool isVisible() const;
@@ -51,6 +54,9 @@ protected:
 
 
 	bool _isVisible;
+
+	// Hướng hiện tại của owner, true = quay bên phải
+	bool _isOwnerRight;
 };
 
 NS_JK_END

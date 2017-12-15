@@ -9,6 +9,7 @@
 #include "../State/Idle.h"
 #include "../Framework/RigidBody.h"
 #include "GameObject.h"
+#include "Weapon.h"
 
 NS_JK_BEGIN
 
@@ -53,7 +54,7 @@ public:
 
 
 private:
-
+	
 	Texture _textureAla;
 	Texture _textureRigid;
 	float _startX = 1500;

@@ -201,7 +201,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemy.h" />
@@ -240,7 +240,7 @@
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
-    <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.h" />
     <ClInclude Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.h" />
@@ -259,6 +259,7 @@
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="GameObject\Rope.h" />
+    <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -343,7 +344,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemy.cpp" />
@@ -381,7 +382,7 @@
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemy.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
-    <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyAttackState.cpp" />
     <ClCompile Include="GameObject\Enemies\ThinEnemy\ThinEnemyWalkState.cpp" />
@@ -401,6 +402,7 @@
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
+    <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -511,9 +513,7 @@
     <Image Include="Resources\AgrabahMarket2.png" />
     <Image Include="Resources\ala.png" />
     <Image Include="Resources\Aladdin1.png" />
-    <Image Include="Resources\apple.png" />
     <Image Include="Resources\apple1.png" />
-    <Image Include="Resources\background.jpg" />
     <Image Include="Resources\bg_sky.jpg" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
@@ -538,7 +538,6 @@
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\Rope.png" />
-    <Image Include="Resources\smallmarketBG.png" />
     <Image Include="Resources\texture3.png" />
     <Image Include="RunAndSlash.png" />
   </ItemGroup>
