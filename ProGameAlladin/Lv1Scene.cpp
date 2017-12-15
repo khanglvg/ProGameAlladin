@@ -11,13 +11,13 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	mAladdin = new Aladdin(Vec2(300,500),Size(25,60));
+	mAladdin = new Aladdin(Vec2(300,500),Size(10,60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 	
 
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
-	_vectNode.push_back(new Rope(Vec2(300,440),Size(10,200)));
+	_vectNode.push_back(new Rope(Vec2(300,440),Size(5,220)));
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 

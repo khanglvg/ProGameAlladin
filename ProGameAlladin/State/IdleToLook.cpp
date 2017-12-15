@@ -27,6 +27,7 @@ void JaKa::IdleToLook::onEnter()
 
 JaKa::State* JaKa::IdleToLook::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW) && Input::getInstance()->isAnyKeyDown())
@@ -37,7 +38,7 @@ JaKa::State* JaKa::IdleToLook::checkTransition()
 		return new Throw(_node);
 	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW))
 		return new Idle(_node);
-	if (Input::getInstance()->getKey(KEY_UP_ARROW) && !Input::getInstance()->isKeyUp(KEY_UP_ARROW))
+	if (Input::getInstance()->getKey(KEY_UP_ARROW) && !Input::getInstance()->isKeyUp(KEY_UP_ARROW)&& aladdin->isOnTheGround())
 		return new HeadUp(_node);
 	return nullptr;
 }

@@ -20,9 +20,24 @@ void JumpWhileClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -150));
+	aladdin->setVelocity(Vec2(0, -100));
 
 	aladdin->setActionName("JumpWhileClimb");
+}
+
+void JumpWhileClimb::onUpdate()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	{
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			aladdin->setVelocity(Vec2(200, aladdin->getVelocity().getY()));
+		}
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		{
+			aladdin->setVelocity(Vec2(-200, aladdin->getVelocity().getY()));
+		}
+	}
 }
 
 State* JumpWhileClimb::checkTransition()

@@ -9,6 +9,7 @@ public:
 	JumpWhileClimb(Node*node);
 	~JumpWhileClimb() override;
 	void onEnter() override;
+	void onUpdate() override;
 	State*checkTransition() override;
 	
 };

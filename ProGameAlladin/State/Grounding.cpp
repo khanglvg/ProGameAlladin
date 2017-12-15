@@ -3,24 +3,23 @@
 
 US_NS_JK
 
-JaKa::Grounding::Grounding(Node* node):State(node)
+Grounding::Grounding(Node* node):State(node)
 {
 }
 
-JaKa::Grounding::~Grounding()
+Grounding::~Grounding()
 {
 }
 
-void JaKa::Grounding::onEnter()
+void Grounding::onEnter()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
 	aladdin->setActionName("Grounding");
-	aladdin->setOrigin(Vec2(0.5f, 1.0f));
-
+	//aladdin->setOrigin(Vec2(0.5f, 1.0f));
 }
 
-JaKa::State* JaKa::Grounding::checkTransition()
+State*Grounding::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (aladdin->getIndex()>=11)

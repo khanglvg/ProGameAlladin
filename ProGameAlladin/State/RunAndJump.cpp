@@ -5,6 +5,7 @@
 #include "../GameObject/Aladdin.h"
 #include "Run.h"
 #include "Fall.h"
+#include "IdleToClimb.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -86,6 +87,9 @@ State* RunAndJump::checkTransition()
 		_state = FALL;
 	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
 		return new Idle(_node);
-
+	if (aladdin->isOnTheRope())
+	{
+		return new IdleToClimb(_node);
+	}
 	return nullptr;
 }
