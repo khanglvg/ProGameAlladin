@@ -12,8 +12,8 @@ KnifeEnemy::KnifeEnemy()
 KnifeEnemy::KnifeEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
-	_viewRange = 190;
-	_attackRange = 100;
+	_viewRange = 220;
+	_attackRange = 140;
 	_currentState = new KnifeEnemyIdleState(this);
 }
 

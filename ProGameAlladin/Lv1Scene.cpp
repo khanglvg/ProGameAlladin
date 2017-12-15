@@ -51,6 +51,7 @@ void Lv1Scene::init()
 
 void Lv1Scene::release()
 {
+	_gameMap->release();
 	Scene::release();
 }
 

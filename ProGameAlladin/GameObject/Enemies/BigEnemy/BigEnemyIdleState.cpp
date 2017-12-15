@@ -1,6 +1,7 @@
 #include "BigEnemyIdleState.h"
 #include "BigEnemyAttackState.h"
 #include "BigEnemyWalkState.h"
+#include "BigEnemyDefiantState.h"
 #include "BigEnemy.h"
 
 US_NS_JK
@@ -45,6 +46,7 @@ EnemyState * BigEnemyIdleState::checkTransition()
 		{
 			return new BigEnemyWalkState(_enemy);
 		}
+		return new BigEnemyDefiantState(_enemy);
 	}
 	return nullptr;
 }

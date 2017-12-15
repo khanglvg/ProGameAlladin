@@ -29,6 +29,10 @@ void ThinEnemyInAttackedState::onExit()
 
 EnemyState * ThinEnemyInAttackedState::checkTransition()
 {
+	if (!_enemy->getIsCollisionWithAladdin())
+	{
+		return new ThinEnemyIdleState(_enemy);
+	}
 	return nullptr;
 }
  

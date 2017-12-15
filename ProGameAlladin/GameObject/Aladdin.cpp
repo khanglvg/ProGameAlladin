@@ -153,6 +153,7 @@ void Aladdin::update()
 		delete _currentState;
 		_currentState = newState;
 		_currentState->onEnter();
+		_animationIndex = 0;
 	}
 
 
@@ -164,8 +165,8 @@ void Aladdin::render()
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
 
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
+	//if (_animationIndex >= _animations[_actionName].size())
+	//	_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
 

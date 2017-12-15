@@ -46,13 +46,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			Tmx::Object *object = objectGroup->GetObjects().at(j);
 
 			//init apple
-			if (objectGroup->GetName() == "Apple")
-			{
-				auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
-				_listApples.push_back(apple);
+			//if (objectGroup->GetName() == "Apple")
+			//{
+			//	auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
+			//	_listApples.push_back(apple);
 
-				//_quadTree->insertObject(apple);
-			}
+			//	_quadTree->insertObject(apple);
+			//}
 
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
@@ -126,7 +126,6 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Camel")
 			{
 				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
-
 				_listCamels.push_back(camel);
 
 				//_quadTree->insertObject(camel);
@@ -178,87 +177,30 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			}
 
 			//init FireGround
-			//if (objectGroup->GetName() == "Fire")
-			//{
-			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::FireGround);
-			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-			//	gameObject->setWidth(object->GetWidth());
-			//	gameObject->setHeight(object->GetHeight());
+			if (objectGroup->GetName() == "Fire")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+				//gameObject->getRigidBody()->setDensity(0);
 
-			//	//_quadTree->InsertStaticObject(gameObject);
-			//}
+				_listFire.push_back(gameObject);
+				//_quadTree->InsertStaticObject(gameObject);
+			}
 
 			//init HorizontalBar
-			//if (objectGroup->GetName() == "HorizontalBar")
-			//{
-			//	GameObject *gameObject = new GameObject(GameObject::GameObjectType::HorizontalBar);
-			//	gameObject->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2));
-			//	gameObject->setWidth(object->GetWidth());
-			//	gameObject->setHeight(object->GetHeight());
+			if (objectGroup->GetName() == "HorizontalBar")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::HORIZONTALBAR);
 
-			//	//_quadTree->InsertStaticObject(gameObject);
-			//}
+				_listHorizontalBar.push_back(gameObject);
+
+				//_quadTree->InsertStaticObject(gameObject);
+			}
 		}
 	}
 }
 
 GameMap::~GameMap()
 {
-	delete _map;
-	//delete _player;
-
-	_quadTree->clear();
-	delete _quadTree;
-
-	
-	for (size_t i = 0; i < _listSpringboards.size(); i++)
-	{
-		if (_listSpringboards[i])
-			delete _listSpringboards[i];
-	}
-	_listSpringboards.clear();
-
-	for (size_t i = 0; i < _listFloatGrounds.size(); i++)
-	{
-		if (_listFloatGrounds[i])
-			delete _listFloatGrounds[i];
-	}
-	_listFloatGrounds.clear();
-
-	for (size_t i = 0; i < _listCamels.size(); i++)
-	{
-		if (_listCamels[i])
-			delete _listCamels[i];
-	}
-	_listCamels.clear();
-
-	for (size_t i = 0; i < _backgroundTextures.size(); i++)
-	{
-		if (_backgroundTextures[i])
-			delete _backgroundTextures[i];
-	}
-	_backgroundTextures.clear();
-
-	for (size_t i = 0; i < _listEnemies.size(); i++)
-	{
-		if (_listEnemies[i])
-			delete _listEnemies[i];
-	}
-	_listEnemies.clear();
-
-	for (size_t i = 0; i < _listApples.size(); i++)
-	{
-		if (_listApples[i])
-			delete _listApples[i];
-	}
-	_listApples.clear();
-
-	for (size_t i = 0; i < _listRope.size(); i++)
-	{
-		if (_listRope[i])
-			delete _listRope[i];
-	}
-	_listRope.clear();
 }
 
 void GameMap::init()
@@ -291,6 +233,14 @@ void GameMap::init()
 	for (size_t i = 0; i < _listRope.size(); i++)
 	{
 		_listRope[i]->init();
+	}
+	for (size_t i = 0; i < _listFire.size(); i++)
+	{
+		_listFire[i]->init();
+	}
+	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
+	{
+		_listHorizontalBar[i]->init();
 	}
 }
 
@@ -464,6 +414,87 @@ void GameMap::draw()
 	{
 		_listRope[i]->render();
 	}
+	for (size_t i = 0; i < _listFire.size(); i++)
+	{
+		_listFire[i]->render();
+	}
+	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
+	{
+		_listHorizontalBar[i]->render();
+	}
+}
+
+void GameMap::release()
+{
+	delete _map;
+	//delete _player;
+
+	_quadTree->clear();
+	delete _quadTree;
+
+
+	for (size_t i = 0; i < _listSpringboards.size(); i++)
+	{
+		if (_listSpringboards[i])
+			delete _listSpringboards[i];
+	}
+	_listSpringboards.clear();
+
+	for (size_t i = 0; i < _listFloatGrounds.size(); i++)
+	{
+		if (_listFloatGrounds[i])
+			delete _listFloatGrounds[i];
+	}
+	_listFloatGrounds.clear();
+
+	for (size_t i = 0; i < _listCamels.size(); i++)
+	{
+		if (_listCamels[i])
+			delete _listCamels[i];
+	}
+	_listCamels.clear();
+
+	for (size_t i = 0; i < _backgroundTextures.size(); i++)
+	{
+		if (_backgroundTextures[i])
+			delete _backgroundTextures[i];
+	}
+	_backgroundTextures.clear();
+
+	for (size_t i = 0; i < _listEnemies.size(); i++)
+	{
+		if (_listEnemies[i])
+			delete _listEnemies[i];
+	}
+	_listEnemies.clear();
+
+	for (size_t i = 0; i < _listApples.size(); i++)
+	{
+		if (_listApples[i])
+			delete _listApples[i];
+	}
+	_listApples.clear();
+
+	for (size_t i = 0; i < _listRope.size(); i++)
+	{
+		if (_listRope[i])
+			delete _listRope[i];
+	}
+	_listRope.clear();
+
+	for (size_t i = 0; i < _listFire.size(); i++)
+	{
+		if (_listFire[i])
+			delete _listFire[i];
+	}
+	_listFire.clear();
+
+	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
+	{
+		if (_listHorizontalBar[i])
+			delete _listHorizontalBar[i];
+	}
+	_listHorizontalBar.clear();
 }
 
 vector<GameObject*> GameMap::getListGround() const

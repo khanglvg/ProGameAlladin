@@ -32,24 +32,26 @@ void KnifeEnemyIdleState::onUpdate()
 		{
 			_enemy->setScale(Vec2(-1, 1));
 		}
-		int velocityY = -500;
+		int velocityY = -350;
+		int velocityX = 120;
 		if (_enemy->isTargetInAttackRange())
 		{
-			velocityY = -200;
+			velocityY = -130;
+			velocityX = 150;
 		}
-		if (_enemy->getIndex()%4==0)
+		if (_enemy->getIndex() == 2 || _enemy->getIndex() == 9)
 		{
 			if (!_isThrew)
 			{
 				const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
-				knife->setGravityScale(5.5);
+				knife->setGravityScale(1);
 				if (_enemy->getScale() == Vec2(1, 1))
 				{
-					knife->getRigidBody()->setVelocity(Vec2(400, velocityY));
+					knife->getRigidBody()->setVelocity(Vec2(velocityX, velocityY));
 				}
 				else
 				{
-					knife->getRigidBody()->setVelocity(Vec2(-400, velocityY));
+					knife->getRigidBody()->setVelocity(Vec2(-velocityX, velocityY));
 				}
 
 				knife->setCurrentScene(_enemy->getCurrentScene());

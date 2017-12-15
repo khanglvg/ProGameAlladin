@@ -22,13 +22,13 @@ void HideEnemyWalkState::onUpdate()
 {
 	auto hideEnemy = static_cast<HideEnemy*>(_enemy);
 
-	if (!_enemy->isRight() && _enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && _enemy->isAllowMoveLeft() && _enemy->getIndex()-1 == 0)
 	{
 		hideEnemy->setScale(Vec2(-1, 1));
 		hideEnemy->setVelocity(Vec2(-50, hideEnemy->getVelocity().getY()));
 	}
 
-	else if (_enemy->isRight() && _enemy->isAllowMoveRight())
+	else if (_enemy->isRight() && _enemy->isAllowMoveRight() && _enemy->getIndex()-1 == 0)
 	{
 		hideEnemy->setScale(Vec2(1, 1));
 		hideEnemy->setVelocity(Vec2(50, hideEnemy->getVelocity().getY()));
@@ -45,15 +45,15 @@ EnemyState * HideEnemyWalkState::checkTransition()
 	{
 		return new HideEnemyAttackState(_enemy);
 	}
-	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft() && _enemy->getIndex() == 0)
 	{
 		return new HideEnemyIdleState(_enemy);
 	}
-	if (_enemy->isRight() && !_enemy->isAllowMoveRight())
+	if (_enemy->isRight() && !_enemy->isAllowMoveRight() && _enemy->getIndex() == 0)
 	{
 		return new HideEnemyIdleState(_enemy);
 	}
-	if (!_enemy->isTargetInViewRange())
+	if (!_enemy->isTargetInViewRange() && _enemy->getIndex() == 0)
 	{
 		return new HideEnemyIdleState(_enemy);
 	}

@@ -68,9 +68,16 @@ EnemyState * FatEnemyAttackState::checkTransition()
 {
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		if (_enemy->getIndex() >= 4)
+		if  (_enemy->getIndex() == 0)
 		{
 			return new FatEnemyWalkState(_enemy);
+		}
+	}
+	if (!_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
+	{
+		if (_enemy->getIndex() == 0)
+		{
+			return new FatEnemyIdleState(_enemy);
 		}
 	}
 	return nullptr;

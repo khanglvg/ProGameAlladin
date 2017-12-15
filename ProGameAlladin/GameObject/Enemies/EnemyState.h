@@ -24,6 +24,8 @@ public:
 
 	StateName GetName();
 
+	virtual bool isChange();
+
 	//special for attack state (used to make sure that player is attacked once at each attackState)
 	bool IsAttackedPlayer();
 	void SetIsAttackedPlayer(bool value);
@@ -36,6 +38,8 @@ protected:
 
 	//special for attack state (used to make sure that player is attacked once at each attackState)
 	bool _isAttackedPlayer;
+
+	bool _isChange = false;
 };
 
 NS_JK_END
