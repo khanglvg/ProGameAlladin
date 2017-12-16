@@ -13,6 +13,7 @@ public:
 	~Climb() override;
 
 	void onEnter() override;
+	void onUpdate() override;
 	State* checkTransition() override;
 
 };

@@ -10,7 +10,7 @@ NS_JK_BEGIN
 class Rope:public GameObject
 {
 public:
-	Rope();
+	Rope(const Vec2& position, const Size& size, GameObjectType tag = NONE);
 	~Rope();
 	void release() override;
 	void init() override;
@@ -18,11 +18,9 @@ public:
 	void render() override;
 
 private:
-	Texture _textureRope;
+	
 	Texture _textureRigid;
-	float _startX = SCREEN_WIDTH/10;
-	float _startY = SCREEN_HEIGHT-50;
-	RigidBody* _rigidRope;
+	
 
 	
 };

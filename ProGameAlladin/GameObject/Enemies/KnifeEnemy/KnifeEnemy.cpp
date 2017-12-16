@@ -12,6 +12,8 @@ KnifeEnemy::KnifeEnemy()
 KnifeEnemy::KnifeEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
+	_viewRange = 220;
+	_attackRange = 140;
 	_currentState = new KnifeEnemyIdleState(this);
 }
 
@@ -41,6 +43,8 @@ void KnifeEnemy::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
+	Enemy::update();
+
 	EnemyState* newState = _currentState->checkTransition();
 
 	if (newState != nullptr)
@@ -59,9 +63,9 @@ void KnifeEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.05;
+	auto expect = 0.04;
 
-	auto origin = Vec2(1.0f, 1.0f);
+	auto origin = Vec2(0.4f, 1.0f);
 
 	//if (_actionName == "KnifeEnemy-Idle" && _animationIndex == 5)
 	//{
@@ -69,7 +73,7 @@ void KnifeEnemy::render()
 	//}
 	if (_actionName == "KnifeEnemy-Idle" && _animationIndex >6 && _animationIndex <11)
 	{
-		origin = Vec2(0.9f, 1.0f);
+		origin = Vec2(0.2f, 1.0f);
 	}
 
 

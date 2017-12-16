@@ -2,6 +2,7 @@
 #include "ThinEnemy.h"
 #include "ThinEnemyWalkState.h"
 #include "ThinEnemyIdleState.h"
+#include "ThinEnemyInAttackedState.h"
 
 US_NS_JK
 
@@ -42,16 +43,16 @@ EnemyState * ThinEnemyAttackState::checkTransition()
 {
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		if (_enemy->getIndex() >= 5)
+		if (_enemy->getIndex() == 0)
 		{
 			return new ThinEnemyWalkState(_enemy);
 		}
 	}
 
-	/*if(_enemy->getIsCollisionWithAladdin())
+	if(_enemy->getIsCollisionWithAladdin())
 	{
-		return new ThinEnemyIdleState(_enemy);
-	}*/
+		return new ThinEnemyInAttackedState(_enemy);
+	}
 	return nullptr;
 }
  

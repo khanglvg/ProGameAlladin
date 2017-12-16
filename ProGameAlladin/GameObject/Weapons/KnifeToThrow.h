@@ -22,6 +22,8 @@ public:
 	Texture getTexture() const;
 	void setVelocity(const Vec2& velocity);
 	bool isCollision() const;
+
+	void setGravityScale(const float& gravity);
 #pragma endregion 
 
 private:

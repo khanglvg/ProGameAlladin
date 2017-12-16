@@ -11,12 +11,13 @@ US_NS_JK
 
 Lv1Scene::Lv1Scene()
 {
-	mAladdin = new Aladdin(Vec2(300,300),Size(25,60));
+	mAladdin = new Aladdin(Vec2(300,500),Size(10,60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 	
-	_bgSky = new BackgroundSky("Resources/bg_sky.jpg", 0);
-	_vectNode.push_back(_bgSky);
+
+	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
+	_vectNode.push_back(new Rope(Vec2(300,440),Size(5,220)));
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
@@ -50,16 +51,13 @@ void Lv1Scene::init()
 
 void Lv1Scene::release()
 {
+	_gameMap->release();
 	Scene::release();
 }
 
 void Lv1Scene::update()
 {
-	checkVisibility();
-	if(_bgSky->getPosition().getX() <= -2000)
-	{
-		_bgSky->setPosition(Vec2(0, 0));
-	}
+	//checkVisibility();
 	Scene::update();
 	_gameMap->update();
 }
@@ -74,10 +72,10 @@ void Lv1Scene::render()
 	//}
 }
 
-
-void Lv1Scene::checkVisibility()
-{
-	listVisible.clear();
-
- 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
-}
+//
+//void Lv1Scene::checkVisibility()
+//{
+//	listVisible.clear();
+//
+// 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
+//}

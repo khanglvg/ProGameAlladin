@@ -201,7 +201,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
-    <ClInclude Include="GameObject\BackgroundMenu.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
@@ -285,7 +285,6 @@
     <ClInclude Include="MapReader\TmxUtil.h" />
     <ClInclude Include="MapReader\zconf.h" />
     <ClInclude Include="MapReader\zlib.h" />
-    <ClInclude Include="MenuSelector.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
     <ClInclude Include="State\BeingAttacked.h" />
@@ -301,6 +300,7 @@
     <ClInclude Include="State\Idle.h" />
     <ClInclude Include="State\Idle2.h" />
     <ClInclude Include="State\Idle3.h" />
+    <ClInclude Include="State\IdleToClimb.h" />
     <ClInclude Include="State\IdleToLook.h" />
     <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
@@ -345,7 +345,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
-    <ClCompile Include="GameObject\BackgroundMenu.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
@@ -427,7 +427,6 @@
     <ClCompile Include="MapReader\TmxTileOffset.cpp" />
     <ClCompile Include="MapReader\TmxTileset.cpp" />
     <ClCompile Include="MapReader\TmxUtil.cpp" />
-    <ClCompile Include="MenuSelector.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
     <ClCompile Include="State\BeingAttacked.cpp" />
     <ClCompile Include="State\BeingAttackedAndDie.cpp" />
@@ -442,6 +441,7 @@
     <ClCompile Include="State\Idle.cpp" />
     <ClCompile Include="State\Idle2.cpp" />
     <ClCompile Include="State\Idle3.cpp" />
+    <ClCompile Include="State\IdleToClimb.cpp" />
     <ClCompile Include="State\IdleToLook.cpp" />
     <ClCompile Include="State\IdleWhenWing.cpp" />
     <ClCompile Include="State\Jump.cpp" />
@@ -538,11 +538,6 @@
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
-    <Image Include="Resources\Menu\backgroundMenu.png" />
-    <Image Include="Resources\Menu\menu_select.png" />
-    <Image Include="Resources\Menu\number.png" />
-    <Image Include="Resources\Menu\title.png" />
-    <Image Include="Resources\Menu\victory.png" />
     <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\Rope.png" />
     <Image Include="Resources\texture3.png" />

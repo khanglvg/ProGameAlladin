@@ -33,6 +33,9 @@ private:
 	std::vector<SpringBoard*> _listSpringboards;
 	std::vector<GameObject*> _listGround;
 	std::vector<GameObject*> _listStairGround;
+	std::vector<GameObject*> _listRope;
+	std::vector<GameObject*> _listFire;
+	std::vector<GameObject*> _listHorizontalBar;
 	
 public:
 	GameMap();
@@ -44,6 +47,7 @@ public:
 	void update();
 	/*void Draw(Camera* camera);*/
 	void draw();
+	void release();
 
 	/*Aladdin* getPlayer();*/
 

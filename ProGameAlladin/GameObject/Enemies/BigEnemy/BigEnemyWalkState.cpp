@@ -1,6 +1,7 @@
 #include "BigEnemyWalkState.h"
 #include "BigEnemy.h"
 #include "BigEnemyAttackState.h"
+#include "BigEnemyDefiantState.h"
 
 US_NS_JK
 
@@ -22,13 +23,13 @@ void BigEnemyWalkState::onUpdate()
 {
 	auto bigEnemy = static_cast<BigEnemy*>(_enemy);
 
-	if (!_enemy->isRight() && _enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && _enemy->isAllowMoveLeft() && _enemy->getIndex()-1 == 0)
 	{
 		bigEnemy->setScale(Vec2(1, 1));
 		bigEnemy->setVelocity(Vec2(-50, bigEnemy->getVelocity().getY()));
 	}
 
-	else if (_enemy->isRight() && _enemy->isAllowMoveRight())
+	else if (_enemy->isRight() && _enemy->isAllowMoveRight() && _enemy->getIndex()-1 == 0)
 	{
 		bigEnemy->setScale(Vec2(-1, 1));
 		bigEnemy->setVelocity(Vec2(50, bigEnemy->getVelocity().getY()));
@@ -45,15 +46,15 @@ EnemyState * BigEnemyWalkState::checkTransition()
 	{
 		return new BigEnemyAttackState(_enemy);
 	}
-	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft() && _enemy->getIndex() == 0)
 	{
-		return new BigEnemyIdleState(_enemy);
+		return new BigEnemyDefiantState(_enemy);
 	}
-	if (_enemy->isRight() && !_enemy->isAllowMoveRight())
+	if (_enemy->isRight() && !_enemy->isAllowMoveRight() && _enemy->getIndex() == 0)
 	{
-		return new BigEnemyIdleState(_enemy);
+		return new BigEnemyDefiantState(_enemy);
 	}
-	if (!_enemy->isTargetInViewRange())
+	if (!_enemy->isTargetInViewRange() && _enemy->getIndex() == 0)
 	{
 		return new BigEnemyIdleState(_enemy);
 	}

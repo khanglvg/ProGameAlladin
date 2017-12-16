@@ -64,6 +64,12 @@ void JumpAndSlash::onUpdate()
 	//}
 }
 
+void JumpAndSlash::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->setVelocity(Vec2(0, 0));
+}
+
 State* JumpAndSlash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
@@ -74,7 +80,8 @@ State* JumpAndSlash::checkTransition()
 	if (aladdin->isOnTheGround())
 		return new Grounding(_node);
 	
-
+	if (aladdin->isBesideTheStair())
+		return new Idle(_node);
 
 	return nullptr;
 }

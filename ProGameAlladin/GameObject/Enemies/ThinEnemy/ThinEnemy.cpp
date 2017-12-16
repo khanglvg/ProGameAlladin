@@ -76,16 +76,12 @@ void ThinEnemy::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+		_animationIndex = 0;
 	}
 }
 
 void ThinEnemy::render()
 {
-	if (_animationIndex >= _animations[_actionName].size())
-	{
-		_animationIndex = 0;
-	}
-
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;

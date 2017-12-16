@@ -78,7 +78,8 @@ void Aladdin::update()
 	{
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
-		_isBesideTheStair = false;
+		_isBesideTheWall = false;
+		_isOnTheRope = false;
 	}
 	else
 	{
@@ -87,6 +88,7 @@ void Aladdin::update()
 		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
 		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
+		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
 
 
 
@@ -132,7 +134,13 @@ void Aladdin::update()
 		else
 			_isOnThePlatform = true;
 
-		
+		//
+		// collision with rope
+		//
+		if (rope == _rigid->getCollidingBodies().end())
+			_isOnTheRope = false;
+		else
+			_isOnTheRope = true;
 	}
 	
 
@@ -145,6 +153,7 @@ void Aladdin::update()
 		delete _currentState;
 		_currentState = newState;
 		_currentState->onEnter();
+		_animationIndex = 0;
 	}
 
 
@@ -156,8 +165,8 @@ void Aladdin::render()
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
 
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
+	//if (_animationIndex >= _animations[_actionName].size())
+	//	_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
 
@@ -166,14 +175,19 @@ void Aladdin::render()
 	//_rigid->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	const auto expect = 0.05;
+	auto origin = Vec2(0.5f, 1.0f);
 
-	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-	Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	if (_actionName == "Grounding")
+	{
+		origin = Vec2(0.5f, 0.9f);
+	}
+	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureAla, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
@@ -277,6 +291,11 @@ bool Aladdin::isCollisionWithEnemy() const
 bool Aladdin::isOnThePlatform() const
 {
 	return _isOnThePlatform;
+}
+
+bool Aladdin::isOnTheRope() const
+{
+	return _isOnTheRope;
 }
 
 void Aladdin::setIndex(const int& index)

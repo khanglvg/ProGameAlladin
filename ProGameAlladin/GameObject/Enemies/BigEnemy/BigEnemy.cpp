@@ -45,6 +45,11 @@ void BigEnemy::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
+	if (_currentState->isChange())
+	{
+		_animationIndex = 0;
+	}
+
 	Enemy::update();
 
 	const auto newState = _currentState->checkTransition();
@@ -54,14 +59,12 @@ void BigEnemy::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+		_animationIndex = 0;
 	}
 }
 
 void BigEnemy::render()
 {
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
-
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
@@ -70,6 +73,16 @@ void BigEnemy::render()
 	auto origin = Vec2(0.3f, 1.0f);
 
 	if (_actionName == "BigEnemy-AttackHigh" && _animationIndex >2 && _animationIndex <5)
+	{
+		origin = Vec2(0.8f, 1.0f);
+	}
+
+	if (_actionName == "BigEnemy-AttackLow")
+	{
+		origin = Vec2(0.8f, 1.0f);
+	}
+
+	if (_actionName == "BigEnemy-Defiant")
 	{
 		origin = Vec2(0.8f, 1.0f);
 	}
@@ -87,9 +100,16 @@ void BigEnemy::render()
 	{
 		_index = 0;
 		_animationIndex++;
-		if (_animationIndex == _animations[_actionName].size())
+		if (_animationIndex == _animations[_actionName].size() && _actionName == "BigEnemy-Defiant") 
+		{
+			_animationIndex = 2;
+		}
+		else if (_animationIndex == _animations[_actionName].size() && _actionName == "BigEnemy-AttackLow")
+		{
+			_animationIndex = 3;
+		}
+		else if (_animationIndex == _animations[_actionName].size())
 			_animationIndex = 0;
-
 	}
 }
 

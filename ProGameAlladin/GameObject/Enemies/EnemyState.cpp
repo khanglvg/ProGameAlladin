@@ -37,6 +37,11 @@ EnemyState::StateName EnemyState::GetName()
 	return _name;
 }
 
+bool EnemyState::isChange()
+{
+	return _isChange;
+}
+
 bool EnemyState::IsAttackedPlayer()
 {
 	return _isAttackedPlayer;
