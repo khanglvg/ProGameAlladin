@@ -117,7 +117,6 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.cpp" />
-    <ClCompile Include="GameObject\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.cpp" />
@@ -128,6 +127,8 @@
     <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
+    <ClCompile Include="MenuSelector.cpp" />
+    <ClCompile Include="GameObject\BackgroundMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -325,7 +326,6 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyWalkState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyInAttackedState.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyAttackState.h" />
-    <ClInclude Include="GameObject\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\Enemies\KnifeEnemy\KnifeEnemyIdleState.h" />
     <ClInclude Include="GameObject\Enemies\HideEnemy\HideEnemyWalkState.h" />
@@ -336,6 +336,8 @@
     <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
+    <ClInclude Include="MenuSelector.h" />
+    <ClInclude Include="GameObject\BackgroundMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -407,6 +409,11 @@
     <Image Include="Resources\texture3.png" />
     <Image Include="RunAndSlash.png" />
     <Image Include="Resources\bg_sky.jpg" />
+    <Image Include="Resources\Menu\backgroundMenu.png" />
+    <Image Include="Resources\Menu\menu_select.png" />
+    <Image Include="Resources\Menu\number.png" />
+    <Image Include="Resources\Menu\title.png" />
+    <Image Include="Resources\Menu\victory.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

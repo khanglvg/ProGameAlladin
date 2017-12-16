@@ -48,10 +48,10 @@ EnemyState * ThinEnemyAttackState::checkTransition()
 		}
 	}
 
-	if(_enemy->getIsCollisionWithAladdin())
+	/*if(_enemy->getIsCollisionWithAladdin())
 	{
 		return new ThinEnemyIdleState(_enemy);
-	}
+	}*/
 	return nullptr;
 }
  

@@ -49,6 +49,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Apple")
 			{
 				auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
+				apple->setCurrentScene(player->getCurrentScene());
 				_listApples.push_back(apple);
 
 				//_quadTree->insertObject(apple);
