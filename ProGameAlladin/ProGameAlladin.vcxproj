@@ -202,6 +202,11 @@
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
+    <ClInclude Include="GameObject\Items\Apple\AppleExplosionState.h" />
+    <ClInclude Include="GameObject\Items\Apple\Apple.h" />
+    <ClInclude Include="GameObject\Items\Apple\AppleNormalState.h" />
+    <ClInclude Include="GameObject\Items\Item.h" />
+    <ClInclude Include="GameObject\Items\ItemState.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
@@ -254,7 +259,6 @@
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
-    <ClInclude Include="GameObject\Items\Apple\Apple.h" />
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
@@ -346,6 +350,11 @@
   <ItemGroup>
     <ClCompile Include="GameObject\Aladdin.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
+    <ClCompile Include="GameObject\Items\Apple\AppleExplosionState.cpp" />
+    <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
+    <ClCompile Include="GameObject\Items\Apple\AppleNormalState.cpp" />
+    <ClCompile Include="GameObject\Items\Item.cpp" />
+    <ClCompile Include="GameObject\Items\ItemState.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
@@ -398,7 +407,6 @@
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
-    <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
