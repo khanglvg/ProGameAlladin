@@ -5,7 +5,7 @@
 US_NS_JK
 
 
-KnifeToThrow::KnifeToThrow(const Vec2 & position, const Size & size) :GameObject(position, size, APPLES)
+KnifeToThrow::KnifeToThrow(GameObject* owner,const Vec2 & position, const Size & size) :GameObject(position, size, APPLES)
 {
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(0.1);
@@ -15,6 +15,7 @@ KnifeToThrow::KnifeToThrow(const Vec2 & position, const Size & size) :GameObject
 	setScale(Vec2(1, 1));
 	_rigid->setTag("knifetothrow");
 
+	_owner = owner;
 	_isCollision = false;
 
 #pragma region READ - XML
@@ -56,17 +57,24 @@ void KnifeToThrow::update()
 
 	const auto aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 	const auto ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "ground");
+	const auto wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "wall");
+	const auto platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "platform");
 
-	if (aladdin == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else if (ground == _rigid->getCollidingBodies().end())
-		_isCollision = false;
-	else
+	if (aladdin != _rigid->getCollidingBodies().end())
 		_isCollision = true;
+	else if (ground != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (wall != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (platform != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else
+		_isCollision = false;
+
 
 	if (_isCollision)
 	{
-		//getCurrentScene()->removeNode(this);
+		_owner->getCurrentScene()->removeNode(this);
 	}
 }
 

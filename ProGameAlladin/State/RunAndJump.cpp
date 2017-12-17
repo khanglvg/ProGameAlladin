@@ -34,6 +34,7 @@ void RunAndJump::onEnter()
 		aladdin->setVelocity(Vec2(150, -230));
 	}
 
+	aladdin->getRigidBody()->setSize(Size(4, 60));
 	aladdin->setActionName("RunAndJump");
 }
 
@@ -68,6 +69,12 @@ void RunAndJump::onUpdate()
 		}
 			
 	}
+}
+
+void RunAndJump::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->getRigidBody()->setSize(Size(10, 60));
 }
 
 State* RunAndJump::checkTransition()

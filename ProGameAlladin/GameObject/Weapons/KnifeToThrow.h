@@ -10,7 +10,7 @@ NS_JK_BEGIN
 class KnifeToThrow : public GameObject
 {
 public:
-	KnifeToThrow(const Vec2 & position, const Size & size);
+	KnifeToThrow(GameObject* owner, const Vec2 & position, const Size & size);
 	~KnifeToThrow();
 
 	void init() override;
@@ -33,6 +33,8 @@ private:
 
 	Texture _textureKnife;
 	bool _isCollision;
+
+	GameObject* _owner;
 };
 NS_JK_END
 #endif

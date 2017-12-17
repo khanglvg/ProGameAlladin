@@ -49,6 +49,7 @@ void Lv1Scene::init()
 	//	object->init();
 	//	mQuadTree->insertObject(object);
 	//}
+	Scene::init();
 }
 
 void Lv1Scene::release()
