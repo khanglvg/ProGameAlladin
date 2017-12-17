@@ -198,6 +198,8 @@ void Application::initComponents()
 	gameManager->setScreenHeight(_height);
 	gameManager->init(_startScene);
 
+
+
 	// Camera
 	/*Camera *camera = Camera::getInstance();
 	if(camera)
@@ -242,7 +244,7 @@ void Application::renderGraphics()
 	Graphics::getInstance()->beginRender();
 	//render running scene
 	GameManager::getInstance()->render();
-	
+
 	Graphics::getInstance()->endRender();
 }
 

@@ -104,6 +104,11 @@ LPDIRECT3DSURFACE9 Graphics::getSurface() const
 	return _surface;
 }
 
+LPD3DXSPRITE Graphics::getSprite() const
+{
+	return _spriteHandler;
+}
+
 void Graphics::loadTexture(Texture& texture, const Color& transcolor)
 {
 	D3DXIMAGE_INFO info; // Create a variable for Texture's info

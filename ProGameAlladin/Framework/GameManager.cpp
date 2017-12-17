@@ -63,6 +63,14 @@ GameManager* GameManager::getInstance()
 	return _instance;
 }
 
+void GameManager::changeScene(Scene* newScene)
+{
+	_runningScene->release();
+	//delete(_runningScene);
+	_runningScene = newScene;
+	_runningScene->init();
+}
+
 float GameManager::getDeltaTime() const
 {
 	return _deltaTime;
