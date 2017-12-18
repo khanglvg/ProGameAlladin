@@ -79,19 +79,19 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_1")
 			{
 				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")
 			{
 				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
 			{
 				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 
 			}
@@ -99,12 +99,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			{
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(-1, 1));
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
+				enemy->setCurrentScene(player->getCurrentScene());
 				enemy->setScale(Vec2(1, 1));
 
 				_listEnemies.push_back(enemy);
@@ -112,13 +113,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Enemy_5")
 			{
 				auto enemy = new HideEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
 				auto enemy = new WallEnemy(Vec2(object->GetX() + object->GetWidth() - 7, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
-
+				enemy->setCurrentScene(player->getCurrentScene());
 				_listEnemies.push_back(enemy);
 			}
 

@@ -38,7 +38,7 @@ void FatEnemyAttackState::onUpdate()
 	{
 		if (!_isThrew)
 		{
-			const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
+			const auto knife = new KnifeToThrow(_enemy,Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
 			if (_enemy->getScale() == Vec2(1, 1))
 			{
 				knife->getRigidBody()->setVelocity(Vec2(-400, 0));

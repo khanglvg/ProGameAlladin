@@ -16,10 +16,10 @@ public:
 	int getScreenWidth() const;
 	void setScreenHeight(const int& height);
 	int getScreenHeight() const;
-	void update();
+	void update() const;
 	void init(Scene* startScene);
-	void release();
-	void render();
+	void release() const;
+	void render() const;
 	static GameManager* getInstance();
 
 	void changeScene(Scene* newScene);

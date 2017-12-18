@@ -130,7 +130,7 @@ void MenuSelector::update()
 		if (Input::getInstance()->isKeyDown(KEY_RETURN))
 		{
 			// Go to Lv1Scene
-			// GameManager::getInstance()->changeScene(new Lv1Scene);
+			GameManager::getInstance()->changeScene(new Lv1Scene);
 		}
 	}
 	else if (_knife->getState() == JAFAR)
