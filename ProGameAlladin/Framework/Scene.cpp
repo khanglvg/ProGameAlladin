@@ -35,6 +35,7 @@ void Scene::update()
 	_nodesToRemove.clear();
 
 	OutputDebugString(std::to_string(_vectNode.size()).c_str());
+	OutputDebugString(" ");
 
 	for(auto node: _vectNode)
 	{

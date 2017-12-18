@@ -38,11 +38,11 @@ void Throw::onEnter()
 		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5,5));
 		if(aladdin->getScale() == Vec2(1,1))
 		{
-			apple->getRigidBody()->setVelocity(Vec2(400, 0));
+			apple->getRigidBody()->setVelocity(Vec2(380, -20));
 		}
 		else
 		{
-			apple->getRigidBody()->setVelocity(Vec2(-400, 0));
+			apple->getRigidBody()->setVelocity(Vec2(-380, -20));
 		}
 		
 		apple->setCurrentScene(aladdin->getCurrentScene());

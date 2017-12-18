@@ -135,6 +135,11 @@
     <ClCompile Include="GameObject\Items\Item.cpp" />
     <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
     <ClCompile Include="GameObject\Items\Apple\AppleNormalState.cpp" />
+    <ClCompile Include="Framework\Text.cpp" />
+    <ClCompile Include="GameObject\BackgroundMenu.cpp" />
+    <ClCompile Include="GameObject\TitleMenuScene.cpp" />
+    <ClCompile Include="MenuSelectorScene.cpp" />
+    <ClCompile Include="GameObject\KnifeMenuSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -350,6 +355,11 @@
     <ClInclude Include="GameObject\Items\Item.h" />
     <ClInclude Include="GameObject\Items\Apple\Apple.h" />
     <ClInclude Include="GameObject\Items\Apple\AppleNormalState.h" />
+    <ClInclude Include="Framework\Text.h" />
+    <ClInclude Include="GameObject\BackgroundMenu.h" />
+    <ClInclude Include="GameObject\TitleMenuScene.h" />
+    <ClInclude Include="MenuSelectorScene.h" />
+    <ClInclude Include="GameObject\KnifeMenuSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -421,6 +431,12 @@
     <Image Include="Resources\texture3.png" />
     <Image Include="RunAndSlash.png" />
     <Image Include="Resources\bg_sky.jpg" />
+    <Image Include="Resources\Menu\victory.png" />
+    <Image Include="Resources\Menu\backgroundMenu.png" />
+    <Image Include="Resources\Menu\menu_select.png" />
+    <Image Include="Resources\Menu\number.png" />
+    <Image Include="Resources\Menu\title.png" />
+    <Image Include="Resources\Menu\menuknife.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

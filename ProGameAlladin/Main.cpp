@@ -1,5 +1,6 @@
 #include "Framework/Application.h"
 #include "Lv1Scene.h"
+#include "MenuSelectorScene.h"
 
 US_NS_JK
 

@@ -22,6 +22,8 @@ public:
 	void render();
 	static GameManager* getInstance();
 
+	void changeScene(Scene* newScene);
+
 	float getDeltaTime() const;
 	void setDeltaTime(const float& deltaTime);
 

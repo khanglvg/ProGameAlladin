@@ -8,6 +8,7 @@ Weapon::Weapon()
 
 Weapon::Weapon(GameObject* owner, const Vec2& rigidPosition, const Size& rigidSize, const string& tag): GameObject(rigidPosition,rigidSize)
 {
+	_rigid->setBodyType(DYNAMIC);
 	_owner = owner;
 	_rigid->setTag(tag);
 	_rigid->setActive(false);

@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Text.h" />
     <ClInclude Include="GameObject\Aladdin.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -201,12 +202,15 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\BackgroundMenu.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
     <ClInclude Include="GameObject\Items\Apple\AppleExplosionState.h" />
     <ClInclude Include="GameObject\Items\Apple\Apple.h" />
     <ClInclude Include="GameObject\Items\Apple\AppleNormalState.h" />
     <ClInclude Include="GameObject\Items\Item.h" />
     <ClInclude Include="GameObject\Items\ItemState.h" />
+    <ClInclude Include="GameObject\KnifeMenuSelector.h" />
+    <ClInclude Include="GameObject\TitleMenuScene.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
     <ClInclude Include="GameObject\BackgroundLv1Scene.h" />
     <ClInclude Include="GameObject\BackgroundSky.h" />
@@ -289,6 +293,7 @@
     <ClInclude Include="MapReader\TmxUtil.h" />
     <ClInclude Include="MapReader\zconf.h" />
     <ClInclude Include="MapReader\zlib.h" />
+    <ClInclude Include="MenuSelectorScene.h" />
     <ClInclude Include="pugixml\pugiconfig.hpp" />
     <ClInclude Include="pugixml\pugixml.hpp" />
     <ClInclude Include="State\BeingAttacked.h" />
@@ -348,13 +353,17 @@
     <None Include="zlibwapi.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\BackgroundMenu.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
     <ClCompile Include="GameObject\Items\Apple\AppleExplosionState.cpp" />
     <ClCompile Include="GameObject\Items\Apple\Apple.cpp" />
     <ClCompile Include="GameObject\Items\Apple\AppleNormalState.cpp" />
     <ClCompile Include="GameObject\Items\Item.cpp" />
     <ClCompile Include="GameObject\Items\ItemState.cpp" />
+    <ClCompile Include="GameObject\KnifeMenuSelector.cpp" />
+    <ClCompile Include="GameObject\TitleMenuScene.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundLv1Scene.cpp" />
     <ClCompile Include="GameObject\BackgroundSky.cpp" />
@@ -435,6 +444,7 @@
     <ClCompile Include="MapReader\TmxTileOffset.cpp" />
     <ClCompile Include="MapReader\TmxTileset.cpp" />
     <ClCompile Include="MapReader\TmxUtil.cpp" />
+    <ClCompile Include="MenuSelectorScene.cpp" />
     <ClCompile Include="pugixml\pugixml.cpp" />
     <ClCompile Include="State\BeingAttacked.cpp" />
     <ClCompile Include="State\BeingAttackedAndDie.cpp" />
@@ -546,6 +556,12 @@
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
+    <Image Include="Resources\Menu\backgroundMenu.png" />
+    <Image Include="Resources\Menu\menuknife.png" />
+    <Image Include="Resources\Menu\menu_select.png" />
+    <Image Include="Resources\Menu\number.png" />
+    <Image Include="Resources\Menu\title.png" />
+    <Image Include="Resources\Menu\victory.png" />
     <Image Include="Resources\red_rect.png" />
     <Image Include="Resources\Rope.png" />
     <Image Include="Resources\texture3.png" />

@@ -62,10 +62,13 @@ public: // SET-GET
 
 	float getCameraY() const;
 	void setCameraY(const float& cameraY);
+
+	Vec2 getScaleFactor() const;
+	void setScaleFactor(const Vec2& scaleFactor);
 public:
 	// Constructor
 	Camera();
-	Camera(const float& width, const float& height, const float& angle, const Vec2& scaleFactors);
+	Camera(const float& width, const float& height, const float& angle);
 
 	// virtual Destructor
 	virtual ~Camera();

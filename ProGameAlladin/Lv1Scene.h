@@ -31,6 +31,7 @@ private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
 	GameObject* mAladdin;
+	Node* _bgSky;
 	
 };
 

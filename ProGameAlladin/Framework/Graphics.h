@@ -29,6 +29,7 @@ public:  //tat ca cac ham convert deu ghi vao class Graphics
 	static RECT Graphics::converttoRECT(const Rect& rect);
 	LPDIRECT3DDEVICE9 getDevice() const;
 	LPDIRECT3DSURFACE9 getSurface() const;
+	LPD3DXSPRITE getSprite() const;
 	void loadTexture(Texture& texture, const Color& transcolor = Color(255,0,255,255));
 	static Graphics* getInstance();
 

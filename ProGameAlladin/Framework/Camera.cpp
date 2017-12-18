@@ -9,12 +9,11 @@ Camera::Camera()
 {
 }
 
-Camera::Camera(const float& width, const float& height, const float& angle, const Vec2& scaleFactors):Node()
+Camera::Camera(const float& width, const float& height, const float& angle):Node()
 {
 	this->_width = width;
 	this->_height = height;
 	this->_angle = angle;
-	this->_scaleFactors = scaleFactors;
 
 	D3DXMatrixOrthoLH(&_orthographicMatrix, width, -height, 0.0f, 2.0f);
 
@@ -32,7 +31,7 @@ Camera* Camera::getInstance()
 {
 	if(_instance == nullptr)
 	{
-		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0 ,Vec2(0.8,0.8));
+		_instance = new Camera(SCREEN_WIDTH,SCREEN_HEIGHT ,0);
 	}
 	return _instance;
 }
@@ -45,7 +44,13 @@ void Camera::update()
 		_cameraY = this->_height / 2;
 	}
 
-	if (this->_following && _isUp == false)
+	if (this->_following)
+	{
+	_cameraX = this->_following->getPosition().getX() ;
+	_cameraY = this->_following->getPosition().getY() - 70 ;
+	}
+
+	/*if (this->_following && _isUp == false)
 	{
 		_cameraX = this->_following->getPosition().getX() + 150;
 		_cameraY = this->_following->getPosition().getY() - 70 - 150;
@@ -54,7 +59,9 @@ void Camera::update()
 	{
 		_cameraX = this->_following->getPosition().getX() + 150;
 		_cameraY = this->_following->getPosition().getY() - 70 - 50;
-	}
+	}*/
+
+
 
 	/*if (this->_following)
 	{
@@ -192,6 +199,17 @@ float Camera::getCameraY() const
 void Camera::setCameraY(const float& cameraY)
 {
 	_cameraY = cameraY;
+}
+
+Vec2 Camera::getScaleFactor() const
+{
+	return _scaleFactors;
+}
+
+void Camera::setScaleFactor(const Vec2& scaleFactor)
+{
+	_scale = scaleFactor;
+	_scaleFactors = _scale;
 }
 #pragma endregion 
 
