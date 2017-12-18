@@ -9,6 +9,7 @@ public:
 	Fall(Node* node);
 	~Fall() override;
 	void onEnter() override;
+	void onUpdate() override;
 	State*checkTransition() override;
 };
 

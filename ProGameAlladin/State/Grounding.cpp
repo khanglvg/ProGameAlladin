@@ -1,5 +1,6 @@
 ﻿#include "Grounding.h"
 #include "../GameObject/Aladdin.h"
+#include "../Framework/Input.h"
 
 US_NS_JK
 
@@ -22,6 +23,10 @@ void Grounding::onEnter()
 State*Grounding::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		return new Idle(_node);
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		return new Idle(_node);
 	if (aladdin->getIndex()>=11)
 		return new Idle(_node);
 	return nullptr;
