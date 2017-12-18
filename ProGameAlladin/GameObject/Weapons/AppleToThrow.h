@@ -24,7 +24,17 @@ public:
 	bool isCollision() const;
 #pragma endregion 
 
+	void setActionName(string);
+	string getActionName() const;
+
 private:
+	std::map<string, vector<Rect>> _animations;
+	int _animationIndex;
+	string _actionName;
+	float _index = 0;
+
+	bool _isDone = false;
+
 	Texture _textureApple;
 	bool _isCollision;
 	GameObject* _owner;

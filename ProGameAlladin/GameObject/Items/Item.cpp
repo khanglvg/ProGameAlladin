@@ -14,7 +14,7 @@ Item::Item(const Vec2& position, const Size& size, const GameObjectType& tag) :G
 
 #pragma region READ - XML
 	pugi::xml_document doc;
-	const auto result = doc.load_file("Resources/Enemies/Enemies.xml");
+	const auto result = doc.load_file("Resources/Items/Items.xml");
 
 	if (result)
 	{

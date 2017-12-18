@@ -10,7 +10,7 @@ AppleNormalState::AppleNormalState()
 AppleNormalState::AppleNormalState(Item * item) : ItemState(item, ItemState::StateName::NORMAL)
 {
 	_item = item;
-	_item->setActionName("Apple-Normal");
+	_item->setActionName("Apple");
 }
 
 AppleNormalState::~AppleNormalState()

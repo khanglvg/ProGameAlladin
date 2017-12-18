@@ -125,7 +125,6 @@
     <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="GameObject\Weapons\AppleToThrow.cpp" />
-    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="State\IdleToClimb.cpp" />
@@ -140,6 +139,7 @@
     <ClCompile Include="GameObject\TitleMenuScene.cpp" />
     <ClCompile Include="MenuSelectorScene.cpp" />
     <ClCompile Include="GameObject\KnifeMenuSelector.cpp" />
+    <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -345,7 +345,6 @@
     <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="GameObject\Weapons\AppleToThrow.h" />
-    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
     <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="State\IdleToClimb.h" />
@@ -360,6 +359,7 @@
     <ClInclude Include="GameObject\TitleMenuScene.h" />
     <ClInclude Include="MenuSelectorScene.h" />
     <ClInclude Include="GameObject\KnifeMenuSelector.h" />
+    <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -398,6 +398,8 @@
     <Xml Include="Resources\Items\Camel.xml" />
     <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
     <Xml Include="Resources\action2.xml" />
+    <Xml Include="Resources\Items\Items.xml" />
+    <Xml Include="Resources\Items\AppleToThrow.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -437,6 +439,7 @@
     <Image Include="Resources\Menu\number.png" />
     <Image Include="Resources\Menu\title.png" />
     <Image Include="Resources\Menu\menuknife.png" />
+    <Image Include="Resources\Items\Items-Explosion.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -30,7 +30,7 @@ Apple::~Apple()
 void Apple::init()
 {
 	_textureItem.setName("Apple.jpg");
-	_textureItem.setSrcFile("Resources/Enemies/Genesis 32X SCD - Aladdin - Guards.png");
+	_textureItem.setSrcFile("Resources/Items/Items-Explosion.png");
 	Graphics::getInstance()->loadTexture(_textureItem);
 
 
@@ -47,7 +47,6 @@ void Apple::release()
 void Apple::update()
 {
 	_rigid->setSize(Size(getRect().getWidth()*1.6+_rigid->getOffset().getX()*2, getRect().getHeight()));
-	_position = _rigid->getPosition() -_rigid->getOffset();
 
 	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 
@@ -92,7 +91,7 @@ void Apple::render()
 	auto origin = Vec2(0.3f, 1.0f);
 
 
-	Graphics::getInstance()->drawSprite(_textureApple, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	//Graphics::getInstance()->drawSprite(_textureApple, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureItem, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)

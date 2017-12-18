@@ -525,7 +525,9 @@
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
     <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
+    <Xml Include="Resources\Items\AppleToThrow.xml" />
     <Xml Include="Resources\Items\Camel.xml" />
+    <Xml Include="Resources\Items\Items.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -554,6 +556,7 @@
     <Image Include="Resources\Items\Apple.png" />
     <Image Include="Resources\Items\FloatGround.png" />
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
+    <Image Include="Resources\Items\Items-Explosion.png" />
     <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\Menu\backgroundMenu.png" />

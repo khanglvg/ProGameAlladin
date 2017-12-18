@@ -31,6 +31,7 @@ void Scene::update()
 	{
 		const auto nodeToRemove = std::find(std::begin(_vectNode), std::end(_vectNode), node);
 		_vectNode.erase(nodeToRemove);
+		node->release();
 	}
 	_nodesToRemove.clear();
 

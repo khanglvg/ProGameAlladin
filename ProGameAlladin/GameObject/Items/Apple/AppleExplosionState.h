@@ -13,8 +13,8 @@ public:
 	AppleExplosionState(Item* item);
 	~AppleExplosionState();
 
-	void onUpdate();
-	void onExit();
+	void onUpdate() override;
+	void onExit() override;
 	ItemState* checkTransition();
 };
 

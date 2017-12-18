@@ -13,11 +13,14 @@ public:
 	~Throw() override;
 
 	void onEnter() override;
+	void onUpdate() override;
 	void onExit() override;
 	State* checkTransition() override;
 
 	enum{THROW,DONE};
 	int _state = DONE;
+private:
+	bool _isThrow = false;
 };
 
 NS_JK_END
