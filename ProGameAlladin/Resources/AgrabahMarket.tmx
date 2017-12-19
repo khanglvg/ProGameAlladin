@@ -211,7 +211,7 @@
   </data>
  </layer>
  <objectgroup name="Ground">
-  <object id="99" x="-12.1158" y="627.333" width="1486.2" height="61.3334"/>
+  <object id="99" x="-12.1158" y="627.333" width="1486.2" height="200"/>
   <object id="114" name="StairsGround" x="1348" y="574.333" width="95.333" height="56.5"/>
   <object id="115" name="StairsGround" x="1310.67" y="582.333" width="132.667" height="49"/>
   <object id="117" name="StairsGround" x="1268.67" y="590" width="175.333" height="42"/>
