@@ -1,14 +1,14 @@
-#include "SpringBoardIdleState.h"
+#include "FloatGroundNormalState.h"
 
 US_NS_JK
 
-SpringBoardIdleState::SpringBoardIdleState()
+FloatGroundNormalState::FloatGroundNormalState()
 {
 }
 
-SpringBoardIdleState::SpringBoardIdleState(SpringBoard * springBoard) : SpringBoardState(springBoard, SpringBoardState::StateName::Idle)
+FloatGroundNormalState::FloatGroundNormalState(FloatGround * springBoard) : FloatGroundState(springBoard, FloatGroundState::Normal)
 {
-	auto _springboard = static_cast<SpringBoard*>(springBoard);
+	auto _floatground = static_cast<FloatGround*>(springBoard);
 	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	aladdin->setScale(Vec2(-1, 1));
 
@@ -17,18 +17,18 @@ SpringBoardIdleState::SpringBoardIdleState(SpringBoard * springBoard) : SpringBo
 
 	//thinEnemy->setVelocity(Vec2(0, 0));
 
-	_springboard->setActionName("SpringBoard-Idle");
+	_floatground->setActionName("SpringBoard-Idle");
 }
 
-SpringBoardIdleState::~SpringBoardIdleState()
+FloatGroundNormalState::~FloatGroundNormalState()
 {
 }
 
-void SpringBoardIdleState::onExit()
+void FloatGroundNormalState::onExit()
 {
 }
 
-SpringBoardState * SpringBoardIdleState::checkTransition()
+FloatGroundState * FloatGroundNormalState::checkTransition()
 {
 	return nullptr;
 }

@@ -65,6 +65,7 @@ void SpringBoard::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+		_animationIndex = 0;
 	}
 }
 

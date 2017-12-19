@@ -1,12 +1,12 @@
-#include "SpringBoardState.h"
+#include "FloatGroundState.h"
 
 US_NS_JK
 
-SpringBoardState::SpringBoardState()
+FloatGroundState::FloatGroundState()
 {
 }
 
-SpringBoardState::SpringBoardState(SpringBoard * springBoard, StateName name)
+FloatGroundState::FloatGroundState(FloatGround * springBoard, StateName name)
 {
 	_name = name;
 	_springBoard = springBoard;
@@ -18,30 +18,30 @@ SpringBoardState::SpringBoardState(SpringBoard * springBoard, StateName name)
 }
 
 
-SpringBoardState::~SpringBoardState()
+FloatGroundState::~FloatGroundState()
 {
 
 }
 
-void SpringBoardState::onUpdate()
+void FloatGroundState::onUpdate()
 {
 }
 
-void SpringBoardState::onExit()
+void FloatGroundState::onExit()
 {
 }
 
-SpringBoardState::StateName SpringBoardState::GetName()
+FloatGroundState::StateName FloatGroundState::GetName()
 {
 	return _name;
 }
 
-bool SpringBoardState::IsAttackedPlayer()
+bool FloatGroundState::IsAttackedPlayer()
 {
 	return _isAttackedPlayer;
 }
 
-void SpringBoardState::SetIsAttackedPlayer(bool value)
+void FloatGroundState::SetIsAttackedPlayer(bool value)
 {
 	_isAttackedPlayer = value;
 }

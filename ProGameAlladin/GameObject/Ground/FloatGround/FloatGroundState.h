@@ -1,26 +1,26 @@
-#ifndef __SPRINGBOARDSTATE_H__ 
-#define __SPRINGBOARDSTATE_H__
+#ifndef __FLOATGROUNDSTATE_H__ 
+#define __FLOATGROUNDSTATE_H__
 
 #include "../../GameObject.h"
 
 NS_JK_BEGIN
 
-class SpringBoard;
+class FloatGround;
 
-class SpringBoardState
+class FloatGroundState
 {
 public:
 	enum StateName
 	{
-		Idle, OnCollision
+		Normal, OnCollision
 	};
-	SpringBoardState();
-	SpringBoardState(SpringBoard* camel, StateName name = StateName::Idle);
-	~SpringBoardState();
+	FloatGroundState();
+	FloatGroundState(FloatGround* camel, StateName name = StateName::Normal);
+	~FloatGroundState();
 
 	virtual void onUpdate();
 	virtual void onExit();
-	virtual SpringBoardState* checkTransition() = 0;
+	virtual FloatGroundState* checkTransition() = 0;
 
 	StateName GetName();
 
@@ -30,7 +30,7 @@ public:
 
 protected:
 	StateName _name;
-	SpringBoard* _springBoard;
+	FloatGround* _springBoard;
 
 	float _totalDuration;
 

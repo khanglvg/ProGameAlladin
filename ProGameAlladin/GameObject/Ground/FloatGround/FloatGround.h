@@ -6,6 +6,7 @@
 #include "../../Framework/Texture.h"
 #include "../../pugixml/pugixml.hpp"
 #include "../../Framework/Graphics.h"
+#include "FloatGroundState.h"
 
 NS_JK_BEGIN
 
@@ -22,13 +23,21 @@ public:
 	void update() override;
 	void render() override;
 
-	Rect getRect() override;
+	void setActionName(string);
+	string getActionName() const;
+
+	Rect getRect()override;
+
+	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureFloatGround;
 
+
+	int _animationIndex = 0;
 	string _actionName;
 	float _index = 0;
+	FloatGroundState* _currentState;
 };
 
 NS_JK_END

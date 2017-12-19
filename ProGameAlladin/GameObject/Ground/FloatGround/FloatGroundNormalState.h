@@ -1,22 +1,22 @@
-#ifndef __SPINGBOARDIDLESTATE_H__
+#ifndef __FLOATGROUNDNORMALSTATE_H__
 
-#define __SPINGBOARDIDLESTATE_H__
+#define __FLOATGROUNDNORMALSTATE_H__
 
 
-#include "SpringBoardState.h"
-#include "SpringBoard.h"
+#include "FloatGroundState.h"
+#include "FloatGround.h"
 
 NS_JK_BEGIN
 
-class SpringBoardIdleState : public SpringBoardState
+class FloatGroundNormalState : public FloatGroundState
 {
 public:
-	SpringBoardIdleState();
-	SpringBoardIdleState(SpringBoard* springBoard);
-	~SpringBoardIdleState();
+	FloatGroundNormalState();
+	FloatGroundNormalState(FloatGround* springBoard);
+	~FloatGroundNormalState();
 
 	void onExit() override;
-	SpringBoardState* checkTransition() override;
+	FloatGroundState* checkTransition() override;
 };
 
 

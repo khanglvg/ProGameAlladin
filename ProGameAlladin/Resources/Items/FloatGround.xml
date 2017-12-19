@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="FloatGround-Normal" imagePath="fallingplatform_strip8_5_4.png" width="272" height="22">
+    <sprite x="1" y="2" w="32" h="14" oX="1" oY="2" oW="24" oH="32" />
+  </Animation>
+  <Animation name="FloatGround-Falling" imagePath="fallingplatform_strip8_5_4.png" width="272" height="22">
+    <sprite x="1" y="2" w="32" h="14" oX="1" oY="2" oW="25" oH="274" />
+    <sprite x="35" y="2" w="32" h="15" oX="35" oY="2" oW="25" oH="274" />
+    <sprite x="69" y="2" w="32" h="14" oX="69" oY="2" oW="25" oH="274" />
+    <sprite x="103" y="2" w="32" h="14" oX="103" oY="2" oW="25" oH="274" />
+    <sprite x="137" y="2" w="32" h="13" oX="137" oY="2" oW="25" oH="274" />
+    <sprite x="172" y="1" w="30" h="14" oX="172" oY="1" oW="25" oH="274" />
+    <sprite x="208" y="1" w="28" h="15" oX="208" oY="1" oW="25" oH="274" />
+    <sprite x="241" y="2" w="28" h="18" oX="241" oY="2" oW="25" oH="274" />
+  </Animation>
+</Animations>
