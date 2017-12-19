@@ -59,8 +59,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
 			{
-				auto *floatGround = new FloatGround(Vec2(object->GetX() + object->GetWidth()/2 + 8, object->GetY() - object->GetHeight()+5), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND);
-
+				auto *floatGround = new FloatGround(Vec2(object->GetX() + object->GetWidth()/2 + 8, object->GetY() - object->GetHeight()+5), Size(object->GetWidth(), object->GetHeight()), GameObject::FLOATGROUND, _player);
+				floatGround->setRigidTag("ground");
+				floatGround->setCurrentScene(player->getCurrentScene());
 				_listFloatGrounds.push_back(floatGround);
 
 				//_quadTree->insertObject(floatGround);
@@ -263,6 +264,9 @@ void GameMap::update()
 	//camels
 	for (size_t i = 0; i < _listCamels.size(); i++)
 		_listCamels[i]->update();
+
+	for (size_t i = 0; i < _listFloatGrounds.size(); i++)
+		_listFloatGrounds[i]->update();
 
 	//player
 	//_player->update();
