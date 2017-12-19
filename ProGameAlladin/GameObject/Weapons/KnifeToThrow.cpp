@@ -26,18 +26,21 @@ KnifeToThrow::KnifeToThrow(GameObject* owner,const Vec2 & position, const Size &
 	{
 		for (auto animation : doc.child("Animations").children())
 		{
-			auto i = 0;
+			const pugi::char_t* name = animation.attribute("name").value();
+			vector<Rect> rects;
+
 			for (auto rect : animation.children())
 			{
-				_animations.emplace(i++, Rect(rect.attribute("x").as_float(),
-											  rect.attribute("y").as_float(),
-											  rect.attribute("w").as_float(),
-											  rect.attribute("h").as_float()));
+				rects.push_back(Rect(rect.attribute("x").as_float(),
+					rect.attribute("y").as_float(),
+					rect.attribute("w").as_float(),
+					rect.attribute("h").as_float()));
 			}
-			
+			_animations.emplace(name, rects);
 		}
 	}
 #pragma endregion 
+	setActionName("KnifeToThrow");
 }
 
 KnifeToThrow::~KnifeToThrow()
@@ -77,11 +80,31 @@ void KnifeToThrow::update()
 	else
 		_isCollision = false;
 
-
-	if (_isCollision)
+	if (aladdin != _rigid->getCollidingBodies().end())
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
+	else if (_actionName == "Knife-Explosion" && _animationIndex == 2)
+	{
+		_owner->getCurrentScene()->removeNode(this);
+	}
+
+	if (ground != _rigid->getCollidingBodies().end() || wall != _rigid->getCollidingBodies().end() || platform != _rigid->getCollidingBodies().end())
+	{
+		if (_actionName != "Knife-Explosion")
+		{
+			setVelocity(Vec2(0,0));
+			_actionName = "Knife-Explosion";
+			_textureKnife.setSrcFile("Resources/Items/Items-Explosion.png");
+			Graphics::getInstance()->loadTexture(_textureKnife);
+			_animationIndex = 0;
+		}
+	}
+
+	//if (_isCollision)
+	//{
+	//	_owner->getCurrentScene()->removeNode(this);
+	//}
 }
 
 void KnifeToThrow::release()
@@ -92,13 +115,11 @@ void KnifeToThrow::release()
 
 void KnifeToThrow::render()
 {
-	if (_animationIndex >= _animations.size())
-		_animationIndex = 0;
 
-	const auto rect = _animations[_animationIndex];
+	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	const auto expect = 0.01;
+	auto expect = 0.01;
 
 	Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
 		rect, 2);
@@ -113,9 +134,11 @@ void KnifeToThrow::render()
 	{
 		_index = 0;
 		_animationIndex++;
-		if (_animationIndex == _animations.size())
+		if (_animationIndex == _animations[_actionName].size())
+		{
 			_animationIndex = 0;
-
+			_isDone = true;
+		}
 	}
 }
 
@@ -137,4 +160,13 @@ bool KnifeToThrow::isCollision() const
 void KnifeToThrow::setGravityScale(const float & gravity)
 {
 	_rigid->setGravityScale(gravity);
+}
+void KnifeToThrow::setActionName(const string actionName)
+{
+	_actionName = actionName;
+}
+
+string KnifeToThrow::getActionName() const
+{
+	return _actionName;
 }

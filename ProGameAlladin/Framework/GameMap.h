@@ -23,7 +23,7 @@ private:
 	Tmx::Map *_map;
 	QuadTree* _quadTree;
 
-	//Aladdin* _player;
+	GameObject* _player;
 
 	std::vector<BackgroundLv1Scene*> _backgroundTextures;
 	std::vector<Enemy*> _listEnemies;
@@ -36,6 +36,10 @@ private:
 	std::vector<GameObject*> _listRope;
 	std::vector<GameObject*> _listFire;
 	std::vector<GameObject*> _listHorizontalBar;
+
+protected:
+	void checkVisibility();
+	vector<GameObject*> listVisible;
 	
 public:
 	GameMap();

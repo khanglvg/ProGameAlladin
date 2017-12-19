@@ -93,10 +93,10 @@ Rect QuadTree::getVisibilityArea(GameObject *object) const
 	result.setWidth(objectRect.getWidth() + 400);
 	result.setY(objectRect.getY() - 300);
 	result.setHeight(objectRect.getHeight() + 300);*/
-	result.setX(objectRect.getX() - 50);
-	result.setWidth(objectRect.getWidth() + 100);
-	result.setY(objectRect.getY() - 50);
-	result.setHeight(objectRect.getHeight() + 50);
+	result.setX(objectRect.getX() - 350);
+	result.setWidth(750);
+	result.setY(objectRect.getY() - 250);
+	result.setHeight(300);
 	return result;
 }
 

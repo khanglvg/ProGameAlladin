@@ -39,7 +39,7 @@ void KnifeEnemyIdleState::onUpdate()
 			velocityY = -30;
 			velocityX = 300;
 		}
-		if (_enemy->getIndex() == 2 || _enemy->getIndex() == 9)
+		if (_enemy->getIndex() == 9)
 		{
 			
 			if (!_isThrew)

@@ -24,7 +24,7 @@ Lv1Scene::~Lv1Scene()
 
 void Lv1Scene::init()
 {
-	mAladdin = new Aladdin(Vec2(300, 300), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(300, 600), Size(10, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
@@ -36,7 +36,7 @@ void Lv1Scene::init()
 
 
 	Camera::getInstance()->follow(mAladdin);
-	Camera::getInstance()->setScaleFactor(Vec2(2, 2));
+	Camera::getInstance()->setScaleFactor(Vec2(0.8, 0.8));
 	_vectNode.push_back(Camera::getInstance());
 
 
@@ -45,6 +45,8 @@ void Lv1Scene::init()
 	{
 		_vectNode.push_back(ground);
 	}
+
+	Scene::init();
 
 	_gameMap->init();
 

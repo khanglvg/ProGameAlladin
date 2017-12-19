@@ -24,12 +24,18 @@ public:
 	bool isCollision() const;
 
 	void setGravityScale(const float& gravity);
+
+	void setActionName(string);
+	string getActionName() const;
 #pragma endregion 
 
 private:
-	std::map<int, Rect> _animations;
+	std::map<string, vector<Rect>> _animations;
 	int _animationIndex;
+	string _actionName;
 	float _index = 0;
+
+	bool _isDone = false;
 
 	Texture _textureKnife;
 	bool _isCollision;

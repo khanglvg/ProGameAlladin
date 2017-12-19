@@ -17,7 +17,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 	_map = new Tmx::Map();
 	_map->ParseFile(filePath);
 
-	quadTree = new QuadTree(1, new Rect(0, 0, this->getWidth(), this->getHeight()));
+	_player = player;
+
+	quadTree = new QuadTree(1, new Rect(-100, -300, this->getWidth()+200, this->getHeight()+400));
 	_quadTree = quadTree;
 
 	for (size_t i = 0; i < _map->GetNumLayers(); i++)
@@ -49,7 +51,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//if (objectGroup->GetName() == "Apple")
 			//{
 			//	auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
-			//	_listApples.push_back(apple);
+			//	//_listApples.push_back(apple);
 
 			//	_quadTree->insertObject(apple);
 			//}
@@ -147,7 +149,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 				{
 					_listGround.push_back(gameObject);
 				}
-				_quadTree->insertObject(gameObject);
+				//_quadTree->insertObject(gameObject);
 			}
 
 			if (objectGroup->GetName() == "Platform")
@@ -180,9 +182,15 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init FireGround
 			if (objectGroup->GetName() == "Fire")
 			{
+<<<<<<< HEAD
 				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
 				gameObject->getRigidBody()->setDensity(0.0000000001);
 				gameObject->setRigidTag("fire");
+=======
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+				gameObject->getRigidBody()->setDensity(0.001);
+
+>>>>>>> 89e225f5abb7eeb45977e8e3a1b4679d38524c13
 				_listFire.push_back(gameObject);
 				//_quadTree->InsertStaticObject(gameObject);
 			}
@@ -198,6 +206,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			}
 		}
 	}
+	checkVisibility();
 }
 
 GameMap::~GameMap()
@@ -215,10 +224,10 @@ void GameMap::init()
 		_listEnemies[i]->init();
 	}
 
-	for (size_t i = 0; i < _listApples.size(); i++)
+	/*for (size_t i = 0; i < _listApples.size(); i++)
 	{
 		_listApples[i]->init();
-	}
+	}*/
 	for (size_t i = 0; i < _listCamels.size(); i++)
 	{
 		_listCamels[i]->init();
@@ -243,10 +252,15 @@ void GameMap::init()
 	{
 		_listHorizontalBar[i]->init();
 	}
+	for (size_t i = 0; i < listVisible.size(); i++)
+	{
+		listVisible[i]->init();
+	}
 }
 
 void GameMap::update()
 {
+	checkVisibility();
 	//enemies
 	for (size_t i = 0; i < _listEnemies.size(); i++)
 		_listEnemies[i]->update();
@@ -395,10 +409,10 @@ void GameMap::draw()
 	{
 		_listEnemies[i]->render();
 	}
-	for (size_t i = 0; i < _listApples.size(); i++)
-	{
-		_listApples[i]->render();
-	}
+	//for (size_t i = 0; i < _listApples.size(); i++)
+	//{
+	//	_listApples[i]->render();
+	//}
 	for (size_t i = 0; i < _listCamels.size(); i++)
 	{
 		_listCamels[i]->render();
@@ -423,12 +437,16 @@ void GameMap::draw()
 	{
 		_listHorizontalBar[i]->render();
 	}
+	for (auto object : listVisible)
+	{
+		object->render();
+	}
 }
 
 void GameMap::release()
 {
 	delete _map;
-	//delete _player;
+	delete _player;
 
 	_quadTree->clear();
 	delete _quadTree;
@@ -496,6 +514,12 @@ void GameMap::release()
 			delete _listHorizontalBar[i];
 	}
 	_listHorizontalBar.clear();
+	//for (size_t i = 0; i < listVisible.size(); i++)
+	//{
+	//	if (listVisible[i])
+	//		delete listVisible[i];
+	//}
+	//listVisible.clear();
 }
 
 vector<GameObject*> GameMap::getListGround() const
@@ -516,4 +540,11 @@ int GameMap::getWidth()
 int GameMap::getHeight()
 {
 	return _map->GetHeight() * _map->GetTileHeight();
+}
+
+void GameMap::checkVisibility()
+{
+	listVisible.clear();
+
+ 	_quadTree->getObjectsVisibility(listVisible, _quadTree->getVisibilityArea(_player), 3);
 }
