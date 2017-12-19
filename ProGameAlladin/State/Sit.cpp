@@ -20,7 +20,8 @@ void Sit::onEnter()
 
 
 	aladdin->setActionName("Sit");
-
+	//aladdin->getRigidBody()->setSize(Size(10,aladdin->getRect().getHeight()));
+	//aladdin->getRigidBody()->setOffset(Vec2(5,-30));
 	//Graphics::getInstance()->drawSprite(aladdin->getTexture(), Vec2(0.3f, 1.0f), aladdin->getTransformMatrix(), Color(255, 255, 255, 255), Rect(378, 516, 52, 34), 1);
 }
 

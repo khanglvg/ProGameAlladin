@@ -6,6 +6,7 @@
 #include "GameObject/Wall/Wall.h"
 #include "GameObject/BackgroundSky.h"
 #include "GameObject/Rope.h"
+#include "Framework/Text.h"
 
 US_NS_JK
 
@@ -29,7 +30,7 @@ void Lv1Scene::init()
 
 
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
-	_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
+	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
@@ -37,6 +38,8 @@ void Lv1Scene::init()
 	Camera::getInstance()->follow(mAladdin);
 	Camera::getInstance()->setScaleFactor(Vec2(0.8, 0.8));
 	_vectNode.push_back(Camera::getInstance());
+
+
 
 	for (auto ground : _gameMap->getListGround())
 	{
@@ -46,6 +49,9 @@ void Lv1Scene::init()
 	Scene::init();
 
 	_gameMap->init();
+
+	_alaLife = new Text("Arial", "3", Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraX(), 20, 30, FW_BOLD, Color(255, 255, 255, 255));
+	_vectNode.push_back(_alaLife);
 	//for (auto object : staticobject)
 	//{
 	//	object->init();
@@ -63,8 +69,10 @@ void Lv1Scene::release()
 void Lv1Scene::update()
 {
 	//checkVisibility();
-	Scene::update();
+	_alaLife->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
 	_gameMap->update();
+	Scene::update();
+
 }
 
 void Lv1Scene::render()

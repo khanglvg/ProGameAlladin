@@ -71,6 +71,185 @@ void Aladdin::release()
 
 void Aladdin::update()
 {
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
@@ -80,15 +259,17 @@ void Aladdin::update()
 		_isBesideTheStair = false;
 		_isBesideTheWall = false;
 		_isOnTheRope = false;
+		_isOnTheFire = false;
 	}
 	else
 	{
 		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
 		auto const wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
-		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
+		const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
-		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
+		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform" );
 		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
+		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
 
 
 
@@ -107,6 +288,9 @@ void Aladdin::update()
 			_isBesideTheStair = false;
 		else
 		{
+			
+			//_stairInCollision 
+			
 			_isBesideTheStair = true;
 		}
 
@@ -141,6 +325,14 @@ void Aladdin::update()
 			_isOnTheRope = false;
 		else
 			_isOnTheRope = true;
+
+		//
+		// collision with fire
+		//
+		if (fire == _rigid->getCollidingBodies().end())
+			_isOnTheFire = false;
+		else
+			_isOnTheFire = true;
 	}
 	
 
@@ -296,6 +488,11 @@ bool Aladdin::isOnThePlatform() const
 bool Aladdin::isOnTheRope() const
 {
 	return _isOnTheRope;
+}
+
+bool Aladdin::isOnTheFire() const
+{
+	return _isOnTheFire;
 }
 
 void Aladdin::setIndex(const int& index)

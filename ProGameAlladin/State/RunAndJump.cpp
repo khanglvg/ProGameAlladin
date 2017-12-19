@@ -92,7 +92,7 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnTheFire())// || aladdin->isOnThePlatform())
 		return new Idle(_node);
 	if (aladdin->isOnTheRope())
 	{

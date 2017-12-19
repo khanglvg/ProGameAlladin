@@ -36,27 +36,37 @@ void KnifeEnemyIdleState::onUpdate()
 		int velocityX = 120;
 		if (_enemy->isTargetInAttackRange())
 		{
-			velocityY = -130;
-			velocityX = 150;
+			velocityY = -30;
+			velocityX = 300;
 		}
 		if (_enemy->getIndex() == 9)
 		{
+			
 			if (!_isThrew)
-			{
-				const auto knife = new KnifeToThrow(_enemy, Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
-				knife->setGravityScale(1);
-				if (_enemy->getScale() == Vec2(1, 1))
+			{				
+				if (_expect == 6)
 				{
-					knife->getRigidBody()->setVelocity(Vec2(velocityX, velocityY));
+					const auto knife = new KnifeToThrow(_enemy, Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
+					knife->setGravityScale(1);
+					if (_enemy->getScale() == Vec2(1, 1))
+					{
+						knife->getRigidBody()->setVelocity(Vec2(velocityX, velocityY));						
+					}
+					else
+					{
+						knife->getRigidBody()->setVelocity(Vec2(-velocityX, velocityY));
+						knife->getRigidBody()->setPosition(Vec2(_enemy->getRigidPosition().getX() - 30, _enemy->getRigidPosition().getY()));
+					}
+
+					knife->setCurrentScene(_enemy->getCurrentScene());
+					_enemy->getTarget()->getCurrentScene()->addNode(knife);
+					_isThrew = true;
+					_expect = 0;
 				}
 				else
 				{
-					knife->getRigidBody()->setVelocity(Vec2(-velocityX, velocityY));
+					_expect++;
 				}
-
-				knife->setCurrentScene(_enemy->getCurrentScene());
-				_enemy->getTarget()->getCurrentScene()->addNode(knife);
-				_isThrew = true;
 			}
 		}
 		else
