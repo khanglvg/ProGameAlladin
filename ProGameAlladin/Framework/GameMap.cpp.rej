@@ -1,0 +1,9 @@
+diff a/ProGameAlladin/Framework/GameMap.cpp b/ProGameAlladin/Framework/GameMap.cpp	(rejected hunks)
+@@ -194,6 +194,7 @@
+  				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+  				gameObject->getRigidBody()->setDensity(0.001);
+  
+++>>>>>>> 89e225f5abb7eeb45977e8e3a1b4679d38524c13
+  				_listFire.push_back(gameObject);
+  				//_quadTree->InsertStaticObject(gameObject);
+  			}

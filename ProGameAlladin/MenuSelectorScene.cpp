@@ -7,6 +7,7 @@
 #include "Framework/GameManager.h"
 #include "Lv1Scene.h"
 #include "Framework/Camera.h"
+#include "BossScene.h"
 US_NS_JK
 
 
@@ -138,7 +139,8 @@ void MenuSelector::update()
 	{
 		if (Input::getInstance()->isKeyDown(KEY_RETURN))
 		{
-			// Go to Boss;
+			// Go to Boss
+			GameManager::getInstance()->changeScene(new BossScene);
 		}
 	}
 

@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BossScene.h" />
     <ClInclude Include="Framework\Text.h" />
     <ClInclude Include="GameObject\Aladdin.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
@@ -353,6 +354,7 @@
     <None Include="zlibwapi.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BossScene.cpp" />
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
@@ -537,6 +539,8 @@
     <Image Include="Resources\Aladdin1.png" />
     <Image Include="Resources\apple1.png" />
     <Image Include="Resources\bg_sky.jpg" />
+    <Image Include="Resources\Boss\palace_back.png" />
+    <Image Include="Resources\Boss\pillars.png" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />
