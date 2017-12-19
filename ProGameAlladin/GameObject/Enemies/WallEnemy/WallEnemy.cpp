@@ -13,6 +13,7 @@ WallEnemy::WallEnemy()
 
 WallEnemy::WallEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player) :Enemy(position, size, tag, player)
 {
+	_rigid->setActive(false);
 	_viewRange = 30;
 	setScale(Vec2(1, 1));
 	_currentState = new WallEnemyIdleState(this);
