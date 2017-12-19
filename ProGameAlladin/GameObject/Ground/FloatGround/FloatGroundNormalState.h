@@ -15,8 +15,13 @@ public:
 	FloatGroundNormalState(FloatGround* springBoard);
 	~FloatGroundNormalState();
 
+	void onUpdate() override;
 	void onExit() override;
 	FloatGroundState* checkTransition() override;
+private:
+	FloatGround* _floatGround;
+	float _index = 0;
+	bool _check = false;
 };
 
 
