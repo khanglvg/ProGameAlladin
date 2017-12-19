@@ -33,6 +33,8 @@ Text::~Text()
 
 void Text::update()
 {
+	_textRect.setX(_position.getX());
+	_textRect.setY(_position.getY());
 }
 
 void Text::render()

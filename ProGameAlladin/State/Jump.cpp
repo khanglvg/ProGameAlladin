@@ -64,7 +64,7 @@ State* Jump::checkTransition()
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);*/
 
-	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Idle(_node);
 
 	if (aladdin->isOnTheRope())

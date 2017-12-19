@@ -62,6 +62,7 @@ void MenuSelector::init()
 
 void MenuSelector::update()
 {
+	Scene::update();
 	if (_knife->getState() == PRESS_START)
 	{
 		if (Input::getInstance()->isKeyDown(KEY_RETURN))
@@ -141,7 +142,7 @@ void MenuSelector::update()
 		}
 	}
 
-	Scene::update();
+
 	
 }
 

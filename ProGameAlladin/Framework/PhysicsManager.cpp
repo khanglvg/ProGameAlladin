@@ -52,7 +52,7 @@ void PhysicsManager::update()
 		// Duyệt tất cả các Objects
 		for (auto it1 = 0; it1 <= _rigidBodies.size() - 1; it1++)
 		{
-			for (auto it2 = 0; it2 <= _rigidBodies.size() - 1; it2++)
+			for (auto it2 = it1 + 1; it2 <= _rigidBodies.size() - 1; it2++)
 			{
 				Manifold manifold;
 				if (_rigidBodies[it1]->isActived() && _rigidBodies[it2]->isActived())
@@ -74,6 +74,7 @@ void PhysicsManager::update()
 				//(*it1)->setPosition(Vec2((*it1)->getPosition() + (*it1)->getVelocity()*GameManager::getInstance()->getDeltaTime()));
 			}
 
+#pragma region XAMLONE
 			//// Nếu Object đang xét là DYNAMIC thì thực hiện tiếp
 			//if ((*it1)->getBodyType() == DYNAMIC)
 			//{
@@ -104,7 +105,7 @@ void PhysicsManager::update()
 			//		}
 			//	}
 			//}
-
+#pragma endregion 
 		}
 	}
 }

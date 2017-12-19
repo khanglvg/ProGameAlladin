@@ -8,6 +8,7 @@
 #include "Framework/GameMap.h"
 
 #include "GameObject/Aladdin.h"
+#include "Framework/Text.h"
 
 NS_JK_BEGIN
 
@@ -32,6 +33,8 @@ private:
 	QuadTree *mQuadTree;
 	GameObject* mAladdin;
 	Node* _bgSky;
+
+	Text* _alaLife;
 	
 };
 

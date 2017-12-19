@@ -19,6 +19,7 @@ public:
 	EnemyState* checkTransition() override;
 private:
 	bool _isThrew;
+	int _expect = 6;
 };
 
 

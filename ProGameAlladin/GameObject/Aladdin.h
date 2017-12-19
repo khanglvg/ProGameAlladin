@@ -51,6 +51,7 @@ public:
 	bool isCollisionWithEnemy() const;
 	bool isOnThePlatform() const;
 	bool isOnTheRope() const;
+	bool isOnTheFire() const;
 
 
 private:
@@ -69,12 +70,15 @@ private:
 	float _index = 0;
 	State* _currentState;
 
+	GameObject* _stairInCollision;
+
 	bool _isOnTheGround;
 	bool _isBesideTheStair;
 	bool _isBesideTheWall;
 	bool _isCollisionWithEnemy;
 	bool _isOnThePlatform;
 	bool _isOnTheRope;
+	bool _isOnTheFire;
 
 };
 

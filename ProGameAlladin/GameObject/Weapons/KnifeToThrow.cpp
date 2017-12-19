@@ -59,6 +59,8 @@ void KnifeToThrow::update()
 	const auto ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "ground");
 	const auto wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "wall");
 	const auto platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "platform");
+	const auto fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
+	const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stair");
 
 	if (aladdin != _rigid->getCollidingBodies().end())
 		_isCollision = true;
@@ -67,6 +69,10 @@ void KnifeToThrow::update()
 	else if (wall != _rigid->getCollidingBodies().end())
 		_isCollision = true;
 	else if (platform != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (fire != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (stair != _rigid->getCollidingBodies().end())
 		_isCollision = true;
 	else
 		_isCollision = false;

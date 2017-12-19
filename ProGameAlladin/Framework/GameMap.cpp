@@ -135,7 +135,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
+				auto gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
 				gameObject->setRigidTag("ground");
 
 				if(object->GetName() == "StairsGround")
@@ -153,7 +153,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Platform")
 			{
 				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight() / 3), Size(object->GetWidth(), object->GetHeight()), GameObject::PLATFORM);
-				gameObject->setRigidTag("ground");
+				gameObject->setRigidTag("platform");
 
 				_listGround.push_back(gameObject);
 			}
@@ -180,9 +180,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init FireGround
 			if (objectGroup->GetName() == "Fire")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
-				//gameObject->getRigidBody()->setDensity(0);
-
+				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+				gameObject->getRigidBody()->setDensity(0.0000000001);
+				gameObject->setRigidTag("fire");
 				_listFire.push_back(gameObject);
 				//_quadTree->InsertStaticObject(gameObject);
 			}
