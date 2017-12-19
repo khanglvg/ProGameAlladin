@@ -203,6 +203,9 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\Jafar.h" />
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
     <ClInclude Include="GameObject\BackgroundMenu.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
@@ -358,6 +361,9 @@
     <ClCompile Include="BossScene.cpp" />
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\Jafar.cpp" />
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
@@ -525,6 +531,7 @@
     <Xml Include="Resources\action2.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="Resources\Boss\Jafar.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
@@ -541,8 +548,10 @@
     <Image Include="Resources\Aladdin1.png" />
     <Image Include="Resources\apple1.png" />
     <Image Include="Resources\bg_sky.jpg" />
+    <Image Include="Resources\Boss\jafar.png" />
     <Image Include="Resources\Boss\palace_back.png" />
     <Image Include="Resources\Boss\pillars.png" />
+    <Image Include="Resources\Boss\translate.png" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />

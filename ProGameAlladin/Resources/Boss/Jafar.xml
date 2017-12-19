@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="Idle" imagePath="jafar.png" width="696" height="73">
+    <sprite x="1" y="1" w="64" h="70" oX="1" oY="1" oW="67" oH="64" />
+  </Animation>
+  <Animation name="Attack" imagePath="jafar.png" width="696" height="73">
+    <sprite x="88" y="2" w="57" h="69" oX="88" oY="2" oW="-537" oH="573" />
+    <sprite x="175" y="3" w="55" h="68" oX="175" oY="3" oW="-537" oH="573" />
+    <sprite x="262" y="4" w="51" h="67" oX="262" oY="4" oW="-537" oH="573" />
+    <sprite x="349" y="3" w="64" h="68" oX="349" oY="3" oW="-537" oH="573" />
+    <sprite x="436" y="3" w="82" h="68" oX="436" oY="3" oW="-537" oH="573" />
+    <sprite x="523" y="3" w="85" h="68" oX="523" oY="3" oW="-537" oH="573" />
+    <sprite x="610" y="3" w="68" h="68" oX="610" oY="3" oW="-537" oH="573" />
+  </Animation>
+</Animations>

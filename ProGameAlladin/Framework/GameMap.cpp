@@ -48,13 +48,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			Tmx::Object *object = objectGroup->GetObjects().at(j);
 
 			//init apple
-			//if (objectGroup->GetName() == "Apple")
-			//{
-			//	auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
-			//	//_listApples.push_back(apple);
+			if (objectGroup->GetName() == "Apple")
+			{
+				auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
+				//_listApples.push_back(apple);
 
-			//	_quadTree->insertObject(apple);
-			//}
+				_quadTree->insertObject(apple);
+			}
 
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")

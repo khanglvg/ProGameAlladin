@@ -24,7 +24,7 @@ Lv1Scene::~Lv1Scene()
 
 void Lv1Scene::init()
 {
-	mAladdin = new Aladdin(Vec2(300, 600), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
