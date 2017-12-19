@@ -131,7 +131,7 @@ void Enemy::setVelocity(const Vec2& velocity)
 
 bool Enemy::isTargetInViewRange()
 {
-	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 60)
+	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 200)
 		return true;
 	return false;
 }

@@ -140,6 +140,7 @@
     <ClCompile Include="MenuSelectorScene.cpp" />
     <ClCompile Include="GameObject\KnifeMenuSelector.cpp" />
     <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
+    <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -360,6 +361,7 @@
     <ClInclude Include="MenuSelectorScene.h" />
     <ClInclude Include="GameObject\KnifeMenuSelector.h" />
     <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
+    <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

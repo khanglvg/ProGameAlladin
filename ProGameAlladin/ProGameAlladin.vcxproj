@@ -202,6 +202,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
     <ClInclude Include="GameObject\BackgroundMenu.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
     <ClInclude Include="GameObject\Items\Apple\AppleExplosionState.h" />
@@ -355,6 +356,7 @@
   <ItemGroup>
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
     <ClCompile Include="GameObject\Items\Apple\AppleExplosionState.cpp" />
