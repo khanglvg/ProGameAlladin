@@ -1,6 +1,7 @@
 #include "Framework/Application.h"
 #include "Lv1Scene.h"
 #include "MenuSelectorScene.h"
+#include "BossScene.h"
 
 US_NS_JK
 

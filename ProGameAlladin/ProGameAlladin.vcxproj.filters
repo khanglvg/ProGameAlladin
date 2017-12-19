@@ -140,7 +140,7 @@
     <ClCompile Include="MenuSelectorScene.cpp" />
     <ClCompile Include="GameObject\KnifeMenuSelector.cpp" />
     <ClCompile Include="GameObject\Weapons\KnifeToThrow.cpp" />
-    <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
+    <ClCompile Include="BossScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Aladdin.h" />
@@ -361,7 +361,7 @@
     <ClInclude Include="MenuSelectorScene.h" />
     <ClInclude Include="GameObject\KnifeMenuSelector.h" />
     <ClInclude Include="GameObject\Weapons\KnifeToThrow.h" />
-    <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
+    <ClInclude Include="BossScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -442,6 +442,8 @@
     <Image Include="Resources\Menu\title.png" />
     <Image Include="Resources\Menu\menuknife.png" />
     <Image Include="Resources\Items\Items-Explosion.png" />
+    <Image Include="Resources\Boss\palace_back.png" />
+    <Image Include="Resources\Boss\pillars.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

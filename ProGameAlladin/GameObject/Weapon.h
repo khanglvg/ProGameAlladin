@@ -9,7 +9,7 @@ class Weapon: public GameObject
 {
 public:
 	Weapon();
-	Weapon(GameObject* owner, const Vec2& rigidPosition, const Size& rigidSize, const string& tag);
+	Weapon(GameObject* owner, const Vec2& rigidPosition, const Size& rigidSize, const Vec2& attackRange, const string& tag);
 	~Weapon();
 
 	void init() override;
@@ -22,6 +22,10 @@ public:
 private:
 	Texture _textureRigid;
 	GameObject* _owner;
+	
+	// khoang cach giua rigid cua weapon so voi rigid cua owner
+	Vec2 _attackRange;
+
 	
 };
 NS_JK_END

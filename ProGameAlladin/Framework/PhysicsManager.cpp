@@ -57,11 +57,14 @@ void PhysicsManager::update()
 				Manifold manifold;
 				if (_rigidBodies[it1]->isActived() && _rigidBodies[it2]->isActived())
 				{
-					if (AABBvAABB(_rigidBodies[it1], _rigidBodies[it2], manifold))
+				//	if (_rigidBodies[it1]->getBodyType() == DYNAMIC && _rigidBodies[it2]->getBodyType() == STATIC)
 					{
-						(_rigidBodies[it1])->_collidingBodies.push_back((_rigidBodies[it2])->_tag);
-						(_rigidBodies[it2])->_collidingBodies.push_back((_rigidBodies[it1])->_tag);
-						resolveCollision(manifold);
+						if (AABBvAABB(_rigidBodies[it1], _rigidBodies[it2], manifold))
+						{
+							(_rigidBodies[it1])->_collidingBodies.push_back((_rigidBodies[it2])->_tag);
+							(_rigidBodies[it2])->_collidingBodies.push_back((_rigidBodies[it1])->_tag);
+							resolveCollision(manifold);
+						}
 					}
 				}
 
