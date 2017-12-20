@@ -31,7 +31,7 @@ int GameManager::getScreenHeight() const
 	return _screenHeight;
 }
 
-void GameManager::update()
+void GameManager::update() const
 {
 	_runningScene->update();
 	
@@ -44,12 +44,12 @@ void GameManager::init(Scene* startScene)
 	
 }
 
-void GameManager::release()
+void GameManager::release() const
 {
 	_runningScene->release();
 }
 
-void GameManager::render()
+void GameManager::render() const
 {
 	_runningScene->render();
 }
@@ -61,6 +61,14 @@ GameManager* GameManager::getInstance()
 		_instance = new GameManager;
 	}
 	return _instance;
+}
+
+void GameManager::changeScene(Scene* newScene)
+{
+	_runningScene->release();
+	delete _runningScene;
+	_runningScene = newScene;
+	_runningScene->init();
 }
 
 float GameManager::getDeltaTime() const

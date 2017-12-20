@@ -31,10 +31,12 @@ void Scene::update()
 	{
 		const auto nodeToRemove = std::find(std::begin(_vectNode), std::end(_vectNode), node);
 		_vectNode.erase(nodeToRemove);
+		node->release();
 	}
 	_nodesToRemove.clear();
 
 	OutputDebugString(std::to_string(_vectNode.size()).c_str());
+	OutputDebugString(" ");
 
 	for(auto node: _vectNode)
 	{

@@ -2,6 +2,8 @@
 #include "../../Framework/Graphics.h"
 #include "../../Framework/Scene.h"
 #include "../../Framework/Graphics.h"
+#include "../../Framework/GameManager.h"
+#include "../../pugixml/pugixml.hpp"
 
 US_NS_JK
 
@@ -17,6 +19,30 @@ AppleToThrow::AppleToThrow(GameObject* owner, const Vec2 & position, const Size 
 
 	_owner = owner;
 	_isCollision = false;
+
+#pragma region READ - XML
+	pugi::xml_document doc;
+	const auto result = doc.load_file("Resources/Items/AppleToThrow.xml");
+
+	if (result)
+	{
+		for (auto animation : doc.child("Animations").children())
+		{
+			const pugi::char_t* name = animation.attribute("name").value();
+			vector<Rect> rects;
+
+			for (auto rect : animation.children())
+			{
+				rects.push_back(Rect(rect.attribute("x").as_float(),
+					rect.attribute("y").as_float(),
+					rect.attribute("w").as_float(),
+					rect.attribute("h").as_float()));
+			}
+			_animations.emplace(name, rects);
+		}
+	}
+#pragma endregion 
+	setActionName("AppleToThrow");
 }
 
 AppleToThrow::~AppleToThrow()
@@ -26,7 +52,7 @@ AppleToThrow::~AppleToThrow()
 void AppleToThrow::init()
 {
 	_textureApple.setName("AppleToThrow.png");
-	_textureApple.setSrcFile("Resources/Items/Apple.png");
+	_textureApple.setSrcFile("Resources/ala.png");
 	Graphics::getInstance()->loadTexture(_textureApple);
 }
 
@@ -50,11 +76,30 @@ void AppleToThrow::update()
 	else
 		_isCollision = false;
 
-	if(_isCollision)
+	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
 	{
-		//getCurrentScene()->removeNode(this);
 		_owner->getCurrentScene()->removeNode(this);
 	}
+	else if (_actionName == "Apple-Explosion" && _animationIndex == 4)
+	{
+		_owner->getCurrentScene()->removeNode(this);
+	}
+
+	if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
+	{
+		if (_actionName != "Apple-Explosion")
+		{
+			setVelocity(Vec2(0,0));
+			_actionName = "Apple-Explosion";
+			_animationIndex = 0;
+		}
+	}
+
+	//if(_isCollision)
+	//{
+	//	//getCurrentScene()->removeNode(this);
+	//	_owner->getCurrentScene()->removeNode(this);
+	//}
 }
 
 void AppleToThrow::release()
@@ -65,8 +110,30 @@ void AppleToThrow::release()
 
 void AppleToThrow::render()
 {
-	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), 
-		Rect(0, 0, 11, 12), 2);
+	const auto rect = _animations[_actionName][_animationIndex];
+
+	auto expect = 0.01;
+
+	Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
+		rect, 2);
+
+	if (_index <= expect)
+	{
+
+		Graphics::getInstance()->drawSprite(_textureApple, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
+			rect, 2);
+		_index += GameManager::getInstance()->getDeltaTime();
+	}
+	else
+	{
+		_index = 0;
+		_animationIndex++;
+		if (_animationIndex == _animations[_actionName].size())
+		{
+			_animationIndex = 0;
+			_isDone = true;
+		}
+	}
 }
 
 Texture AppleToThrow::getTexture() const
@@ -82,4 +149,14 @@ void AppleToThrow::setVelocity(const Vec2& velocity)
 bool AppleToThrow::isCollision() const
 {
 	return _isCollision;
+}
+
+void AppleToThrow::setActionName(const string actionName)
+{
+	_actionName = actionName;
+}
+
+string AppleToThrow::getActionName() const
+{
+	return _actionName;
 }

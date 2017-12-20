@@ -22,6 +22,36 @@ BigEnemyAttackState::~BigEnemyAttackState()
 
 void BigEnemyAttackState::onUpdate()
 {
+	_isChange = false;
+	auto _checkIndex = 0;
+	if (_enemy->getActionName() == "BigEnemy-AttackLow")
+	{
+		_checkIndex = 3;
+	}
+	if (_enemy->getIndex() == _checkIndex)
+	{
+		switch (rand() % 2)
+		{
+		case 0:
+			if (_enemy->getActionName() != "BigEnemy-AttackLow")
+			{
+				_isChange = true;
+			}
+			else _isChange = false;
+			_enemy->setActionName("BigEnemy-AttackLow");
+			break;
+		case 1:
+			if (_enemy->getActionName() != "BigEnemy-AttackHigh")
+			{
+				_isChange = true;
+			}
+			else _isChange = false;
+			_enemy->setActionName("BigEnemy-AttackHigh");
+			break;
+		default:
+			break;
+		}
+	}
 	auto bigEnemy = static_cast<BigEnemy*>(_enemy);
 
 	if (_enemy->isRight())
@@ -41,13 +71,17 @@ void BigEnemyAttackState::onExit()
 
 EnemyState * BigEnemyAttackState::checkTransition()
 {
+	auto _checkIndex = 0;
+	if (_enemy->getActionName() == "BigEnemy-AttackLow")
+	{
+		_checkIndex = 3;
+	}
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		if (_enemy->getIndex() >= 4)
+		if (_enemy->getIndex() == _checkIndex)
 		{
 			return new BigEnemyWalkState(_enemy);
 		}
 	}
 	return nullptr;
 }
- 

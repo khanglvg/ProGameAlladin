@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-BackgroundSky::BackgroundSky(const string& srcFile, const int& layer)
+BackgroundSky::BackgroundSky(const string& srcFile, const int& layer):Node()
 {
 	_srcFile = srcFile;
 	_layer = layer;

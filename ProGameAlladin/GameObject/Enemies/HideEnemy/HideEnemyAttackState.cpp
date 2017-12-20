@@ -43,7 +43,7 @@ EnemyState * HideEnemyAttackState::checkTransition()
 {
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		if (_enemy->getIndex() >= 3)
+		if (_enemy->getIndex() == 0)
 		{
 			return new HideEnemyWalkState(_enemy);
 		}

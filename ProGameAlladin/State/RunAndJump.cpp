@@ -34,6 +34,7 @@ void RunAndJump::onEnter()
 		aladdin->setVelocity(Vec2(150, -270));
 	}
 
+	aladdin->getRigidBody()->setSize(Size(4, 60));
 	aladdin->setActionName("RunAndJump");
 }
 
@@ -70,6 +71,12 @@ void RunAndJump::onUpdate()
 	}
 }
 
+void RunAndJump::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->getRigidBody()->setSize(Size(10, 60));
+}
+
 State* RunAndJump::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
@@ -85,7 +92,7 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnTheFire())// || aladdin->isOnThePlatform())
 		return new Idle(_node);
 	if (aladdin->isOnTheRope())
 	{

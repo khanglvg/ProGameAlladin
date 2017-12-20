@@ -38,7 +38,7 @@ void FatEnemyAttackState::onUpdate()
 	{
 		if (!_isThrew)
 		{
-			const auto knife = new KnifeToThrow(Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
+			const auto knife = new KnifeToThrow(_enemy,Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
 			if (_enemy->getScale() == Vec2(1, 1))
 			{
 				knife->getRigidBody()->setVelocity(Vec2(-400, 0));
@@ -68,9 +68,16 @@ EnemyState * FatEnemyAttackState::checkTransition()
 {
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
-		if (_enemy->getIndex() >= 4)
+		if  (_enemy->getIndex() == 0)
 		{
 			return new FatEnemyWalkState(_enemy);
+		}
+	}
+	if (!_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
+	{
+		if (_enemy->getIndex() == 0)
+		{
+			return new FatEnemyIdleState(_enemy);
 		}
 	}
 	return nullptr;

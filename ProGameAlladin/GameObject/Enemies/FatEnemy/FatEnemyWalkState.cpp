@@ -22,13 +22,13 @@ void FatEnemyWalkState::onUpdate()
 {
 	auto fatEnemy = static_cast<FatEnemy*>(_enemy);
 
-	if (!_enemy->isRight() && _enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && _enemy->isAllowMoveLeft() && _enemy->getIndex()-1 == 0)
 	{
 		fatEnemy->setScale(Vec2(1, 1));
 		fatEnemy->setVelocity(Vec2(-50, fatEnemy->getVelocity().getY()));
 	}
 
-	else if (_enemy->isRight() && _enemy->isAllowMoveRight())
+	else if (_enemy->isRight() && _enemy->isAllowMoveRight() && _enemy->getIndex()-1 == 0)
 	{
 		fatEnemy->setScale(Vec2(-1, 1));
 		fatEnemy->setVelocity(Vec2(50, fatEnemy->getVelocity().getY()));
@@ -45,15 +45,15 @@ EnemyState * FatEnemyWalkState::checkTransition()
 	{
 		return new FatEnemyAttackState(_enemy);
 	}
-	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft())
+	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft() && _enemy->getIndex()==0)
 	{
 		return new FatEnemyIdleState(_enemy);
 	}
-	if (_enemy->isRight() && !_enemy->isAllowMoveRight())
+	if (_enemy->isRight() && !_enemy->isAllowMoveRight() && _enemy->getIndex() == 0)
 	{
 		return new FatEnemyIdleState(_enemy);
 	}
-	if (!_enemy->isTargetInViewRange())
+	if (!_enemy->isTargetInViewRange() && _enemy->getIndex() == 0)
 	{
 		return new FatEnemyIdleState(_enemy);
 	}

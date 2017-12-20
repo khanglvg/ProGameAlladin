@@ -94,6 +94,7 @@ protected:
 	//fix foot posY
 	int _footPosY;
 	void setFootPosY();
+
 };
 
 NS_JK_END

@@ -23,12 +23,8 @@ void Jump::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if(Input::getInstance()->getKey(KEY_D))
-	{
-		aladdin->setVelocity(Vec2(0, -270)); // -300 is High jump (hold D), -200 is a normal jump		
-	}
-
-	
+	aladdin->setVelocity(Vec2(0, -250)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->getRigidBody()->setSize(Size(4, 60));
 	aladdin->setActionName("Jump");
 }
 
@@ -49,6 +45,12 @@ void Jump::onUpdate()
 	}
 }
 
+void Jump::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->getRigidBody()->setSize(Size(10, 60));
+}
+
 State* Jump::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
@@ -60,7 +62,7 @@ State* Jump::checkTransition()
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);
 
-	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Idle(_node);
 
 	if (aladdin->isOnTheRope())

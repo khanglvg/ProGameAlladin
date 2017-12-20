@@ -10,7 +10,7 @@ NS_JK_BEGIN
 class KnifeToThrow : public GameObject
 {
 public:
-	KnifeToThrow(const Vec2 & position, const Size & size);
+	KnifeToThrow(GameObject* owner, const Vec2 & position, const Size & size);
 	~KnifeToThrow();
 
 	void init() override;
@@ -24,15 +24,23 @@ public:
 	bool isCollision() const;
 
 	void setGravityScale(const float& gravity);
+
+	void setActionName(string);
+	string getActionName() const;
 #pragma endregion 
 
 private:
-	std::map<int, Rect> _animations;
+	std::map<string, vector<Rect>> _animations;
 	int _animationIndex;
+	string _actionName;
 	float _index = 0;
+
+	bool _isDone = false;
 
 	Texture _textureKnife;
 	bool _isCollision;
+
+	GameObject* _owner;
 };
 NS_JK_END
 #endif

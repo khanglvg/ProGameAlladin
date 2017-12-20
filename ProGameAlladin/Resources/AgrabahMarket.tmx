@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="324">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="326">
  <tileset firstgid="1" name="AgrabahMarket" tilewidth="4773" tileheight="689" tilecount="2" columns="1">
   <image source="AgrabahMarket.png" trans="3f48cc" width="4773" height="1378"/>
  </tileset>
@@ -165,23 +165,23 @@
   <object id="180" gid="5" x="4228.67" y="136" width="43" height="18"/>
  </objectgroup>
  <objectgroup name="Enemy_1">
-  <object id="186" gid="6" x="681.5" y="628" width="44" height="58"/>
+  <object id="186" gid="6" x="681.5" y="627" width="44" height="58"/>
   <object id="187" gid="7" x="2706" y="406" width="44" height="58"/>
  </objectgroup>
  <objectgroup name="Enemy_2">
-  <object id="188" gid="8" x="950.333" y="627.667" width="55" height="52"/>
+  <object id="188" gid="8" x="950.333" y="626.667" width="55" height="52"/>
   <object id="189" gid="8" x="1699" y="278" width="55" height="52"/>
-  <object id="190" gid="8" x="3238.33" y="659.917" width="55" height="52"/>
-  <object id="191" gid="8" x="3711.67" y="660.333" width="55" height="52"/>
-  <object id="192" gid="8" x="4245" y="660.333" width="55" height="52"/>
+  <object id="190" gid="8" x="3238.33" y="658.917" width="55" height="52"/>
+  <object id="191" gid="8" x="3711.67" y="659.333" width="55" height="52"/>
+  <object id="192" gid="8" x="4245" y="659.333" width="55" height="52"/>
   <object id="195" gid="8" x="2964" y="294" width="55" height="52"/>
   <object id="196" gid="8" x="4428.33" y="214.667" width="55" height="52"/>
   <object id="193" gid="9" x="3679.67" y="485.333" width="55" height="52"/>
  </objectgroup>
  <objectgroup name="Enemy_3">
-  <object id="197" gid="10" x="1716.33" y="660" width="43" height="50"/>
+  <object id="197" gid="10" x="1716.33" y="659" width="43" height="50"/>
   <object id="199" gid="10" x="2027" y="277.5" width="43" height="50"/>
-  <object id="200" gid="10" x="3475.5" y="660" width="43" height="50"/>
+  <object id="200" gid="10" x="3475.5" y="659" width="43" height="50"/>
   <object id="201" gid="10" x="4572.5" y="623.5" width="43" height="50"/>
   <object id="205" gid="10" x="3399" y="327" width="43" height="50"/>
   <object id="206" gid="10" x="4606" y="215" width="43" height="50"/>
@@ -203,7 +203,7 @@
   <object id="213" gid="15" x="2840.67" y="422.667" width="36" height="39"/>
  </objectgroup>
  <objectgroup name="Camel">
-  <object id="218" gid="16" x="1538" y="660.152" width="63" height="44"/>
+  <object id="218" gid="16" x="1538" y="659.152" width="63" height="44"/>
  </objectgroup>
  <layer name="Tile Layer 2" width="1" height="1">
   <data encoding="base64" compression="zlib">
@@ -211,7 +211,7 @@
   </data>
  </layer>
  <objectgroup name="Ground">
-  <object id="99" x="0" y="628.333" width="1461.97" height="60.3334"/>
+  <object id="99" x="-12.1158" y="627.333" width="1486.2" height="200"/>
   <object id="114" name="StairsGround" x="1348" y="574.333" width="95.333" height="56.5"/>
   <object id="115" name="StairsGround" x="1310.67" y="582.333" width="132.667" height="49"/>
   <object id="117" name="StairsGround" x="1268.67" y="590" width="175.333" height="42"/>
@@ -219,7 +219,7 @@
   <object id="119" name="StairsGround" x="1188" y="607.334" width="257.333" height="24"/>
   <object id="120" name="StairsGround" x="1148" y="614.667" width="296" height="17.3334"/>
   <object id="122" name="StairsGround" x="1387.33" y="566.417" width="112" height="10.9167"/>
-  <object id="123" x="1462.67" y="660.667" width="2910.33" height="28.6666"/>
+  <object id="123" x="1462.67" y="659.667" width="2910.33" height="29.6666"/>
   <object id="133" name="StairsGround" x="2560.33" y="518.333" width="187" height="11.3333"/>
   <object id="134" name="StairsGround" x="2512" y="528" width="64.5" height="13"/>
   <object id="135" name="StairsGround" x="2456.5" y="535.5" width="70.5" height="12"/>
@@ -246,6 +246,7 @@
   <object id="290" name="StairsGround" x="2517.5" y="643.5" width="45" height="11"/>
   <object id="291" name="StairsGround" x="2546.5" y="651" width="41" height="10"/>
   <object id="292" name="StairsGround" x="2573" y="659" width="31" height="3.5"/>
+  <object id="324" name="StairsGround" x="1136.33" y="622" width="20" height="10.6667"/>
  </objectgroup>
  <objectgroup name="Platform" opacity="0">
   <object id="128" name="Platform" x="1748.67" y="439.333" width="292.667" height="13.3333"/>
@@ -268,7 +269,7 @@
  </objectgroup>
  <objectgroup name="Wall">
   <object id="124" x="2177.33" y="293.333" width="65.3333" height="395.333"/>
-  <object id="131" x="1403.33" y="1.33333" width="88" height="432.667"/>
+  <object id="131" x="1403.33" y="1.33333" width="88" height="448.667"/>
   <object id="162" x="2757.5" y="580.5" width="62" height="109.5"/>
   <object id="166" x="2609.33" y="168.333" width="32.6667" height="251.667"/>
   <object id="168" x="3552" y="130.833" width="50.6667" height="237.167"/>
@@ -292,8 +293,8 @@
   <object id="226" x="3070.67" y="652" width="162.667" height="34.6667"/>
  </objectgroup>
  <objectgroup name="Rope">
-  <object id="125" x="2090" y="346.666" width="4" height="228.818"/>
-  <object id="126" x="1546" y="173.833" width="3.5" height="174.333"/>
+  <object id="125" x="2090" y="367.666" width="4" height="207.818"/>
+  <object id="126" x="1546" y="191.833" width="3.5" height="156.333"/>
   <object id="127" x="4713" y="376.667" width="5" height="166.833"/>
   <object id="144" x="2698" y="112.273" width="3" height="192.894"/>
  </objectgroup>

@@ -14,8 +14,8 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	setPosition(_rigid->getPosition());
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(10);
-	_rigid->setRestitution(0.5);
-	_rigid->setGravityScale(1);
+	_rigid->setRestitution(0);
+	_rigid->setGravityScale(1.5);
 	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 	setPosition(_rigid->getPosition());
 	_rigid->setTag("aladdin");
@@ -80,15 +80,17 @@ void Aladdin::update()
 		_isBesideTheStair = false;
 		_isBesideTheWall = false;
 		_isOnTheRope = false;
+		_isOnTheFire = false;
 	}
 	else
 	{
 		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
 		auto const wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
-		auto const stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
+		const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
-		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
+		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform" );
 		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
+		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
 
 
 
@@ -107,6 +109,9 @@ void Aladdin::update()
 			_isBesideTheStair = false;
 		else
 		{
+			
+			//_stairInCollision 
+			
 			_isBesideTheStair = true;
 		}
 
@@ -141,6 +146,14 @@ void Aladdin::update()
 			_isOnTheRope = false;
 		else
 			_isOnTheRope = true;
+
+		//
+		// collision with fire
+		//
+		if (fire == _rigid->getCollidingBodies().end())
+			_isOnTheFire = false;
+		else
+			_isOnTheFire = true;
 	}
 	
 
@@ -153,6 +166,7 @@ void Aladdin::update()
 		delete _currentState;
 		_currentState = newState;
 		_currentState->onEnter();
+		_animationIndex = 0;
 	}
 
 
@@ -164,8 +178,8 @@ void Aladdin::render()
 	// Vec2 là origin, được điều chỉnh trong hàm drawSprite bằng biến center để chuyển từ pixel của directx thành float (0 -> 1)
 	// Left-top được xem là gốc (0.0f,0.0f)
 
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
+	//if (_animationIndex >= _animations[_actionName].size())
+	//	_animationIndex = 0;
 
 	const auto rect = _animations[_actionName][_animationIndex];
 
@@ -180,11 +194,7 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
-	if(_actionName=="SlashWhenClimbing")
-	{
-		origin = Vec2(0.4f, 1.0f);
-	}
-	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	//Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)
@@ -299,6 +309,11 @@ bool Aladdin::isOnThePlatform() const
 bool Aladdin::isOnTheRope() const
 {
 	return _isOnTheRope;
+}
+
+bool Aladdin::isOnTheFire() const
+{
+	return _isOnTheFire;
 }
 
 void Aladdin::setIndex(const int& index)

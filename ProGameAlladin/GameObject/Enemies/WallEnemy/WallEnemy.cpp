@@ -13,7 +13,8 @@ WallEnemy::WallEnemy()
 
 WallEnemy::WallEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player) :Enemy(position, size, tag, player)
 {
-	_viewRange = 50;
+	_rigid->setActive(false);
+	_viewRange = 30;
 	setScale(Vec2(1, 1));
 	_currentState = new WallEnemyIdleState(this);
 }
@@ -54,15 +55,13 @@ void WallEnemy::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+		_animationIndex = 0;
 	}
 
 }
 
 void WallEnemy::render()
 {
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
-
 	auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
