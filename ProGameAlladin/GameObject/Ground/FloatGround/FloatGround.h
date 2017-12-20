@@ -33,15 +33,12 @@ public:
 
 	Rect getRect()override;
 
-	bool isOnCollision() const;
-
 	int getIndex();
 
 	std::map<string, vector<Rect>> _animations;
 
 protected:
 	Texture _textureFloatGround;
-	bool _isCollision;
 
 	Vec2 _lastPosition;
 

@@ -96,6 +96,8 @@ State* RunAndJump::checkTransition()
 		return new Idle(_node);
 	if (aladdin->isOnTheRope())
 	{
+		aladdin->setRigidPosition(Vec2(aladdin->getRigidPosition().getX() + aladdin->getRigidBody()->getSize().getWidth() / 2, aladdin->getRigidPosition().getY()));
+		aladdin->setPosition(aladdin->getRigidPosition() - aladdin->getRigidBody()->getOffset());
 		return new IdleToClimb(_node);
 	}
 	return nullptr;

@@ -53,6 +53,13 @@ public:
 	bool isOnTheRope() const;
 	bool isOnTheFire() const;
 
+	void setAllowToClimb(const bool& allow) override;
+	bool isAllowToClimb() override;
+
+	void setIsPause(const bool& pause);
+
+	void setIsClimbDown(const bool& climbDown);
+
 
 private:
 	
@@ -71,6 +78,9 @@ private:
 	State* _currentState;
 
 	GameObject* _stairInCollision;
+
+	bool _isPause;
+	bool _isClimbDown;
 
 	bool _isOnTheGround;
 	bool _isBesideTheStair;

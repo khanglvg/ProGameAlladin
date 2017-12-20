@@ -146,6 +146,16 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 					gameObject->setRigidTag("stair");
 					_listStairGround.push_back(gameObject);
 				}
+				else if (object->GetName() == "StairsGroundLow")
+				{
+					gameObject->setRigidTag("stair");
+					_listStairGroundLow.push_back(gameObject);
+				}
+				else if (object->GetName() == "StairsGroundHigh")
+				{
+					gameObject->setRigidTag("stair");
+					_listStairGroundHigh.push_back(gameObject);
+				}
 				else
 				{
 					_listGround.push_back(gameObject);
@@ -172,12 +182,10 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init rope
 			if (objectGroup->GetName() == "Rope")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE);
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth()*16, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE);
 				gameObject->setRigidTag("rope");
 
 				_listRope.push_back(gameObject);
-
-				//_quadTree->InsertStaticObject(gameObject);
 			}
 
 			//init FireGround
@@ -199,6 +207,33 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 				_listHorizontalBar.push_back(gameObject);
 
 				//_quadTree->InsertStaticObject(gameObject);
+			}
+
+			//init Trigger Stair
+			if (objectGroup->GetName() == "Trigger")
+			{
+				if (object->GetName() == "Trigger-Low")
+				{
+					_triggerLow = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::TRIGGER);
+					_triggerLow->setRigidTag("trigger");
+					_triggerLow->getRigidBody()->setDensity(0.000000001);
+				}
+				else
+				{
+					_triggerHigh = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::TRIGGER);
+					_triggerHigh->setRigidTag("trigger");
+					_triggerHigh->getRigidBody()->setDensity(0.000000001);
+				}
+			}
+
+			//init Stop
+			if (objectGroup->GetName() == "Stop")
+			{
+				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::TRIGGER);
+				gameObject->setRigidTag("stop");
+				gameObject->getRigidBody()->setDensity(0.0000001);
+
+				_listStop.push_back(gameObject);
 			}
 		}
 	}
@@ -248,9 +283,23 @@ void GameMap::init()
 	{
 		_listHorizontalBar[i]->init();
 	}
+	for (size_t i = 0; i < _listStop.size(); i++)
+	{
+		_listStop[i]->init();
+	}
 	for (size_t i = 0; i < listVisible.size(); i++)
 	{
 		listVisible[i]->init();
+	}
+	for (size_t i = 0; i < _listStairGroundLow.size(); i++)
+	{
+		_listStairGroundLow[i]->init();
+		_listStairGroundLow[i]->getRigidBody()->setActive(false);
+	}
+	for (size_t i = 0; i < _listStairGroundHigh.size(); i++)
+	{
+		_listStairGroundHigh[i]->init();
+		_listStairGroundHigh[i]->getRigidBody()->setActive(false);
 	}
 }
 
@@ -268,8 +317,57 @@ void GameMap::update()
 	for (size_t i = 0; i < _listFloatGrounds.size(); i++)
 		_listFloatGrounds[i]->update();
 
-	//player
-	//_player->update();
+	for (size_t i = 0; i < _listRope.size(); i++)
+		_listRope[i]->update();
+
+	_triggerLow->update();
+	_triggerHigh->update();
+
+	if (_triggerLow->isOnCollision())
+	{
+		_isActivedLow = true;
+	}
+	else
+	{
+		if (_isActivedLow)
+		{
+			for (size_t i = 0; i < _listStairGroundLow.size(); i++)
+			{
+				if (!_listStairGroundLow[i]->getRigidBody()->isActived())
+				{
+					_listStairGroundLow[i]->getRigidBody()->setActive(true);
+				}
+				else
+				{
+					_listStairGroundLow[i]->getRigidBody()->setActive(false);
+				}
+			}
+			_isActivedLow = false;
+		}
+	}
+
+	if (_triggerHigh->isOnCollision())
+	{
+		_isActivedHigh = true;
+	}
+	else
+	{
+		if (_isActivedHigh)
+		{
+			for (size_t i = 0; i < _listStairGroundHigh.size(); i++)
+			{
+				if (!_listStairGroundHigh[i]->getRigidBody()->isActived())
+				{
+					_listStairGroundHigh[i]->getRigidBody()->setActive(true);
+				}
+				else
+				{
+					_listStairGroundHigh[i]->getRigidBody()->setActive(false);
+				}
+			}
+			_isActivedHigh = false;
+		}
+	}
 }
 
 void GameMap::draw()
@@ -436,6 +534,10 @@ void GameMap::draw()
 	{
 		_listHorizontalBar[i]->render();
 	}
+	for (size_t i = 0; i < _listStop.size(); i++)
+	{
+		_listStop[i]->render();
+	}
 	for (auto object : listVisible)
 	{
 		object->render();
@@ -513,6 +615,28 @@ void GameMap::release()
 			delete _listHorizontalBar[i];
 	}
 	_listHorizontalBar.clear();
+
+	for (size_t i = 0; i < _listStop.size(); i++)
+	{
+		if (_listStop[i])
+			delete _listStop[i];
+	}
+	_listStop.clear();
+
+	for (size_t i = 0; i < _listStairGroundLow.size(); i++)
+	{
+		if (_listStairGroundLow[i])
+			delete _listStairGroundLow[i];
+	}
+	_listStairGroundLow.clear();
+
+	for (size_t i = 0; i < _listStairGroundHigh.size(); i++)
+	{
+		if (_listStairGroundHigh[i])
+			delete _listStairGroundHigh[i];
+	}
+	_listStairGroundHigh.clear();
+
 	//for (size_t i = 0; i < listVisible.size(); i++)
 	//{
 	//	if (listVisible[i])

@@ -12,7 +12,7 @@ public:
 
 	enum GameObjectType
 	{
-		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS, FIREGROUND, WALL, PLATFORM
+		NONE, PLAYER, ENEMIES, APPLES, WEAPONS, APPLEWEAPON, GROUND, ROPE, HORIZONTALBAR, FLOATGROUND, SPRINGBOARD, CAMELS, FIREGROUND, WALL, PLATFORM, TRIGGER
 	};
 
 	GameObject();
@@ -26,6 +26,7 @@ public:
 
 
 #pragma region GET-SET
+
 	virtual Size getSize() const;
 	virtual Vec2 getRigidPosition() const;
 
@@ -41,13 +42,21 @@ public:
 
 	bool isOwnerRight() const;
 	void setIsOwnerRight(const bool& isOwnerRight);
+
+	virtual void setAllowToClimb(const bool& allow);
+	virtual bool isAllowToClimb();
+
+	virtual bool isOnCollision();
 #pragma endregion
 
 	bool isVisible() const;
 
 protected:
+	bool _isAllowClimb;
+
 	GameObjectType _tag;
 
+	bool _isCollision;
 
 	Texture _textureRigid;
 	RigidBody* _rigid;

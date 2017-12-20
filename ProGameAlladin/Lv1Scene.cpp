@@ -5,7 +5,6 @@
 #include "GameObject/Weapons/AppleToThrow.h"
 #include "GameObject/Wall/Wall.h"
 #include "GameObject/BackgroundSky.h"
-#include "GameObject/Rope.h"
 #include "Framework/Text.h"
 
 US_NS_JK
@@ -24,7 +23,7 @@ Lv1Scene::~Lv1Scene()
 
 void Lv1Scene::init()
 {
-	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(2000, -100), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
