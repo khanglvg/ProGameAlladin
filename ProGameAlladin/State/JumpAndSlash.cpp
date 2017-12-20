@@ -3,6 +3,7 @@
 #include "JumpAndThrow.h"
 #include "../GameObject/Aladdin.h"
 #include "Grounding.h"
+#include "IdleToClimb.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -53,15 +54,7 @@ void JumpAndSlash::onUpdate()
 	//	if (aladdin->getPosition().getY() < aladdin->getMaxHeight())
 	//		_state = FALL;
 	//}
-	//if (_state == FALL)
-	//{
-	//	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	//		aladdin->setPosition(Vec2(aladdin->getPosition().getX() - 2, aladdin->getPosition().getY() + 2));
-	//	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	//		aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2, aladdin->getPosition().getY() + 2));
-	//	if (aladdin->getPosition().getY() >= aladdin->getYGround())
-	//		_state = NONE;
-	//}
+
 }
 
 void JumpAndSlash::onExit()
@@ -83,6 +76,8 @@ State* JumpAndSlash::checkTransition()
 	if (aladdin->isBesideTheStair())
 		return new Idle(_node);
 
+	if (aladdin->isOnTheRope())
+		return new IdleToClimb(_node);
 	return nullptr;
 }
 

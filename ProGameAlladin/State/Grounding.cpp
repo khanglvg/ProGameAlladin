@@ -17,8 +17,11 @@ void Grounding::onEnter()
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
 	aladdin->setActionName("Grounding");
-	//aladdin->setOrigin(Vec2(0.5f, 1.0f));
+
 }
+
+
+
 
 State*Grounding::checkTransition()
 {

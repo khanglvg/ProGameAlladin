@@ -13,6 +13,7 @@
 #include "Random.h"
 #include "../Framework/Camera.h"
 #include "IdleToClimb.h"
+#include "Brake.h"
 
 US_NS_JK
 
@@ -145,6 +146,13 @@ State* Run::checkTransition()
 		return new Push(_node);
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
-	
+	if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+	{
+		return new Brake(_node);
+	}
+	if (aladdin->getIndex() >= 8 && Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		return new Brake(_node);
+	}
 	return nullptr;
 }

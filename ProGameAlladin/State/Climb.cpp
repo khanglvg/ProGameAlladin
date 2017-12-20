@@ -72,6 +72,8 @@ State* Climb::checkTransition()
 		return new IdleToClimb(_node);
 	}
 	
+	if (Input::getInstance()->getKey(KEY_D))
+		return new JumpWhileClimb(_node);
 		
 
 	return nullptr;

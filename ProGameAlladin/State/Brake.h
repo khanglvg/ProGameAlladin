@@ -7,6 +7,7 @@ NS_JK_BEGIN
 
 class Brake:public State
 {
+public:
 	Brake(Node* node);
 	~Brake() override;
 	void onEnter() override;

@@ -180,6 +180,10 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
+	if(_actionName=="SlashWhenClimbing")
+	{
+		origin = Vec2(0.4f, 1.0f);
+	}
 	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 

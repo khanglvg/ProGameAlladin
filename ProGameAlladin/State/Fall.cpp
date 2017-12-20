@@ -4,6 +4,7 @@
 #include "JumpAndSlash.h"
 #include "../GameObject/Aladdin.h"
 #include "IdleToClimb.h"
+#include "Grounding.h"
 US_NS_JK
 
 Fall::Fall(Node* node):State(node)
@@ -39,6 +40,12 @@ void Fall::onUpdate()
 	}
 }
 
+void Fall::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->setVelocity(Vec2(0, 0));
+}
+
 State* Fall::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
@@ -49,6 +56,6 @@ State* Fall::checkTransition()
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
 	if (aladdin->isOnTheGround())
-		return new Idle(_node);
+		return new Grounding(_node);
 	return nullptr;
 }
