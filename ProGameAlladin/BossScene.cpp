@@ -2,6 +2,7 @@
 #include "GameObject/Aladdin.h"
 #include "Framework/Camera.h"
 #include "GameObject/BackgroundLv1Scene.h"
+#include "GameObject/Enemies/Jafar/Jafar.h"
 US_NS_JK
 
 BossScene::BossScene()
@@ -19,6 +20,7 @@ void BossScene::init()
 
 	// =============================================== ALADDIN ==============================================================================
 	_aladdin = new Aladdin(Vec2(300 * scale, 610 * scale), Size(10, 60));
+	_aladdin->getRigidBody()->setGravityScale(1);
 	_vectNode.push_back(_aladdin);
 	_aladdin->setCurrentScene(this);
 	// ======================================================================================================================================
@@ -72,21 +74,30 @@ void BossScene::init()
 	const float platformPositionY = 552;
 
 	auto platform1 = new GameObject(Vec2((174) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform1->setRigidTag("ground");
+	platform1->setRigidTag("platform");
 	_vectNode.push_back(platform1);
 
 	auto platform2 = new GameObject(Vec2((563) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform2->setRigidTag("ground");
+	platform2->setRigidTag("platform");
+	platform2->getRigidBody()->setDensity(0.00000001);
 	_vectNode.push_back(platform2);
 
 	auto platform3 = new GameObject(Vec2((944) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform3->setRigidTag("ground");
+	platform3->setRigidTag("platform");
 	_vectNode.push_back(platform3);
 
 	auto platform4 = new GameObject(Vec2((1327) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform4->setRigidTag("ground");
+	platform4->setRigidTag("platform");
 	_vectNode.push_back(platform4);
 	// =============================================================================================================================================
+
+
+
+	// =============================================== BOSS ========================================================================================
+	_vectNode.push_back(new Jafar(Vec2(770 * scale, 550 * scale), Size(10, 60), GameObject::GameObjectType::ENEMIES, _aladdin));
+	// =============================================================================================================================================
+
+
 
 
 	Camera::getInstance()->follow(_aladdin);

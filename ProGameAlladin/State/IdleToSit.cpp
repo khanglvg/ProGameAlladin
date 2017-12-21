@@ -47,7 +47,8 @@ State* IdleToSit::checkTransition()
 		return new SitAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW) && !Input::getInstance()->isKeyUp(KEY_DOWN_ARROW))
 		return new Sit(_node);
-
+	if (aladdin->getIndex() >= 3)
+		return new Idle(_node);
 	return nullptr;
 }
 

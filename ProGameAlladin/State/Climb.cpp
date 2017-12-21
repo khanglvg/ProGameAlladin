@@ -93,11 +93,6 @@ State* Climb::checkTransition()
 		aladdin->getRigidBody()->setGravityScale(1);
 		return new Idle(_node);
 	}
-	//if (Input::getInstance()->isKeyUp(KEY_UP_ARROW) || Input::getInstance()->isKeyUp(KEY_DOWN_ARROW))
-	//{
-	//	aladdin->setVelocity(Vec2(0, 0));
-	//	return new IdleToClimb(_node);
-	//}
 		
 	return nullptr;
 }

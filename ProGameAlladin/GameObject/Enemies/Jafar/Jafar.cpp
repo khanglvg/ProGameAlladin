@@ -1,18 +1,25 @@
 ﻿#include "Jafar.h"
 #include "../../Framework/Graphics.h"
+#include "../../../Framework/GameManager.h"
 US_NS_JK
 
 Jafar::Jafar()
 {
 }
 
-Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
-	:Enemy(position, size, tag, player)
+Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* target)
+	:Enemy(position, size, tag, target)
 {
 	_attackRange = 80;
 	_boundaryLeft = position.x - 90;
 	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));
+
+	_health = 5;
+
+	_rigid->setTag("jafar");
+	_isCollisionWithApple = false;
+	_isTransform = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -36,6 +43,9 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 		}
 	}
 #pragma endregion 
+
+	//_actionName = "Idle";
+	_actionName = "Attack";
 }
 Jafar::~Jafar()
 {
@@ -44,6 +54,7 @@ Jafar::~Jafar()
 void Jafar::init()
 {
 	_textureJafar.setSrcFile("Resources/Boss/jafar.png");
+	//_textureJafar.setSrcFile("Resources/red_rect.png");
 	_textureJafar.setName("Jafar");
 	Graphics::getInstance()->loadTexture(_textureJafar);
 }
@@ -54,12 +65,93 @@ void Jafar::release()
 
 void Jafar::update()
 {
+	if(_target->getRigidPosition().getX() < _rigid->getPosition().getX())
+	{
+		setScale(Vec2(-1, 1));
+	}
+	else
+	{
+		setScale(Vec2(1, 1));
+	}
+
+	_position = _rigid->getPosition() - _rigid->getOffset();
+
+
+	auto const apple = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
+
+	if(apple != _rigid->getCollidingBodies().end())
+	{
+		_isCollisionWithApple = true;
+	}
+	else
+	{
+		_isCollisionWithApple = false;
+	}
+
+
+
+	if(_isCollisionWithApple)
+	{
+		if (_health > 0)
+		{
+			_health--;
+			_isCollisionWithApple = false;
+		}
+	}
+
+
+	if (_health <= (21-8))
+	{
+		// bien hinh
+		_isTransform = true;
+	}
+	else
+	{
+		_isTransform = false;
+	}
+
+	if(_health == 0)
+	{
+		OutputDebugString("dieeeeeeeeeeeeeeeeeeeeeeeeeee");
+	}
+
+//	_rigid->getCollidingBodies().clear();
 }
 
 void Jafar::render()
 {
-	Graphics::getInstance()->drawSprite(_textureJafar, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
-		Rect(0, 0, 0, 0), 2);
+	if (_isTransform)
+	{
+			
+	}
+
+
+	const auto rect = _animations[_actionName][_animationIndex];
+	const auto expect = 0.05;
+
+	const auto origin = Vec2(0.5f, 1.0f);
+
+	Graphics::getInstance()->drawSprite(_textureJafar, origin, getTransformMatrix(), Color(255, 255, 255, 255),
+		rect, 2);
+
+	if (_index <= expect)
+	{
+		Graphics::getInstance()->drawSprite(_textureJafar, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		_index += GameManager::getInstance()->getDeltaTime();
+	}
+	else
+	{
+		_index = 0;
+		_animationIndex++;
+		if (_animationIndex == _animations[_actionName].size())
+			_animationIndex = 0;
+
+	}
+}
+
+bool Jafar::isTransform() const
+{
+	return _isTransform;
 }
 
 Rect Jafar::getRect()

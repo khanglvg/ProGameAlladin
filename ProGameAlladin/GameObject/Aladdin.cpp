@@ -141,7 +141,7 @@ void Aladdin::update()
 		//
 		if (platform == _rigid->getCollidingBodies().end())
 			_isOnThePlatform = false;
-		else
+		else if (PhysicsManager::getIntance()->getCollisionNormal() == Vec2(0, -1))
 			_isOnThePlatform = true;
 
 		//

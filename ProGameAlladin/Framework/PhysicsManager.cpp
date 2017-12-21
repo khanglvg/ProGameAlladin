@@ -63,6 +63,13 @@ void PhysicsManager::update()
 						{
 							(_rigidBodies[it1])->_collidingBodies.push_back((_rigidBodies[it2])->_tag);
 							(_rigidBodies[it2])->_collidingBodies.push_back((_rigidBodies[it1])->_tag);
+
+						/*	if ((_rigidBodies[it1]->getTag() == "aladdin" &&
+								_rigidBodies[it2]->getTag() == "platform" &&
+								(manifold.collisionNormal == Vec2(0, 1) ||
+								manifold.collisionNormal == Vec2(0,-1)	)))
+								return;*/
+
 							resolveCollision(manifold);
 						}
 					}
@@ -408,7 +415,7 @@ bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold)
 			{
 				if (vecAtoB.getY() < 0)
 				{
-					manifold.collisionNormal = Vec2(0, -1);
+					manifold.collisionNormal = Vec2(0, -1); // huong va cham tu tren xuong theo truc Y A(dynamic) B(static)
 					setCollisionNormal(manifold);
 				}
 				else
