@@ -96,6 +96,7 @@ void Aladdin::update()
 		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
 		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
+		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
 
 
 
@@ -167,6 +168,23 @@ void Aladdin::update()
 			_isAllowClimb = false;
 		else
 			_isAllowClimb = true;
+
+		//
+		// collision with Jafar Bullet
+		//
+		if (jafarBullet != _rigid->getCollidingBodies().end())
+		{
+			if (_position.getX() < 740 * 0.45)
+			{
+				_rigid->setPosition(Vec2(_rigid->getPosition().getX() + 1, _rigid->getPosition().getY()));
+				_position = _rigid->getPosition() - _rigid->getOffset();
+			}
+			else if (_position.getX() > 800 * 0.45)
+			{
+				_rigid->setPosition(Vec2(_rigid->getPosition().getX() - 1, _rigid->getPosition().getY()));
+				_position = _rigid->getPosition() - _rigid->getOffset();
+			}
+		}
 	}
 	
 

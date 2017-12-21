@@ -19,8 +19,8 @@ void BossScene::init()
 	const auto scale = 0.45;
 
 	// =============================================== ALADDIN ==============================================================================
-	_aladdin = new Aladdin(Vec2(300 * scale, 610 * scale), Size(10, 60));
-	_aladdin->getRigidBody()->setGravityScale(1);
+	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale), Size(10, 30));
+	_aladdin->getRigidBody()->setGravityScale(1.4);
 	_vectNode.push_back(_aladdin);
 	_aladdin->setCurrentScene(this);
 	// ======================================================================================================================================
@@ -79,7 +79,6 @@ void BossScene::init()
 
 	auto platform2 = new GameObject(Vec2((563) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
 	platform2->setRigidTag("platform");
-	platform2->getRigidBody()->setDensity(0.00000001);
 	_vectNode.push_back(platform2);
 
 	auto platform3 = new GameObject(Vec2((944) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
@@ -94,7 +93,9 @@ void BossScene::init()
 
 
 	// =============================================== BOSS ========================================================================================
-	_vectNode.push_back(new Jafar(Vec2(770 * scale, 550 * scale), Size(10, 60), GameObject::GameObjectType::ENEMIES, _aladdin));
+	auto jafar = new Jafar(Vec2(770 * scale, 550 * scale), Size(10, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
+	jafar->setCurrentScene(this);
+	_vectNode.push_back(jafar);
 	// =============================================================================================================================================
 
 

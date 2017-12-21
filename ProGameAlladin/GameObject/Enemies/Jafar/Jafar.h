@@ -24,8 +24,12 @@ public:
 
 private:
 
+	bool _isDeHeal;
+	bool _isDie;
+
 	bool _isCollisionWithApple;
 	Texture _textureJafar;
+	Texture _textureTransform;
 
 	bool _isTransform;
 };

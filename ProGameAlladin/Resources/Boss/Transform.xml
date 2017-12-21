@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="Transform-Idle" imagePath="transform.png" width="1221" height="86">
+    <sprite x="334" y="13" w="71" h="71" oX="334" oY="13" oW="-250" oH="71" />
+  </Animation>
+  <Animation name="Transform-Attack" imagePath="transform.png" width="1221" height="86">
+    <sprite x="30" y="27" w="70" h="57" oX="30" oY="27" oW="-1055" oH="1189" />
+    <sprite x="129" y="21" w="64" h="63" oX="129" oY="21" oW="-1055" oH="1189" />
+    <sprite x="227" y="13" w="67" h="71" oX="227" oY="13" oW="-1055" oH="1189" />
+    <sprite x="334" y="13" w="71" h="71" oX="334" oY="13" oW="-1055" oH="1189" />
+    <sprite x="450" y="1" w="69" h="83" oX="450" oY="1" oW="-1055" oH="1189" />
+    <sprite x="561" y="2" w="69" h="82" oX="561" oY="2" oW="-1055" oH="1189" />
+    <sprite x="671" y="3" w="70" h="81" oX="671" oY="3" oW="-1055" oH="1189" />
+    <sprite x="782" y="3" w="70" h="81" oX="782" oY="3" oW="-1055" oH="1189" />
+    <sprite x="896" y="1" w="64" h="83" oX="896" oY="1" oW="-1055" oH="1189" />
+    <sprite x="1027" y="3" w="64" h="81" oX="1027" oY="3" oW="-1055" oH="1189" />
+    <sprite x="1149" y="24" w="71" h="60" oX="1149" oY="24" oW="-1055" oH="1189" />
+  </Animation>
+</Animations>
