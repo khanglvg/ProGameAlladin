@@ -64,6 +64,8 @@ void AppleToThrow::update()
 	const auto collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall");
 	const auto collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground");
 	const auto collisionWithPlatform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform");
+	const auto collisionWithJafar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"jafar");
+
 
 	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
 		_isCollision = true;
@@ -72,6 +74,8 @@ void AppleToThrow::update()
 	else if (collisionWithGround != _rigid->getCollidingBodies().end())
 		_isCollision = true;
 	else if (collisionWithPlatform != _rigid->getCollidingBodies().end())
+		_isCollision = true;
+	else if (collisionWithJafar != _rigid->getCollidingBodies().end())
 		_isCollision = true;
 	else
 		_isCollision = false;
@@ -85,7 +89,8 @@ void AppleToThrow::update()
 		_owner->getCurrentScene()->removeNode(this);
 	}
 
-	if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
+	//if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
+	if(_isCollision)
 	{
 		if (_actionName != "Apple-Explosion")
 		{
