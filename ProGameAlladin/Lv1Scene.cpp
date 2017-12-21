@@ -5,7 +5,6 @@
 #include "GameObject/Weapons/AppleToThrow.h"
 #include "GameObject/Wall/Wall.h"
 #include "GameObject/BackgroundSky.h"
-#include "GameObject/Rope.h"
 #include "Framework/Text.h"
 
 US_NS_JK

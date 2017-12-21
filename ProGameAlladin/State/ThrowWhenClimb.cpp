@@ -45,10 +45,10 @@ void ThrowWhenClimb::onUpdate()
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		aladdin->setScale(Vec2(-1, 1));
+		aladdin->setScale(Vec2(1, 1));
 
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		aladdin->setScale(Vec2(1, 1));
+		aladdin->setScale(Vec2(-1, 1));
 
 }
 

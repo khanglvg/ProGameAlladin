@@ -26,12 +26,12 @@ void RunAndJump::onEnter()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-150, -230));
+		aladdin->setVelocity(Vec2(-150, -270));
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(150, -230));
+		aladdin->setVelocity(Vec2(150, -270));
 	}
 
 	aladdin->getRigidBody()->setSize(Size(4, 60));
@@ -96,6 +96,8 @@ State* RunAndJump::checkTransition()
 		return new Idle(_node);
 	if (aladdin->isOnTheRope())
 	{
+		aladdin->setRigidPosition(Vec2(aladdin->getRigidPosition().getX() + aladdin->getRigidBody()->getSize().getWidth() / 2, aladdin->getRigidPosition().getY()));
+		aladdin->setPosition(aladdin->getRigidPosition() - aladdin->getRigidBody()->getOffset());
 		return new IdleToClimb(_node);
 	}
 	return nullptr;

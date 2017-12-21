@@ -2,6 +2,7 @@
 #include "../Framework/Graphics.h"
 #include "../Framework/GameManager.h"
 #include "../Framework/PhysicsManager.h"
+#include "../Framework/Input.h"
 
 US_NS_JK
 
@@ -20,6 +21,9 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	setPosition(_rigid->getPosition());
 	_rigid->setTag("aladdin");
 	this->setIsOwnerRight(true);
+	_isAllowClimb = true;
+	_isPause = false;
+	_isClimbDown = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -91,6 +95,7 @@ void Aladdin::update()
 		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform" );
 		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
 		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
+		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 
 
 
@@ -154,6 +159,14 @@ void Aladdin::update()
 			_isOnTheFire = false;
 		else
 			_isOnTheFire = true;
+
+		//
+		// collision with stopclimb
+		//
+		if (stop != _rigid->getCollidingBodies().end())
+			_isAllowClimb = false;
+		else
+			_isAllowClimb = true;
 	}
 	
 
@@ -167,6 +180,7 @@ void Aladdin::update()
 		_currentState = newState;
 		_currentState->onEnter();
 		_animationIndex = 0;
+		_isPause = false;
 	}
 
 
@@ -205,11 +219,23 @@ void Aladdin::render()
 	}
 	else
 	{
-		_index = 0;
-		_animationIndex++;
-		if (_animationIndex == _animations[_actionName].size())
-			_animationIndex = 0;
-
+		if (!_isPause)
+		{
+			if (_isClimbDown)
+			{
+				_index = 0;
+				_animationIndex--;
+				if (_animationIndex == -1)
+					_animationIndex = _animations[_actionName].size()-1;
+			}
+			else
+			{
+				_index = 0;
+				_animationIndex++;
+				if (_animationIndex == _animations[_actionName].size())
+					_animationIndex = 0;
+			}
+		}
 	}
 
 
@@ -319,5 +345,22 @@ bool Aladdin::isOnTheFire() const
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;
+}
+void Aladdin::setAllowToClimb(const bool & allow)
+{
+	_isAllowClimb = allow;
+}
+
+bool Aladdin::isAllowToClimb()
+{
+	return _isAllowClimb;
+}
+void Aladdin::setIsPause(const bool & pause)
+{
+	_isPause = pause;
+}
+void Aladdin::setIsClimbDown(const bool & climbDown)
+{
+	_isClimbDown = climbDown;
 }
 #pragma endregion

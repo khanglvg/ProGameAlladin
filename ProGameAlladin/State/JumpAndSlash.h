@@ -16,9 +16,9 @@ public:
 	void onExit() override;
 	State* checkTransition() override;
 
-private:
-	enum{NONE,JUMP,FALL};
-	int _state = NONE;
+//private:
+//	enum{NONE,JUMP,FALL};
+//	int _state = NONE;
 };
 
 NS_JK_END

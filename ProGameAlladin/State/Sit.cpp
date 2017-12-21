@@ -50,7 +50,7 @@ State* Sit::checkTransition()
 		return new SitAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_A))
 		return new SitAndThrow(_node);
-	
+
 
 	
 

@@ -25,6 +25,9 @@ private:
 
 	GameObject* _player;
 
+	GameObject* _triggerLow;
+	GameObject* _triggerHigh;
+
 	std::vector<BackgroundLv1Scene*> _backgroundTextures;
 	std::vector<Enemy*> _listEnemies;
 	std::vector<Apple*> _listApples;
@@ -33,9 +36,15 @@ private:
 	std::vector<SpringBoard*> _listSpringboards;
 	std::vector<GameObject*> _listGround;
 	std::vector<GameObject*> _listStairGround;
+	std::vector<GameObject*> _listStairGroundLow;
+	std::vector<GameObject*> _listStairGroundHigh;
 	std::vector<GameObject*> _listRope;
 	std::vector<GameObject*> _listFire;
 	std::vector<GameObject*> _listHorizontalBar;
+	std::vector<GameObject*> _listStop;
+
+	bool _isActivedLow = false;
+	bool _isActivedHigh = false;
 
 protected:
 	void checkVisibility();

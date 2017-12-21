@@ -139,10 +139,6 @@ Rect FloatGround::getRect()
 	rect.setHeight(height);
 	return rect;
 }
-bool FloatGround::isOnCollision() const
-{
-	return _isCollision;
-}
 int FloatGround::getIndex()
 {
 	return _animationIndex;
