@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="Bullet" imagePath="spell_strip7_15_11.png" width="210" height="23">
+    <sprite x="1" y="4" w="27" h="13" oX="1" oY="4" oW="23" oH="89" />
+    <sprite x="33" y="3" w="23" h="15" oX="33" oY="3" oW="23" oH="89" />
+    <sprite x="62" y="4" w="25" h="14" oX="62" oY="4" oW="23" oH="89" />
+  </Animation>
+  <Animation name="Bullet-Explosion" imagePath="spell_strip7_15_11.png" width="210" height="23">
+    <sprite x="103" y="10" w="2" h="2" oX="103" oY="10" oW="-151" oH="80" />
+    <sprite x="128" y="5" w="13" h="12" oX="128" oY="5" oW="-151" oH="80" />
+    <sprite x="154" y="4" w="20" h="13" oX="154" oY="4" oW="-151" oH="80" />
+    <sprite x="187" y="1" w="14" h="20" oX="187" oY="1" oW="-151" oH="80" />
+  </Animation>
+</Animations>

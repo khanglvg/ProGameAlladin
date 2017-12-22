@@ -34,7 +34,7 @@ void RunAndJump::onEnter()
 		aladdin->setVelocity(Vec2(150, -270));
 	}
 
-	aladdin->getRigidBody()->setSize(Size(4, 60));
+	aladdin->getRigidBody()->setSize(Size(4, 30));
 	aladdin->setActionName("RunAndJump");
 }
 
@@ -74,7 +74,7 @@ void RunAndJump::onUpdate()
 void RunAndJump::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	aladdin->getRigidBody()->setSize(Size(10, 60));
+	aladdin->getRigidBody()->setSize(Size(10, 30));
 }
 
 State* RunAndJump::checkTransition()
@@ -92,10 +92,12 @@ State* RunAndJump::checkTransition()
 		return new Run(_node);
 	if (!Input::getInstance()->getKey(KEY_D))
 		_state = FALL;
-	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnTheFire())// || aladdin->isOnThePlatform())
+	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnTheFire() || aladdin->isOnThePlatform())
 		return new Idle(_node);
 	if (aladdin->isOnTheRope())
 	{
+		aladdin->setRigidPosition(Vec2(aladdin->getRigidPosition().getX() + aladdin->getRigidBody()->getSize().getWidth() / 2, aladdin->getRigidPosition().getY()));
+		aladdin->setPosition(aladdin->getRigidPosition() - aladdin->getRigidBody()->getOffset());
 		return new IdleToClimb(_node);
 	}
 	return nullptr;

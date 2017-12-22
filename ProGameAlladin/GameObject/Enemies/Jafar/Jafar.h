@@ -10,16 +10,29 @@ class Jafar: public Enemy
 {
 public:
 	Jafar();
-	Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player);
+	Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* target);
 	~Jafar();
 	void init() override;
 	void release() override;
 	void update() override;
 	void render() override;
 
+	bool isTransform() const;
+
+
 	Rect getRect() override;
+
 private:
+	bool _isChecked;
+
+	bool _isDeHeal;
+	bool _isDie;
+
+	bool _isCollisionWithApple;
 	Texture _textureJafar;
+	Texture _textureTransform;
+
+	bool _isTransform;
 };
 
 NS_JK_END

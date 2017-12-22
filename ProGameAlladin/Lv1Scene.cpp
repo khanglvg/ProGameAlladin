@@ -5,7 +5,6 @@
 #include "GameObject/Weapons/AppleToThrow.h"
 #include "GameObject/Wall/Wall.h"
 #include "GameObject/BackgroundSky.h"
-#include "GameObject/Rope.h"
 #include "Framework/Text.h"
 #include "GameObject/Aladdin.h"
 #include "Framework/Audio.h"

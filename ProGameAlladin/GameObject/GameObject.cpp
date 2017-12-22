@@ -31,12 +31,22 @@ void GameObject::init()
 void GameObject::update()
 {
 	_position = _rigid->getPosition() - _rigid->getOffset();
+
+	if (_tag == TRIGGER)
+	{
+		const auto collisionWithAladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
+
+		if (collisionWithAladdin != _rigid->getCollidingBodies().end())
+			_isCollision = true;
+		else
+			_isCollision = false;
+	}
 }
 
 
 void GameObject::render()
 {
-	//Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 150), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 }
 
 void GameObject::release()
@@ -58,6 +68,20 @@ bool GameObject::isOwnerRight() const
 void GameObject::setIsOwnerRight(const bool& isOwnerRight)
 {
 	_isOwnerRight = isOwnerRight;
+}
+
+void GameObject::setAllowToClimb(const bool & allow)
+{
+}
+
+bool GameObject::isAllowToClimb()
+{
+	return false;
+}
+
+bool GameObject::isOnCollision()
+{
+	return _isCollision;
 }
 
 bool GameObject::isVisible() const

@@ -14,7 +14,7 @@ AppleToThrow::AppleToThrow(GameObject* owner, const Vec2 & position, const Size 
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
-	setScale(Vec2(1.1, 1.1));
+	setScale(Vec2(1, 1));
 	_rigid->setTag("appletothrow");
 
 	_owner = owner;
@@ -64,6 +64,8 @@ void AppleToThrow::update()
 	const auto collisionWithWall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall");
 	const auto collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground");
 	const auto collisionWithPlatform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform");
+	const auto collisionWithJafar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"jafar");
+
 
 	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
 		_isCollision = true;
@@ -73,10 +75,12 @@ void AppleToThrow::update()
 		_isCollision = true;
 	else if (collisionWithPlatform != _rigid->getCollidingBodies().end())
 		_isCollision = true;
+	else if (collisionWithJafar != _rigid->getCollidingBodies().end())
+		_isCollision = true;
 	else
 		_isCollision = false;
 
-	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
+	if (collisionWithEnemy != _rigid->getCollidingBodies().end() || (collisionWithJafar != _rigid->getCollidingBodies().end()))
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
@@ -85,7 +89,8 @@ void AppleToThrow::update()
 		_owner->getCurrentScene()->removeNode(this);
 	}
 
-	if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
+	//if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
+	if(_isCollision)
 	{
 		if (_actionName != "Apple-Explosion")
 		{

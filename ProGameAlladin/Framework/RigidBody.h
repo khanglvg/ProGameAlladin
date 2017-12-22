@@ -18,7 +18,7 @@ class RigidBody
 {
 	friend class PhysicsManager;
 private:
-	std::vector<std::string> _collidingBodies;
+	vector<string> _collidingBodies;
 
 	std::string _tag;
 
@@ -83,6 +83,8 @@ public:
 
 #pragma region GET-SET
 	const vector<string>& getCollidingBodies() const;
+
+	/*void clearCollidingBodies(const string& name) const;*/
 	
 	string getTag() const;
 	void setTag(const string& tag);

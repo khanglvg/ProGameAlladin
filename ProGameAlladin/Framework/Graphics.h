@@ -25,6 +25,7 @@ public:  //tat ca cac ham convert deu ghi vao class Graphics
 	void init();
 	void clearScreen() const;
 	void drawSprite(const Texture &texture, const Vec2& origin, const Matrix matrix, const Color& color, const Rect& rect, const int layer) const;
+	void drawText(ID3DXFont* font, string message, const Rect& rect, DWORD textAlign, Matrix trans, const Color color);
 	static D3DXMATRIX convertToDirectMatrix(const Matrix& matrix);
 	static RECT Graphics::converttoRECT(const Rect& rect);
 	LPDIRECT3DDEVICE9 getDevice() const;

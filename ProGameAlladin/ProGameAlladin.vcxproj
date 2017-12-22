@@ -206,7 +206,13 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\JafarBullet.h" />
     <ClInclude Include="GameObject\Enemies\Jafar\Jafar.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\JafarAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\JafarIdleState.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformAttackState.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformBullet.h" />
+    <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformIdleState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
@@ -276,7 +282,6 @@
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
-    <ClInclude Include="GameObject\Rope.h" />
     <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
@@ -368,7 +373,13 @@
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\JafarBullet.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\Jafar.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\JafarAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\JafarIdleState.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\Transform\TransformAttackState.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\Transform\TransformBullet.cpp" />
+    <ClCompile Include="GameObject\Enemies\Jafar\Transform\TransformIdleState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
@@ -438,7 +449,6 @@
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
-    <ClCompile Include="GameObject\Rope.cpp" />
     <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -539,7 +549,10 @@
     <Xml Include="Resources\action2.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="Resources\Boss\Flame.xml" />
     <Xml Include="Resources\Boss\Jafar.xml" />
+    <Xml Include="Resources\Boss\JafarBullet.xml" />
+    <Xml Include="Resources\Boss\Transform.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
@@ -556,10 +569,12 @@
     <Image Include="Resources\Aladdin1.png" />
     <Image Include="Resources\apple1.png" />
     <Image Include="Resources\bg_sky.jpg" />
+    <Image Include="Resources\Boss\flame.png" />
+    <Image Include="Resources\Boss\Jafar-Bullet.png" />
     <Image Include="Resources\Boss\jafar.png" />
     <Image Include="Resources\Boss\palace_back.png" />
     <Image Include="Resources\Boss\pillars.png" />
-    <Image Include="Resources\Boss\translate.png" />
+    <Image Include="Resources\Boss\transform.png" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />
