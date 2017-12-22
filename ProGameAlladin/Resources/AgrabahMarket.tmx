@@ -270,7 +270,7 @@
  <objectgroup name="Wall">
   <object id="124" x="2177.33" y="293.333" width="79" height="395.333"/>
   <object id="131" x="1403.33" y="1.33333" width="88" height="448.667"/>
-  <object id="162" x="2757.5" y="580.5" width="62" height="109.5"/>
+  <object id="162" x="2757.5" y="580.5" width="77" height="109.5"/>
   <object id="166" x="2609.33" y="168.333" width="32.6667" height="251.667"/>
   <object id="168" x="3552" y="130.833" width="50.6667" height="237.167"/>
   <object id="172" x="4298" y="61" width="57" height="167"/>
@@ -293,10 +293,10 @@
   <object id="226" x="3070.67" y="652" width="162.667" height="34.6667"/>
  </objectgroup>
  <objectgroup name="Rope">
-  <object id="125" x="2091" y="342.999" width="1" height="232.485"/>
-  <object id="126" x="1547" y="161.833" width="1" height="186.333"/>
-  <object id="127" x="4715" y="369.334" width="1" height="174.166"/>
-  <object id="144" x="2699" y="100.273" width="1" height="204.894"/>
+  <object id="125" x="2091" y="380.999" width="1" height="194.485"/>
+  <object id="126" x="1547" y="197.833" width="1" height="150.333"/>
+  <object id="127" x="4715" y="412.334" width="1" height="131.166"/>
+  <object id="144" x="2699" y="138.273" width="1" height="166.894"/>
  </objectgroup>
  <objectgroup name="Stop">
   <object id="326" x="2073" y="329" width="38" height="26"/>

@@ -14,7 +14,7 @@ AppleToThrow::AppleToThrow(GameObject* owner, const Vec2 & position, const Size 
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
-	setScale(Vec2(1.1, 1.1));
+	setScale(Vec2(1, 1));
 	_rigid->setTag("appletothrow");
 
 	_owner = owner;
@@ -80,7 +80,7 @@ void AppleToThrow::update()
 	else
 		_isCollision = false;
 
-	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
+	if (collisionWithEnemy != _rigid->getCollidingBodies().end() || (collisionWithJafar != _rigid->getCollidingBodies().end()))
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}

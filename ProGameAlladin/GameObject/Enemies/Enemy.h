@@ -63,6 +63,7 @@ public:
 	bool getIsCollisionWithAladdin() const;
 
 	std::map<string, vector<Rect>> _animations;
+	std::map<string, vector<Rect>> _transformAnimations;
 
 protected:
 	Texture _textureEnemy;

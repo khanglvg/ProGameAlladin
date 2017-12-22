@@ -43,6 +43,12 @@ const vector<string>& RigidBody::getCollidingBodies() const
 	return _collidingBodies;
 }
 
+//void RigidBody::clearCollidingBodies(const string& name) const
+//{
+//	auto const apple = std::find(std::begin(_collidingBodies), std::end(_collidingBodies), "appletothrow");
+//	_collidingBodies.erase(apple);
+//} 
+
 void RigidBody::setTag(const string& tag)
 {
 	_tag=tag;
