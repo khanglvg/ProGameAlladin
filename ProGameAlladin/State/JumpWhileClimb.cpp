@@ -35,12 +35,12 @@ void JumpWhileClimb::onUpdate()
 		if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
 			aladdin->getRigidBody()->setGravityScale(1);
-			aladdin->setVelocity(Vec2(-50, aladdin->getVelocity().getY()-50));
+			aladdin->setVelocity(Vec2(-50, -100));
 		}
 		if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->getRigidBody()->setGravityScale(1);
-			aladdin->setVelocity(Vec2(50, aladdin->getVelocity().getY()-50));
+			aladdin->setVelocity(Vec2(50, -100));
 		}
 
 

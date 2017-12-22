@@ -7,10 +7,12 @@
 #include "Slash.h"
 #include "Throw.h"
 #include "../GameObject/Aladdin.h"
+#include "../Lv1Scene.h"
 #include <iostream>
 #include "Random.h"
 #include "Idle2.h"
 #include "Idle3.h"
+#include "../Framework/Audio.h"
 
 
 US_NS_JK
@@ -53,7 +55,13 @@ State* Idle::checkTransition()
 	auto const aladdin = static_cast<Aladdin*>(_node);
 	
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			/*_soundAbu = Sound("Resources / Audio / Abu.wav");
+			Audio::get()->play(_soundAbu, true);*/
 			return new Run(_node);
+			
+		}
+			
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 			return new Run(_node);
 		if (Input::getInstance()->isKeyDown(KEY_D))

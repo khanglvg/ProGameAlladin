@@ -7,6 +7,8 @@
 #include "GameObject/BackgroundSky.h"
 #include "GameObject/Rope.h"
 #include "Framework/Text.h"
+#include "GameObject/Aladdin.h"
+#include "Framework/Audio.h"
 
 US_NS_JK
 
@@ -22,8 +24,19 @@ Lv1Scene::~Lv1Scene()
 	_gameMap->~GameMap();
 }
 
+
 void Lv1Scene::init()
 {
+
+
+#pragma region Sound 
+	_soundAbu = new Sound("Resources/Audio/Abu.wav");
+	Audio::get()->load(_soundAbu);
+	Audio::get()->play(_soundAbu,true);
+	//_soundBackground = LoadSound("Resources/Audio/AgrabahMarket.wave");
+	//_soundBackground->Play();
+#pragma endregion 
+
 	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
@@ -38,6 +51,7 @@ void Lv1Scene::init()
 	Camera::getInstance()->follow(mAladdin);
 	Camera::getInstance()->setScaleFactor(Vec2(0.8, 0.8));
 	_vectNode.push_back(Camera::getInstance());
+
 
 
 
@@ -58,6 +72,7 @@ void Lv1Scene::init()
 	//	mQuadTree->insertObject(object);
 	//}
 	Scene::init();
+
 }
 
 void Lv1Scene::release()
@@ -85,6 +100,8 @@ void Lv1Scene::render()
 	//}
 }
 
+
+
 //
 //void Lv1Scene::checkVisibility()
 //{
@@ -92,3 +109,4 @@ void Lv1Scene::render()
 //
 // 	mQuadTree->getObjectsVisibility(listVisible, mQuadTree->getVisibilityArea(mAladdin), 1);
 //}
+

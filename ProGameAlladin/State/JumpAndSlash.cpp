@@ -41,20 +41,6 @@ void JumpAndSlash::onUpdate()
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
 	}
 
-	//if (Input::getInstance()->getKey(KEY_D) && _state == NONE)
-	//{
-	//	_state = JUMP;
-	//}
-	//if (_state == JUMP)
-	//{
-	//	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	//		aladdin->setVelocity(Vec2(aladdin->getVelocity().getX()-2, aladdin->getVelocity().getY()));
-	//	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	//		aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2, aladdin->getPosition().getY() - 2));
-	//	if (aladdin->getPosition().getY() < aladdin->getMaxHeight())
-	//		_state = FALL;
-	//}
-
 }
 
 void JumpAndSlash::onExit()

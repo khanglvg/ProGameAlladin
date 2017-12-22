@@ -139,6 +139,10 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\Jafar.cpp" />
+    <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
+    <ClCompile Include="Framework\dxaudio.cpp" />
+    <ClCompile Include="Framework\Audio.cpp" />
+    <ClCompile Include="Framework\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -358,6 +362,10 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
     <ClInclude Include="GameObject\Enemies\Jafar\Jafar.h" />
+    <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
+    <ClInclude Include="Framework\dxaudio.h" />
+    <ClInclude Include="Framework\Audio.h" />
+    <ClInclude Include="Framework\Sound.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -457,5 +465,9 @@
     <None Include="MapReader\Tmx.h.in" />
     <None Include="Resources\AgrabahMarket.tmx" />
     <None Include="zlibwapi.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Audio\AgrabahMarket.wav" />
+    <Media Include="Resources\Audio\Abu.wav" />
   </ItemGroup>
 </Project>

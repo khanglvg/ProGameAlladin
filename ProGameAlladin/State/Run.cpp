@@ -96,16 +96,16 @@ State* Run::checkTransition()
 			Random::getInstance()->generateRdnum();
 		int _temp = Random::getInstance()->getRdNumb();
 		{
-			if (0 <= _temp && _temp<50)
+			if (0 <= _temp && _temp<60)
 			{
 				return new Idle(_node);
 			}
 
-			if (50 <= _temp && _temp< 75)
+			if (60 <= _temp && _temp< 80)
 			{
 				return new Idle2(_node);
 			}
-			if (75 <= _temp&& _temp <= 100)
+			if (80 <= _temp&& _temp <= 100)
 			{
 				return new Idle3(_node);
 			}
@@ -115,16 +115,16 @@ State* Run::checkTransition()
 	{
 			Random::getInstance()->generateRdnum();
 		int _temp = Random::getInstance()->getRdNumb();
-		if (0 <= _temp && _temp<50)
+		if (0 <= _temp && _temp<60)
 		{
 			return new Idle(_node);
 		}
 
-		if (50 <= _temp && _temp< 75)
+		if (60 <= _temp && _temp< 80)
 		{
 			return new Idle2(_node);
 		}
-		if (75 <= _temp&& _temp <= 100)
+		if (80 <= _temp&& _temp <= 100)
 		{
 			return new Idle3(_node);
 		}
@@ -133,8 +133,8 @@ State* Run::checkTransition()
 		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
-	if (Input::getInstance()->getKey(KEY_A))
-		return new RunAndThrow(_node);
+	//if (Input::getInstance()->getKey(KEY_A))
+	//	return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new RunAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_D))
