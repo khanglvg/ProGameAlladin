@@ -10,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
   LPTSTR    lpCmdLine,
   int       nCmdShow)
 {
-  Application app = Application::Application(hInstance, "Hello Khang", SCREEN_WIDTH, SCREEN_HEIGHT, false, new BossScene);
+  Application app = Application::Application(hInstance, "Hello Khang", SCREEN_WIDTH, SCREEN_HEIGHT, false, new MenuSelector);
   app.run();
 
 }

@@ -15,11 +15,12 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));
 
-	_health = 5;
+	_health = 10;
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;
 	_isTransform = false;
+	_isChecked = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -77,7 +78,7 @@ void Jafar::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 
 
-	auto const apple = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
+	const auto apple = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
 
 	if(apple != _rigid->getCollidingBodies().end())
 	{
@@ -86,17 +87,15 @@ void Jafar::update()
 	else
 	{
 		_isCollisionWithApple = false;
+		_isChecked = false;
 	}
 
 
-
-	if(_isCollisionWithApple)
+	if(_isCollisionWithApple && _health > 0 && !_isChecked)
 	{
-		if (_health > 0)
-		{
 			_health--;
-			_isCollisionWithApple = false;
-		}
+			_isChecked = true;
+			OutputDebugString(std::to_string(_health).c_str());
 	}
 
 

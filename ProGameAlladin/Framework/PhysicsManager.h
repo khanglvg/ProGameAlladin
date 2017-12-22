@@ -32,19 +32,17 @@ public:
 
 	void resolveCollision(Manifold &manifold) const;
 
-	static float dotProduct(const Vec2& v1, const Vec2& v2);
-
-	void positionalCorrection(const Manifold& manifold) const;
-
 	void update();
 
 	bool AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold);
 
-	float sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold);
+	float sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const;
 
 	Vec2 getCollisionNormal() const;
 
 	void setCollisionNormal(Manifold manifold);
+
+	bool isColliding(Manifold& manifold) const;
 
 	static PhysicsManager* getIntance();
 private:

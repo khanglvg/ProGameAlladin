@@ -46,31 +46,35 @@ void PhysicsManager::update()
 			rigid->setVelocity(Vec2(rigid->getVelocity() + rigid->getForces()*(1 / mass)*deltaTime) + Vec2(0, 400.0f) * rigid->getGravityScale() * deltaTime);
 
 			// x = x + v * dt;
-			rigid->setPosition(Vec2(rigid->getPosition() + rigid->getVelocity()*deltaTime));
+			rigid->setPosition(rigid->getPosition() + rigid->getVelocity()*deltaTime);
 		}
 
-		// Duyệt tất cả các Objects
-		for (auto it1 = 0; it1 <= _rigidBodies.size() - 1; it1++)
+		// Duyệt tất cả các manifold.rigid1s
+
+		for (auto it1 = _rigidBodies.begin(); it1 != _rigidBodies.end(); ++it1)
 		{
-			for (auto it2 = it1 + 1; it2 <= _rigidBodies.size() - 1; it2++)
+			for (auto it2 = it1 + 1; it2 != _rigidBodies.end(); ++it2)
 			{
 				Manifold manifold;
-				if (_rigidBodies[it1]->isActived() && _rigidBodies[it2]->isActived())
+				if ((*it1)->isActived() && (*it2)->isActived())
 				{
-				//	if (_rigidBodies[it1]->getBodyType() == DYNAMIC && _rigidBodies[it2]->getBodyType() == STATIC)
+					//if (_rigidBodies[it1]->getBodyType() == DYNAMIC && _rigidBodies[it2]->getBodyType() == STATIC)
 					{
-						if (AABBvAABB(_rigidBodies[it1], _rigidBodies[it2], manifold))
+						//if (sweptAABB((*it1), (*it2), manifold) < 1.0f)
+						if(AABBvAABB((*it1),(*it2),manifold))
 						{
-							(_rigidBodies[it1])->_collidingBodies.push_back((_rigidBodies[it2])->_tag);
-							(_rigidBodies[it2])->_collidingBodies.push_back((_rigidBodies[it1])->_tag);
+							(*it1)->_collidingBodies.push_back((*it2)->_tag);
+							(*it2)->_collidingBodies.push_back((*it1)->_tag);
 
-						/*	if ((_rigidBodies[it1]->getTag() == "aladdin" &&
-								_rigidBodies[it2]->getTag() == "platform" &&
-								(manifold.collisionNormal == Vec2(0, 1) ||
-								manifold.collisionNormal == Vec2(0,-1)	)))
-								return;*/
+							if ((*it1)->getTag() == "aladdin" &&
+								(*it2)->getTag() == "platform" &&
+								(manifold.collisionNormal == Vec2(-1, 0) ||
+								manifold.collisionNormal == Vec2(1, 0)	||
+								manifold.collisionNormal == Vec2(0, -1)))
+								return;
 
 							resolveCollision(manifold);
+
 						}
 					}
 				}
@@ -85,7 +89,7 @@ void PhysicsManager::update()
 			}
 
 #pragma region XAMLONE
-			//// Nếu Object đang xét là DYNAMIC thì thực hiện tiếp
+			//// Nếu manifold.rigid1 đang xét là DYNAMIC thì thực hiện tiếp
 			//if ((*it1)->getBodyType() == DYNAMIC)
 			//{
 			//	// Nếu vận tốc = 0 thì đâu có di chuyển mà xét :)))~
@@ -94,7 +98,7 @@ void PhysicsManager::update()
 			//		// Ý tưởng là duyệt hết các phần từ (trừ phần tử đang xét = A) với các collider còn lại
 			//		// nếu collider nào có thể va chạm với A và gần A nhất thì lôi ra xét :)))~			
 
-			//		// Vị trí Object gần A nhất
+			//		// Vị trí manifold.rigid1 gần A nhất
 			//		auto nearestIt1 = INFINITY;
 
 			//		// Duyệt hết các phần tử trong mảng
@@ -117,6 +121,8 @@ void PhysicsManager::update()
 			//}
 #pragma endregion 
 		}
+
+
 	}
 }
 
@@ -124,9 +130,7 @@ void PhysicsManager::update()
 
 
 
-
-
-float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) {
+float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) const{
 	// Entry là khoảng cách gần nhất giữa 2 vật để bắt đầu va chạm
 	// Exit là khoảng cách gần nhất giữa 2 vật để va chạm kết thúc
 	float dxEntry;
@@ -216,6 +220,7 @@ float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) 
 		txEntry > 1.0f ||								// Thời gian lớn hơn 1 tức là quãng đường đi cần thiết để va chạm sẽ 
 		tyEntry > 1.0f)									//		lớn hơn vật tốc => ở frame sau sẽ không xảy ra va chạm
 	{
+		manifold.collisionNormal = Vec2(0.0f, 0.0f);
 		return 1.0f;		// không có va chạm
 	}
 
@@ -225,28 +230,28 @@ float PhysicsManager::sweptAABB(RigidBody* a, RigidBody *b, Manifold& manifold) 
 		// calculate normal of collided surface
 		if (txEntry > tyEntry)
 		{
-			if (dxEntry > 0.0f)
+			if (dxEntry < 0.0f)
 			{
-				manifold.collisionNormal = Vec2(1.0f, 0.0f); // hướng từ phải sang trái
-				setCollisionNormal(manifold);
+				manifold.collisionNormal = Vec2(-1.0f, 0.0f); // hướng từ phải sang trái
+				//setCollisionNormal(manifold);
 			}
 			else
 			{
-				manifold.collisionNormal = Vec2(-1.0f, 0.0f); // hướng từ trái sang phải
-				setCollisionNormal(manifold);
+				manifold.collisionNormal = Vec2(1.0f, 0.0f); // hướng từ trái sang phải
+				//setCollisionNormal(manifold);
 			}
 		}
 		else
 		{
-			if (dyEntry > 0.0f)
+			if (dyEntry < 0.0f)
 			{
-				manifold.collisionNormal = Vec2(0.0f, 1.0f); // hướng từ trên xuống
-				setCollisionNormal(manifold);
+				manifold.collisionNormal = Vec2(0.0f, -1.0f); // hướng từ trên xuống
+				//setCollisionNormal(manifold);
 			}
 			else
 			{
-				manifold.collisionNormal = Vec2(0.0f, -1.0f); // hướng từ dưới lên
-				setCollisionNormal(manifold);
+				manifold.collisionNormal = Vec2(0.0f, 1.0f); // hướng từ dưới lên
+				//setCollisionNormal(manifold);
 			}
 		}
 
@@ -265,6 +270,17 @@ void PhysicsManager::setCollisionNormal(const Manifold manifold)
 	_collisionNormal = manifold.collisionNormal;
 }
 
+bool PhysicsManager::isColliding(Manifold& manifold) const
+{
+	const auto left = manifold.rigid2->getPosition().getX() - (manifold.rigid1->getPosition().getX() + manifold.rigid1->getSize().getWidth());
+	const auto top = (manifold.rigid2->getPosition().getY() + manifold.rigid2->getSize().getHeight()) - manifold.rigid1->getPosition().getY();
+	const auto right = (manifold.rigid2->getPosition().getX() + manifold.rigid2->getSize().getWidth()) - manifold.rigid1->getPosition().getX();
+	const auto bottom = manifold.rigid2->getPosition().getY() - (manifold.rigid1->getPosition().getY() + manifold.rigid1->getSize().getHeight());
+
+	// mình xét ngược lại cho nhanh hơn
+	return !(left > 0 || right < 0 || top < 0 || bottom > 0);
+}
+
 
 void PhysicsManager::resolveCollision(Manifold &manifold) const
 {
@@ -272,7 +288,8 @@ void PhysicsManager::resolveCollision(Manifold &manifold) const
 	const auto relativeVelocity = manifold.rigid2->getVelocity() - manifold.rigid1->getVelocity();
 
 	// Calculate
-	const auto velocityAlongNormal = dotProduct(relativeVelocity, manifold.collisionNormal);
+	//const auto velocityAlongNormal = dotProduct(relativeVelocity, manifold.collisionNormal);
+	const auto velocityAlongNormal = relativeVelocity.dot(manifold.collisionNormal);
 
 	if (velocityAlongNormal > 0)
 		return;
@@ -287,70 +304,47 @@ void PhysicsManager::resolveCollision(Manifold &manifold) const
 	// squared = width*height
 	const auto massA = manifold.rigid1->getDensity() * manifold.rigid1->getSize().getWidth()*manifold.rigid1->getSize().getHeight();
 	const auto massB = manifold.rigid2->getDensity() * manifold.rigid2->getSize().getWidth()*manifold.rigid2->getSize().getHeight();
-	j /= 1 / (massA)+1 / (massB);
+	
+	const auto inverseMassA = 1 / massA;
+	const auto inverseMassB = 1 / massB;
+
+	j /= (inverseMassA) + (inverseMassB);
 
 	// Apply impulse
 	const auto impulse = manifold.collisionNormal * j;
 
-	// Calculate sum of mass
-	const auto massSum = massA + massB;
-
-	// ratio: tỉ lệ khối lượng
-	auto ratio = massA / massSum;
-
-	//const auto collisiontime = sweptAABB(manifold.rigid1, manifold.rigid2, manifold);
-
-	if (manifold.rigid1->getBodyType() == DYNAMIC)
-	{
-		manifold.rigid1->setVelocity(manifold.rigid1->getVelocity() - impulse / massA);
-		//manifold.rigid1->setPosition(Vec2(manifold.rigid1->getPosition() + manifold.rigid1->getVelocity() * collisiontime));
-	}
-
-	ratio = massB / massSum;
-	if (manifold.rigid2->getBodyType() == DYNAMIC)
-	{
-		//manifold.rigid1->setPosition(Vec2(manifold.rigid1->getPosition() + manifold.rigid1->getVelocity() * collisiontime));
-		manifold.rigid2->setVelocity(manifold.rigid2->getVelocity() + impulse / massB);
-	}
-
-	positionalCorrection(manifold);
-}
-
-
-
-
-float PhysicsManager::dotProduct(const Vec2& v1, const Vec2& v2)
-{
-	return v1.getX() * v2.getX() + v1.getY() * v2.getY();
-}
-
-
-
-
-void PhysicsManager::positionalCorrection(const Manifold& manifold) const
-{
-	const auto massA = manifold.rigid1->getDensity() * manifold.rigid1->getSize().getWidth()*manifold.rigid1->getSize().getHeight();
-	const auto massB = manifold.rigid2->getDensity() * manifold.rigid2->getSize().getWidth()*manifold.rigid2->getSize().getHeight();
-
-	const auto inverseMassA = 1 / massA;
-	const auto inverseMassB = 1 / massB;
 
 	const float percent = 0.2; // usually 20% to 80%
 
 	const float slop = 0.01; // usually 0.01 to 0.1
 
-	const auto correction = manifold.collisionNormal * percent* max(manifold.penetration - slop, 0.0f) / (inverseMassA + inverseMassB);
+	const auto correction = manifold.collisionNormal * percent* (max(manifold.penetration - slop, 0.0f) / (inverseMassA + inverseMassB));
+
+
+
+	//const auto collisiontime = sweptAABB(manifold.rigid1, manifold.rigid2, manifold);
 
 	if (manifold.rigid1->getBodyType() == DYNAMIC)
 	{
-		manifold.rigid1->setPosition(Vec2(manifold.rigid1->getPosition() - correction * inverseMassA));
-	}
-	if (manifold.rigid2->getBodyType() == DYNAMIC)
-	{
-		manifold.rigid2->setPosition(Vec2(manifold.rigid2->getPosition() + correction * inverseMassB));
+		manifold.rigid1->setVelocity(manifold.rigid1->getVelocity() - impulse * inverseMassA);
+		manifold.rigid1->setPosition(Vec2(manifold.rigid1->getPosition() - correction*inverseMassA));
+		
+		//const auto time = sweptAABB(manifold.rigid1, manifold.rigid2, manifold);
+		//manifold.rigid1->setPosition(manifold.rigid1->getPosition() + manifold.rigid1->getVelocity()* time);
 	}
 
+	if (manifold.rigid2->getBodyType() == DYNAMIC)
+	{
+		manifold.rigid2->setVelocity(manifold.rigid2->getVelocity() + impulse * inverseMassB);
+		manifold.rigid2->setPosition(Vec2(manifold.rigid2->getPosition() + correction*inverseMassB));
+
+		//const auto time = sweptAABB(manifold.rigid1, manifold.rigid2, manifold);
+		//manifold.rigid2->setPosition(Vec2(manifold.rigid2->getPosition() + manifold.rigid2->getVelocity()*time));
+	}
+
+
 }
+
 
 
 
@@ -399,12 +393,12 @@ bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold)
 			{
 				if (vecAtoB.getX() < 0)
 				{
-					manifold.collisionNormal = Vec2(-1, 0);
+					manifold.collisionNormal = Vec2(-1, 0); // huong va cham: A ben phai B
 					setCollisionNormal(manifold);
 				}
 				else
 				{
-					manifold.collisionNormal = Vec2(1, 0);
+					manifold.collisionNormal = Vec2(1, 0); // huong va cham: A ben trai B
 					setCollisionNormal(manifold);
 				}
 					
@@ -415,12 +409,12 @@ bool PhysicsManager::AABBvAABB(RigidBody* a, RigidBody *b, Manifold& manifold)
 			{
 				if (vecAtoB.getY() < 0)
 				{
-					manifold.collisionNormal = Vec2(0, -1); // huong va cham tu tren xuong theo truc Y A(dynamic) B(static)
+					manifold.collisionNormal = Vec2(0, -1); // huong va cham: A ben tren B
 					setCollisionNormal(manifold);
 				}
 				else
 				{
-					manifold.collisionNormal = Vec2(0, 1);
+					manifold.collisionNormal = Vec2(0, 1);  // huong va cham tu duoi len theo truc Y A(dynamic) B(static)
 					setCollisionNormal(manifold);
 				}
 

@@ -23,6 +23,7 @@ public:
 	Rect getRect() override;
 
 private:
+	bool _isChecked;
 
 	bool _isCollisionWithApple;
 	Texture _textureJafar;

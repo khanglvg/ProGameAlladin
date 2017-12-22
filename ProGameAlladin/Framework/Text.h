@@ -19,7 +19,6 @@ public:
 	void update() override;
 	void render() override;
 
-	void draw();
 	static RECT converttoRect(const Rect& rect);
 
 #pragma region GET-SET

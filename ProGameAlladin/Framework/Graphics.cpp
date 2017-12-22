@@ -66,6 +66,40 @@ void Graphics::drawSprite(const Texture& texture, const Vec2& origin, const Matr
 	_spriteHandler->SetTransform(&oldMatrix);
 }
 
+void Graphics::drawText(ID3DXFont* font, string message, const Rect& rect, const DWORD textAlign, const Matrix trans, const Color color)
+{
+	D3DXMATRIX oldMatrix;
+
+	const auto flipMatrix = Matrix(1, 0, 0, 0,
+		0, -1, 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1);
+
+	const auto transformationMatrix = convertToDirectMatrix(flipMatrix*trans);
+
+	_spriteHandler->GetTransform(&oldMatrix);
+	D3DXMATRIX newMatrix = transformationMatrix * oldMatrix;
+	//D3DXMATRIX newMatrix = transformationMatrix;
+	_spriteHandler->SetTransform(&newMatrix);
+
+	RECT directXRect;
+	directXRect.left = static_cast<LONG>(rect.getX());
+	directXRect.top = -static_cast<LONG>(rect.getY());
+	directXRect.right = static_cast<LONG>(rect.getX() + rect.getWidth());
+	directXRect.bottom = static_cast<LONG>(-rect.getY() + rect.getHeight());
+
+	const auto directXColor = D3DCOLOR_ARGB(color.getAlpha(), color.getRed(), color.getGreen(), color.getBlue());
+
+	font->DrawTextA(_spriteHandler,
+		message.c_str(),
+		-1,
+		&directXRect,
+		textAlign,
+		directXColor);
+
+	_spriteHandler->SetTransform(&oldMatrix);
+}
+
 
 D3DXMATRIX Graphics::convertToDirectMatrix(const Matrix &matrix)
 {

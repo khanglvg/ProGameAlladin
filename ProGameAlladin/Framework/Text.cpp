@@ -39,22 +39,10 @@ void Text::update()
 
 void Text::render()
 {
-	this->draw();
-}
-
-void Text::draw()
-{
 	_textRect.setX(_position.getX());
 	_textRect.setY(_position.getY());
 
-	auto rect = converttoRect(_textRect);
-
-	_font->DrawTextA(Graphics::getInstance()->getSprite(),
-		_text.c_str(), 
-		-1,							// so ki tu mong muon ve ra
-		&rect, 
-		_textAlign, 
-		D3DCOLOR_ARGB(_color.getAlpha(), _color.getRed(), _color.getGreen(), _color.getBlue()));
+	Graphics::getInstance()->drawText(_font, _text, _textRect, _textAlign, getTransformMatrix(), _color);
 }
 
 

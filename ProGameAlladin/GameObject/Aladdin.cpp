@@ -85,6 +85,7 @@ void Aladdin::update()
 		_isBesideTheWall = false;
 		_isOnTheRope = false;
 		_isOnTheFire = false;
+		_isOnThePlatform = false;
 	}
 	else
 	{
@@ -97,6 +98,12 @@ void Aladdin::update()
 		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 
+		_isOnTheGround = false;
+		_isBesideTheStair = false;
+		_isBesideTheWall = false;
+		_isOnTheRope = false;
+		_isOnTheFire = false;
+		_isOnThePlatform = false;
 
 
 		//
@@ -141,7 +148,7 @@ void Aladdin::update()
 		//
 		if (platform == _rigid->getCollidingBodies().end())
 			_isOnThePlatform = false;
-		else if (PhysicsManager::getIntance()->getCollisionNormal() == Vec2(0, -1))
+		else
 			_isOnThePlatform = true;
 
 		//
@@ -208,7 +215,7 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
-	//Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)

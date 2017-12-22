@@ -192,7 +192,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			if (objectGroup->GetName() == "Fire")
 			{
 				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
-				gameObject->getRigidBody()->setDensity(0.0000000001);
+				gameObject->getRigidBody()->setDensity(1);
 				gameObject->setRigidTag("fire");
 
 				_listFire.push_back(gameObject);

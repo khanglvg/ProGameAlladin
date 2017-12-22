@@ -25,7 +25,7 @@ private:
 	Node* _bgCenter;
 	Node* _bgRight;
 	Node* _bgLeft;
-	Node* _bg2;
+	Node* _map;
 
 };
 

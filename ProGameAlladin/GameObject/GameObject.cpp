@@ -46,7 +46,7 @@ void GameObject::update()
 
 void GameObject::render()
 {
-	//Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.0f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 150), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 }
 
 void GameObject::release()
