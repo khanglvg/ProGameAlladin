@@ -216,6 +216,7 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
+    <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
     <ClInclude Include="GameObject\BackgroundMenu.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
@@ -274,7 +275,7 @@
     <ClInclude Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
-    <ClInclude Include="GameObject\Ground\Ground.h" />
+    <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
@@ -383,6 +384,7 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
+    <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.cpp" />
@@ -441,7 +443,7 @@
     <ClCompile Include="GameObject\Enemies\WallEnemy\WallEnemyIdleState.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
-    <ClCompile Include="GameObject\Ground\Ground.cpp" />
+    <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
@@ -559,6 +561,8 @@
     <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
     <Xml Include="Resources\Items\AppleToThrow.xml" />
     <Xml Include="Resources\Items\Camel.xml" />
+    <Xml Include="Resources\Items\Flame.xml" />
+    <Xml Include="Resources\Items\FloatGround.xml" />
     <Xml Include="Resources\Items\Items.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -592,6 +596,7 @@
     <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
     <Image Include="Resources\ground.png" />
     <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\fire.png" />
     <Image Include="Resources\Items\FloatGround.png" />
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\Items-Explosion.png" />

@@ -1,6 +1,5 @@
 ﻿#include "Lv1Scene.h"
 #include "Framework/Camera.h"
-#include "GameObject/Ground/Ground.h"
 #include "GameObject/Enemies/Enemy.h"
 #include "GameObject/Weapons/AppleToThrow.h"
 #include "GameObject/Wall/Wall.h"

@@ -46,7 +46,7 @@ void Throw::onUpdate()
 
 	if (aladdin->getIndex() == 3 && _isThrow)
 	{
-		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5, 5));
+		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX() + aladdin->getRect().getWidth()/2, aladdin->getRigidPosition().getY() - 20), Size(5, 5));
 		if (aladdin->getScale() == Vec2(1, 1))
 		{
 			apple->getRigidBody()->setVelocity(Vec2(380, -20));
@@ -58,6 +58,7 @@ void Throw::onUpdate()
 
 		apple->setCurrentScene(aladdin->getCurrentScene());
 		aladdin->getCurrentScene()->addNode(apple);
+		aladdin->desApple();
 		_isThrow = false;
 	}
 }

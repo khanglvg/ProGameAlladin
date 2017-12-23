@@ -60,6 +60,11 @@ GameObject::GameObjectType GameObject::getTag() const
 	return _tag;
 }
 
+void GameObject::setTag(const GameObject::GameObjectType & tag)
+{
+	_tag = tag;
+}
+
 bool GameObject::isOwnerRight() const
 {
 	return _isOwnerRight;
@@ -82,6 +87,11 @@ bool GameObject::isAllowToClimb()
 bool GameObject::isOnCollision()
 {
 	return _isCollision;
+}
+
+void GameObject::setOnCollision(const bool & onCollision)
+{
+	_isCollision = onCollision;
 }
 
 bool GameObject::isVisible() const

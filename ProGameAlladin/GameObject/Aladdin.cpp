@@ -24,6 +24,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isPause = false;
 	_isClimbDown = false;
 	_eScene = ENUM_LV1_SCENE;
+	_numApple = 10;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -77,6 +78,8 @@ void Aladdin::update()
 {
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
+
+	OutputDebugString(std::to_string(_numApple).c_str());
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -301,6 +304,21 @@ int Aladdin::getIndex() const
 Texture Aladdin::getTexture() const
 {
 	return _textureAla;
+}
+
+int Aladdin::getNumApple() const
+{
+	return _numApple;
+}
+
+void Aladdin::desApple()
+{
+	_numApple--;
+}
+
+void Aladdin::incApple()
+{
+	_numApple++;
 }
 
 Vec2 Aladdin::getStartPosition() const

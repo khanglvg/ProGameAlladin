@@ -61,8 +61,6 @@ protected:
 
 
 	Vec2 _velocity;
-
-	
 	
 	
 };
