@@ -14,6 +14,7 @@ class Fire: public GameObject
 {
 public:
 	Fire(FireGround* owner, const Vec2 & position, const Size & size);
+	Fire(const Vec2 & position, const Size & size);
 	~Fire();
 
 	void init() override;
@@ -30,17 +31,21 @@ public:
 	void setActionName(string);
 	string getActionName() const;
 
+	void setLayer(const int& layer);
+
 private:
 	std::map<string, vector<Rect>> _animations;
 	int _animationIndex;
 	string _actionName;
 	float _index = 0;
 
+	int _layer = 1;
+
 	bool _isDone = false;
 
 	Texture _textureFlame;
 	bool _isCollision;
-	FireGround* _owner;
+	FireGround* _owner = nullptr;
 };
 NS_JK_END
 #endif
