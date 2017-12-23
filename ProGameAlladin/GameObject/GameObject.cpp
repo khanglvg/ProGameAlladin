@@ -108,7 +108,7 @@ void GameObject::setRigidPosition(const Vec2& position)
 {
 	_rigid->setPosition(position);
 }
-void GameObject::setRigidTag(const string & rigidTag)
+void GameObject::setRigidTag(const string& rigidTag)
 {
 	_rigid->setTag(rigidTag);
 }

@@ -4,18 +4,18 @@
 
 #include "../Framework/Texture.h"
 #include "../Framework/Rect.h"
-#include "../pugixml/pugixml.hpp"
 #include "../State/State.h"
-#include "../State/Idle.h"
 #include "../Framework/RigidBody.h"
 #include "GameObject.h"
 #include "Weapon.h"
-
+#include "../State/Idle.h"
+#include "../pugixml/pugixml.hpp"
 NS_JK_BEGIN
 
 class Aladdin: public GameObject
 {
 public:
+	enum{ ENUM_LV1_SCENE, ENUM_BOSS_SCENE};
 		
 	Aladdin(const Vec2& position, const Size& size);
 
@@ -60,6 +60,8 @@ public:
 
 	void setIsClimbDown(const bool& climbDown);
 
+	int getEScene() const;
+	void setEScene(const int& eScene);
 
 private:
 	
@@ -89,6 +91,9 @@ private:
 	bool _isOnThePlatform;
 	bool _isOnTheRope;
 	bool _isOnTheFire;
+
+	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
+	int _eScene;
 
 };
 

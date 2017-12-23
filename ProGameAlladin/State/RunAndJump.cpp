@@ -22,18 +22,35 @@ void RunAndJump::onEnter()
 	// TODO: loadAnimation()
 	
 	auto aladdin = static_cast<Aladdin*>(_node);
+	auto scale = 0.8;
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	{
-		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-150, -270));
-	}
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	{
-		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(150, -270));
-	}
 
+	if(aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		{
+			aladdin->setScale(Vec2(-1, 1));
+			aladdin->setVelocity(Vec2(-150*scale, -270 * scale));
+		}
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			aladdin->setScale(Vec2(1, 1));
+			aladdin->setVelocity(Vec2(150 * scale, -270 * scale));
+		}
+	}
+	else
+	{
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		{
+			aladdin->setScale(Vec2(-1, 1));
+			aladdin->setVelocity(Vec2(-150, -270));
+		}
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			aladdin->setScale(Vec2(1, 1));
+			aladdin->setVelocity(Vec2(150, -270));
+		}
+	}
 	aladdin->getRigidBody()->setSize(Size(4, 30));
 	aladdin->setActionName("RunAndJump");
 }

@@ -1,9 +1,9 @@
 ﻿#include "BossScene.h"
-#include "GameObject/Aladdin.h"
 #include "Framework/Camera.h"
 #include "GameObject/BackgroundLv1Scene.h"
 #include "GameObject/Enemies/Jafar/Jafar.h"
 #include "GameObject/Items/Apple/Apple.h"
+#include "GameObject/Aladdin.h"
 US_NS_JK
 
 BossScene::BossScene()
@@ -21,9 +21,10 @@ void BossScene::init()
 
 	// =============================================== ALADDIN ==============================================================================
 	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale), Size(10, 30));
-	_aladdin->getRigidBody()->setGravityScale(1.4);
-	_vectNode.push_back(_aladdin);
+	_aladdin->getRigidBody()->setGravityScale(1);
 	_aladdin->setCurrentScene(this);
+	_aladdin->setEScene(Aladdin::ENUM_BOSS_SCENE);
+	_vectNode.push_back(_aladdin);
 	// ======================================================================================================================================
 
 
@@ -55,7 +56,6 @@ void BossScene::init()
 	// =============================================== GROUND & WALL =========================================================================
 	auto ground = new GameObject(Vec2(750 * scale, (816 - 63 - 15) * scale), Size(1500* scale, 126* scale), GameObject::GROUND);
 	ground->setRigidTag("ground");
-
 	_vectNode.push_back(ground);
 
 	auto wallLeft = new GameObject(Vec2((50) * scale, (408) * scale), Size(100 * scale, 815 * scale), GameObject::WALL);
@@ -71,24 +71,28 @@ void BossScene::init()
 
 	// ================================================ PLATFORM ==============================================================================
 	const float platformSizeX = 176;
-	const float platformSizeY = 15;
-	const float platformPositionY = 552;
+	const float platformSizeY = 50;
+	const float platformPositionY = 578;
 
-	auto platform1 = new GameObject(Vec2((174) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform1->setRigidTag("platform");
-	_vectNode.push_back(platform1);
+	_platform1 = new GameObject(Vec2((174) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
+	_platform1->setRigidTag("platform");
+	_platform1->getRigidBody()->setActive(false);
+	_vectNode.push_back(_platform1);
 
-	auto platform2 = new GameObject(Vec2((563) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform2->setRigidTag("platform");
-	_vectNode.push_back(platform2);
+	_platform2 = new GameObject(Vec2((563) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
+	_platform2->setRigidTag("platform");
+	_platform2->getRigidBody()->setActive(false);
+	_vectNode.push_back(_platform2);
 
-	auto platform3 = new GameObject(Vec2((944) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform3->setRigidTag("platform");
-	_vectNode.push_back(platform3);
+	_platform3 = new GameObject(Vec2((944) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
+	_platform3->setRigidTag("platform");
+	_platform1->getRigidBody()->setActive(false);
+	_vectNode.push_back(_platform3);
 
-	auto platform4 = new GameObject(Vec2((1327) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
-	platform4->setRigidTag("platform");
-	_vectNode.push_back(platform4);
+	_platform4 = new GameObject(Vec2((1327) * scale, (platformPositionY) * scale), Size(platformSizeX * scale, platformSizeY * scale), GameObject::PLATFORM);
+	_platform4->setRigidTag("platform");
+	_platform1->getRigidBody()->setActive(false);
+	_vectNode.push_back(_platform4);
 	// =============================================================================================================================================
 
 
@@ -96,7 +100,7 @@ void BossScene::init()
 	// =============================================== BOSS ========================================================================================
 	auto jafar = new Jafar(Vec2(770 * scale, 550 * scale), Size(10, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
 	jafar->setCurrentScene(this);
-	_vectNode.push_back(jafar);
+//	_vectNode.push_back(jafar);
 	// =============================================================================================================================================
 
 
@@ -162,6 +166,20 @@ void BossScene::release()
 
 void BossScene::update()
 {
+	if(_aladdin->getRigidBody()->getPosition().getY() < _platform1->getRigidBody()->getPosition().getY() - _platform1->getRigidBody()->getSize().getHeight())
+	{
+		_platform1->getRigidBody()->setActive(true);
+		_platform2->getRigidBody()->setActive(true);
+		_platform3->getRigidBody()->setActive(true);
+		_platform4->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_platform1->getRigidBody()->setActive(false);
+		_platform2->getRigidBody()->setActive(false);
+		_platform3->getRigidBody()->setActive(false);
+		_platform4->getRigidBody()->setActive(false);
+	}
 	Scene::update();
 }
 

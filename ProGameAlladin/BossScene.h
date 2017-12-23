@@ -5,8 +5,9 @@
 #include "Framework/Scene.h"
 #include "GameObject/GameObject.h"
 
-NS_JK_BEGIN
 
+NS_JK_BEGIN
+class Aladdin;
 class BossScene: public Scene
 {
 public:
@@ -19,8 +20,13 @@ public:
 	void render() override;
 
 private:
-	GameObject* _aladdin;
+	Aladdin* _aladdin;
 	GameObject* _jafar;
+
+	GameObject* _platform1;
+	GameObject* _platform2;
+	GameObject* _platform3;
+	GameObject* _platform4;
 
 	Node* _bgCenter;
 	Node* _bgRight;
