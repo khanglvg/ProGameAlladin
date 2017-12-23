@@ -7,14 +7,16 @@
 #include "Framework/QuadTree.h"
 #include "Framework/GameMap.h"
 
-#include "GameObject/Aladdin.h"
 #include "Framework/Text.h"
+#include "Framework/dxaudio.h"
+#include "Framework/Sound.h"
 
 NS_JK_BEGIN
 
 class Lv1Scene: public Scene
 {
 public:
+	
 	Lv1Scene();
 	~Lv1Scene();
 	void init() override;
@@ -22,6 +24,10 @@ public:
 	void update() override;
 	void render() override;
 
+	CSoundManager* _soundManager;
+	Sound*_soundAbu;
+
+	//static CSound*_soundAbu;
 
 //protected:
 //	void checkVisibility();
@@ -35,6 +41,8 @@ private:
 	Node* _bgSky;
 
 	Text* _alaLife;
+	
+	//CSound* _soundBackground;
 	
 };
 

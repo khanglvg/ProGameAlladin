@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "PhysicsManager.h"
+#include "Audio.h"
 
 US_NS_JK
 
@@ -184,6 +185,9 @@ void Application::initComponents()
 	graphics->init();
 
 	// Audio
+	Audio* audio = Audio::get();
+	audio->_hWnd = _hWnd;
+	audio->initialize();
 
 
 	// Input
