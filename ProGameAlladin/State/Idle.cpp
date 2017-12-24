@@ -15,6 +15,7 @@
 #include "../Framework/Audio.h"
 
 
+
 US_NS_JK
 
 
@@ -41,7 +42,6 @@ void Idle::onEnter()
 
 	aladdin->setVelocity(Vec2(0, 0));
 	
-	
 }
 
 void Idle::onUpdate()
@@ -56,8 +56,7 @@ State* Idle::checkTransition()
 	
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
-			/*_soundAbu = Sound("Resources / Audio / Abu.wav");
-			Audio::get()->play(_soundAbu, true);*/
+	
 			return new Run(_node);
 			
 		}
@@ -65,7 +64,11 @@ State* Idle::checkTransition()
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 			return new Run(_node);
 		if (Input::getInstance()->isKeyDown(KEY_D))
+		{
+			//Audio::get()->play(Lv1Scene::_soundAbu, false);
 			return new Jump(_node);
+		}
+			
 		if (Input::getInstance()->getKey(KEY_UP_ARROW) && aladdin->isOnTheGround())
 		{
 			return new HeadUp(_node);
@@ -74,7 +77,11 @@ State* Idle::checkTransition()
 		if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 			return new IdleToSit(_node);
 		if (Input::getInstance()->getKey(KEY_S))
+		{
+			//Audio::get()->play(Lv1Scene::_soundSlash, false);
 			return new Slash(_node);
+		}
+			
 		if (Input::getInstance()->getKey(KEY_A))
 			return new Throw(_node);
 

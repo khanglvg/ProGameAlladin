@@ -2,6 +2,8 @@
 #include "../Framework/Input.h"
 #include "Jump.h"
 #include "../GameObject/Aladdin.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 
 US_NS_JK
 
@@ -18,7 +20,8 @@ void Push::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
-
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundPushing(), false);
 	aladdin->setActionName("Push"); // Idle to push
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))

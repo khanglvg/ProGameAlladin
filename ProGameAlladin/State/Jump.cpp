@@ -7,6 +7,8 @@
 #include "IdleToSit.h"
 #include "Climb.h"
 #include "IdleToClimb.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -61,7 +63,12 @@ State* Jump::checkTransition()
 	if (Input::getInstance()->getKey(KEY_A))
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
+	{
+		//Audio::get()->play(Lv1Scene::_soundSlash, false);
 		return new JumpAndSlash(_node);
+		
+	}
+		
 
 	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Idle(_node);

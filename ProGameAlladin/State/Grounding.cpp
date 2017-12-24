@@ -1,6 +1,8 @@
 ﻿#include "Grounding.h"
 #include "../GameObject/Aladdin.h"
 #include "../Framework/Input.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 
 US_NS_JK
 
@@ -14,7 +16,10 @@ Grounding::~Grounding()
 
 void Grounding::onEnter()
 {
+
 	const auto aladdin = static_cast<Aladdin*>(_node);
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundGrounding(), false);
 
 	aladdin->setActionName("Grounding");
 
