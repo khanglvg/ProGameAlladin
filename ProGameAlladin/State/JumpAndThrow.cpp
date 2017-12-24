@@ -46,6 +46,7 @@ void JumpAndThrow::onEnter()
 
 		apple->setCurrentScene(aladdin->getCurrentScene());
 		aladdin->getCurrentScene()->addNode(apple);
+		aladdin->desApple();
 	}
 }
 

@@ -56,6 +56,9 @@ void PhysicsManager::update()
 			for (auto it2 = it1 + 1; it2 != _rigidBodies.end(); ++it2)
 			{
 				Manifold manifold;
+				
+			
+				
 				if ((*it1)->isActived() && (*it2)->isActived())
 				{
 					//if (_rigidBodies[it1]->getBodyType() == DYNAMIC && _rigidBodies[it2]->getBodyType() == STATIC)
@@ -71,7 +74,12 @@ void PhysicsManager::update()
 								(manifold.collisionNormal == Vec2(-1, 0) ||
 								manifold.collisionNormal == Vec2(1, 0)	||
 								manifold.collisionNormal == Vec2(0, -1)))
+							{
 								return;
+							}
+
+					
+
 
 							resolveCollision(manifold);
 

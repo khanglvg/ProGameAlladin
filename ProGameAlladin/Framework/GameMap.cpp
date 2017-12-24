@@ -193,7 +193,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			{
 				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
 				gameObject->getRigidBody()->setDensity(1);
-				gameObject->setRigidTag("fire");
+				gameObject->setRigidTag("fireground");
 
 				_listFire.push_back(gameObject);
 				//_quadTree->InsertStaticObject(gameObject);

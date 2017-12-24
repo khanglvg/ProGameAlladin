@@ -80,9 +80,7 @@ State* Idle::checkTransition()
 		{
 			//Audio::get()->play(Lv1Scene::_soundSlash, false);
 			return new Slash(_node);
-		}
-			
-		if (Input::getInstance()->getKey(KEY_A))
+		if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple()>0)
 			return new Throw(_node);
 
 		return nullptr;

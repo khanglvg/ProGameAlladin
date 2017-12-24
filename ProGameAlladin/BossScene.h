@@ -5,8 +5,10 @@
 #include "Framework/Scene.h"
 #include "GameObject/GameObject.h"
 
-NS_JK_BEGIN
 
+NS_JK_BEGIN
+class Aladdin;
+class Jafar;
 class BossScene: public Scene
 {
 public:
@@ -18,9 +20,22 @@ public:
 	void update() override;
 	void render() override;
 
+	//-1 ben trai; 1 ben phai
+	int getAladdinPosition();
+
+	int getNumApple() const;
+
 private:
-	GameObject* _aladdin;
-	GameObject* _jafar;
+	Aladdin* _aladdin;
+	Jafar* _jafar;
+
+	std::vector<GameObject*> _listAppleLeft;
+	std::vector<GameObject*> _listAppleRight;
+
+	GameObject* _platform1;
+	GameObject* _platform2;
+	GameObject* _platform3;
+	GameObject* _platform4;
 
 	Node* _bgCenter;
 	Node* _bgRight;

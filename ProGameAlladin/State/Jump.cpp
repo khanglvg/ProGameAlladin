@@ -60,7 +60,7 @@ State* Jump::checkTransition()
 
 
 
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple()>0)
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 	{

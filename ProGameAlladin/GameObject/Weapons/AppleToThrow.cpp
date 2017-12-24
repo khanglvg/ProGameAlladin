@@ -75,28 +75,39 @@ void AppleToThrow::update()
 		_isCollision = true;
 	else if (collisionWithPlatform != _rigid->getCollidingBodies().end())
 		_isCollision = true;
-	else if (collisionWithJafar != _rigid->getCollidingBodies().end())
-		_isCollision = true;
 	else
 		_isCollision = false;
 
-	if (collisionWithEnemy != _rigid->getCollidingBodies().end() || (collisionWithJafar != _rigid->getCollidingBodies().end()))
+	if (_actionName == "Apple-Explosion" && _animationIndex == 4)
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
-	else if (_actionName == "Apple-Explosion" && _animationIndex == 4)
+	else if (_actionName == "Apple-Explosion-Boss" && _animationIndex == 18)
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
 
-	//if (collisionWithWall != _rigid->getCollidingBodies().end() || collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
 	if(_isCollision)
 	{
 		if (_actionName != "Apple-Explosion")
 		{
+			_rigid->setGravityScale(0);
 			setVelocity(Vec2(0,0));
 			_actionName = "Apple-Explosion";
 			_animationIndex = 0;
+		}
+	}
+	else if (collisionWithJafar != _rigid->getCollidingBodies().end())
+	{
+		if (_actionName != "Apple-Explosion-Boss")
+		{
+			_rigid->setGravityScale(0);
+			setScale(Vec2(1.2,1.2));
+			setVelocity(Vec2(0, 0));
+			_actionName = "Apple-Explosion-Boss";
+			_animationIndex = 0;
+			_textureApple.setSrcFile("Resources/Items/Items-Explosion.png");
+			Graphics::getInstance()->loadTexture(_textureApple);
 		}
 	}
 

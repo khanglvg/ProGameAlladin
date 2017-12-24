@@ -39,6 +39,7 @@ public:
 	RigidBody* getRigidBody() const;
 
 	GameObject::GameObjectType getTag() const;
+	void setTag(const GameObject::GameObjectType& tag);
 
 	bool isOwnerRight() const;
 	void setIsOwnerRight(const bool& isOwnerRight);
@@ -47,6 +48,7 @@ public:
 	virtual bool isAllowToClimb();
 
 	virtual bool isOnCollision();
+	void setOnCollision(const bool& onCollision);
 #pragma endregion
 
 	bool isVisible() const;

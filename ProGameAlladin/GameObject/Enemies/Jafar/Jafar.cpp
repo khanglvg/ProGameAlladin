@@ -5,6 +5,7 @@
 #include "JafarAttackState.h"
 #include "Transform/TransformIdleState.h"
 #include "Transform/TransformAttackState.h"
+#include "../../Weapons/Fire.h"
 
 US_NS_JK
 
@@ -18,7 +19,7 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_attackRange = 280;
 	setScale(Vec2(1, 1));
 
-	_health = 21;
+	_health = 15;
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;
@@ -147,6 +148,27 @@ void Jafar::update()
 		delete _currentState;
 		_currentState = new TransformIdleState(this);
 		_animationIndex = 0;
+
+		//Flame
+		auto flameCenter = new Fire(Vec2(_rigid->getPosition().getX(), _rigid->getPosition().getY() + 2), Size(30, 56));
+		flameCenter->getRigidBody()->setActive(false);
+		flameCenter->setLayer(0);
+		flameCenter->getRigidBody()->setGravityScale(0);
+		flameCenter->setCurrentScene(this->getCurrentScene());
+		this->getCurrentScene()->addNode(flameCenter);
+		//Flame
+		auto flameLeft = new Fire(Vec2(_rigid->getPosition().getX() - _rigid->getSize().getWidth() - 3, _rigid->getPosition().getY() + 2), Size(30, 56));
+		flameLeft->getRigidBody()->setActive(false);
+		flameLeft->getRigidBody()->setGravityScale(0);
+		flameLeft->setCurrentScene(this->getCurrentScene());
+		this->getCurrentScene()->addNode(flameLeft);
+		//Flame
+		auto flameRight = new Fire(Vec2(_rigid->getPosition().getX() + _rigid->getSize().getWidth() + 5, _rigid->getPosition().getY() + 2), Size(30, 56));
+		flameRight->getRigidBody()->setActive(false);
+		flameRight->setLayer(0);
+		flameRight->getRigidBody()->setGravityScale(0);
+		flameRight->setCurrentScene(this->getCurrentScene());
+		this->getCurrentScene()->addNode(flameRight);
 	}
 
 	if(_health == 0)
@@ -181,6 +203,11 @@ void Jafar::render()
 			const auto expect = 0.07;
 
 			auto origin = Vec2(0.5f, 1.0f);
+
+			if (_animationIndex >=2 && _animationIndex <=8)
+			{
+				origin = Vec2(0.8f, 1.0f);
+			}
 
 			Graphics::getInstance()->drawSprite(_textureTransform, origin, getTransformMatrix(), Color(255, 255, 255, 255),
 				rect, 1);

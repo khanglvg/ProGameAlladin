@@ -2,7 +2,6 @@
 #include "../Framework/Graphics.h"
 #include "../Framework/GameManager.h"
 #include "../Framework/PhysicsManager.h"
-#include "../Framework/Input.h"
 
 US_NS_JK
 
@@ -24,6 +23,8 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isAllowClimb = true;
 	_isPause = false;
 	_isClimbDown = false;
+	_eScene = ENUM_LV1_SCENE;
+	_numApple = 10;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -77,6 +78,8 @@ void Aladdin::update()
 {
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
+
+	OutputDebugString(std::to_string(_numApple).c_str());
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -303,6 +306,21 @@ Texture Aladdin::getTexture() const
 	return _textureAla;
 }
 
+int Aladdin::getNumApple() const
+{
+	return _numApple;
+}
+
+void Aladdin::desApple()
+{
+	_numApple--;
+}
+
+void Aladdin::incApple()
+{
+	_numApple++;
+}
+
 Vec2 Aladdin::getStartPosition() const
 {
 	return Vec2(_startX, _startY);
@@ -387,5 +405,15 @@ void Aladdin::setIsPause(const bool & pause)
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;
+}
+
+int Aladdin::getEScene() const
+{
+	return _eScene;
+}
+
+void Aladdin::setEScene(const int& eScene)
+{
+	_eScene = eScene;
 }
 #pragma endregion
