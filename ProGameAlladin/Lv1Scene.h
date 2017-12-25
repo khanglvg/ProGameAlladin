@@ -13,6 +13,8 @@
 
 NS_JK_BEGIN
 
+class Aladdin;
+
 class Lv1Scene: public Scene
 {
 public:
@@ -44,7 +46,7 @@ public:
 private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
-	GameObject* mAladdin;
+	Aladdin* mAladdin;
 	Node* _bgSky;
 
 

@@ -127,10 +127,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
+    <ClInclude Include="CompleteScene.h" />
     <ClInclude Include="Framework\Audio.h" />
     <ClInclude Include="Framework\dxaudio.h" />
     <ClInclude Include="Framework\Sound.h" />
     <ClInclude Include="Framework\Text.h" />
+    <ClInclude Include="GameObject\AladdinAndAbu.h" />
     <ClInclude Include="GameObject\Aladdin.h" />
     <ClInclude Include="DirectX\Include\audiodefs.h" />
     <ClInclude Include="DirectX\Include\comdecl.h" />
@@ -216,7 +218,9 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
+    <ClInclude Include="GameObject\SpriteText.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
     <ClInclude Include="GameObject\BackgroundMenu.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyDefiantState.h" />
@@ -283,7 +287,7 @@
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
-    <ClInclude Include="GameObject\Weapon.h" />
+    <ClInclude Include="GameObject\Weapons\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -369,10 +373,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BossScene.cpp" />
+    <ClCompile Include="CompleteScene.cpp" />
     <ClCompile Include="Framework\Audio.cpp" />
     <ClCompile Include="Framework\dxaudio.cpp" />
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="Framework\Text.cpp" />
+    <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\JafarBullet.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\Jafar.cpp" />
@@ -384,6 +390,8 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
+    <ClCompile Include="GameObject\SpriteText.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
@@ -451,7 +459,7 @@
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
-    <ClCompile Include="GameObject\Weapon.cpp" />
+    <ClCompile Include="GameObject\Weapons\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -555,6 +563,7 @@
     <Xml Include="Resources\Boss\Jafar.xml" />
     <Xml Include="Resources\Boss\JafarBullet.xml" />
     <Xml Include="Resources\Boss\Transform.xml" />
+    <Xml Include="Resources\Complete\aladdin_complete.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
@@ -564,6 +573,7 @@
     <Xml Include="Resources\Items\Flame.xml" />
     <Xml Include="Resources\Items\FloatGround.xml" />
     <Xml Include="Resources\Items\Items.xml" />
+    <Xml Include="Resources\Menu\text.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -579,6 +589,11 @@
     <Image Include="Resources\Boss\palace_back.png" />
     <Image Include="Resources\Boss\pillars.png" />
     <Image Include="Resources\Boss\transform.png" />
+    <Image Include="Resources\Complete\abu_victory_strip8_25_37.png" />
+    <Image Include="Resources\Complete\aladdin_victory_strip10_45_125.png" />
+    <Image Include="Resources\Complete\victory_abu.png" />
+    <Image Include="Resources\Complete\victory_aladdin.png" />
+    <Image Include="Resources\Complete\victory_title.png" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />
@@ -596,16 +611,19 @@
     <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
     <Image Include="Resources\ground.png" />
     <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\fallingplatform_strip8_5_4.png" />
     <Image Include="Resources\Items\fire.png" />
     <Image Include="Resources\Items\FloatGround.png" />
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\Items-Explosion.png" />
+    <Image Include="Resources\Items\items.png" />
     <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\Menu\backgroundMenu.png" />
     <Image Include="Resources\Menu\menuknife.png" />
     <Image Include="Resources\Menu\menu_select.png" />
     <Image Include="Resources\Menu\number.png" />
+    <Image Include="Resources\Menu\text.png" />
     <Image Include="Resources\Menu\title.png" />
     <Image Include="Resources\Menu\victory.png" />
     <Image Include="Resources\red_rect.png" />

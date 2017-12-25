@@ -14,7 +14,9 @@
 #include "../GameObject/Items/Apple/Apple.h"
 
 NS_JK_BEGIN
-	
+
+class Aladdin;
+
 class GameMap
 {
 private:
@@ -23,7 +25,7 @@ private:
 	Tmx::Map *_map;
 	QuadTree* _quadTree;
 
-	GameObject* _player;
+	Aladdin* _player;
 
 	GameObject* _triggerLow;
 	GameObject* _triggerHigh;
@@ -53,7 +55,7 @@ protected:
 public:
 	GameMap();
 	//use QuadTree* &quadTree because quadTree is init in this function
-	GameMap(char* filePath, QuadTree* &quadTree, GameObject* player);
+	GameMap(char* filePath, QuadTree* &quadTree, Aladdin* player);
 	~GameMap();
 
 	void init();

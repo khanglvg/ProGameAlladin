@@ -1,5 +1,5 @@
 ﻿#include "Weapon.h"
-#include "../Framework/Graphics.h"
+#include "../../Framework/Graphics.h"
 US_NS_JK
 
 Weapon::Weapon()
@@ -35,7 +35,7 @@ void Weapon::update()
 	}
 	else
 	{
-		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth()/2 - _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
 		_position = _rigid->getPosition() - _rigid->getOffset();
 	}
 	

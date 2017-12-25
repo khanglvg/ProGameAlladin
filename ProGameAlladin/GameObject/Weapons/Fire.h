@@ -39,7 +39,7 @@ private:
 	string _actionName;
 	float _index = 0;
 
-	int _layer = 1;
+	int _layer = 2;
 
 	bool _isDone = false;
 

@@ -10,13 +10,14 @@ class TitleMenuScene: public Node
 {
 public:
 	TitleMenuScene();
-	TitleMenuScene(const string& srcFile, const int& layer);
+	TitleMenuScene(const string& srcFile, const Rect& rect, const int& layer);
 	~TitleMenuScene();
 
 	void init() override;
 	void render() override;
 	void release() override;
 private:
+	Rect _rect;
 	Texture _textureTitle;
 	string _srcFile;
 	int _layer;

@@ -51,7 +51,7 @@ void Jump::onUpdate()
 void Jump::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	aladdin->getRigidBody()->setSize(Size(10, 30));
+	aladdin->getRigidBody()->setSize(Size(10, 60));
 }
 
 State* Jump::checkTransition()

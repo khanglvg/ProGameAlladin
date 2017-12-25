@@ -7,16 +7,11 @@ US_NS_JK
 
 Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, size, PLAYER)
 {
-	float size_x = 25;
-	float size_y = 55;
-	//_rigidAla = new RigidBody(Vec2(SCREEN_WIDTH / 10, SCREEN_HEIGHT - 300), Vec2(0, 0), DYNAMIC, 1, 0.5, 1,Vec2(0.0f,0.0f),0,Vec2(0,-25), Size(50,50));
-	//setPosition(_rigidAla->getPosition() - _rigidAla->getOffset());
 	setPosition(_rigid->getPosition());
 	_rigid->setBodyType(DYNAMIC);
 	_rigid->setDensity(10);
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1.5);
-	//setPosition(_rigid->getPosition() - _rigid->getOffset());
 	setPosition(_rigid->getPosition());
 	_rigid->setTag("aladdin");
 	this->setIsOwnerRight(true);
@@ -24,7 +19,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isPause = false;
 	_isClimbDown = false;
 	_eScene = ENUM_LV1_SCENE;
-	_numApple = 10;
+	_numApple = 5;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -92,7 +87,7 @@ void Aladdin::update()
 	}
 	else
 	{
-		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );;
+		auto const ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground" );
 		auto const wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"wall" );
 		const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"stair" );
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
@@ -161,7 +156,9 @@ void Aladdin::update()
 		if (rope == _rigid->getCollidingBodies().end())
 			_isOnTheRope = false;
 		else
+		{
 			_isOnTheRope = true;
+		}
 
 		//
 		// collision with fire
@@ -229,8 +226,13 @@ void Aladdin::render()
 	//_rigid->setSize(Size(rect.getWidth(), rect.getHeight()));
 	//_rigid->setOffset(Vec2(rect.getWidth()/2, rect.getHeight()/2));
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	const auto expect = 0.05;
+	auto expect = 0.05;
 	auto origin = Vec2(0.5f, 1.0f);
+
+	if (_actionName == "Run")
+	{
+		expect = 0.03;
+	}
 
 	if (_actionName == "Grounding")
 	{

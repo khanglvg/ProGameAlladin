@@ -36,17 +36,17 @@ void FireGround::update()
 	{
 		const auto collisionWithAladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 
-		if (collisionWithAladdin != _rigid->getCollidingBodies().end())
+		if (collisionWithAladdin != _rigid->getCollidingBodies().end() && _aladdin->getPosition().getY() < _position.getY()-20)
 		{
-			if (_aladdin->getActionName() == "Idle1" || _aladdin->getIndex() == 4 || _aladdin->getIndex() == 1 || _aladdin->getIndex() == 9
+			if (_aladdin->getActionName() == "Idle1" || _aladdin->getIndex() == 4 || _aladdin->getIndex() == 1 || _aladdin->getIndex() == 9 || _aladdin->getIndex() == 7
 				&& (_aladdin->getPosition().getX() + _aladdin->getRect().getWidth() > _position.getX()
 					&& _aladdin->getPosition().getX() + _aladdin->getRect().getWidth()< _position.getX() + _rigid->getSize().getWidth()))
 			{
 				_currentColliPosition = _aladdin->getRigidPosition();
 				_currentFrame = _aladdin->getIndex();
-				if (abs(_lastColliPosition.getX() - _currentColliPosition.getX()) > 15 && _lastFrame != _currentFrame)
+				if (abs(_lastColliPosition.getX() - _currentColliPosition.getX()) > 20 && _lastFrame != _currentFrame)
 				{
-					const auto flame = new Fire(this, Vec2(_aladdin->getRigidPosition().getX(), _aladdin->getRigidPosition().getY() - 15), Size(30, 56));
+					const auto flame = new Fire(this, Vec2(_aladdin->getRigidPosition().getX(), _aladdin->getRigidPosition().getY()), Size(30, 56));
 					flame->getRigidBody()->setGravityScale(0);
 
 					flame->setCurrentScene(this->getCurrentScene());

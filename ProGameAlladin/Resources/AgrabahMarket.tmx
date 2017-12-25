@@ -42,7 +42,7 @@
   </data>
  </layer>
  <objectgroup name="Player">
-  <object id="207" gid="12" x="823.333" y="629" width="37" height="50"/>
+  <object id="207" gid="12" x="414.757" y="628.697" width="37" height="50"/>
  </objectgroup>
  <objectgroup name="Apple">
   <object id="1" gid="3" x="477.333" y="553" width="11" height="12"/>
@@ -219,7 +219,7 @@
   <object id="119" name="StairsGround" x="1188" y="607.334" width="257.333" height="24"/>
   <object id="120" name="StairsGround" x="1148" y="614.667" width="296" height="17.3334"/>
   <object id="122" name="StairsGround" x="1387.33" y="566.417" width="112" height="10.9167"/>
-  <object id="123" x="1462.67" y="659.667" width="2910.33" height="29.6666"/>
+  <object id="123" x="1462.67" y="659.667" width="2910.33" height="181.667"/>
   <object id="133" name="StairsGround" x="2560.33" y="516.833" width="187" height="12.8333"/>
   <object id="134" name="StairsGroundHigh" x="2512" y="526" width="64.5" height="15"/>
   <object id="135" name="StairsGroundHigh" x="2456.5" y="533" width="70.5" height="14.5"/>
@@ -232,7 +232,7 @@
   <object id="152" name="StairsGround" x="4470" y="623.166" width="302.667" height="37.5"/>
   <object id="153" name="StairsGround" x="4427.5" y="631" width="197" height="57.5"/>
   <object id="155" name="StairsGround" x="4389.67" y="638.167" width="228.833" height="49.3333"/>
-  <object id="156" name="StairsGround" x="4355.5" y="646.167" width="260.25" height="42.3106"/>
+  <object id="156" name="StairsGround" x="4355.5" y="646.167" width="260.25" height="118.311"/>
   <object id="160" name="StairsGround" x="3867.33" y="456.333" width="111.667" height="23.1667"/>
   <object id="161" name="StairsGround" x="3827.33" y="471.333" width="115" height="23.3333"/>
   <object id="181" name="StairsGround" x="3917.5" y="438" width="156.667" height="24"/>
@@ -277,23 +277,23 @@
   <object id="175" x="3004" y="434.5" width="54.5" height="127.5"/>
   <object id="176" x="2498.5" y="0" width="24" height="241.5"/>
   <object id="177" x="2785.5" y="174.333" width="33.5" height="130.167"/>
-  <object id="182" x="4753.33" y="226.333" width="38" height="394.333"/>
-  <object id="320" x="1.33" y="185.333" width="29.3333" height="461.333"/>
+  <object id="182" x="4754.33" y="233.333" width="422" height="394.333"/>
+  <object id="320" x="-404.67" y="183.333" width="441.333" height="461.333"/>
   <object id="322" x="1451" y="576" width="44" height="88"/>
  </objectgroup>
  <objectgroup name="Trigger">
   <object id="293" name="Trigger-Low" x="2644.5" y="578.167" width="115.167" height="85.3333"/>
   <object id="294" name="Trigger-High" x="2243.5" y="520" width="41.3333" height="60.5"/>
  </objectgroup>
- <objectgroup name="Fire" opacity="0">
-  <object id="220" x="461.333" y="621.333" width="128" height="33.3333"/>
-  <object id="222" x="830.667" y="618.667" width="125.333" height="38.6667"/>
-  <object id="224" x="1006.67" y="618.667" width="129.333" height="37.3333"/>
-  <object id="225" x="2014.67" y="654.667" width="129.333" height="33.3333"/>
-  <object id="226" x="3070.67" y="652" width="162.667" height="34.6667"/>
+ <objectgroup name="Fire">
+  <object id="220" x="494.333" y="621.333" width="66" height="33.3333"/>
+  <object id="222" x="860.667" y="618.667" width="65.333" height="38.6667"/>
+  <object id="224" x="1039.67" y="618.667" width="65.333" height="37.3333"/>
+  <object id="225" x="2051.67" y="654.667" width="62.333" height="33.3333"/>
+  <object id="226" x="3109.67" y="652" width="85.667" height="34.6667"/>
  </objectgroup>
  <objectgroup name="Rope">
-  <object id="125" x="2091" y="380.999" width="1" height="194.485"/>
+  <object id="125" x="2091" y="371.999" width="1" height="203.485"/>
   <object id="126" x="1547" y="197.833" width="1" height="150.333"/>
   <object id="127" x="4715" y="412.334" width="1" height="131.166"/>
   <object id="144" x="2699" y="138.273" width="1" height="166.894"/>

@@ -21,6 +21,7 @@ void Fall::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("Fall");
+	aladdin->getRigidBody()->setActive(true);
 }
 
 void Fall::onUpdate()
@@ -55,7 +56,8 @@ State* Fall::checkTransition()
 		return new JumpAndSlash(_node);
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
-	if (aladdin->isOnTheGround())
+	if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Grounding(_node);
+
 	return nullptr;
 }

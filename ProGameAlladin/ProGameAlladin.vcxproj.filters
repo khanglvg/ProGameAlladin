@@ -69,7 +69,6 @@
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
-    <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -150,6 +149,11 @@
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
+    <ClCompile Include="GameObject\Weapons\Weapon.cpp" />
+    <ClCompile Include="GameObject\SpriteText.cpp" />
+    <ClCompile Include="CompleteScene.cpp" />
+    <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -294,7 +298,6 @@
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
-    <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -380,6 +383,11 @@
     <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformAttackState.h" />
     <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
+    <ClInclude Include="GameObject\Weapons\Weapon.h" />
+    <ClInclude Include="GameObject\SpriteText.h" />
+    <ClInclude Include="CompleteScene.h" />
+    <ClInclude Include="GameObject\AladdinAndAbu.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -426,6 +434,8 @@
     <Xml Include="Resources\Boss\Transform.xml" />
     <Xml Include="Resources\Items\Flame.xml" />
     <Xml Include="Resources\Items\FloatGround.xml" />
+    <Xml Include="Resources\Menu\text.xml" />
+    <Xml Include="Resources\Complete\aladdin_complete.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -474,6 +484,14 @@
     <Image Include="Resources\Boss\flame.png" />
     <Image Include="Resources\Boss\transform.png" />
     <Image Include="Resources\Items\fire.png" />
+    <Image Include="Resources\Items\fallingplatform_strip8_5_4.png" />
+    <Image Include="Resources\Items\items.png" />
+    <Image Include="Resources\Menu\text.png" />
+    <Image Include="Resources\Complete\aladdin_victory_strip10_45_125.png" />
+    <Image Include="Resources\Complete\abu_victory_strip8_25_37.png" />
+    <Image Include="Resources\Complete\victory_title.png" />
+    <Image Include="Resources\Complete\victory_abu.png" />
+    <Image Include="Resources\Complete\victory_aladdin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
