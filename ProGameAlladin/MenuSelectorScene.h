@@ -5,12 +5,13 @@
 #include "Framework/Scene.h"
 #include "Framework/Text.h"
 #include "GameObject/KnifeMenuSelector.h"
+#include "GameObject/SpriteText.h"
 
 #define JK_FONT_HEIGHT 35
 #define JK_FONT_WIDTH 20
 
-#define JK_DRAW_X_1 250
-#define JK_DRAW_X_2 460
+#define JK_DRAW_X_1 210
+#define JK_DRAW_X_2 430
 
 #define JK_DRAW_Y_1 240
 #define JK_DRAW_Y_2 315
@@ -33,15 +34,16 @@ public:
 private:
 	KnifeMenuSelector* _knife;
 
-	Text* _textPressStart;
-	Text* _textMarket;
-	Text* _textJafar;
-
-	Text* _textOptions;
-	Text* _textSound;
-	Text* _textExit;
-
-	Text* _textStateSound;
+	vector<SpriteText*> _pressStart;
+	vector<SpriteText*> _options;
+	vector<SpriteText*> _recommend1;
+	vector<SpriteText*> _recommend2;
+	vector<SpriteText*> _market;
+	vector<SpriteText*> _jafar;
+	vector<SpriteText*> _sound;
+	vector<SpriteText*> _exit;
+	vector<SpriteText*> _soundOn;
+	vector<SpriteText*> _soundOff;
 
 	Text* _textRecommend1;
 	Text* _textRecommend2;
@@ -49,6 +51,9 @@ private:
 	// true - Sound On
 	// false - Sound Off
 	bool _stateSound;
+	
+	float _distance;
+	float _errorY;
 };
 
 NS_JK_END

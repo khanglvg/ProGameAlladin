@@ -1,5 +1,5 @@
 ﻿#include "Weapon.h"
-#include "../Framework/Graphics.h"
+#include "../../Framework/Graphics.h"
 US_NS_JK
 
 Weapon::Weapon()

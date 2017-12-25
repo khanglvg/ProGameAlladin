@@ -2,7 +2,7 @@
 
 #define __SLASH_H__
 #include "State.h"
-#include "../GameObject/Weapon.h"
+#include "../GameObject/Weapons/Weapon.h"
 
 
 NS_JK_BEGIN

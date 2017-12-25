@@ -19,7 +19,7 @@ void BackgroundLv1Scene::release()
 
 void BackgroundLv1Scene::init()
 {
-	_textureBackground.setName(_srcFile + ".jpg");
+	_textureBackground.setName(_srcFile);
 	_textureBackground.setSrcFile(_srcFile);
 
 	Graphics::getInstance()->loadTexture(_textureBackground);

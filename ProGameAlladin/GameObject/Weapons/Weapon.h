@@ -1,8 +1,8 @@
 ﻿#ifndef __WEAPON_H__
 
 #define __WEAPON_H__
-#include "../Framework/definitions.h"
-#include "GameObject.h"
+#include "../../Framework/definitions.h"
+#include "../GameObject.h"
 
 NS_JK_BEGIN
 class Weapon: public GameObject

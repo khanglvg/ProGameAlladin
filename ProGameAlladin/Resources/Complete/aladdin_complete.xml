@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="aladdin_complete" imagePath="victory_aladdin.png" width="1040" height="128">
+    <sprite x="1" y="13" w="70" h="113" oX="1" oY="13" oW="-823" oH="1005" />
+    <sprite x="107" y="7" w="72" h="119" oX="107" oY="7" oW="-823" oH="1005" />
+    <sprite x="213" y="1" w="76" h="125" oX="213" oY="1" oW="-823" oH="1005" />
+    <sprite x="315" y="9" w="96" h="117" oX="315" oY="9" oW="-823" oH="1005" />
+    <sprite x="417" y="5" w="80" h="121" oX="417" oY="5" oW="-823" oH="1005" />
+    <sprite x="523" y="5" w="74" h="121" oX="523" oY="5" oW="-823" oH="1005" />
+    <sprite x="627" y="9" w="74" h="117" oX="627" oY="9" oW="-823" oH="1005" />
+    <sprite x="735" y="3" w="88" h="123" oX="735" oY="3" oW="-823" oH="1005" />
+    <sprite x="837" y="9" w="98" h="117" oX="837" oY="9" oW="-823" oH="1005" />
+    <sprite x="941" y="5" w="80" h="121" oX="941" oY="5" oW="-823" oH="1005" />
+  </Animation>
+
+
+  <Animation name="abu_complete" imagePath="victory_abu.png" width="496" height="39">
+    <sprite x="21" y="5" w="26" h="32" oX="21" oY="5" oW="-400" oH="440" />
+    <sprite x="69" y="5" w="42" h="32" oX="69" oY="5" oW="-400" oH="440" />
+    <sprite x="125" y="5" w="52" h="31" oX="125" oY="5" oW="-400" oH="440" />
+    <sprite x="196" y="1" w="40" h="36" oX="196" oY="1" oW="-400" oH="440" />
+    <sprite x="264" y="2" w="35" h="35" oX="264" oY="2" oW="-400" oH="440" />
+    <sprite x="319" y="2" w="45" h="35" oX="319" oY="2" oW="-400" oH="440" />
+    <sprite x="383" y="4" w="50" h="33" oX="383" oY="4" oW="-400" oH="440" />
+    <sprite x="445" y="7" w="46" h="30" oX="445" oY="7" oW="-400" oH="440" />
+  </Animation>
+</Animations>
