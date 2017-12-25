@@ -41,19 +41,19 @@ void Lv1Scene::init()
 	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
 	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
 	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
-	Audio::get()->load(_soundAbu);
-	Audio::get()->load(_soundBackground);
-	Audio::get()->load(_soundSlash);
-	Audio::get()->load(_soundGrounding);
-	Audio::get()->load(_soundPushing);
-	Audio::get()->play(_soundThrowing, false);
-	Audio::get()->play(_soundBackground,true);
+	//Audio::get()->load(_soundAbu);
+	//Audio::get()->load(_soundBackground);
+	//Audio::get()->load(_soundSlash);
+	//Audio::get()->load(_soundGrounding);
+	//Audio::get()->load(_soundPushing);
+	//Audio::get()->play(_soundThrowing, false);
+	//Audio::get()->play(_soundBackground,true);
 	//Audio::get()->play(_soundAbu, false);
 
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, 600), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(3000, -100), Size(10, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 

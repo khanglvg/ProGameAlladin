@@ -161,7 +161,7 @@ void Aladdin::update()
 		}
 
 		//
-		// collision with fire
+		// collision with fire 
 		//
 		if (fire == _rigid->getCollidingBodies().end())
 			_isOnTheFire = false;

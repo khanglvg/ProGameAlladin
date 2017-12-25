@@ -87,6 +87,7 @@ void PotToThrow::update()
 	{
 		if (_actionName != "WallEnemy-BulletBroken")
 		{
+			_rigid->setGravityScale(0);
 			setVelocity(Vec2(0,0));
 			_actionName = "WallEnemy-BulletBroken";
 			_animationIndex = 0;

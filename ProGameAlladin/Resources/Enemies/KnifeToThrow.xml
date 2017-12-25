@@ -9,9 +9,11 @@
     <sprite x="225" y="675" w="24" h="22" oX="225" oY="675" oW="629" oH="197" />
     <sprite x="261" y="678" w="12" h="21" oX="261" oY="678" oW="629" oH="197" />
   </Animation>
-<Animation name="Knife-Explosion" imagePath="Items-Explosion.png" width="896" height="490">
-    <sprite x="454" y="441" w="11" h="17" oX="454" oY="441" oW="89" oH="454" />
-    <sprite x="492" y="437" w="21" h="23" oX="492" oY="437" oW="89" oH="454" />
-    <sprite x="532" y="435" w="33" h="31" oX="532" oY="435" oW="89" oH="454" />
+<Animation name="Knife-Explosion" imagePath="Jafar-Bullet.png" width="896" height="490">
+  <sprite x="103" y="10" w="2" h="2" oX="103" oY="10" oW="-151" oH="80" />
+  <sprite x="128" y="5" w="13" h="12" oX="128" oY="5" oW="-151" oH="80" />
+  <sprite x="154" y="4" w="20" h="13" oX="154" oY="4" oW="-151" oH="80" />
+  <sprite x="187" y="1" w="14" h="20" oX="187" oY="1" oW="-151" oH="80" />
+  <sprite x="103" y="10" w="2" h="2" oX="103" oY="10" oW="-151" oH="80" />
   </Animation>
 </Animations>

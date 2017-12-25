@@ -44,6 +44,7 @@ private:
 	std::vector<GameObject*> _listFire;
 	std::vector<GameObject*> _listHorizontalBar;
 	std::vector<GameObject*> _listStop;
+	std::vector<GameObject*> _listItems;
 
 	bool _isActivedLow = false;
 	bool _isActivedHigh = false;
