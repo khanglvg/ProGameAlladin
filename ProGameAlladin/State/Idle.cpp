@@ -53,35 +53,37 @@ void Idle::onUpdate()
 State* Idle::checkTransition()
 {
 	auto const aladdin = static_cast<Aladdin*>(_node);
-	
-		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		{
-	
-			return new Run(_node);
-			
-		}
-			
-		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-			return new Run(_node);
-		if (Input::getInstance()->isKeyDown(KEY_D))
-		{
-			//Audio::get()->play(Lv1Scene::_soundAbu, false);
-			return new Jump(_node);
-		}
-			
-		if (Input::getInstance()->getKey(KEY_UP_ARROW) && aladdin->isOnTheGround())
-		{
-			return new HeadUp(_node);
-		}
 
-		if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
-			return new IdleToSit(_node);
-		if (Input::getInstance()->getKey(KEY_S))
-		{
-			//Audio::get()->play(Lv1Scene::_soundSlash, false);
-			return new Slash(_node);
-		if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple()>0)
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
+
+		return new Run(_node);
+
+	}
+
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		return new Run(_node);
+	if (Input::getInstance()->isKeyDown(KEY_D))
+	{
+		//Audio::get()->play(Lv1Scene::_soundAbu, false);
+		return new Jump(_node);
+	}
+
+	if (Input::getInstance()->getKey(KEY_UP_ARROW) && aladdin->isOnTheGround())
+	{
+		return new HeadUp(_node);
+	}
+
+	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
+		return new IdleToSit(_node);
+	if (Input::getInstance()->getKey(KEY_S))
+	{
+		//Audio::get()->play(Lv1Scene::_soundSlash, false);
+		return new Slash(_node);
+	}
+		if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 			return new Throw(_node);
 
 		return nullptr;
+	
 }

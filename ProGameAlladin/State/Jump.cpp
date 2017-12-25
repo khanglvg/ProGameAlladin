@@ -26,7 +26,7 @@ void Jump::onEnter()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	
-	aladdin->setVelocity(Vec2(0, -250)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -270)); // -300 is High jump (hold D), -200 is a normal jump
 	aladdin->getRigidBody()->setSize(Size(4, 30));
 	aladdin->setActionName("Jump");
 }

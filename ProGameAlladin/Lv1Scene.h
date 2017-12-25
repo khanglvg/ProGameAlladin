@@ -31,6 +31,11 @@ public:
 	Sound* getsoundSlash();
 	Sound* getsoundPushing();
 	Sound* getsoundThrowing();
+	Sound* getsoundSitSlash();
+	Sound* getsoundHurt();
+	Sound* getsoundAppleCollect();
+	Sound* getsoundAppleCrush();
+
 //protected:
 //	void checkVisibility();
 //	vector<Node*> listVisible;
@@ -46,10 +51,14 @@ private:
 	Text* _alaLife;
 	Sound*_soundBackground;
 	Sound* _soundSlash;
+	Sound*_soundSitSlash;
 	Sound*_soundGrounding;
 	Sound*_soundAbu;
 	Sound*_soundPushing;
 	Sound*_soundThrowing;
+	Sound*_soundHurt;
+	Sound*_soundAppleCollect;
+	Sound*_soundAppleCrush;
 	//CSound* _soundBackground;
 	
 };
