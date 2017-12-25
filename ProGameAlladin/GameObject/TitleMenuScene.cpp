@@ -6,12 +6,13 @@ TitleMenuScene::TitleMenuScene()
 {
 }
 
-TitleMenuScene::TitleMenuScene(const string& srcFile, const int& layer)
+TitleMenuScene::TitleMenuScene(const string& srcFile, const Rect& rect, const int& layer)
 {
 	_srcFile = srcFile;
 	_layer = layer;
 	_position = Vec2(50, 0);
 	_scale = Vec2(2.3, 2.3);
+	_rect = rect;
 }
 
 TitleMenuScene::~TitleMenuScene()
@@ -31,7 +32,7 @@ void TitleMenuScene::render()
 		Vec2(0, 0),
 		getTransformMatrix(), 
 		Color(255, 255, 255, 255),
-		Rect(0, 0, 243, 90), _layer);
+		_rect, _layer);
 }
 
 void TitleMenuScene::release()

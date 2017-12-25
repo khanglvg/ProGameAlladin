@@ -2,6 +2,7 @@
 #include "Lv1Scene.h"
 #include "MenuSelectorScene.h"
 #include "BossScene.h"
+#include "CompleteScene.h"
 
 US_NS_JK
 

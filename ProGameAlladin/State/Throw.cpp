@@ -8,6 +8,8 @@
 
 #include "../Framework/Scene.h"
 #include "JumpAndThrow.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 
 US_NS_JK
 
@@ -24,6 +26,8 @@ void Throw::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundThrowing(), false);
 
 	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	//	aladdin->setScale(Vec2(-1, 1));

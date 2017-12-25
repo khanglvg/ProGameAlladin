@@ -5,7 +5,7 @@
 #include "../Framework/definitions.h"
 #include "../Framework/Input.h"
 #include "../Framework/Node.h"
-#include "../Aladdin.h"
+#include "../GameObject/Aladdin.h"
 
 #include "State.h"
 

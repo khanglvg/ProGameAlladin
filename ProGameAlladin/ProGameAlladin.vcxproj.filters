@@ -69,7 +69,6 @@
     <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
-    <ClCompile Include="GameObject\Weapon.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -151,6 +150,10 @@
     <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Ground\Rope.cpp" />
+    <ClCompile Include="GameObject\Weapons\Weapon.cpp" />
+    <ClCompile Include="GameObject\SpriteText.cpp" />
+    <ClCompile Include="CompleteScene.cpp" />
+    <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -295,7 +298,6 @@
     <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
     <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
-    <ClInclude Include="GameObject\Weapon.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />
@@ -382,6 +384,10 @@
     <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\Ground\Rope.h" />
+    <ClInclude Include="GameObject\Weapons\Weapon.h" />
+    <ClInclude Include="GameObject\SpriteText.h" />
+    <ClInclude Include="CompleteScene.h" />
+    <ClInclude Include="GameObject\AladdinAndAbu.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -428,6 +434,8 @@
     <Xml Include="Resources\Boss\Transform.xml" />
     <Xml Include="Resources\Items\Flame.xml" />
     <Xml Include="Resources\Items\FloatGround.xml" />
+    <Xml Include="Resources\Menu\text.xml" />
+    <Xml Include="Resources\Complete\aladdin_complete.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -476,6 +484,14 @@
     <Image Include="Resources\Boss\flame.png" />
     <Image Include="Resources\Boss\transform.png" />
     <Image Include="Resources\Items\fire.png" />
+    <Image Include="Resources\Items\fallingplatform_strip8_5_4.png" />
+    <Image Include="Resources\Items\items.png" />
+    <Image Include="Resources\Menu\text.png" />
+    <Image Include="Resources\Complete\aladdin_victory_strip10_45_125.png" />
+    <Image Include="Resources\Complete\abu_victory_strip8_25_37.png" />
+    <Image Include="Resources\Complete\victory_title.png" />
+    <Image Include="Resources\Complete\victory_abu.png" />
+    <Image Include="Resources\Complete\victory_aladdin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -493,5 +509,91 @@
   <ItemGroup>
     <Media Include="Resources\Audio\AgrabahMarket.wav" />
     <Media Include="Resources\Audio\Abu.wav" />
+    <Media Include="Resources\Audio\Aaah.wav" />
+    <Media Include="Resources\Audio\Abu Waving.wav" />
+    <Media Include="Resources\Audio\Aladdin Hurt.wav" />
+    <Media Include="Resources\Audio\Aladdin Oof.wav" />
+    <Media Include="Resources\Audio\Aladdin Push.wav" />
+    <Media Include="Resources\Audio\Apple Collect.wav" />
+    <Media Include="Resources\Audio\Apple Slice.wav" />
+    <Media Include="Resources\Audio\Apple Splat.wav" />
+    <Media Include="Resources\Audio\Balloon Pop.wav" />
+    <Media Include="Resources\Audio\Body Crunch.wav" />
+    <Media Include="Resources\Audio\Bones Tinkle.wav" />
+    <Media Include="Resources\Audio\Boxing Bell.wav" />
+    <Media Include="Resources\Audio\Camel Spit.wav" />
+    <Media Include="Resources\Audio\Canopy Bounce.wav" />
+    <Media Include="Resources\Audio\Cash Register (FM Only).wav" />
+    <Media Include="Resources\Audio\Cash Register (Sample Only).wav" />
+    <Media Include="Resources\Audio\Cash Register.wav" />
+    <Media Include="Resources\Audio\Clay Pot.wav" />
+    <Media Include="Resources\Audio\Cloud Poof.wav" />
+    <Media Include="Resources\Audio\Coming Out.wav" />
+    <Media Include="Resources\Audio\Continue Point.wav" />
+    <Media Include="Resources\Audio\Earthquake.wav" />
+    <Media Include="Resources\Audio\Eeeh.wav" />
+    <Media Include="Resources\Audio\Extra Health.wav" />
+    <Media Include="Resources\Audio\Fire From Coal.wav" />
+    <Media Include="Resources\Audio\Flagpole.wav" />
+    <Media Include="Resources\Audio\Flamingo Hey 2.wav" />
+    <Media Include="Resources\Audio\Flamingo Hey!.wav" />
+    <Media Include="Resources\Audio\Flute Pickup.wav" />
+    <Media Include="Resources\Audio\Gazeem Hit 1.wav" />
+    <Media Include="Resources\Audio\Gazeem Hit 2.wav" />
+    <Media Include="Resources\Audio\Gem Collect.wav" />
+    <Media Include="Resources\Audio\Genie Fumes.wav" />
+    <Media Include="Resources\Audio\Geyser.wav" />
+    <Media Include="Resources\Audio\Guard Beckon.wav" />
+    <Media Include="Resources\Audio\Guard Hit 1.wav" />
+    <Media Include="Resources\Audio\Guard Hit 2.wav" />
+    <Media Include="Resources\Audio\Guard%27s Pants.wav" />
+    <Media Include="Resources\Audio\Head Bop.wav" />
+    <Media Include="Resources\Audio\High Sword.wav" />
+    <Media Include="Resources\Audio\Honk.wav" />
+    <Media Include="Resources\Audio\Honky Thing.wav" />
+    <Media Include="Resources\Audio\Iago Squawk.wav" />
+    <Media Include="Resources\Audio\Iiee.wav" />
+    <Media Include="Resources\Audio\Jafar Laugh.wav" />
+    <Media Include="Resources\Audio\Jafar Snake.wav" />
+    <Media Include="Resources\Audio\Jafar Tractor.wav" />
+    <Media Include="Resources\Audio\Low Sword.wav" />
+    <Media Include="Resources\Audio\Menu Change.wav" />
+    <Media Include="Resources\Audio\Menu Select.wav" />
+    <Media Include="Resources\Audio\Object Throw.wav" />
+    <Media Include="Resources\Audio\Oooh.wav" />
+    <Media Include="Resources\Audio\Outta Apples.wav" />
+    <Media Include="Resources\Audio\Peddler Shop (FM Only).wav" />
+    <Media Include="Resources\Audio\Peddler Shop (Sample Only).wav" />
+    <Media Include="Resources\Audio\Peddler Shop.wav" />
+    <Media Include="Resources\Audio\Ping.wav" />
+    <Media Include="Resources\Audio\Pole Slide.wav" />
+    <Media Include="Resources\Audio\Rock Bounce (FM Only).wav" />
+    <Media Include="Resources\Audio\Rock Bounce (Sample Only).wav" />
+    <Media Include="Resources\Audio\Rock Bounce.wav" />
+    <Media Include="Resources\Audio\Rope Appear.wav" />
+    <Media Include="Resources\Audio\Rope Launch.wav" />
+    <Media Include="Resources\Audio\Scarab Pickup.wav" />
+    <Media Include="Resources\Audio\Scarab Wow.wav" />
+    <Media Include="Resources\Audio\Skeleton (PSG Only).wav" />
+    <Media Include="Resources\Audio\Skeleton (Sample Only).wav" />
+    <Media Include="Resources\Audio\Skeleton.wav" />
+    <Media Include="Resources\Audio\Splash.wav" />
+    <Media Include="Resources\Audio\Spring Doing 1.wav" />
+    <Media Include="Resources\Audio\Spring Doing 2.wav" />
+    <Media Include="Resources\Audio\Start Gun.wav" />
+    <Media Include="Resources\Audio\Stone Rumble.wav" />
+    <Media Include="Resources\Audio\Stones Crumble.wav" />
+    <Media Include="Resources\Audio\Stopping.wav" />
+    <Media Include="Resources\Audio\Sword Ching.wav" />
+    <Media Include="Resources\Audio\Sword Spinning.wav" />
+    <Media Include="Resources\Audio\Tip Toe.wav" />
+    <Media Include="Resources\Audio\Wall Hit 2.wav" />
+    <Media Include="Resources\Audio\Wall Spikes.wav" />
+    <Media Include="Resources\Audio\Win a Bonus.wav" />
+    <Media Include="Resources\Audio\Wow!.wav" />
+    <Media Include="Resources\Audio\Yeah.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resources\Audio\readme.txt" />
   </ItemGroup>
 </Project>

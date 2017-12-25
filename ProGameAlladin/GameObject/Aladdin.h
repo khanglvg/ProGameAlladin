@@ -7,7 +7,7 @@
 #include "../State/State.h"
 #include "../Framework/RigidBody.h"
 #include "GameObject.h"
-#include "Weapon.h"
+#include "../GameObject/Weapons/Weapon.h"
 #include "../State/Idle.h"
 #include "../pugixml/pugixml.hpp"
 NS_JK_BEGIN

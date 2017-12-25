@@ -10,6 +10,9 @@
 
 US_NS_JK
 
+
+
+
 Lv1Scene::Lv1Scene()
 {
 	
@@ -28,11 +31,26 @@ void Lv1Scene::init()
 
 
 #pragma region Sound 
+	_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
 	_soundAbu = new Sound("Resources/Audio/Abu.wav");
 	//Audio::get()->load(_soundAbu);
 	//Audio::get()->play(_soundAbu,true);
 	//_soundBackground = LoadSound("Resources/Audio/AgrabahMarket.wave");
 	//_soundBackground->Play();
+	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
+	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
+	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
+	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
+	Audio::get()->load(_soundAbu);
+	Audio::get()->load(_soundBackground);
+	Audio::get()->load(_soundSlash);
+	Audio::get()->load(_soundGrounding);
+	Audio::get()->load(_soundPushing);
+	Audio::get()->play(_soundThrowing, false);
+	Audio::get()->play(_soundBackground,true);
+	//Audio::get()->play(_soundAbu, false);
+
+
 #pragma endregion 
 
 	mAladdin = new Aladdin(Vec2(300, 600), Size(10, 60));
@@ -96,6 +114,33 @@ void Lv1Scene::render()
 	//}
 }
 
+
+
+
+Sound* Lv1Scene::getsoundAbu()
+{
+	return _soundAbu;
+}
+
+Sound* Lv1Scene::getsoundGrounding()
+{
+	return _soundGrounding;
+}
+
+Sound* Lv1Scene::getsoundSlash()
+{
+	return _soundSlash;
+}
+
+Sound* Lv1Scene::getsoundPushing()
+{
+	return _soundPushing;
+}
+
+Sound* Lv1Scene::getsoundThrowing()
+{
+	return _soundThrowing;
+}
 
 
 //

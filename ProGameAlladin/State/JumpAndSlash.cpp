@@ -4,6 +4,8 @@
 #include "../GameObject/Aladdin.h"
 #include "Grounding.h"
 #include "IdleToClimb.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -18,7 +20,10 @@ void JumpAndSlash::onEnter()
 {
 	// TODO: setScale()
 	// TODO: loadAnimation()
+
 	const auto aladdin = static_cast<Aladdin*>(_node);
+	Lv1Scene* lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundSlash(), false);
 	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
