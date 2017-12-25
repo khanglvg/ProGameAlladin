@@ -4,6 +4,7 @@
 #include "../../Framework/PhysicsManager.h"
 #include "AppleNormalState.h"
 #include "../../Framework/Scene.h"
+#include "../../Aladdin.h"
 US_NS_JK
 
 US_NS_JK
@@ -12,7 +13,7 @@ Apple::Apple()
 {
 }
 
-Apple::Apple(const Vec2& position, const Size& size, const GameObjectType& tag)
+Apple::Apple(const Vec2& position, const Size& size, const GameObjectType& tag, Aladdin* target)
 :Item(position, size, tag)
 {
 	//_rigid->setDensity(0.1);
@@ -22,6 +23,8 @@ Apple::Apple(const Vec2& position, const Size& size, const GameObjectType& tag)
 
 	_currentState = new AppleNormalState(this);
 	_isCollisionWithAladdin = false;
+	_target = target;
+	_isIncApple = false;
 }
 
 Apple::~Apple()
@@ -76,11 +79,20 @@ void Apple::update()
 	}
 
 
-	if (aladdin == _rigid->getCollidingBodies().end())
+	if (aladdin != _rigid->getCollidingBodies().end())
 	{
-	}
+		_rigid->setActive(false);
+		_isCollision = true;
+		if (!_isIncApple)
+		{
+			_target->incApple();
+			_isIncApple = true;
+		}
+	}		
 	else
-		this->getCurrentScene()->removeNode(this);
+	{
+		_isIncApple = false;
+	}
 }
 
 void Apple::render()
@@ -89,8 +101,10 @@ void Apple::render()
 
 	const auto origin = Vec2(0.5f, 1.0f);
 
-	Graphics::getInstance()->drawSprite(_textureItem, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
-
+	if (!_isCollision)
+	{
+		Graphics::getInstance()->drawSprite(_textureItem, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	}
 }
 
 Rect Apple::getRect()

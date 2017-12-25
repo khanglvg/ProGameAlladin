@@ -37,6 +37,11 @@ public:
 	void setIndex(const int& index);
 	Texture getTexture() const;
 
+	int getNumApple() const;
+
+	void desApple();
+	void incApple();
+
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
@@ -64,6 +69,7 @@ public:
 	void setEScene(const int& eScene);
 
 private:
+	int _numApple;
 	
 	Texture _textureAla;
 	Texture _textureRigid;

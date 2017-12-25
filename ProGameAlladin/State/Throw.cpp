@@ -8,6 +8,8 @@
 
 #include "../Framework/Scene.h"
 #include "JumpAndThrow.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 
 US_NS_JK
 
@@ -24,6 +26,8 @@ void Throw::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundThrowing(), false);
 
 	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	//	aladdin->setScale(Vec2(-1, 1));
@@ -46,7 +50,7 @@ void Throw::onUpdate()
 
 	if (aladdin->getIndex() == 3 && _isThrow)
 	{
-		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX(), aladdin->getRigidPosition().getY() - 20), Size(5, 5));
+		const auto apple = new AppleToThrow(aladdin, Vec2(aladdin->getRigidPosition().getX() + aladdin->getRect().getWidth()/2, aladdin->getRigidPosition().getY() - 20), Size(5, 5));
 		if (aladdin->getScale() == Vec2(1, 1))
 		{
 			apple->getRigidBody()->setVelocity(Vec2(380, -20));
@@ -58,6 +62,7 @@ void Throw::onUpdate()
 
 		apple->setCurrentScene(aladdin->getCurrentScene());
 		aladdin->getCurrentScene()->addNode(apple);
+		aladdin->desApple();
 		_isThrow = false;
 	}
 }

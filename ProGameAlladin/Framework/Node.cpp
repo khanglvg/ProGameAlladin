@@ -120,7 +120,6 @@ void Node::setCurrentScene(Scene* scene)
 	_currentScene = scene;
 }
 
-
 #pragma endregion 
 
 

@@ -24,11 +24,13 @@ public:
 	void update() override;
 	void render() override;
 
+
 	CSoundManager* _soundManager;
-	Sound*_soundAbu;
-
-	//static CSound*_soundAbu;
-
+	Sound* getsoundAbu();
+	Sound* getsoundGrounding();
+	Sound* getsoundSlash();
+	Sound* getsoundPushing();
+	Sound* getsoundThrowing();
 //protected:
 //	void checkVisibility();
 //	vector<Node*> listVisible;
@@ -40,8 +42,14 @@ private:
 	GameObject* mAladdin;
 	Node* _bgSky;
 
+
 	Text* _alaLife;
-	
+	Sound*_soundBackground;
+	Sound* _soundSlash;
+	Sound*_soundGrounding;
+	Sound*_soundAbu;
+	Sound*_soundPushing;
+	Sound*_soundThrowing;
 	//CSound* _soundBackground;
 	
 };

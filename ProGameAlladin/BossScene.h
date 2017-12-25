@@ -8,6 +8,7 @@
 
 NS_JK_BEGIN
 class Aladdin;
+class Jafar;
 class BossScene: public Scene
 {
 public:
@@ -19,9 +20,17 @@ public:
 	void update() override;
 	void render() override;
 
+	//-1 ben trai; 1 ben phai
+	int getAladdinPosition();
+
+	int getNumApple() const;
+
 private:
 	Aladdin* _aladdin;
-	GameObject* _jafar;
+	Jafar* _jafar;
+
+	std::vector<GameObject*> _listAppleLeft;
+	std::vector<GameObject*> _listAppleRight;
 
 	GameObject* _platform1;
 	GameObject* _platform2;
