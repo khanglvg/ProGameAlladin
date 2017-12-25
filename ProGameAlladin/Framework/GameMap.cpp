@@ -55,10 +55,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init apple
 			//if (objectGroup->GetName() == "Apple")
 			//{
-			//	auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
-			//	//_listApples.push_back(apple);
+			//	auto apple = new Item2(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::NONE, _player);
+			//	apple->setTag(GameObject::APPLES);
+			//	apple->getRigidBody()->setDensity(0.0000001);
+			//	apple->setGameMap(this);
+			//	_listItems.push_back(apple);
 
-			//	_quadTree->insertObject(apple);
+			//	//_quadTree->insertObject(apple);
 			//}
 
 			//init float ground
@@ -247,6 +250,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			{
 				auto *gameObject = new Item2(Vec2(object->GetX() + object->GetWidth() - 5, object->GetY() - object->GetHeight() + 8), Size(object->GetWidth(), object->GetHeight()), GameObject::NONE,_player);
 				gameObject->getRigidBody()->setDensity(0.0000001);
+				gameObject->setGameMap(this);
 
 				if (object->GetName() == "KillEnemy")
 					gameObject->setTag(GameObject::KILLENEMY);
@@ -337,6 +341,17 @@ void GameMap::init()
 
 void GameMap::update()
 {
+	for (auto node : _listToRemove)
+	{
+		const auto nodeItem = std::find(std::begin(_listItems), std::end(_listItems), node);
+
+		if (nodeItem != _listItems.end())
+		{
+			_listItems.erase(nodeItem);
+			node->release();
+		}
+	}
+
 	checkVisibility();
 	//enemies
 	for (size_t i = 0; i < _listEnemies.size(); i++)
@@ -412,7 +427,7 @@ void GameMap::update()
 }
 
 void GameMap::draw()
-{
+{	
 	/*don't use tileset for this game
 	for (size_t i = 0; i < _map->GetNumTileLayers(); i++)
 	{
@@ -711,6 +726,11 @@ int GameMap::getWidth()
 int GameMap::getHeight()
 {
 	return _map->GetHeight() * _map->GetTileHeight();
+}
+
+void GameMap::deleteItem(Item2 * item)
+{
+	_listToRemove.push_back(item);
 }
 
 void GameMap::checkVisibility()

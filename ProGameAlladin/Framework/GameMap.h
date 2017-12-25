@@ -17,6 +17,8 @@ NS_JK_BEGIN
 
 class Aladdin;
 
+class Item2;
+
 class GameMap
 {
 private:
@@ -46,6 +48,8 @@ private:
 	std::vector<GameObject*> _listStop;
 	std::vector<GameObject*> _listItems;
 
+	std::vector<GameObject*> _listToRemove;
+
 	bool _isActivedLow = false;
 	bool _isActivedHigh = false;
 
@@ -70,6 +74,8 @@ public:
 	vector<GameObject*> getListGround() const;
 	int getWidth();
 	int getHeight();
+
+	void deleteItem(Item2* item);
 };
 
 NS_JK_END

@@ -11,6 +11,7 @@
 NS_JK_BEGIN
 
 class Aladdin;
+class GameMap;
 
 class Item2 : public GameObject
 {
@@ -31,16 +32,21 @@ public:
 
 	Aladdin* getTarget();
 
+	void setGameMap(GameMap* map);
+
 	std::map<string, vector<Rect>> _animations;
 
 private:
 	Aladdin* _aladdin;
+	GameMap* _map;
 
 	Texture _textureItem;
 
 	int _animationIndex = 0;
 	string _actionName;
 	float _index = 0;
+
+	float _isIncApple;
 
 };
 
