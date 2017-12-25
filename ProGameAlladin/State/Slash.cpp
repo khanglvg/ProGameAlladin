@@ -47,6 +47,7 @@ void Slash::onEnter()
 void Slash::onExit()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
+	_weapon->getRigidBody()->setActive(false);
 	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 

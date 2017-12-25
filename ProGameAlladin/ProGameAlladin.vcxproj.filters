@@ -150,6 +150,7 @@
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -380,6 +381,7 @@
     <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformAttackState.h" />
     <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

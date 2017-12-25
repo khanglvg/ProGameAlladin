@@ -29,13 +29,13 @@ void Lv1Scene::init()
 
 #pragma region Sound 
 	_soundAbu = new Sound("Resources/Audio/Abu.wav");
-	Audio::get()->load(_soundAbu);
-	Audio::get()->play(_soundAbu,true);
+	//Audio::get()->load(_soundAbu);
+	//Audio::get()->play(_soundAbu,true);
 	//_soundBackground = LoadSound("Resources/Audio/AgrabahMarket.wave");
 	//_soundBackground->Play();
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(300, 600), Size(10, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
@@ -57,8 +57,6 @@ void Lv1Scene::init()
 	{
 		_vectNode.push_back(ground);
 	}
-
-	Scene::init();
 
 	_gameMap->init();
 

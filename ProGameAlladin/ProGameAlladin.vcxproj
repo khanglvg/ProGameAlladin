@@ -216,6 +216,7 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
     <ClInclude Include="GameObject\BackgroundMenu.h" />
@@ -384,6 +385,7 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />

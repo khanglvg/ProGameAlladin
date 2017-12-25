@@ -6,13 +6,16 @@
 #include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
 #include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
 #include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
+#include "../GameObject/Ground/FireGround.h"
+#include "../GameObject/Ground/Rope.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 
 GameMap::GameMap()
 {}
 
-GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
+GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 {
 	_map = new Tmx::Map();
 	_map->ParseFile(filePath);
@@ -182,7 +185,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init rope
 			if (objectGroup->GetName() == "Rope")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth()*16, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE);
+				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 6, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
 				gameObject->setRigidTag("rope");
 
 				_listRope.push_back(gameObject);
@@ -191,8 +194,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init FireGround
 			if (objectGroup->GetName() == "Fire")
 			{
-				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+				auto gameObject = new FireGround(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND, _player);
 				gameObject->getRigidBody()->setDensity(1);
+				gameObject->setCurrentScene(_player->getCurrentScene());
 				gameObject->setRigidTag("fireground");
 
 				_listFire.push_back(gameObject);
@@ -319,6 +323,9 @@ void GameMap::update()
 
 	for (size_t i = 0; i < _listRope.size(); i++)
 		_listRope[i]->update();
+
+	for (size_t i = 0; i < _listFire.size(); i++)
+		_listFire[i]->update();
 
 	_triggerLow->update();
 	_triggerHigh->update();
@@ -525,10 +532,6 @@ void GameMap::draw()
 	for (size_t i = 0; i < _listRope.size(); i++)
 	{
 		_listRope[i]->render();
-	}
-	for (size_t i = 0; i < _listFire.size(); i++)
-	{
-		_listFire[i]->render();
 	}
 	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
 	{
