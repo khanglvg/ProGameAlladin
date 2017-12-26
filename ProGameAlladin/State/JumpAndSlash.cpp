@@ -105,8 +105,14 @@ State* JumpAndSlash::checkTransition()
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
 
-	if (aladdin->getIndex() >= 8)
+	if (aladdin->getIndex() >= 6)
+	{
 		aladdin->setIsPause(true);
+		if (Input::getInstance()->getKey(KEY_S))
+			aladdin->setIsPause(false);
+	}
+	
+
 	return nullptr;
 }
 
