@@ -86,8 +86,8 @@ void Lv1Scene::init()
 	_vectNode.push_back(Camera::getInstance());
 
 
-	_alaIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(340, 17, 12, 12), 2);
-	_appleIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(339,139,22,25), 2);
+	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 2);
+	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339,139,22,25), 2);
 
 	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
 	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
