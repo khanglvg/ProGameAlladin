@@ -15,7 +15,7 @@ Camera::Camera(const float& width, const float& height, const float& angle):Node
 	this->_height = height;
 	this->_angle = angle;
 
-	D3DXMatrixOrthoLH(&_orthographicMatrix, width, -height, 0.0f, 2.0f);
+	D3DXMatrixOrthoLH(&_orthographicMatrix, width, -height, 0.0f, 3.0f);
 
 	D3DXMatrixIdentity(&_identityMatrix);
 

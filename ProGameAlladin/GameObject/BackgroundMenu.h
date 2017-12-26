@@ -17,11 +17,13 @@ public:
 	void init() override;
 	void render() override;
 	void release() override;
+	void setVisible(const bool& visible);
 
 private:
 	string _srcFile;
 	Texture _textureBackground;
 	int _layer;
+	int _alpha = 255;
 };
 
 NS_JK_END

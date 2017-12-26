@@ -51,6 +51,9 @@ private:
 	Sound*_soundPushing;
 	Sound*_soundThrowing;
 	//CSound* _soundBackground;
+
+	Node* _alaIcon;
+	Node* _appleIcon;
 	
 };
 

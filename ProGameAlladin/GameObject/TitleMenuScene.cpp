@@ -31,10 +31,22 @@ void TitleMenuScene::render()
 	Graphics::getInstance()->drawSprite(_textureTitle, 
 		Vec2(0, 0),
 		getTransformMatrix(), 
-		Color(255, 255, 255, 255),
+		Color(255, 255, 255, _alpha),
 		_rect, _layer);
 }
 
 void TitleMenuScene::release()
 {
+}
+
+void TitleMenuScene::setVisible(const bool& visible)
+{
+	if (visible == true)
+	{
+		_alpha = 255;
+	}
+	else
+	{
+		_alpha = 0;
+	}
 }

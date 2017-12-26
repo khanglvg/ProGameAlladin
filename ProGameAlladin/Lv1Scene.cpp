@@ -7,6 +7,7 @@
 #include "Framework/Text.h"
 #include "GameObject/Aladdin.h"
 #include "Framework/Audio.h"
+#include "GameObject/TitleMenuScene.h"
 
 US_NS_JK
 
@@ -31,20 +32,20 @@ void Lv1Scene::init()
 
 
 #pragma region Sound 
-	_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
-	_soundAbu = new Sound("Resources/Audio/Abu.wav");
-	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
-	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
-	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
-	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
-	Audio::get()->load(_soundAbu);
-	Audio::get()->load(_soundBackground);
-	Audio::get()->load(_soundSlash);
-	Audio::get()->load(_soundGrounding);
-	Audio::get()->load(_soundPushing);
-	Audio::get()->play(_soundThrowing, false);
-	Audio::get()->play(_soundBackground,true);
-	//Audio::get()->play(_soundAbu, false);
+	//_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
+	//_soundAbu = new Sound("Resources/Audio/Abu.wav");
+	//_soundSlash = new Sound("Resources/Audio/High Sword.wav");
+	//_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
+	//_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
+	//_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
+	//Audio::get()->load(_soundAbu);
+	//Audio::get()->load(_soundBackground);
+	//Audio::get()->load(_soundSlash);
+	//Audio::get()->load(_soundGrounding);
+	//Audio::get()->load(_soundPushing);
+	//Audio::get()->play(_soundThrowing, false);
+	//Audio::get()->play(_soundBackground,true);
+	////Audio::get()->play(_soundAbu, false);
 
 
 #pragma endregion 
@@ -57,6 +58,8 @@ void Lv1Scene::init()
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
 	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
 
+	
+
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
 
@@ -65,7 +68,14 @@ void Lv1Scene::init()
 	_vectNode.push_back(Camera::getInstance());
 
 
+	_alaIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(340, 17, 12, 12), 2);
+	_appleIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(339,139,22,25), 2);
 
+	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+
+	_vectNode.push_back(_alaIcon);
+	_vectNode.push_back(_appleIcon);
 
 	for (auto ground : _gameMap->getListGround())
 	{

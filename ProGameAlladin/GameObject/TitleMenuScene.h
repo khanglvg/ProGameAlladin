@@ -16,11 +16,15 @@ public:
 	void init() override;
 	void render() override;
 	void release() override;
+
+	void setVisible(const bool& visible);
 private:
 	Rect _rect;
 	Texture _textureTitle;
 	string _srcFile;
 	int _layer;
+
+	int _alpha = 255;
 
 };
 
