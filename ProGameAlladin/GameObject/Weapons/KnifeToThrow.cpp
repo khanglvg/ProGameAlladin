@@ -84,7 +84,7 @@ void KnifeToThrow::update()
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
-	else if (_actionName == "Knife-Explosion" && _animationIndex == 2)
+	else if (_actionName == "Knife-Explosion" && _animationIndex == 4)
 	{
 		_owner->getCurrentScene()->removeNode(this);
 	}
@@ -93,9 +93,10 @@ void KnifeToThrow::update()
 	{
 		if (_actionName != "Knife-Explosion")
 		{
+			_rigid->setGravityScale(0);
 			setVelocity(Vec2(0,0));
 			_actionName = "Knife-Explosion";
-			_textureKnife.setSrcFile("Resources/Items/Items-Explosion.png");
+			_textureKnife.setSrcFile("Resources/Boss/Jafar-Bullet.png");
 			Graphics::getInstance()->loadTexture(_textureKnife);
 			_animationIndex = 0;
 		}
@@ -120,6 +121,11 @@ void KnifeToThrow::render()
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.01;
+
+	if (_actionName == "Knife-Explosion")
+	{
+		expect = 0.04;
+	}
 
 	Graphics::getInstance()->drawSprite(_textureKnife, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
 		rect, 2);

@@ -10,7 +10,7 @@ GameObject::GameObject()
 
 GameObject::GameObject(const Vec2 & position, const Size & size, const GameObjectType tag)
 {
-	_rigid = new RigidBody(position, Vec2(0, 0), STATIC, 1000, 0, 0, Vec2(0, 0), 0, Vec2(size.getWidth() / 2, -size.getHeight() / 2), size);
+	_rigid = new RigidBody(position, Vec2(0, 0), STATIC, 100000, 0, 0, Vec2(0, 0), 0, Vec2(size.getWidth() / 2, -size.getHeight() / 2), size);
 	setPosition(_rigid->getPosition() - _rigid->getOffset());
 	_tag = tag;
 	_isVisible = true;	
