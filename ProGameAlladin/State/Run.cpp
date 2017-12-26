@@ -8,6 +8,7 @@
 #include "IdleToSit.h"
 #include "HeadUp.h"
 #include "Push.h"
+#include "Jump.h"
 #include "Idle3.h"
 #include "Idle2.h"
 #include "Random.h"
@@ -146,6 +147,8 @@ State* Run::checkTransition()
 		return new Push(_node);
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
+	if (aladdin->isInCamel())
+		return new Jump(_node);
 	if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
 	{
 		return new Brake(_node);

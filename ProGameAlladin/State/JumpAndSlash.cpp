@@ -76,9 +76,12 @@ State* JumpAndSlash::checkTransition()
 
 
 	if (aladdin->isOnTheGround())
-		return new Grounding(_node);
+		return new Idle(_node);
 	
 	if (aladdin->isBesideTheStair())
+		return new Idle(_node);
+
+	if (aladdin->isOnThePlatform())
 		return new Idle(_node);
 
 	if (aladdin->isOnTheRope())

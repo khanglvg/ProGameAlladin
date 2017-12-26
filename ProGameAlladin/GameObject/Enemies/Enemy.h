@@ -10,7 +10,9 @@
 
 NS_JK_BEGIN
 
-	class Enemy: public GameObject
+class GameMap;
+
+class Enemy: public GameObject
 {
 public:
 	Enemy();//not use
@@ -52,9 +54,13 @@ public:
 	void allowMoveLeft(bool allow);
 	void allowMoveRight(bool allow);
 
+	void setTexture(const string& srcFile);
+
 	bool isAnimationDone();
 	
 	int getIndex();
+
+	void setGameMap(GameMap* map);
 
 	GameObject* getTarget() const;
 
@@ -67,6 +73,8 @@ public:
 
 protected:
 	Texture _textureEnemy;
+
+	GameMap* _map;
 
 	bool _isCollisionWithAladdin;
 

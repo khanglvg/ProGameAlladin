@@ -24,6 +24,8 @@ public:
 	
 private:
 	Texture _textureThinEnemy;
+
+	bool _isAttacked;
 };
 
 NS_JK_END

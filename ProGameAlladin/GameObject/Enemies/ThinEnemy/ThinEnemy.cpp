@@ -2,6 +2,8 @@
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
 #include "../../Framework/PhysicsManager.h"
+#include "../EnemyExplosionState.h"
+#include "../../../Framework/GameMap.h"
 
 US_NS_JK
 
@@ -26,6 +28,7 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 
 	_currentState = new ThinEnemyIdleState(this);
 	_isCollisionWithAladdin = false;
+	_isAttacked = false;
 }
 
 ThinEnemy::~ThinEnemy()
@@ -46,6 +49,7 @@ void ThinEnemy::init()
 
 void ThinEnemy::release()
 {
+	delete _rigid;
 	delete this;
 }
 
@@ -55,6 +59,7 @@ void ThinEnemy::update()
 	_position = _rigid->getPosition() -_rigid->getOffset();
 
 	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
+	auto const aladdinWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
 
 	if(aladdin == _rigid->getCollidingBodies().end())
 	{
@@ -63,6 +68,24 @@ void ThinEnemy::update()
 	else
 	{
 		_isCollisionWithAladdin = true;
+	}
+
+	if (aladdinWeapon != _rigid->getCollidingBodies().end())
+	{
+		if (!_isAttacked)
+		{
+			_health--;
+			_isAttacked = true;
+		}
+	}
+	else
+	{
+		_isAttacked = false;
+	}
+
+	if (_actionName == "Enemy-Explosion" && _animationIndex == 9)
+	{
+		_map->deleteEnemy(this);
 	}
 
 	_currentState->onUpdate();
@@ -76,6 +99,12 @@ void ThinEnemy::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+		_animationIndex = 0;
+	}
+
+	if (_health <= 0 && _actionName != "Enemy-Explosion")
+	{
+		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}
 }
@@ -96,13 +125,13 @@ void ThinEnemy::render()
 	}
 
 
-	Graphics::getInstance()->drawSprite(_textureThinEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	Graphics::getInstance()->drawSprite(_textureThinEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

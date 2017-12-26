@@ -4,12 +4,14 @@
     <sprite x="4" y="21" w="63" h="43" oX="4" oY="21" oW="-578" oH="713" />
   </Animation>
   <Animation name="Camel" imagePath="Genesis 32X SCD - Aladdin - Camel.png" width="882" height="99">
-    <sprite x="4" y="21" w="63" h="43" oX="4" oY="21" oW="-578" oH="713" />
     <sprite x="73" y="11" w="81" h="53" oX="73" oY="11" oW="-578" oH="713" />
     <sprite x="163" y="9" w="95" h="55" oX="163" oY="9" oW="-578" oH="713" />
     <sprite x="268" y="9" w="112" h="55" oX="268" oY="9" oW="-578" oH="713" />
     <sprite x="396" y="10" w="146" h="54" oX="396" oY="10" oW="-578" oH="713" />
     <sprite x="556" y="10" w="134" h="54" oX="556" oY="10" oW="-578" oH="713" />
     <sprite x="707" y="19" w="169" h="45" oX="707" oY="19" oW="-578" oH="713" />
+    <sprite x="163" y="9" w="95" h="55" oX="163" oY="9" oW="-578" oH="713" />
+    <sprite x="73" y="11" w="81" h="53" oX="73" oY="11" oW="-578" oH="713" />
+    <sprite x="4" y="21" w="63" h="43" oX="4" oY="21" oW="-578" oH="713" />
   </Animation>
 </Animations>

@@ -6,16 +6,16 @@
 #include "../../Framework/Texture.h"
 #include "../../pugixml/pugixml.hpp"
 #include "../../Framework/Graphics.h"
-#include "CamelIdleState.h"
-#include "CamelState.h"
 
 NS_JK_BEGIN
+
+class Aladdin;
 
 class Camel : public GameObject
 {
 public:
 	Camel();//not use
-	Camel(const Vec2& position, const Size& size, const GameObjectType& tag);
+	Camel(const Vec2& position, const Size& size, const GameObjectType& tag, Aladdin* player);
 
 	~Camel() override;
 
@@ -35,10 +35,11 @@ protected:
 	Texture _textureCamel;
 	Texture _textureCamelRigid;
 
+	Aladdin* _player;
+
 	int _animationIndex = 0;
 	string _actionName;
 	float _index = 0;
-	CamelState* _currentState;
 };
 
 NS_JK_END

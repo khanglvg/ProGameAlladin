@@ -18,6 +18,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isAllowClimb = true;
 	_isPause = false;
 	_isClimbDown = false;
+	_isClimb = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
 
@@ -84,6 +85,7 @@ void Aladdin::update()
 		_isOnTheRope = false;
 		_isOnTheFire = false;
 		_isOnThePlatform = false;
+		_isInCamel = false;
 	}
 	else
 	{
@@ -96,6 +98,7 @@ void Aladdin::update()
 		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
+		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -192,6 +195,15 @@ void Aladdin::update()
 				_position = _rigid->getPosition() - _rigid->getOffset();
 			}
 		}
+
+		//
+		// collision with Camel
+		//
+		if (camel != _rigid->getCollidingBodies().end())
+		{
+			_isInCamel = true;
+		}
+		else _isInCamel = false;
 	}
 	
 
@@ -238,13 +250,13 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
-	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
@@ -387,6 +399,11 @@ bool Aladdin::isOnTheFire() const
 	return _isOnTheFire;
 }
 
+bool Aladdin::isInCamel() const
+{
+	return _isInCamel;
+}
+
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;
@@ -407,6 +424,16 @@ void Aladdin::setIsPause(const bool & pause)
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;
+}
+
+void Aladdin::setIsClimb(const bool & climb)
+{
+	_isClimb = climb;
+}
+
+bool Aladdin::isClimb() const
+{
+	return _isClimb;
 }
 
 int Aladdin::getEScene() const

@@ -57,6 +57,7 @@ public:
 	bool isOnThePlatform() const;
 	bool isOnTheRope() const;
 	bool isOnTheFire() const;
+	bool isInCamel() const;
 
 	void setAllowToClimb(const bool& allow) override;
 	bool isAllowToClimb() override;
@@ -64,6 +65,9 @@ public:
 	void setIsPause(const bool& pause);
 
 	void setIsClimbDown(const bool& climbDown);
+
+	void setIsClimb(const bool& climb);
+	bool isClimb() const;
 
 	int getEScene() const;
 	void setEScene(const int& eScene);
@@ -89,6 +93,7 @@ private:
 
 	bool _isPause;
 	bool _isClimbDown;
+	bool _isClimb;
 
 	bool _isOnTheGround;
 	bool _isBesideTheStair;
@@ -97,6 +102,7 @@ private:
 	bool _isOnThePlatform;
 	bool _isOnTheRope;
 	bool _isOnTheFire;
+	bool _isInCamel;
 
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
 	int _eScene;

@@ -37,14 +37,19 @@ void Jump::onUpdate()
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+		aladdin->setVelocity(Vec2(-150, aladdin->getVelocity().getY()));
 		
 	}
 
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+		aladdin->setVelocity(Vec2(150, aladdin->getVelocity().getY()));
+	}
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
 	}
 }
 
@@ -80,6 +85,9 @@ State* Jump::checkTransition()
 		aladdin->setPosition(aladdin->getRigidPosition() - aladdin->getRigidBody()->getOffset());
 		return new IdleToClimb(_node);
 	}
+
+	if (aladdin->isInCamel())
+		return new Jump(_node);
 
 	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{

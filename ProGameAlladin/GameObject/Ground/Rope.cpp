@@ -31,7 +31,16 @@ void Rope::release()
 
 void Rope::update()
 {
+	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 
+	if (aladdin != _rigid->getCollidingBodies().end())
+	{
+		float diffX = abs((_player->getRigidPosition().getX() + _player->getRigidBody()->getSize().getWidth()/2) - _rigid->getPosition().getX());
+		if (diffX < 5)
+		{
+			_player->setIsClimb(true);
+		}
+	}
 }
 
 void Rope::render() 
