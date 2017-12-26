@@ -6,6 +6,7 @@
 #include "GameObject/Aladdin.h"
 #include "GameObject/Enemies/Jafar/Jafar.h"
 #include "GameObject/Ground/FireGround.h"
+#include "Framework/Audio.h"
 
 US_NS_JK
 
@@ -22,6 +23,27 @@ void BossScene::init()
 {
 	const auto scale = 0.45;
 
+#pragma region Sound
+
+	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
+	_soundSitSlash = new Sound("Resources/Audio/Low Sword.wav");
+	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
+	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
+	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
+	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
+	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
+	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
+
+
+	Audio::get()->load(_soundSlash);
+	Audio::get()->load(_soundSitSlash);
+	Audio::get()->load(_soundGrounding);
+	Audio::get()->load(_soundPushing);
+	Audio::get()->load(_soundThrowing);
+	Audio::get()->load(_soundHurt);
+	Audio::get()->load(_soundAppleCollect);
+	Audio::get()->load(_soundAppleCrush);
+#pragma  endregion 
 	// =============================================== ALADDIN ==============================================================================
 	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale - 100), Size(10, 30));
 	_aladdin->getRigidBody()->setGravityScale(1);
@@ -224,6 +246,7 @@ void BossScene::release()
 	}
 	_listAppleRight.clear();
 	Scene::release();
+	Audio::get()->release();
 }
 
 void BossScene::update()
@@ -322,6 +345,46 @@ int BossScene::getNumApple() const
 		}
 	}
 	return _numApple;
+}
+
+Sound* BossScene::getsoundGrounding()
+{
+	return _soundGrounding;
+}
+
+Sound* BossScene::getsoundSlash()
+{
+	return _soundSlash;
+}
+
+Sound* BossScene::getsoundPushing()
+{
+	return _soundPushing;
+}
+
+Sound* BossScene::getsoundThrowing()
+{
+	return _soundThrowing;
+}
+
+Sound* BossScene::getsoundSitSlash()
+{
+	return _soundSitSlash;
+}
+
+Sound* BossScene::getsoundHurt()
+{
+	return _soundHurt;
+}
+
+Sound* BossScene::getsoundAppleCollect()
+{
+	return _soundAppleCollect;
+}
+
+Sound* BossScene::getsoundAppleCrush()
+{
+	return _soundAppleCrush;
 }
 
  

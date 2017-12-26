@@ -13,6 +13,8 @@
 
 NS_JK_BEGIN
 
+class Aladdin;
+
 class Lv1Scene: public Scene
 {
 public:
@@ -31,6 +33,11 @@ public:
 	Sound* getsoundSlash();
 	Sound* getsoundPushing();
 	Sound* getsoundThrowing();
+	Sound* getsoundSitSlash();
+	Sound* getsoundHurt();
+	Sound* getsoundAppleCollect();
+	Sound* getsoundAppleCrush();
+
 //protected:
 //	void checkVisibility();
 //	vector<Node*> listVisible;
@@ -39,17 +46,21 @@ public:
 private:
 	GameMap* _gameMap;
 	QuadTree *mQuadTree;
-	GameObject* mAladdin;
+	Aladdin* mAladdin;
 	Node* _bgSky;
 
 
 	Text* _alaLife;
 	Sound*_soundBackground;
 	Sound* _soundSlash;
+	Sound*_soundSitSlash;
 	Sound*_soundGrounding;
 	Sound*_soundAbu;
 	Sound*_soundPushing;
 	Sound*_soundThrowing;
+	Sound*_soundHurt;
+	Sound*_soundAppleCollect;
+	Sound*_soundAppleCrush;
 	//CSound* _soundBackground;
 
 	Node* _alaIcon;

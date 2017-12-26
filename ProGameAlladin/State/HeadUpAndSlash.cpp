@@ -7,6 +7,8 @@
 #include "Throw.h"
 #include "../GameObject/Aladdin.h"
 #include "Flip.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 US_NS_JK
 
 HeadUpAndSlash::HeadUpAndSlash(Node* node):State(node)
@@ -23,6 +25,11 @@ void HeadUpAndSlash::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	const auto aladdin = static_cast<Aladdin*>(_node);
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+
+	Audio::get()->play(lv1->getsoundSlash(), false);
+
+	
 	aladdin->setActionName("HeadUpAndSlash");
 }
 
@@ -43,7 +50,7 @@ State* HeadUpAndSlash::checkTransition()
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_Q))
 		return new Flip(_node);
-	if (aladdin->getIndex() >= 11)
+	if (aladdin->getIndex() >= 22)
 		return new Idle(_node);
 	
 	return nullptr;

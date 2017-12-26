@@ -4,6 +4,7 @@
 #include "../GameObject/Aladdin.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
+#include "../BossScene.h"
 
 US_NS_JK
 
@@ -20,8 +21,22 @@ void Push::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+
 	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
-	Audio::get()->play(lv1->getsoundPushing(), false);
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundPushing(), false);
+	}
+
+
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundPushing(), false);
+	}
+	
 	aladdin->setActionName("Push"); // Idle to push
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))

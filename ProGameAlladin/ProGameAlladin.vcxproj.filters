@@ -149,10 +149,13 @@
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
     <ClCompile Include="GameObject\Weapons\Weapon.cpp" />
     <ClCompile Include="GameObject\SpriteText.cpp" />
     <ClCompile Include="CompleteScene.cpp" />
     <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
+    <ClCompile Include="GameObject\Ground\Platform.cpp" />
+    <ClCompile Include="GameObject\Items\Item2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -382,10 +385,13 @@
     <ClInclude Include="GameObject\Enemies\Jafar\Transform\TransformAttackState.h" />
     <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
     <ClInclude Include="GameObject\Weapons\Weapon.h" />
     <ClInclude Include="GameObject\SpriteText.h" />
     <ClInclude Include="CompleteScene.h" />
     <ClInclude Include="GameObject\AladdinAndAbu.h" />
+    <ClInclude Include="GameObject\Ground\Platform.h" />
+    <ClInclude Include="GameObject\Items\Item2.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -434,6 +440,7 @@
     <Xml Include="Resources\Items\FloatGround.xml" />
     <Xml Include="Resources\Menu\text.xml" />
     <Xml Include="Resources\Complete\aladdin_complete.xml" />
+    <Xml Include="Resources\Items\Items2.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />

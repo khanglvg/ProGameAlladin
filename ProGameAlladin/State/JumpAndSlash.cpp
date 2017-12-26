@@ -6,6 +6,7 @@
 #include "IdleToClimb.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
+#include "../BossScene.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -22,8 +23,21 @@ void JumpAndSlash::onEnter()
 	// TODO: loadAnimation()
 
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	Lv1Scene* lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
-	Audio::get()->play(lv1->getsoundSlash(), false);
+
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundSlash(), false);
+	}
+
+
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundSlash(), false);
+	}
 	/*if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
@@ -69,6 +83,9 @@ State* JumpAndSlash::checkTransition()
 
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
+
+	if (aladdin->getIndex() >= 8)
+		aladdin->setIsPause(true);
 	return nullptr;
 }
 

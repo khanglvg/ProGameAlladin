@@ -7,6 +7,9 @@
 #include "Sit.h"
 #include "Run.h"
 #include "Slash.h"
+#include "../Framework/Audio.h"
+#include "../BossScene.h"
+#include "../Lv1Scene.h"
 US_NS_JK
 
 RunAndSlash::RunAndSlash(Node* node):State(node)
@@ -23,6 +26,20 @@ void RunAndSlash::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundSlash(), false);
+	}
+
+
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundSlash(), false);
+	}
 
 	aladdin->setActionName("RunAndSlash");
 }

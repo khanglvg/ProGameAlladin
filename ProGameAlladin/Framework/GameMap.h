@@ -14,7 +14,11 @@
 #include "../GameObject/Items/Apple/Apple.h"
 
 NS_JK_BEGIN
-	
+
+class Aladdin;
+
+class Item2;
+
 class GameMap
 {
 private:
@@ -23,7 +27,7 @@ private:
 	Tmx::Map *_map;
 	QuadTree* _quadTree;
 
-	GameObject* _player;
+	Aladdin* _player;
 
 	GameObject* _triggerLow;
 	GameObject* _triggerHigh;
@@ -42,6 +46,9 @@ private:
 	std::vector<GameObject*> _listFire;
 	std::vector<GameObject*> _listHorizontalBar;
 	std::vector<GameObject*> _listStop;
+	std::vector<GameObject*> _listItems;
+
+	std::vector<GameObject*> _listToRemove;
 
 	bool _isActivedLow = false;
 	bool _isActivedHigh = false;
@@ -53,7 +60,7 @@ protected:
 public:
 	GameMap();
 	//use QuadTree* &quadTree because quadTree is init in this function
-	GameMap(char* filePath, QuadTree* &quadTree, GameObject* player);
+	GameMap(char* filePath, QuadTree* &quadTree, Aladdin* player);
 	~GameMap();
 
 	void init();
@@ -67,6 +74,8 @@ public:
 	vector<GameObject*> getListGround() const;
 	int getWidth();
 	int getHeight();
+
+	void deleteItem(Item2* item);
 };
 
 NS_JK_END

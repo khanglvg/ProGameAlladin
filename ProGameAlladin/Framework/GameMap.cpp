@@ -6,13 +6,18 @@
 #include "../GameObject/Enemies/KnifeEnemy/KnifeEnemy.h"
 #include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
 #include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
+#include "../GameObject/Ground/FireGround.h"
+#include "../GameObject/Ground/Rope.h"
+#include "../GameObject/Ground/Platform.h"
+#include "../GameObject/Items/Item2.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 
 GameMap::GameMap()
 {}
 
-GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
+GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 {
 	_map = new Tmx::Map();
 	_map->ParseFile(filePath);
@@ -50,10 +55,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init apple
 			//if (objectGroup->GetName() == "Apple")
 			//{
-			//	auto apple = new Apple(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::APPLES);
-			//	//_listApples.push_back(apple);
+			//	auto apple = new Item2(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::NONE, _player);
+			//	apple->setTag(GameObject::APPLES);
+			//	apple->getRigidBody()->setDensity(0.0000001);
+			//	apple->setGameMap(this);
+			//	_listItems.push_back(apple);
 
-			//	_quadTree->insertObject(apple);
+			//	//_quadTree->insertObject(apple);
 			//}
 
 			//init float ground
@@ -165,7 +173,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 
 			if (objectGroup->GetName() == "Platform")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight() / 3), Size(object->GetWidth(), object->GetHeight()), GameObject::PLATFORM);
+				auto *gameObject = new Platform(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight() / 3), Size(object->GetWidth(), object->GetHeight()), GameObject::PLATFORM, _player);
 				gameObject->setRigidTag("platform");
 
 				_listGround.push_back(gameObject);
@@ -182,7 +190,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init rope
 			if (objectGroup->GetName() == "Rope")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth()*16, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE);
+				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 6, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
 				gameObject->setRigidTag("rope");
 
 				_listRope.push_back(gameObject);
@@ -191,8 +199,9 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 			//init FireGround
 			if (objectGroup->GetName() == "Fire")
 			{
-				auto gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND);
+				auto gameObject = new FireGround(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND, _player);
 				gameObject->getRigidBody()->setDensity(1);
+				gameObject->setCurrentScene(_player->getCurrentScene());
 				gameObject->setRigidTag("fireground");
 
 				_listFire.push_back(gameObject);
@@ -235,6 +244,29 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, GameObject* player)
 
 				_listStop.push_back(gameObject);
 			}
+
+			//init Items
+			if (objectGroup->GetName() == "Items")
+			{
+				auto *gameObject = new Item2(Vec2(object->GetX() + object->GetWidth() - 5, object->GetY() - object->GetHeight() + 8), Size(object->GetWidth(), object->GetHeight()), GameObject::NONE,_player);
+				gameObject->getRigidBody()->setDensity(0.0000001);
+				gameObject->setGameMap(this);
+
+				if (object->GetName() == "KillEnemy")
+					gameObject->setTag(GameObject::KILLENEMY);
+				if (object->GetName() == "BonusPoint")
+					gameObject->setTag(GameObject::BONUSPOINT);
+				if (object->GetName() == "Cherry")
+					gameObject->setTag(GameObject::CHERRY);
+				if (object->GetName() == "ExtraHeart")
+					gameObject->setTag(GameObject::EXTRAHEART);
+				if (object->GetName() == "RestartPoint")
+					gameObject->setTag(GameObject::RESTARTPOINT);
+				if (object->GetName() == "AbuLife")
+					gameObject->setTag(GameObject::ABULIFE);
+
+				_listItems.push_back(gameObject);
+			}
 		}
 	}
 	checkVisibility();
@@ -253,6 +285,10 @@ void GameMap::init()
 	for (size_t i = 0; i < _listEnemies.size(); i++)
 	{
 		_listEnemies[i]->init();
+	}
+	for (size_t i = 0; i < _listItems.size(); i++)
+	{
+		_listItems[i]->init();
 	}
 
 	/*for (size_t i = 0; i < _listApples.size(); i++)
@@ -305,6 +341,17 @@ void GameMap::init()
 
 void GameMap::update()
 {
+	for (auto node : _listToRemove)
+	{
+		const auto nodeItem = std::find(std::begin(_listItems), std::end(_listItems), node);
+
+		if (nodeItem != _listItems.end())
+		{
+			_listItems.erase(nodeItem);
+			node->release();
+		}
+	}
+
 	checkVisibility();
 	//enemies
 	for (size_t i = 0; i < _listEnemies.size(); i++)
@@ -319,6 +366,15 @@ void GameMap::update()
 
 	for (size_t i = 0; i < _listRope.size(); i++)
 		_listRope[i]->update();
+
+	for (size_t i = 0; i < _listFire.size(); i++)
+		_listFire[i]->update();
+
+	for (size_t i = 0; i < _listGround.size(); i++)
+		_listGround[i]->update();
+
+	for (size_t i = 0; i < _listItems.size(); i++)
+		_listItems[i]->update();
 
 	_triggerLow->update();
 	_triggerHigh->update();
@@ -371,7 +427,7 @@ void GameMap::update()
 }
 
 void GameMap::draw()
-{
+{	
 	/*don't use tileset for this game
 	for (size_t i = 0; i < _map->GetNumTileLayers(); i++)
 	{
@@ -526,10 +582,6 @@ void GameMap::draw()
 	{
 		_listRope[i]->render();
 	}
-	for (size_t i = 0; i < _listFire.size(); i++)
-	{
-		_listFire[i]->render();
-	}
 	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
 	{
 		_listHorizontalBar[i]->render();
@@ -537,6 +589,10 @@ void GameMap::draw()
 	for (size_t i = 0; i < _listStop.size(); i++)
 	{
 		_listStop[i]->render();
+	}
+	for (size_t i = 0; i < _listItems.size(); i++)
+	{
+		_listItems[i]->render();
 	}
 	for (auto object : listVisible)
 	{
@@ -637,6 +693,13 @@ void GameMap::release()
 	}
 	_listStairGroundHigh.clear();
 
+	for (size_t i = 0; i < _listItems.size(); i++)
+	{
+		if (_listItems[i])
+			delete _listItems[i];
+	}
+	_listItems.clear();
+
 	//for (size_t i = 0; i < listVisible.size(); i++)
 	//{
 	//	if (listVisible[i])
@@ -663,6 +726,11 @@ int GameMap::getWidth()
 int GameMap::getHeight()
 {
 	return _map->GetHeight() * _map->GetTileHeight();
+}
+
+void GameMap::deleteItem(Item2 * item)
+{
+	_listToRemove.push_back(item);
 }
 
 void GameMap::checkVisibility()

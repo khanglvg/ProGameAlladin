@@ -6,6 +6,9 @@
 #include "Sit.h"
 #include "../GameObject/Weapons/AppleToThrow.h"
 #include "../Framework/Scene.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
+#include "../BossScene.h"
 US_NS_JK
 
 SitAndThrow::SitAndThrow(Node* node) :State(node)
@@ -21,6 +24,19 @@ void SitAndThrow::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundThrowing(), false);
+	}
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundThrowing(), false);
+	}
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));

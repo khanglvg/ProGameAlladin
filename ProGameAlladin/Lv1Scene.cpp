@@ -7,6 +7,7 @@
 #include "Framework/Text.h"
 #include "GameObject/Aladdin.h"
 #include "Framework/Audio.h"
+#include "Framework/Input.h"
 #include "GameObject/TitleMenuScene.h"
 
 US_NS_JK
@@ -32,12 +33,13 @@ void Lv1Scene::init()
 
 
 #pragma region Sound 
-	//_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
-	//_soundAbu = new Sound("Resources/Audio/Abu.wav");
-	//_soundSlash = new Sound("Resources/Audio/High Sword.wav");
-	//_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
-	//_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
-	//_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
+	_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
+	_soundAbu = new Sound("Resources/Audio/Abu.wav");
+	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
+	_soundSitSlash = new Sound("Resources/Audio/Low Sword.wav");
+	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
+	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
+	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
 	//Audio::get()->load(_soundAbu);
 	//Audio::get()->load(_soundBackground);
 	//Audio::get()->load(_soundSlash);
@@ -45,8 +47,24 @@ void Lv1Scene::init()
 	//Audio::get()->load(_soundPushing);
 	//Audio::get()->play(_soundThrowing, false);
 	//Audio::get()->play(_soundBackground,true);
-	////Audio::get()->play(_soundAbu, false);
+	//Audio::get()->play(_soundAbu, false);
+	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
+	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
+	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
 
+	Audio::get()->load(_soundAbu);
+	Audio::get()->load(_soundBackground);
+	Audio::get()->load(_soundSlash);
+	Audio::get()->load(_soundSitSlash);
+	Audio::get()->load(_soundGrounding);
+	Audio::get()->load(_soundPushing);
+	Audio::get()->load(_soundThrowing);
+	Audio::get()->load(_soundHurt);
+	Audio::get()->load(_soundAppleCollect);
+	Audio::get()->load(_soundAppleCrush);
+	
+
+	//Audio::get()->play(_soundBackground, true);
 
 #pragma endregion 
 
@@ -64,7 +82,7 @@ void Lv1Scene::init()
 
 
 	Camera::getInstance()->follow(mAladdin);
-	Camera::getInstance()->setScaleFactor(Vec2(0.8, 0.8));
+	Camera::getInstance()->setScaleFactor(Vec2(2.0, 2.0));
 	_vectNode.push_back(Camera::getInstance());
 
 
@@ -81,8 +99,6 @@ void Lv1Scene::init()
 	{
 		_vectNode.push_back(ground);
 	}
-
-	Scene::init();
 
 	_gameMap->init();
 
@@ -101,6 +117,7 @@ void Lv1Scene::release()
 {
 	_gameMap->release();
 	Scene::release();
+	Audio::get()->release();
 }
 
 void Lv1Scene::update()
@@ -148,6 +165,26 @@ Sound* Lv1Scene::getsoundPushing()
 Sound* Lv1Scene::getsoundThrowing()
 {
 	return _soundThrowing;
+}
+
+Sound* Lv1Scene::getsoundSitSlash()
+{
+	return _soundSitSlash;
+}
+
+Sound* Lv1Scene::getsoundHurt()
+{
+	return _soundHurt;
+}
+
+Sound* Lv1Scene::getsoundAppleCollect()
+{
+	return _soundAppleCollect;
+}
+
+Sound* Lv1Scene::getsoundAppleCrush()
+{
+	return _soundAppleCrush;
 }
 
 

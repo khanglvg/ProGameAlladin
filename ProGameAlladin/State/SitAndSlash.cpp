@@ -4,6 +4,9 @@
 #include "Jump.h"
 #include "../GameObject/Aladdin.h"
 #include "Sit.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
+#include "../BossScene.h"
 US_NS_JK
 
 SitAndSlash::SitAndSlash(Node* node):State(node)
@@ -19,6 +22,22 @@ void SitAndSlash::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
+	
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundSitSlash(), false);
+	}
+
+
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundSitSlash(), false);
+	}
+
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->setScale(Vec2(-1, 1));

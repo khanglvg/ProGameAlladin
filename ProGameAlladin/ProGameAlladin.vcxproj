@@ -218,6 +218,9 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundFallingState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundNormalState.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
+    <ClInclude Include="GameObject\Ground\Rope.h" />
+    <ClInclude Include="GameObject\Ground\Platform.h" />
+    <ClInclude Include="GameObject\Items\Item2.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\SpriteText.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
@@ -389,6 +392,9 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundFallingState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundNormalState.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
+    <ClCompile Include="GameObject\Ground\Rope.cpp" />
+    <ClCompile Include="GameObject\Ground\Platform.cpp" />
+    <ClCompile Include="GameObject\Items\Item2.cpp" />
     <ClCompile Include="GameObject\SpriteText.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
@@ -571,6 +577,7 @@
     <Xml Include="Resources\Items\Flame.xml" />
     <Xml Include="Resources\Items\FloatGround.xml" />
     <Xml Include="Resources\Items\Items.xml" />
+    <Xml Include="Resources\Items\Items2.xml" />
     <Xml Include="Resources\Menu\text.xml" />
   </ItemGroup>
   <ItemGroup>
