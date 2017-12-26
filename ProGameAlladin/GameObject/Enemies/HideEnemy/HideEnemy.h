@@ -22,6 +22,8 @@ public:
 	Rect getRect() override;
 private:
 	Texture _textureHideEnemy;
+
+	bool _isAttacked;
 };
 
 NS_JK_END

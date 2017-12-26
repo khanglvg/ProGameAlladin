@@ -12,7 +12,7 @@ EnemyExplosionState::EnemyExplosionState(Enemy * enemy) : EnemyState(enemy, Enem
 	_enemy = enemy;
 	_enemy->setActionName("Enemy-Explosion");
 	_enemy->setTexture("Resources/Enemies/enemy_explosion_strip10_89_114.png");
-	_enemy->setScale(Vec2(0.6,0.6));
+	_enemy->setScale(Vec2(0.5,0.5));
 	_enemy->getRigidBody()->setActive(false);
 }
 

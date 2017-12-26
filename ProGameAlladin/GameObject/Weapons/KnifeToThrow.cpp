@@ -14,6 +14,7 @@ KnifeToThrow::KnifeToThrow(GameObject* owner,const Vec2 & position, const Size &
 	setPosition(_rigid->getPosition());
 	setScale(Vec2(1, 1));
 	_rigid->setTag("knifetothrow");
+	setCurrentScene(owner->getCurrentScene());
 
 	_owner = owner;
 	_isCollision = false;
@@ -88,11 +89,11 @@ void KnifeToThrow::update()
 
 	if (aladdin != _rigid->getCollidingBodies().end())
 	{
-		_owner->getCurrentScene()->removeNode(this);
+		getCurrentScene()->removeNode(this);
 	}
 	else if (_actionName == "Knife-Explosion" && _animationIndex == 4)
 	{
-		_owner->getCurrentScene()->removeNode(this);
+		getCurrentScene()->removeNode(this);
 	}
 
 	if (ground != _rigid->getCollidingBodies().end() || wall != _rigid->getCollidingBodies().end() || platform != _rigid->getCollidingBodies().end())

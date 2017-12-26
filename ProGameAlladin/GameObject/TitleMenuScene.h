@@ -9,13 +9,19 @@ NS_JK_BEGIN
 class TitleMenuScene: public Node
 {
 public:
+
+	enum TitleType { ALA, APPLE };
+
 	TitleMenuScene();
 	TitleMenuScene(const string& srcFile, const Rect& rect, const int& layer);
 	~TitleMenuScene();
 
 	void init() override;
+	void update() override;
 	void render() override;
 	void release() override;
+
+	void setType(const TitleType& type);
 
 	void setVisible(const bool& visible);
 private:
@@ -23,6 +29,8 @@ private:
 	Texture _textureTitle;
 	string _srcFile;
 	int _layer;
+
+	TitleType _type;
 
 	int _alpha = 255;
 

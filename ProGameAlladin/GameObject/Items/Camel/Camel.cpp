@@ -2,6 +2,7 @@
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
 #include "../../Aladdin.h"
+#include "../../Weapons/CamelBullet.h"
 
 US_NS_JK
 
@@ -15,6 +16,7 @@ Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	setScale(Vec2(1, 1));
 	_rigid->setTag("camel");
 	_player = player;
+	_isShoot = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -93,6 +95,22 @@ void Camel::update()
 			_actionName = "Camel-Idle";
 			_animationIndex = 0;
 		}
+	}
+
+	if (_actionName == "Camel" && _animationIndex == 5)
+	{
+		if (!_isShoot)
+		{
+			auto bullet = new CamelBullet(this, Vec2(_rigid->getPosition().getX() + 90, _rigid->getPosition().getY()), Size(18, 15));
+			bullet->setGravityScale(0);
+			bullet->getRigidBody()->setVelocity(Vec2(150, 0));
+			getCurrentScene()->addNode(bullet);
+			_isShoot = true;
+		}
+	}
+	else
+	{
+		_isShoot = false;
 	}
 }
 

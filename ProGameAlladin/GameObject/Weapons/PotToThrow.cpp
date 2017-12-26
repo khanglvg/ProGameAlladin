@@ -14,6 +14,7 @@ PotToThrow::PotToThrow(GameObject* owner, const Vec2 & position, const Size & si
 	_rigid->setRestitution(0);
 	_rigid->setGravityScale(1);
 	setPosition(_rigid->getPosition());
+	setCurrentScene(owner->getCurrentScene());
 	setScale(Vec2(1, 1));
 	_rigid->setTag("pottothrow");
 
@@ -64,6 +65,7 @@ void PotToThrow::update()
 	const auto collisionWithEnemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "enemy");
 	const auto collisionWithGround = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"ground");
 	const auto collisionWithPlatform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform");
+	auto const aladdinWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
 
 	if (collisionWithEnemy != _rigid->getCollidingBodies().end())
 		_isCollision = true;
@@ -80,7 +82,11 @@ void PotToThrow::update()
 	}
 	else if (_actionName == "WallEnemy-BulletBroken" && _animationIndex == 7)
 	{
-		_owner->getCurrentScene()->removeNode(this);
+		getCurrentScene()->removeNode(this);
+	}
+	else if (_actionName == "Enemy-Explosion" && _animationIndex == 9)
+	{
+		getCurrentScene()->removeNode(this);
 	}
 
 	if (collisionWithGround != _rigid->getCollidingBodies().end() || collisionWithPlatform != _rigid->getCollidingBodies().end())
@@ -93,6 +99,18 @@ void PotToThrow::update()
 			_actionName = "WallEnemy-BulletBroken";
 			_animationIndex = 0;
 		}
+	}
+
+	if (aladdinWeapon != _rigid->getCollidingBodies().end() && _actionName != "Enemy-Explosion")
+	{
+		_rigid->setActive(false);
+		_rigid->setGravityScale(0);
+		setVelocity(Vec2(0, 0));
+		_actionName = "Enemy-Explosion";
+		_texturePot.setSrcFile("Resources/Enemies/enemy_explosion_strip10_89_114.png");
+		Graphics::getInstance()->loadTexture(_texturePot);
+		setScale(Vec2(0.5, 0.5));
+		_animationIndex = 0;
 	}
 
 	//if(_isCollision)
@@ -113,6 +131,11 @@ void PotToThrow::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	auto expect = 0.01;
+
+	if (_actionName == "Enemy-Explosion")
+	{
+		expect = 0.03;
+	}
 
 	Graphics::getInstance()->drawSprite(_texturePot, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
 		rect, 2);

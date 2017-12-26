@@ -2,6 +2,7 @@
 
 #define __JUMPANDSLASH_H__
 #include "State.h"
+#include "../GameObject/Weapons/Weapon.h"
 
 
 NS_JK_BEGIN
@@ -19,6 +20,8 @@ public:
 //private:
 //	enum{NONE,JUMP,FALL};
 //	int _state = NONE;
+private:
+	Weapon* _weapon;
 };
 
 NS_JK_END

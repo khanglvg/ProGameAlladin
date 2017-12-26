@@ -221,7 +221,9 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGroundState.h" />
     <ClInclude Include="GameObject\Ground\Rope.h" />
     <ClInclude Include="GameObject\Ground\Platform.h" />
+    <ClInclude Include="GameObject\Items\AladdinHealth.h" />
     <ClInclude Include="GameObject\Items\Item2.h" />
+    <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\SpriteText.h" />
     <ClInclude Include="GameObject\Weapons\PotToThrow.h" />
@@ -394,8 +396,10 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGroundState.cpp" />
     <ClCompile Include="GameObject\Ground\Rope.cpp" />
     <ClCompile Include="GameObject\Ground\Platform.cpp" />
+    <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
     <ClCompile Include="GameObject\Items\Item2.cpp" />
     <ClCompile Include="GameObject\SpriteText.cpp" />
+    <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
     <ClCompile Include="GameObject\Weapons\PotToThrow.cpp" />
     <ClCompile Include="GameObject\BackgroundMenu.cpp" />
@@ -571,6 +575,7 @@
     <Xml Include="Resources\Enemies\Enemies2.xml" />
     <Xml Include="Resources\Enemies\Enemy-Explosion.xml" />
     <Xml Include="Resources\Enemies\KnifeToThrow.xml" />
+    <Xml Include="Resources\Items\AladdinHealth.xml" />
     <Xml Include="Resources\Items\AppleToThrow.xml" />
     <Xml Include="Resources\Items\Camel.xml">
       <SubType>Designer</SubType>
@@ -617,7 +622,9 @@
     <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Guards.png" />
     <Image Include="Resources\Enemies\Genesis 32X SCD - Aladdin - Items.png" />
     <Image Include="Resources\ground.png" />
+    <Image Include="Resources\Items\AladdinHealth.png" />
     <Image Include="Resources\Items\Apple.png" />
+    <Image Include="Resources\Items\CamelBullet.png" />
     <Image Include="Resources\Items\fallingplatform_strip8_5_4.png" />
     <Image Include="Resources\Items\fire.png" />
     <Image Include="Resources\Items\FloatGround.png" />

@@ -145,6 +145,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			if (objectGroup->GetName() == "Camel")
 			{
 				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth()-16, object->GetHeight()), GameObject::CAMELS, _player);
+				camel->setCurrentScene(player->getCurrentScene());
 				_listCamels.push_back(camel);
 
 				//_quadTree->insertObject(camel);

@@ -91,6 +91,7 @@ void AppleToThrow::update()
 	{
 		if (_actionName != "Apple-Explosion")
 		{
+			_rigid->setActive(false);
 			_rigid->setGravityScale(0);
 			setVelocity(Vec2(0,0));
 			_actionName = "Apple-Explosion";
@@ -101,6 +102,7 @@ void AppleToThrow::update()
 	{
 		if (_actionName != "Apple-Explosion-Boss")
 		{
+			_rigid->setActive(false);
 			_rigid->setGravityScale(0);
 			setScale(Vec2(1.2,1.2));
 			setVelocity(Vec2(0, 0));

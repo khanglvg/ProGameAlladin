@@ -9,6 +9,7 @@
 #include "Framework/Audio.h"
 #include "Framework/Input.h"
 #include "GameObject/TitleMenuScene.h"
+#include "GameObject/Items/AladdinHealth.h"
 
 US_NS_JK
 
@@ -82,18 +83,26 @@ void Lv1Scene::init()
 
 
 	Camera::getInstance()->follow(mAladdin);
-	Camera::getInstance()->setScaleFactor(Vec2(0.8, 0.8));
+	Camera::getInstance()->setScaleFactor(Vec2(2, 2));
 	_vectNode.push_back(Camera::getInstance());
+	
 
+	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 3);
+	_alaIcon->setType(TitleMenuScene::ALA);
+	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 3);
+	_appleIcon->setType(TitleMenuScene::APPLE);
+	_appleIcon->setScale(Vec2(1.4,1.4));
 
-	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 3);
-	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339,139,22,25), 3);
-
-	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
-	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80));
+	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() +86));
 
 	_vectNode.push_back(_alaIcon);
 	_vectNode.push_back(_appleIcon);
+
+	_alaHealth = new AladdinHealth(mAladdin);
+	_alaHealth->setPosition(Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() - 80));
+
+	_vectNode.push_back(_alaHealth);
 
 	for (auto ground : _gameMap->getListGround())
 	{

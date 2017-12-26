@@ -37,6 +37,8 @@ protected:
 
 	Aladdin* _player;
 
+	bool _isShoot;
+
 	int _animationIndex = 0;
 	string _actionName;
 	float _index = 0;

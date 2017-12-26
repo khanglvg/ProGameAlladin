@@ -9,6 +9,7 @@ Weapon::Weapon()
 Weapon::Weapon(GameObject* owner, const Vec2& rigidPosition, const Size& rigidSize, const Vec2& attackRange, const string& tag): GameObject(rigidPosition,rigidSize)
 {
 	_rigid->setBodyType(RINEMATIC);
+	_rigid->setDensity(0.00000001);
 	_owner = owner;
 	_rigid->setTag(tag);
 	_rigid->setActive(false);
@@ -30,12 +31,12 @@ void Weapon::update()
 {
 	if(_owner->isOwnerRight())
 	{
-		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() + _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth() + _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
 		_position = _rigid->getPosition() - _rigid->getOffset();
 	}
 	else
 	{
-		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth()/2 - _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth()*2 - _attackRange.getX()+15, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
 		_position = _rigid->getPosition() - _rigid->getOffset();
 	}
 	

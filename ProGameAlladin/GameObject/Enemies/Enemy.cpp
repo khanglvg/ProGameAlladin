@@ -17,7 +17,7 @@ Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, 
 
 	_footPosY = 0;
 
-	_health = 2;
+	_health = 20;
 	_damage = 5;
 	_speed = 10;
 	_boundaryLeft = _startPosition.x - 50;

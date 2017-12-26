@@ -44,7 +44,7 @@ void Slash::onEnter()
 
 	aladdin->setActionName("Slash");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(10, 30), Vec2(30,12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30,12), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{

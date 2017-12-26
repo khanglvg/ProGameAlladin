@@ -60,6 +60,7 @@ void ThinEnemy::update()
 
 	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 	auto const aladdinWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
+	auto const appleWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
 
 	if(aladdin == _rigid->getCollidingBodies().end())
 	{
@@ -70,12 +71,16 @@ void ThinEnemy::update()
 		_isCollisionWithAladdin = true;
 	}
 
-	if (aladdinWeapon != _rigid->getCollidingBodies().end())
+	if (aladdinWeapon != _rigid->getCollidingBodies().end() || appleWeapon != _rigid->getCollidingBodies().end())
 	{
 		if (!_isAttacked)
 		{
-			_health--;
+			if (aladdinWeapon != _rigid->getCollidingBodies().end())
+				_health-= 10;
+			else
+				_health -= 8;
 			_isAttacked = true;
+			//OutputDebugString(std::to_string(_health).c_str());
 		}
 	}
 	else
@@ -104,6 +109,8 @@ void ThinEnemy::update()
 
 	if (_health <= 0 && _actionName != "Enemy-Explosion")
 	{
+		_rigid->setGravityScale(0);
+		setVelocity(Vec2(0, 0));
 		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}
@@ -114,8 +121,12 @@ void ThinEnemy::render()
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	const auto expect = 0.05;
+	auto expect = 0.05;
 
+	if (_actionName == "Enemy-Explosion")
+	{
+		expect = 0.03;
+	}
 	
 	auto origin = Vec2(0.3f, 1.0f);
 

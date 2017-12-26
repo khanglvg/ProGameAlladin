@@ -64,6 +64,8 @@ public:
 
 	void setIsPause(const bool& pause);
 
+	int getHealth() const;
+
 	void setIsClimbDown(const bool& climbDown);
 
 	void setIsClimb(const bool& climb);
@@ -88,6 +90,8 @@ private:
 	string _actionName;
 	float _index = 0;
 	State* _currentState;
+
+	int _health;
 
 	GameObject* _stairInCollision;
 

@@ -21,6 +21,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isClimb = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
+	_health = 10;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -75,7 +76,7 @@ void Aladdin::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
-	OutputDebugString(std::to_string(_numApple).c_str());
+	//OutputDebugString(std::to_string(_numApple).c_str());
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -420,6 +421,10 @@ bool Aladdin::isAllowToClimb()
 void Aladdin::setIsPause(const bool & pause)
 {
 	_isPause = pause;
+}
+int Aladdin::getHealth() const
+{
+	return _health;
 }
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
