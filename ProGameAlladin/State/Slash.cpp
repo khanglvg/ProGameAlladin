@@ -9,6 +9,7 @@
 #include "../GameObject/Aladdin.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
+#include "../BossScene.h"
 US_NS_JK
 
 
@@ -25,9 +26,22 @@ void Slash::onEnter()
 	// TODO: setScale()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
-
+	
 	Lv1Scene* lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
-	Audio::get()->play(lv1->getsoundSlash(), false);
+	BossScene* boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+	
+		Audio::get()->play(lv1->getsoundSlash(), false);
+	}
+
+	if(aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundSlash(), false);
+	}
+	
+
 	aladdin->setActionName("Slash");
 
 	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(10, 30), Vec2(30,12), "aladdinknife");
@@ -52,6 +66,8 @@ void Slash::onExit()
 	const auto aladdin = static_cast<Aladdin*>(_node);
 	_weapon->getRigidBody()->setActive(false);
 	aladdin->getCurrentScene()->removeNode(_weapon);
+	
+
 }
 
 State* Slash::checkTransition()

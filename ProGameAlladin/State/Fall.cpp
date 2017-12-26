@@ -58,6 +58,8 @@ State* Fall::checkTransition()
 		return new IdleToClimb(_node);
 	if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Grounding(_node);
+	if (aladdin->getIndex() >= 9)
+		aladdin->setIsPause(true);
 
 	return nullptr;
 }

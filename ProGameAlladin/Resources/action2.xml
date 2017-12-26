@@ -198,6 +198,9 @@
     <sprite x="199" y="1078" w="51" h="55" oX="199" oY="1078" oW="1126" oH="397" />
     <sprite x="266" y="1070" w="82" h="59" oX="266" oY="1070" oW="1126" oH="397" />
     <sprite x="361" y="1087" w="58" h="54" oX="361" oY="1087" oW="1126" oH="397" />
+    <sprite x="75" y="1075" w="50" h="51" oX="75" oY="1075" oW="1126" oH="397" />
+    <sprite x="140" y="1067" w="46" h="65" oX="140" oY="1067" oW="1126" oH="397" />
+    <sprite x="199" y="1078" w="51" h="55" oX="199" oY="1078" oW="1126" oH="397" />
   </Animation>
   <Animation name="Flip" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="12" y="1154" w="49" h="53" oX="12" oY="1154" oW="1215" oH="457" />

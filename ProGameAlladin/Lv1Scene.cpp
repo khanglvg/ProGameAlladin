@@ -34,10 +34,6 @@ void Lv1Scene::init()
 #pragma region Sound 
 	_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
 	_soundAbu = new Sound("Resources/Audio/Abu.wav");
-	//Audio::get()->load(_soundAbu);
-	//Audio::get()->play(_soundAbu,true);
-	//_soundBackground = LoadSound("Resources/Audio/AgrabahMarket.wave");
-	//_soundBackground->Play();
 	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
 	_soundSitSlash = new Sound("Resources/Audio/Low Sword.wav");
 	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
@@ -59,7 +55,7 @@ void Lv1Scene::init()
 	Audio::get()->load(_soundAppleCrush);
 	
 
-	Audio::get()->play(_soundBackground, true);
+	//Audio::get()->play(_soundBackground, true);
 
 #pragma endregion 
 
@@ -103,6 +99,7 @@ void Lv1Scene::release()
 {
 	_gameMap->release();
 	Scene::release();
+	Audio::get()->release();
 }
 
 void Lv1Scene::update()

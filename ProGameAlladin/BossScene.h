@@ -4,6 +4,8 @@
 #include "Framework/definitions.h"
 #include "Framework/Scene.h"
 #include "GameObject/GameObject.h"
+#include "Framework/Sound.h"
+#include "Framework/dxaudio.h"
 
 
 NS_JK_BEGIN
@@ -25,6 +27,17 @@ public:
 
 	int getNumApple() const;
 
+	CSoundManager* _soundManager;
+	Sound* getsoundGrounding();
+	Sound* getsoundSlash();
+	Sound* getsoundPushing();
+	Sound* getsoundThrowing();
+	Sound* getsoundSitSlash();
+	Sound* getsoundHurt();
+	Sound* getsoundAppleCollect();
+	Sound* getsoundAppleCrush();
+
+
 private:
 	Aladdin* _aladdin;
 	Jafar* _jafar;
@@ -41,6 +54,15 @@ private:
 	Node* _bgRight;
 	Node* _bgLeft;
 	Node* _map;
+
+	Sound* _soundSlash;
+	Sound*_soundSitSlash;
+	Sound*_soundGrounding;
+	Sound*_soundPushing;
+	Sound*_soundThrowing;
+	Sound*_soundHurt;
+	Sound*_soundAppleCollect;
+	Sound*_soundAppleCrush;
 
 };
 

@@ -6,6 +6,8 @@
 #include "IdleToClimb.h"
 #include "../Framework/Scene.h"
 #include "../GameObject/Weapons/AppleToThrow.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 
 US_NS_JK
 
@@ -20,6 +22,9 @@ ThrowWhenClimb::~ThrowWhenClimb()
 void ThrowWhenClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
+
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundThrowing(), false);
 
 	aladdin->setActionName("ThrowWhenClimbing");
 

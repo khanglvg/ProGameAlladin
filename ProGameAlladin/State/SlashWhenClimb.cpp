@@ -4,6 +4,8 @@
 #include "ThrowWhenClimb.h"
 #include "../GameObject/Aladdin.h"
 #include "IdleToClimb.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 US_NS_JK
 
 SlashWhenClimb::SlashWhenClimb(Node* node):State(node)
@@ -17,6 +19,9 @@ SlashWhenClimb::~SlashWhenClimb()
 void SlashWhenClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	Audio::get()->play(lv1->getsoundSlash(), false);
+
 	aladdin->setVelocity(Vec2(0, 0));
 
 
