@@ -45,7 +45,7 @@ void BossScene::init()
 	Audio::get()->load(_soundAppleCrush);
 #pragma  endregion 
 	// =============================================== ALADDIN ==============================================================================
-	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale), Size(10, 60));
+	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale - 100), Size(10, 30));
 	_aladdin->getRigidBody()->setGravityScale(1);
 	_aladdin->setCurrentScene(this);
 	_aladdin->setEScene(Aladdin::ENUM_BOSS_SCENE);

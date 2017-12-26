@@ -169,9 +169,21 @@ void KnifeMenuSelector::render()
 	Graphics::getInstance()->drawSprite(_textureKnife,
 		Vec2(0, 0),
 		getTransformMatrix(),
-		Color(255, 255, 255, 255),
+		Color(255, 255, 255, _alpha),
 		Rect(0, 0, 32, 11),
 		_layer);
+}
+
+void KnifeMenuSelector::setVisible(const bool& visible)
+{
+	if(visible == true)
+	{
+		_alpha = 255;
+	}
+	else
+	{
+		_alpha = 0;
+	}
 }
 
 string KnifeMenuSelector::getSrcFile() const

@@ -30,11 +30,23 @@ void BackgroundMenu::render()
 	Graphics::getInstance()->drawSprite(_textureBackground, 
 		Vec2(0.0, 0.0), 
 		getTransformMatrix(), 
-		Color(255, 255, 255, 255),
+		Color(255, 255, 255, _alpha),
 		Rect(0, 0, 640, 480),
 		_layer); 
 }
 
 void BackgroundMenu::release()
 {
+}
+
+void BackgroundMenu::setVisible(const bool& visible)
+{
+	if(visible == true)
+	{
+		_alpha = 255;
+	}
+	else
+	{
+		_alpha = 0;
+	}
 }

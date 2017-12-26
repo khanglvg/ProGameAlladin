@@ -62,6 +62,9 @@ private:
 	Sound*_soundAppleCollect;
 	Sound*_soundAppleCrush;
 	//CSound* _soundBackground;
+
+	Node* _alaIcon;
+	Node* _appleIcon;
 	
 };
 

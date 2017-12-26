@@ -23,13 +23,35 @@ MenuSelector::~MenuSelector()
 void MenuSelector::init()
 {
 	_knife = new KnifeMenuSelector("Resources/Menu/menuknife.png", 2);
-	_vectNode.push_back(new BackgroundMenu("Resources/Menu/backgroundMenu.png", 0));
-	_vectNode.push_back(new TitleMenuScene("Resources/Menu/title.png", Rect(0, 0, 243, 90), 1));
+	
+	
+	_bg1 = new BackgroundMenu("Resources/Menu/backgroundMenu.png", 0);
+	_vectNode.push_back(_bg1);
+	
+	_title1 = new TitleMenuScene("Resources/Items/items.png", Rect(2, 199, 321, 215), 1);
+	_title1->setPosition(Vec2(-80, -60));
+	_title1->setScale(Vec2(2.5, 2.79));
+	_title1->setVisible(false);
+	_vectNode.push_back(_title1);
+	
+	_title2 = new TitleMenuScene("Resources/Items/items.png", Rect(2, 10, 321, 183), 2);
+	_title2->setPosition(Vec2(-30, 0));
+	_title2->setScale(Vec2(2.4, 2.4));
+	_title2->setVisible(false);
+	_vectNode.push_back(_title2);
+
+	_titleAla = new TitleMenuScene("Resources/Menu/title.png", Rect(0, 0, 243, 90), 1);
+	_vectNode.push_back(_titleAla);
+
 	_vectNode.push_back(_knife);
+
+
 
 	_stateSound = true;
 	_distance = 30;
 	_errorY = 30;
+	_timer = 3;
+	_temp = 0;
 
 	const auto scaleLetter = 1.7;
 				
@@ -301,7 +323,8 @@ void MenuSelector::update()
 		if (Input::getInstance()->isKeyDown(KEY_RETURN))
 		{
 			// Go to Lv1Scene
-			GameManager::getInstance()->changeScene(new Lv1Scene);
+			_isIntro = true;
+			_isLv1 = true;
 		}
 	}
 	else if (_knife->getState() == JAFAR)
@@ -309,11 +332,38 @@ void MenuSelector::update()
 		if (Input::getInstance()->isKeyDown(KEY_RETURN))
 		{
 			// Go to Boss
-			GameManager::getInstance()->changeScene(new BossScene);
+			_isIntro = true;
+			
 		}
 	}
 
-
+	if( _isIntro )
+	{
+		if (_temp <= _timer)
+		{
+			for (auto letter : _market)		letter->setVisible(false);
+			for (auto letter : _jafar)		letter->setVisible(false);
+			for (auto letter : _exit)		letter->setVisible(false);
+			_title1->setVisible(true);
+			_title2->setVisible(true);
+			_titleAla->setVisible(false);
+			_knife->setVisible(false);
+			_bg1->setVisible(false);
+			_temp = _temp + GameManager::getInstance()->getDeltaTime();
+		}
+		else
+		{
+			if (_isLv1 == true)
+			{
+				//GameManager::getInstance()->changeScene(new Lv1Scene);
+			}
+			else
+			{
+				GameManager::getInstance()->changeScene(new BossScene);
+			}
+			
+		}
+	}
 	
 }
 

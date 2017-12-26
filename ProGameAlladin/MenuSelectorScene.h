@@ -6,6 +6,8 @@
 #include "Framework/Text.h"
 #include "GameObject/KnifeMenuSelector.h"
 #include "GameObject/SpriteText.h"
+#include "GameObject/BackgroundMenu.h"
+#include "GameObject/TitleMenuScene.h"
 
 #define JK_FONT_HEIGHT 35
 #define JK_FONT_WIDTH 20
@@ -54,6 +56,18 @@ private:
 	
 	float _distance;
 	float _errorY;
+
+	BackgroundMenu* _bg1;
+	TitleMenuScene* _title1;
+	TitleMenuScene* _title2;
+	TitleMenuScene* _titleAla;
+
+	bool _isIntro = false;
+	bool _isLv1 = false;
+
+	float _temp;
+
+	double _timer;
 };
 
 NS_JK_END

@@ -8,6 +8,7 @@
 #include "GameObject/Aladdin.h"
 #include "Framework/Audio.h"
 #include "Framework/Input.h"
+#include "GameObject/TitleMenuScene.h"
 
 US_NS_JK
 
@@ -67,13 +68,15 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, 600), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
 
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
 	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
+
+	
 
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
@@ -83,7 +86,14 @@ void Lv1Scene::init()
 	_vectNode.push_back(Camera::getInstance());
 
 
+	_alaIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(340, 17, 12, 12), 2);
+	_appleIcon = new TitleMenuScene("Resources/Menu/items.png", Rect(339,139,22,25), 2);
 
+	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+
+	_vectNode.push_back(_alaIcon);
+	_vectNode.push_back(_appleIcon);
 
 	for (auto ground : _gameMap->getListGround())
 	{

@@ -28,6 +28,7 @@ public:
 	void init() override;
 	void update() override;
 	void render() override;
+	void setVisible(const bool& visible);
 	
 #pragma region GET-SET
 	string getSrcFile() const;
@@ -57,6 +58,8 @@ private:
 	Vec2 _thirdPostion;
 
 	bool _leftToRight;
+
+	int _alpha = 255;
 	
 };
 
