@@ -40,14 +40,6 @@ void Lv1Scene::init()
 	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
 	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
 	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
-	//Audio::get()->load(_soundAbu);
-	//Audio::get()->load(_soundBackground);
-	//Audio::get()->load(_soundSlash);
-	//Audio::get()->load(_soundGrounding);
-	//Audio::get()->load(_soundPushing);
-	//Audio::get()->play(_soundThrowing, false);
-	//Audio::get()->play(_soundBackground,true);
-	//Audio::get()->play(_soundAbu, false);
 	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
