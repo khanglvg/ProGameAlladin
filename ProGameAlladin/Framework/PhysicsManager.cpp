@@ -75,8 +75,21 @@ void PhysicsManager::update()
 								manifold.collisionNormal == Vec2(1, 0)	||
 								manifold.collisionNormal == Vec2(0, -1)))
 							{
-								return;
+								continue;
 							}
+
+							if ((*it1)->getTag() == "aladdin" &&
+								(*it2)->getTag() == "appletothrow")
+							{
+								continue;
+							}
+
+							if ((*it1)->getTag() == "aladdin" &&
+								(*it2)->getTag() == "aladdinknife")
+							{
+								continue;
+							}
+
 
 					
 

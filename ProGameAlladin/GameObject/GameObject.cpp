@@ -51,6 +51,7 @@ void GameObject::render()
 
 void GameObject::release()
 {
+	delete _rigid;
 }
 
 #pragma region GET-SET

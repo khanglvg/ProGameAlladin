@@ -34,7 +34,7 @@ JaKa::State* JaKa::IdleToLook::checkTransition()
 	return new Sit(_node);*/
 	if (Input::getInstance()->getKey(KEY_S))
 		return new HeadUpAndSlash(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW))
 		return new Idle(_node);

@@ -62,8 +62,8 @@ void Lv1Scene::init()
 #pragma endregion 
 
 	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
-	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
+	_vectNode.push_back(mAladdin);
 
 
 	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));

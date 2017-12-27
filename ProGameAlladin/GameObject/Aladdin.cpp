@@ -68,7 +68,7 @@ void Aladdin::init()
 
 void Aladdin::release()
 {
-	delete this;
+	delete _rigid;
 }
 
 void Aladdin::update()

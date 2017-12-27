@@ -12,6 +12,7 @@ WallEnemyIdleState::WallEnemyIdleState(Enemy * enemy) : EnemyState(enemy, EnemyS
 {
 	_enemy = enemy;
 	_enemy->setActionName("WallEnemy-Idle");
+	_enemy->getRigidBody()->setActive(false);
 }
 
 WallEnemyIdleState::~WallEnemyIdleState()

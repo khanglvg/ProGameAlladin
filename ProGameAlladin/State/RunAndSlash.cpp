@@ -91,7 +91,7 @@ void RunAndSlash::onExit()
 State* RunAndSlash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new RunAndJump(_node);
