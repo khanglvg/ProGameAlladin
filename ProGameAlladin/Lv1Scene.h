@@ -11,6 +11,7 @@
 #include "Framework/Text.h"
 #include "Framework/dxaudio.h"
 #include "Framework/Sound.h"
+#include "GameObject/BackgroundSky.h"
 
 NS_JK_BEGIN
 
@@ -67,6 +68,9 @@ private:
 
 	TitleMenuScene* _alaIcon;
 	TitleMenuScene* _appleIcon;
+
+	BackgroundSky* _bg1;
+	BackgroundSky* _bg2;
 	
 };
 

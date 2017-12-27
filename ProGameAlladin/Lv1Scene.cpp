@@ -61,13 +61,9 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(300, -650), Size(40, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
-
-
-	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
-	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
 
 	
 
@@ -78,6 +74,10 @@ void Lv1Scene::init()
 	Camera::getInstance()->setScaleFactor(Vec2(2, 2));
 	_vectNode.push_back(Camera::getInstance());
 	
+	_bg1 = new BackgroundSky("Resources/background.png", 0);
+	_bg1->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_bg1->setScale(Vec2(0.9, 1.3));
+	_vectNode.push_back(_bg1);
 
 	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 3);
 	_alaIcon->setType(TitleMenuScene::ALA);
@@ -125,6 +125,7 @@ void Lv1Scene::update()
 {
 	//checkVisibility();
 	_alaLife->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_bg1->setPosition(Vec2(Camera::getInstance()->getCameraX() - 170, Camera::getInstance()->getCameraY() - 130));
 	_gameMap->update();
 	Scene::update();
 

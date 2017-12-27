@@ -45,6 +45,7 @@ void Fall::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setGravityScale(1.5);
 }
 
 State* Fall::checkTransition()

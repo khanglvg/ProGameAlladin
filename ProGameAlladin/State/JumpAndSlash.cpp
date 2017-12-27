@@ -69,11 +69,13 @@ void JumpAndSlash::onUpdate()
 	{
 		aladdin->setScale(Vec2(-1, 1));
 		aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+		_weapon->getOwner()->setIsOwnerRight(false);
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+		_weapon->getOwner()->setIsOwnerRight(true);
 	}
 
 }

@@ -504,6 +504,7 @@
     <Image Include="Resources\Enemies\enemy_explosion_strip10_89_114.png" />
     <Image Include="Resources\Items\CamelBullet.png" />
     <Image Include="Resources\Items\AladdinHealth.png" />
+    <Image Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

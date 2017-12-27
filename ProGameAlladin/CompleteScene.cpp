@@ -51,7 +51,7 @@ void CompleteScene::update()
 	const auto scale = 0.45;
 	if((_ala->getPosition().getX()* scale) <= -100 * scale)
 	{
-	//	GameManager::getInstance()->changeScene(new MenuSelector);
+		GameManager::getInstance()->changeScene(new MenuSelector);
 	}
 
 }

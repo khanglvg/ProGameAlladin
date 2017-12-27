@@ -44,16 +44,14 @@ void Slash::onEnter()
 
 	aladdin->setActionName("Slash");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30,12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(40,12), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{
-		_weapon->getOwner()->setIsOwnerRight(true);
 		_weapon->getRigidBody()->setActive(true);
 	}
 	else
 	{
-		_weapon->getOwner()->setIsOwnerRight(false);
 		_weapon->getRigidBody()->setActive(true);
 	}
 

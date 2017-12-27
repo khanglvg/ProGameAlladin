@@ -276,7 +276,7 @@ void BossScene::update()
 		_platform4->setTag(GameObject::FIREGROUND);
 	}
 
-	if (_aladdin->getNumApple() == 0)
+	if (_aladdin->getNumApple() <= 0)
 	{
 		if (getNumApple() == 0)
 		{
