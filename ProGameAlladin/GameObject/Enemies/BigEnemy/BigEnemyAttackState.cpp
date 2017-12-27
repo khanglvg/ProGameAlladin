@@ -71,6 +71,15 @@ void BigEnemyAttackState::onUpdate()
 		_enemy->setScale(Vec2(1, 1));
 		_enemy->setIsOwnerRight(false);
 	}
+
+	if (_enemy->getIndex() == 3 || _enemy->getIndex() == 4 || _enemy->getIndex() == 5)
+	{
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getRigidBody()->setActive(false);
+	}
 }
 
 void BigEnemyAttackState::onExit()

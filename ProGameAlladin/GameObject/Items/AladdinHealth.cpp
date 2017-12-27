@@ -143,11 +143,11 @@ void AladdinHealth::render()
 	const auto origin = Vec2(0.0f, 1.0f);
 
 
-	Graphics::getInstance()->drawSprite(_texture, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	Graphics::getInstance()->drawSprite(_texture, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 4);
 
 	if (_index <= expect)
 	{
-		Graphics::getInstance()->drawSprite(_texture, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+		Graphics::getInstance()->drawSprite(_texture, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 4);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else
