@@ -14,6 +14,7 @@ WallEnemyAttackState::WallEnemyAttackState(Enemy * enemy) : EnemyState(enemy, En
 {
 	_enemy = enemy;
 	_enemy->setActionName("WallEnemy-Attack");
+	_enemy->getRigidBody()->setActive(true);
 }
 
 WallEnemyAttackState::~WallEnemyAttackState()
