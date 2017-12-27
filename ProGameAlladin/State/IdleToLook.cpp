@@ -9,23 +9,23 @@
 
 US_NS_JK
 
-JaKa::IdleToLook::IdleToLook(Node* node):State(node)
+IdleToLook::IdleToLook(Node* node):State(node)
 {
 
 }
 
-JaKa::IdleToLook::~IdleToLook()
+IdleToLook::~IdleToLook()
 {
 }
 
-void JaKa::IdleToLook::onEnter()
+void IdleToLook::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("IdleToLook");
 }
 
 
-JaKa::State* JaKa::IdleToLook::checkTransition()
+State* IdleToLook::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_D))

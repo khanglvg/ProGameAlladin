@@ -29,18 +29,20 @@ void IdleToClimb::onUpdate()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	{
-		aladdin->setScale(Vec2(1, 1));
-		aladdin->setVelocity(Vec2(0, 0));
-	}
+		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		{
+			aladdin->setScale(Vec2(1, 1));
+			aladdin->setVelocity(Vec2(0, 0));
+		}
+
+		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		{
+			aladdin->setScale(Vec2(-1, 1));
+			aladdin->setVelocity(Vec2(0, 0));
+		}
+	
 		
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	{
-		aladdin->setScale(Vec2(-1, 1));
-		aladdin->setVelocity(Vec2(0, 0));
-	}
-		
+	
 	if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
 		aladdin->getRigidBody()->setGravityScale(1);
@@ -61,9 +63,16 @@ void IdleToClimb::onUpdate()
 
 }
 
-State* JaKa::IdleToClimb::checkTransition()
+void IdleToClimb::onExit()
+{
+
+}
+
+
+State* IdleToClimb::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
+
 	if (Input::getInstance()->getKey(KEY_D))
 		return new JumpWhileClimb(_node);
 	if (Input::getInstance()->isKeyDown(KEY_S))
@@ -74,6 +83,11 @@ State* JaKa::IdleToClimb::checkTransition()
 		return new Climb(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Climb(_node);
-	
+	//if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
+	//{
+	//	return new Idle(_node);
+	//}
+	if (!aladdin->isOnTheRope())
+		return new Idle(_node);
 	return nullptr;
 }

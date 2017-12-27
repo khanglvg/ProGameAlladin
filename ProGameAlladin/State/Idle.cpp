@@ -40,6 +40,11 @@ void Idle::onEnter()
 		aladdin->setScale(Vec2(1, 1));*/
 	aladdin->setActionName("Idle1");
 
+	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		aladdin->setScale(Vec2(-1, 1));
+	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		aladdin->setScale(Vec2(1, 1));
+
 	aladdin->setVelocity(Vec2(0, 0));
 	
 }
@@ -47,6 +52,7 @@ void Idle::onEnter()
 void Idle::onUpdate()
 {
 	
+
 
 }
 
@@ -65,7 +71,7 @@ State* Idle::checkTransition()
 		return new Run(_node);
 	if (Input::getInstance()->isKeyDown(KEY_D))
 	{
-		//Audio::get()->play(Lv1Scene::_soundAbu, false);
+	
 		return new Jump(_node);
 	}
 
@@ -78,7 +84,7 @@ State* Idle::checkTransition()
 		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 	{
-		//Audio::get()->play(Lv1Scene::_soundSlash, false);
+	
 		return new Slash(_node);
 	}
 		if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
