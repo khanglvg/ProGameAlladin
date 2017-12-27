@@ -29,13 +29,16 @@ void TitleMenuScene::init()
 
 void TitleMenuScene::update()
 {
-	if (_type == ALA)
+	if (_isIcon)
 	{
-		_position = Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80);
-	}
-	else
-	{
-		_position = Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() + 86);
+		if (_type == ALA)
+		{
+			_position = Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80);
+		}
+		else
+		{
+			_position = Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() + 86);
+		}
 	}
 	
 }
@@ -56,6 +59,14 @@ void TitleMenuScene::release()
 void TitleMenuScene::setType(const TitleType & type)
 {
 	_type = type;
+}
+
+void TitleMenuScene::setIcon(const bool& isIcon)
+{
+	if (isIcon)
+		_isIcon = true;
+	else
+		_isIcon = false;
 }
 
 void TitleMenuScene::setVisible(const bool& visible)

@@ -22,6 +22,7 @@ public:
 	void release() override;
 
 	void setType(const TitleType& type);
+	void setIcon(const bool& isIcon);
 
 	void setVisible(const bool& visible);
 private:
@@ -33,6 +34,7 @@ private:
 	TitleType _type;
 
 	int _alpha = 255;
+	bool _isIcon = true;
 
 };
 
