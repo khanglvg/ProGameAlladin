@@ -6,6 +6,7 @@
 #include "Run.h"
 #include "Fall.h"
 #include "IdleToClimb.h"
+#include "Jump.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -111,8 +112,10 @@ State* RunAndJump::checkTransition()
 		_state = FALL;
 	if (aladdin->isOnTheGround() || aladdin->isBesideTheStair() || aladdin->isOnTheFire() || aladdin->isOnThePlatform())
 		return new Idle(_node);
-	if (aladdin->isOnTheRope())
+	if (aladdin->isClimb())
 		return new IdleToClimb(_node);
+	if (aladdin->isInCamel())
+		return new Jump(_node);
 
 	return nullptr;
 }

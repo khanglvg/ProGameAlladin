@@ -2,6 +2,8 @@
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
 #include "../../Framework/PhysicsManager.h"
+#include "../EnemyExplosionState.h"
+#include "../../../Framework/GameMap.h"
 
 US_NS_JK
 
@@ -12,8 +14,10 @@ KnifeEnemy::KnifeEnemy()
 KnifeEnemy::KnifeEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
+	_health = 10;
 	_viewRange = 220;
 	_attackRange = 140;
+	_isAttacked = false;
 	_currentState = new KnifeEnemyIdleState(this);
 }
 
@@ -34,6 +38,7 @@ void KnifeEnemy::init()
 
 void KnifeEnemy::release()
 {
+	delete _rigid;
 	delete this;
 }
 
@@ -41,6 +46,33 @@ void KnifeEnemy::update()
 {
 	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
+
+	auto const aladdinWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
+	auto const appleWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
+	auto const itemkill = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "itemkill");
+
+	if (aladdinWeapon != _rigid->getCollidingBodies().end() || appleWeapon != _rigid->getCollidingBodies().end())
+	{
+		if (!_isAttacked)
+		{
+			if (aladdinWeapon != _rigid->getCollidingBodies().end())
+				_health -= 10;
+			else
+				_health -= 8;
+			_isAttacked = true;
+			//OutputDebugString(std::to_string(_health).c_str());
+		}
+	}
+	else
+	{
+		_isAttacked = false;
+	}
+
+	if (_actionName == "Enemy-Explosion" && _animationIndex == 9)
+	{
+		_map->deleteEnemy(this);
+	}
+
 	_currentState->onUpdate();
 
 	Enemy::update();
@@ -52,6 +84,14 @@ void KnifeEnemy::update()
 		_currentState->onExit();
 		delete _currentState;
 		_currentState = newState;
+	}
+
+	if ((_health <= 0 || itemkill != _rigid->getCollidingBodies().end()) && _actionName != "Enemy-Explosion")
+	{
+		_rigid->setGravityScale(0);
+		setVelocity(Vec2(0, 0));
+		_currentState = new EnemyExplosionState(this);
+		_animationIndex = 0;
 	}
 }
 
@@ -65,6 +105,12 @@ void KnifeEnemy::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.04;
 
+
+	if (_actionName == "Enemy-Explosion")
+	{
+		expect = 0.03;
+	}
+
 	auto origin = Vec2(0.4f, 1.0f);
 
 	//if (_actionName == "KnifeEnemy-Idle" && _animationIndex == 5)
@@ -77,13 +123,13 @@ void KnifeEnemy::render()
 	}
 
 
-	Graphics::getInstance()->drawSprite(_textureKnifeEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	Graphics::getInstance()->drawSprite(_textureKnifeEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

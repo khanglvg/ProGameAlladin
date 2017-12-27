@@ -152,7 +152,7 @@ void Jafar::update()
 		//Flame
 		auto flameCenter = new Fire(Vec2(_rigid->getPosition().getX(), _rigid->getPosition().getY() + 2), Size(30, 56));
 		flameCenter->getRigidBody()->setActive(false);
-		flameCenter->setLayer(0);
+		flameCenter->setLayer(1);
 		flameCenter->getRigidBody()->setGravityScale(0);
 		flameCenter->setCurrentScene(this->getCurrentScene());
 		this->getCurrentScene()->addNode(flameCenter);
@@ -165,7 +165,7 @@ void Jafar::update()
 		//Flame
 		auto flameRight = new Fire(Vec2(_rigid->getPosition().getX() + _rigid->getSize().getWidth() + 5, _rigid->getPosition().getY() + 2), Size(30, 56));
 		flameRight->getRigidBody()->setActive(false);
-		flameRight->setLayer(0);
+		flameRight->setLayer(1);
 		flameRight->getRigidBody()->setGravityScale(0);
 		flameRight->setCurrentScene(this->getCurrentScene());
 		this->getCurrentScene()->addNode(flameRight);
@@ -210,11 +210,11 @@ void Jafar::render()
 			}
 
 			Graphics::getInstance()->drawSprite(_textureTransform, origin, getTransformMatrix(), Color(255, 255, 255, 255),
-				rect, 1);
+				rect, 2);
 
 			if (_index <= expect)
 			{
-				Graphics::getInstance()->drawSprite(_textureTransform, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+				Graphics::getInstance()->drawSprite(_textureTransform, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 				_index += GameManager::getInstance()->getDeltaTime();
 			}
 			else

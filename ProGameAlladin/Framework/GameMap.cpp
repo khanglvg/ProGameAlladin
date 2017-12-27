@@ -38,7 +38,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 		}
 		if (layer->GetName() == "Tile Layer 2")
 		{
-			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 2);
+			BackgroundLv1Scene* background = new BackgroundLv1Scene("Resources/AgrabahMarket2.png", 3);
 			_backgroundTextures.push_back(background);
 		}
 	}
@@ -91,18 +91,21 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			{
 				auto enemy = new ThinEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_2")
 			{
 				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
 			{
 				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 
 			}
@@ -111,12 +114,14 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setScale(Vec2(-1, 1));
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_4_Right")
 			{
 				auto enemy = new KnifeEnemy(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				enemy->setScale(Vec2(1, 1));
 
 				_listEnemies.push_back(enemy);
@@ -125,19 +130,22 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			{
 				auto enemy = new HideEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "WallEnemy")
 			{
 				auto enemy = new WallEnemy(Vec2(object->GetX() + object->GetWidth() - 7, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
+				enemy->setGameMap(this);
 				_listEnemies.push_back(enemy);
 			}
 
 			//camel
 			if (objectGroup->GetName() == "Camel")
 			{
-				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::CAMELS);
+				auto camel = new Camel(Vec2(object->GetX() + object->GetWidth() -5, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth()-16, object->GetHeight()), GameObject::CAMELS, _player);
+				camel->setCurrentScene(player->getCurrentScene());
 				_listCamels.push_back(camel);
 
 				//_quadTree->insertObject(camel);
@@ -146,7 +154,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init ground
 			if (objectGroup->GetName() == "Ground")
 			{
-				auto gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 20, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
+				auto gameObject = new GameObject(Vec2(object->GetX()+ object->GetWidth()/2 + 21, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::GROUND);
 				gameObject->setRigidTag("ground");
 
 				if(object->GetName() == "StairsGround")
@@ -190,7 +198,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init rope
 			if (objectGroup->GetName() == "Rope")
 			{
-				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 6, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
+				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 25, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
 				gameObject->setRigidTag("rope");
 
 				_listRope.push_back(gameObject);
@@ -344,10 +352,17 @@ void GameMap::update()
 	for (auto node : _listToRemove)
 	{
 		const auto nodeItem = std::find(std::begin(_listItems), std::end(_listItems), node);
+		const auto nodeEnemy = std::find(std::begin(_listEnemies), std::end(_listEnemies), node);
 
 		if (nodeItem != _listItems.end())
 		{
 			_listItems.erase(nodeItem);
+			node->release();
+		}
+
+		if (nodeEnemy != _listEnemies.end())
+		{
+			_listEnemies.erase(nodeEnemy);
 			node->release();
 		}
 	}
@@ -731,6 +746,11 @@ int GameMap::getHeight()
 void GameMap::deleteItem(Item2 * item)
 {
 	_listToRemove.push_back(item);
+}
+
+void GameMap::deleteEnemy(Enemy * enemy)
+{
+	_listToRemove.push_back(enemy);
 }
 
 void GameMap::checkVisibility()

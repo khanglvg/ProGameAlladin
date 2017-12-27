@@ -1,6 +1,8 @@
 #include "Camel.h"
 #include "../../Framework/Graphics.h"
 #include "../../Framework/GameManager.h"
+#include "../../Aladdin.h"
+#include "../../Weapons/CamelBullet.h"
 
 US_NS_JK
 
@@ -9,10 +11,12 @@ Camel::Camel()
 	
 }
 
-Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag):GameObject(position, size, tag)
+Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag, Aladdin* player):GameObject(position, size, tag)
 {
 	setScale(Vec2(1, 1));
-	_rigid->setDensity(0.001);
+	_rigid->setTag("camel");
+	_player = player;
+	_isShoot = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -36,7 +40,7 @@ Camel::Camel(const Vec2& position, const Size& size, const GameObjectType& tag):
 		}
 	}
 
-	_currentState = new CamelIdleState(this);
+	_actionName = "Camel-Idle";
 }
 
 
@@ -62,35 +66,70 @@ void Camel::release()
 
 void Camel::update()
 {
-	_currentState->onUpdate();
+	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
 
-	CamelState* newState = _currentState->checkTransition();
-
-	if (newState != nullptr)
+	if (_player->getRigidBody()->getPosition().getY()-7 < _rigid->getPosition().getY() - _rigid->getSize().getHeight())
 	{
-		_currentState->onExit();
-		delete _currentState;
-		_currentState = newState;
+		_rigid->setActive(true);
+	}
+	else
+	{
+		if (aladdin == _rigid->getCollidingBodies().end())
+		{
+			_rigid->setActive(false);
+		}
+	}
+
+	if (aladdin != _rigid->getCollidingBodies().end())
+	{
+		if (_actionName != "Camel")
+		{
+			_actionName = "Camel";
+			_animationIndex = 0;
+		}
+	}
+	else
+	{
+		if (_actionName == "Camel" && _animationIndex == 8)
+		{
+			_actionName = "Camel-Idle";
+			_animationIndex = 0;
+		}
+	}
+
+	if (_actionName == "Camel" && _animationIndex == 5)
+	{
+		if (!_isShoot)
+		{
+			auto bullet = new CamelBullet(this, Vec2(_rigid->getPosition().getX() + 90, _rigid->getPosition().getY()), Size(18, 15));
+			bullet->setGravityScale(0);
+			bullet->getRigidBody()->setVelocity(Vec2(150, 0));
+			getCurrentScene()->addNode(bullet);
+			_isShoot = true;
+		}
+	}
+	else
+	{
+		_isShoot = false;
 	}
 }
 
 void Camel::render()
 {
-	if (_animationIndex >= _animations[_actionName].size())
-		_animationIndex = 0;
-
 	const auto rect = _animations[_actionName][_animationIndex];
 
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
-	auto expect = 0.1;
+	auto expect = 0.02;
+	
+	auto origin = Vec2(0.3f, 1.0f);
 
-	Graphics::getInstance()->drawSprite(_textureCamelRigid, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-	Graphics::getInstance()->drawSprite(_textureCamel, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+	Graphics::getInstance()->drawSprite(_textureCamelRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	Graphics::getInstance()->drawSprite(_textureCamel, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)
 	{
 
-		Graphics::getInstance()->drawSprite(_textureCamel, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
+		Graphics::getInstance()->drawSprite(_textureCamel, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 		_index += GameManager::getInstance()->getDeltaTime();
 	}
 	else

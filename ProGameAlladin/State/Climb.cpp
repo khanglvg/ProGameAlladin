@@ -71,12 +71,14 @@ void Climb::onUpdate()
 		aladdin->getRigidBody()->setGravityScale(1);
 		aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
 		aladdin->getRigidBody()->setActive(false);
+		aladdin->setIsClimb(false);
 	}
 	if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->getRigidBody()->setGravityScale(1);
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
 		aladdin->getRigidBody()->setActive(false);
+		aladdin->setIsClimb(false);
 	}
 }
 

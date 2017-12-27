@@ -16,6 +16,7 @@ TransformBullet::TransformBullet(GameObject* owner, const Vec2 & position, const
 	setPosition(_rigid->getPosition());
 	setScale(Vec2(0.8, 0.8));
 	_rigid->setTag("transformbullet");
+	setCurrentScene(owner->getCurrentScene());
 
 	_owner = owner;
 	_isCollision = false;
@@ -65,7 +66,7 @@ void TransformBullet::update()
 
 
 	if (collisionWithWall != _rigid->getCollidingBodies().end())
-		_owner->getCurrentScene()->removeNode(this);
+		getCurrentScene()->removeNode(this);
 
 	if (collisionWithGround != _rigid->getCollidingBodies().end())
 	{

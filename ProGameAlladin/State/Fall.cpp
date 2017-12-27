@@ -54,7 +54,7 @@ State* Fall::checkTransition()
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);
-	if (aladdin->isOnTheRope())
+	if (aladdin->isClimb())
 		return new IdleToClimb(_node);
 	if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Grounding(_node);

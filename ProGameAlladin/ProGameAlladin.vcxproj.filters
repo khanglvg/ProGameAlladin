@@ -66,8 +66,6 @@
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
-    <ClCompile Include="GameObject\Items\Camel\CamelState.cpp" />
-    <ClCompile Include="GameObject\Items\Camel\CamelIdleState.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -156,6 +154,9 @@
     <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
     <ClCompile Include="GameObject\Ground\Platform.cpp" />
     <ClCompile Include="GameObject\Items\Item2.cpp" />
+    <ClCompile Include="GameObject\Enemies\EnemyExplosionState.cpp" />
+    <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
+    <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -297,8 +298,6 @@
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
-    <ClInclude Include="GameObject\Items\Camel\CamelState.h" />
-    <ClInclude Include="GameObject\Items\Camel\CamelIdleState.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="Lv1Scene.h" />
     <ClInclude Include="MapReader\base64.h" />
@@ -392,6 +391,9 @@
     <ClInclude Include="GameObject\AladdinAndAbu.h" />
     <ClInclude Include="GameObject\Ground\Platform.h" />
     <ClInclude Include="GameObject\Items\Item2.h" />
+    <ClInclude Include="GameObject\Enemies\EnemyExplosionState.h" />
+    <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
+    <ClInclude Include="GameObject\Items\AladdinHealth.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -441,6 +443,8 @@
     <Xml Include="Resources\Menu\text.xml" />
     <Xml Include="Resources\Complete\aladdin_complete.xml" />
     <Xml Include="Resources\Items\Items2.xml" />
+    <Xml Include="Resources\Enemies\Enemy-Explosion.xml" />
+    <Xml Include="Resources\Items\AladdinHealth.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -497,6 +501,9 @@
     <Image Include="Resources\Complete\victory_title.png" />
     <Image Include="Resources\Complete\victory_abu.png" />
     <Image Include="Resources\Complete\victory_aladdin.png" />
+    <Image Include="Resources\Enemies\enemy_explosion_strip10_89_114.png" />
+    <Image Include="Resources\Items\CamelBullet.png" />
+    <Image Include="Resources\Items\AladdinHealth.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

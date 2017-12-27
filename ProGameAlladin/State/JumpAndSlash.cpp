@@ -44,6 +44,22 @@ void JumpAndSlash::onEnter()
 		aladdin->setScale(Vec2(1, 1));*/
 
 	aladdin->setActionName("JumpAndSlash");
+
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getOwner()->setIsOwnerRight(true);
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getOwner()->setIsOwnerRight(false);
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
 }
 
 void JumpAndSlash::onUpdate()
@@ -66,6 +82,8 @@ void JumpAndSlash::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setVelocity(Vec2(0, 0));
+	_weapon->getRigidBody()->setActive(false);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* JumpAndSlash::checkTransition()
@@ -76,9 +94,12 @@ State* JumpAndSlash::checkTransition()
 
 
 	if (aladdin->isOnTheGround())
-		return new Grounding(_node);
+		return new Idle(_node);
 	
 	if (aladdin->isBesideTheStair())
+		return new Idle(_node);
+
+	if (aladdin->isOnThePlatform())
 		return new Idle(_node);
 
 	if (aladdin->isOnTheRope())

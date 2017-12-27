@@ -76,6 +76,8 @@ public:
 	int getHeight();
 
 	void deleteItem(Item2* item);
+
+	void deleteEnemy(Enemy* enemy);
 };
 
 NS_JK_END

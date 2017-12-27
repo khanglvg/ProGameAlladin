@@ -1,5 +1,6 @@
 ﻿#include "TitleMenuScene.h"
 #include "../Framework/Graphics.h"
+#include "../Framework/Camera.h"
 US_NS_JK
 
 TitleMenuScene::TitleMenuScene()
@@ -11,7 +12,7 @@ TitleMenuScene::TitleMenuScene(const string& srcFile, const Rect& rect, const in
 	_srcFile = srcFile;
 	_layer = layer;
 	_position = Vec2(50, 0);
-	_scale = Vec2(2.3, 2.3);
+	_scale = Vec2(1, 1);
 	_rect = rect;
 }
 
@@ -26,6 +27,19 @@ void TitleMenuScene::init()
 	Graphics::getInstance()->loadTexture(_textureTitle);
 }
 
+void TitleMenuScene::update()
+{
+	if (_type == ALA)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80);
+	}
+	else
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() + 86);
+	}
+	
+}
+
 void TitleMenuScene::render()
 {
 	Graphics::getInstance()->drawSprite(_textureTitle, 
@@ -37,6 +51,11 @@ void TitleMenuScene::render()
 
 void TitleMenuScene::release()
 {
+}
+
+void TitleMenuScene::setType(const TitleType & type)
+{
+	_type = type;
 }
 
 void TitleMenuScene::setVisible(const bool& visible)

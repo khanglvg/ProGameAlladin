@@ -27,6 +27,22 @@ void SlashWhenClimb::onEnter()
 
 	aladdin->setActionName("SlashWhenClimbing");
 
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getOwner()->setIsOwnerRight(true);
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getOwner()->setIsOwnerRight(false);
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
+
 }
 
 void SlashWhenClimb::onUpdate()
@@ -39,6 +55,13 @@ void SlashWhenClimb::onUpdate()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(-1, 1));
 
+}
+
+void SlashWhenClimb::onExit()
+{
+	const auto aladdin = static_cast<Aladdin*>(_node);
+	_weapon->getRigidBody()->setActive(false);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* SlashWhenClimb::checkTransition()

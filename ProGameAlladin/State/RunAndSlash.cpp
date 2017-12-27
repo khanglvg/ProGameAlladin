@@ -42,6 +42,22 @@ void RunAndSlash::onEnter()
 	}
 
 	aladdin->setActionName("RunAndSlash");
+
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getOwner()->setIsOwnerRight(true);
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getOwner()->setIsOwnerRight(false);
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
 }
 
 void RunAndSlash::onUpdate()
@@ -63,6 +79,13 @@ void RunAndSlash::onUpdate()
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 			aladdin->setPosition(Vec2(aladdin->getPosition().getX() + 2,aladdin->getPosition().getY()));
 	}*/
+}
+
+void RunAndSlash::onExit()
+{
+	const auto aladdin = static_cast<Aladdin*>(_node);
+	_weapon->getRigidBody()->setActive(false);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* RunAndSlash::checkTransition()

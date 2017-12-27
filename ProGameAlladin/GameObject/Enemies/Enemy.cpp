@@ -1,4 +1,6 @@
 ﻿#include "Enemy.h"
+#include "../../Framework/Graphics.h"
+
 US_NS_JK
 
 Enemy::Enemy()
@@ -15,7 +17,7 @@ Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, 
 
 	_footPosY = 0;
 
-	_health = 100;
+	_health = 20;
 	_damage = 5;
 	_speed = 10;
 	_boundaryLeft = _startPosition.x - 50;
@@ -213,6 +215,12 @@ void Enemy::allowMoveRight(const bool allow)
 	_allowMoveRight = allow;
 }
 
+void Enemy::setTexture(const string & srcFile)
+{
+	_textureEnemy.setSrcFile(srcFile);
+	Graphics::getInstance()->loadTexture(_textureEnemy);
+}
+
 bool Enemy::isAnimationDone()
 {
 	return _isAnimationDone;
@@ -221,6 +229,11 @@ bool Enemy::isAnimationDone()
 int Enemy::getIndex()
 {
 	return _animationIndex;
+}
+
+void Enemy::setGameMap(GameMap * map)
+{
+	_map = map;
 }
 
 GameObject * Enemy::getTarget() const

@@ -6,6 +6,7 @@
 #include "Framework/Scene.h"
 #include "Framework/QuadTree.h"
 #include "Framework/GameMap.h"
+#include "GameObject/TitleMenuScene.h"
 
 #include "Framework/Text.h"
 #include "Framework/dxaudio.h"
@@ -48,6 +49,7 @@ private:
 	QuadTree *mQuadTree;
 	Aladdin* mAladdin;
 	Node* _bgSky;
+	Node* _alaHealth;
 
 
 	Text* _alaLife;
@@ -63,8 +65,8 @@ private:
 	Sound*_soundAppleCrush;
 	//CSound* _soundBackground;
 
-	Node* _alaIcon;
-	Node* _appleIcon;
+	TitleMenuScene* _alaIcon;
+	TitleMenuScene* _appleIcon;
 	
 };
 
