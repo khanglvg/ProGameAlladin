@@ -2,6 +2,8 @@
 #include "BigEnemy.h"
 #include "BigEnemyAttackState.h"
 #include "BigEnemyDefiantState.h"
+#include "BigEnemyInAttackedState.h"
+#include "BigEnemyFiredState.h"
 
 US_NS_JK
 
@@ -57,6 +59,16 @@ EnemyState * BigEnemyWalkState::checkTransition()
 	if (!_enemy->isTargetInViewRange() && _enemy->getIndex() == 0)
 	{
 		return new BigEnemyIdleState(_enemy);
+	}
+
+	if (_enemy->isAttacked())
+	{
+		return new BigEnemyInAttackedState(_enemy);
+	}
+
+	if (_enemy->isInFire())
+	{
+		return new BigEnemyFiredState(_enemy);
 	}
 	return nullptr;
 }

@@ -122,6 +122,7 @@ void Item2::update()
 		case BONUSPOINT:
 			if (_actionName != "Item-Explosion2")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion2";
 				_textureItem.setSrcFile("Resources/Items/Items-Explosion.png");
@@ -132,6 +133,7 @@ void Item2::update()
 		case BONUSLIFE:
 			if (_actionName != "Item-Explosion")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion";
 				_animationIndex = 0;
@@ -140,6 +142,7 @@ void Item2::update()
 		case ABULIFE:
 			if (_actionName != "Item-Explosion")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion";
 				_animationIndex = 0;
@@ -148,22 +151,35 @@ void Item2::update()
 		case EXTRAHEART:
 			if (_actionName != "Item-Explosion")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion";
 				_animationIndex = 0;
+			}
+			if (!_isIncHealth)
+			{
+				_aladdin->incHealth();
+				_isIncHealth = true;
 			}
 			break;
 		case CHERRY:
 			if (_actionName != "Item-Explosion")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion";
 				_animationIndex = 0;
+			}
+			if (!_isIncCherry)
+			{
+				_aladdin->incRuby();
+				_isIncCherry = true;
 			}
 			break;
 		case RESTARTPOINT: 
 			if (_actionName != "RestartPoint-OnCollision")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "RestartPoint-OnCollision";
 				_animationIndex = 0;
@@ -172,6 +188,7 @@ void Item2::update()
 		case APPLES:
 			if (_actionName != "Item-Explosion")
 			{
+				_rigid->setActive(false);
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion";
 				_animationIndex = 0;
@@ -189,6 +206,8 @@ void Item2::update()
 	else
 	{
 		_isIncApple = false;
+		_isIncCherry = false;
+		_isIncHealth = false;
 	}
 }
 

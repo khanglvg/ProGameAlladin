@@ -155,6 +155,7 @@
     <ClCompile Include="GameObject\Enemies\EnemyExplosionState.cpp" />
     <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
     <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -390,6 +391,7 @@
     <ClInclude Include="GameObject\Enemies\EnemyExplosionState.h" />
     <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
     <ClInclude Include="GameObject\Items\AladdinHealth.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />

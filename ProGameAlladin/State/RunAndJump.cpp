@@ -87,6 +87,11 @@ void RunAndJump::onUpdate()
 		}
 			
 	}
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
 }
 
 void RunAndJump::onExit()

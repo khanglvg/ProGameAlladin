@@ -27,7 +27,7 @@ void SlashWhenClimb::onEnter()
 
 	aladdin->setActionName("SlashWhenClimbing");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(22, 25), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{

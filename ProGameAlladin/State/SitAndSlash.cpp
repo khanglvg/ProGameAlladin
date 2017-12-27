@@ -51,6 +51,20 @@ void SitAndSlash::onEnter()
 	}
 
 	aladdin->setActionName("SitAndSlash");
+
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(15, 20), Vec2(55, -5), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
 }
 
 void SitAndSlash::onUpdate()
@@ -61,6 +75,13 @@ void SitAndSlash::onUpdate()
 
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));
+}
+
+void SitAndSlash::onExit()
+{
+	const auto aladdin = static_cast<Aladdin*>(_node);
+	_weapon->getRigidBody()->setActive(false);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* SitAndSlash::checkTransition()

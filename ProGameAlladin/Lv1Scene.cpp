@@ -61,7 +61,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, 600), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(1400, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
@@ -210,7 +210,7 @@ void Lv1Scene::calculationSpriteText() const
 	const auto score3 = (score / 10)%10;
 	const auto score4 = score % 10;
 
-	const auto ruby = mAladdin->getNumApple();
+	const auto ruby = mAladdin->getNumRuby();
 	const auto rUnit = ruby % 10;
 	const auto rTens = ruby / 10;
 

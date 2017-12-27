@@ -38,7 +38,8 @@ void FireGround::update()
 
 		if (collisionWithAladdin != _rigid->getCollidingBodies().end() && _aladdin->getPosition().getY() < _position.getY()-20)
 		{
-			if (_aladdin->getActionName() == "Idle1" || _aladdin->getIndex() == 4 || _aladdin->getIndex() == 1 || _aladdin->getIndex() == 9 || _aladdin->getIndex() == 7
+			if (_aladdin->getActionName() == "Idle1" || _aladdin->getActionName() == "Idle2" || _aladdin->getActionName() == "Idle3" ||
+				(_aladdin->getActionName() == "Run" && (_aladdin->getIndex() == 4 || _aladdin->getIndex() == 1 || _aladdin->getIndex() == 9 || _aladdin->getIndex() == 7))
 				&& (_aladdin->getPosition().getX() + _aladdin->getRect().getWidth() > _position.getX()
 					&& _aladdin->getPosition().getX() + _aladdin->getRect().getWidth()< _position.getX() + _rigid->getSize().getWidth()))
 			{
