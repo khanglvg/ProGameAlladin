@@ -4,7 +4,6 @@
 #include "State.h"
 
 NS_JK_BEGIN
-
 class Idle: public State
 {
 public:

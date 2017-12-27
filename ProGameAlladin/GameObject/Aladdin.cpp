@@ -22,6 +22,9 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
 	_health = 10;
+	_isDamaged = false;
+	_isInviolable = false;
+	_isDeHealth = false;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -76,7 +79,14 @@ void Aladdin::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
-	OutputDebugString(std::to_string(_numApple).c_str());
+	//OutputDebugString(std::to_string(_numApple).c_str());
+
+	if (_damagedTime <1.3 && _damagedTime > 0)
+	{
+		_isInviolable = true;
+	}
+	else
+		_isInviolable = false;
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -102,6 +112,7 @@ void Aladdin::update()
 		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
 		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
 		auto const springboard = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "springboard");
+		auto const thinEnemyKnife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "thinenemyknife");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -204,6 +215,7 @@ void Aladdin::update()
 		//
 		if (camel != _rigid->getCollidingBodies().end())
 		{
+			_isDamaged = true;
 			_isInCamel = true;
 		}
 		else _isInCamel = false;
@@ -219,9 +231,28 @@ void Aladdin::update()
 		else _isInSpringBoard = false;
 
 
-	}
-	
 
+		//
+		// collision with Enemy's weapon
+		//
+		if (thinEnemyKnife != _rigid->getCollidingBodies().end())
+		{
+			_isDamaged = true;
+			_isAttacked = true;
+			if (!_isDeHealth && !_isInviolable)
+			{
+				_health--;
+				_isDeHealth = true;
+				OutputDebugString(std::to_string(_health).c_str());
+			}
+		}
+		else
+		{
+			_isDeHealth = false;
+			_isAttacked = false;
+		}
+
+	}
 
 	State* newState = _currentState->checkTransition();
 	
@@ -256,6 +287,8 @@ void Aladdin::render()
 	auto expect = 0.05;
 	auto origin = Vec2(0.5f, 1.0f);
 
+	auto expectDmgTime = 2;
+
 	if (_actionName == "Run")
 	{
 		expect = 0.03;
@@ -280,8 +313,23 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
+
+	if (_damagedTime <= expectDmgTime)
+	{
+		_damagedTime += GameManager::getInstance()->getDeltaTime();
+	}
+	else 
+	{
+		_damagedTime = 0;
+		_isDamaged = false;
+	}
+
 	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
-	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	
+	if (!_isDamaged)
+	{
+		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	}
 
 	if (_index <= expect)
 	{
@@ -474,6 +522,31 @@ void Aladdin::incHealth()
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;
+}
+
+void Aladdin::setIsDamaged(const bool & isDamaged)
+{
+	_isDamaged = isDamaged;
+}
+
+bool Aladdin::getIsDamaged() const
+{
+	return _isDamaged;
+}
+
+void Aladdin::setIsInviolable(const bool & isInviolable)
+{
+	_isInviolable = isInviolable;
+}
+
+bool Aladdin::getIsInviolable() const
+{
+	return _isInviolable;
+}
+
+bool Aladdin::isAttacked() const
+{
+	return _isAttacked;
 }
 
 void Aladdin::setIsClimb(const bool & climb)

@@ -98,6 +98,8 @@ void BigEnemy::update()
 	{
 		_rigid->setGravityScale(0);
 		setVelocity(Vec2(0, 0));
+		_currentState->onExit();
+		delete _currentState;
 		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}

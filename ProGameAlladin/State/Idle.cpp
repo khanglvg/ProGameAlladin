@@ -12,6 +12,7 @@
 #include "Random.h"
 #include "Idle2.h"
 #include "Idle3.h"
+#include "BeingAttacked.h"
 #include "../Framework/Audio.h"
 
 
@@ -83,6 +84,9 @@ State* Idle::checkTransition()
 	}
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
+
+	if (aladdin->isAttacked())
+		return new BeingAttacked(_node);
 
 	return nullptr;
 

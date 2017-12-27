@@ -61,8 +61,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(3300, 280), Size(40, 60));
-	_vectNode.push_back(mAladdin);
+	mAladdin = new Aladdin(Vec2(300, 600), Size(40, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
