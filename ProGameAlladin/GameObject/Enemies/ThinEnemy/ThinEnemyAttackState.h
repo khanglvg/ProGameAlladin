@@ -4,6 +4,7 @@
 
 
 #include "../EnemyState.h"
+#include "../../Weapons/Weapon.h"
 
 NS_JK_BEGIN
 
@@ -17,6 +18,9 @@ public:
 	void onUpdate() override;
 	void onExit() override;
 	EnemyState* checkTransition() override;
+
+private:
+	Weapon* _weapon;
 };
 
 

@@ -63,7 +63,7 @@ void KnifeToThrow::update()
 	const auto ground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "ground");
 	const auto wall = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "wall");
 	const auto platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "platform");
-	const auto fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
+	const auto fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fireground");
 	const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stair");
 	const auto enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "enemy");
 	const auto knifetothrow = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "knifetothrow");
@@ -96,7 +96,8 @@ void KnifeToThrow::update()
 		getCurrentScene()->removeNode(this);
 	}
 
-	if (ground != _rigid->getCollidingBodies().end() || wall != _rigid->getCollidingBodies().end() || platform != _rigid->getCollidingBodies().end())
+	//if (ground != _rigid->getCollidingBodies().end() || wall != _rigid->getCollidingBodies().end() || platform != _rigid->getCollidingBodies().end())
+	if (_isCollision)
 	{
 		if (_actionName != "Knife-Explosion")
 		{

@@ -45,12 +45,13 @@ void Fall::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setGravityScale(1.5);
 }
 
 State* Fall::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);

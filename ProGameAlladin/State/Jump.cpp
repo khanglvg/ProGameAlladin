@@ -29,6 +29,12 @@ void Jump::onEnter()
 	
 	aladdin->setVelocity(Vec2(0, -270)); // -300 is High jump (hold D), -200 is a normal jump
 	aladdin->getRigidBody()->setSize(Size(10, 60));
+	
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(10, 30));
+	else
+		aladdin->getRigidBody()->setSize(Size(4, 60));
+
 	aladdin->setActionName("Jump");
 }
 
@@ -57,7 +63,11 @@ void Jump::onUpdate()
 void Jump::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	aladdin->getRigidBody()->setSize(Size(10, 60));
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(10, 30));
+	else
+		aladdin->getRigidBody()->setSize(Size(10, 60));
 }
 
 State* Jump::checkTransition()

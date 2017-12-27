@@ -48,7 +48,7 @@ State* Sit::checkTransition()
 		return new Idle(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SitAndSlash(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new SitAndThrow(_node);
 
 

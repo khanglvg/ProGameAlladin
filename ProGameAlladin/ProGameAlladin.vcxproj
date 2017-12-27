@@ -112,6 +112,8 @@
       <SDLCheck>true</SDLCheck>
       <CallingConvention>StdCall</CallingConvention>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <CallingConvention>StdCall</CallingConvention>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

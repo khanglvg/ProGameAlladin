@@ -19,7 +19,7 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_attackRange = 280;
 	setScale(Vec2(1, 1));
 
-	_health = 15;
+	_health = 1;
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;

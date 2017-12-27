@@ -68,7 +68,7 @@ void Aladdin::init()
 
 void Aladdin::release()
 {
-	delete this;
+	delete _rigid;
 }
 
 void Aladdin::update()
@@ -76,7 +76,7 @@ void Aladdin::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
-	//OutputDebugString(std::to_string(_numApple).c_str());
+	OutputDebugString(std::to_string(_numApple).c_str());
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -460,6 +460,17 @@ int Aladdin::getHealth() const
 {
 	return _health;
 }
+
+void Aladdin::desHealth()
+{
+	_health++;
+}
+
+void Aladdin::incHealth()
+{
+	_health--;
+}
+
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;

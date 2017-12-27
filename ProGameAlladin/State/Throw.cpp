@@ -50,17 +50,13 @@ void Throw::onEnter()
 	//	aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setActionName("Throw");
+	_isThrow = true;
 	
 }
 
 void Throw::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-
-	if (Input::getInstance()->getKey(KEY_A))
-	{
-		_isThrow = true;
-	}
 
 	if (aladdin->getIndex() == 3 && _isThrow)
 	{
@@ -97,7 +93,7 @@ State* Throw::checkTransition()
 	////if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	////	return new Idle(_node);
 
-	if(!Input::getInstance()->getKey(KEY_A) && aladdin->getIndex() >= 5)
+	if(aladdin->getIndex() >= 5)
 	{
 		return new Idle(_node);
 	}

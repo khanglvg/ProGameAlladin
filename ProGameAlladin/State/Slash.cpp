@@ -44,16 +44,14 @@ void Slash::onEnter()
 
 	aladdin->setActionName("Slash");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30,12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(40,12), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{
-		_weapon->getOwner()->setIsOwnerRight(true);
 		_weapon->getRigidBody()->setActive(true);
 	}
 	else
 	{
-		_weapon->getOwner()->setIsOwnerRight(false);
 		_weapon->getRigidBody()->setActive(true);
 	}
 
@@ -73,7 +71,7 @@ void Slash::onExit()
 State* Slash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);

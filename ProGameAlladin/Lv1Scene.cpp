@@ -41,14 +41,6 @@ void Lv1Scene::init()
 	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
 	_soundPushing = new Sound("Resources/Audio/Aladdin Push.wav");
 	_soundThrowing = new Sound("Resources/Audio/Object Throw.wav");
-	//Audio::get()->load(_soundAbu);
-	//Audio::get()->load(_soundBackground);
-	//Audio::get()->load(_soundSlash);
-	//Audio::get()->load(_soundGrounding);
-	//Audio::get()->load(_soundPushing);
-	//Audio::get()->play(_soundThrowing, false);
-	//Audio::get()->play(_soundBackground,true);
-	//Audio::get()->play(_soundAbu, false);
 	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
@@ -72,10 +64,7 @@ void Lv1Scene::init()
 	mAladdin = new Aladdin(Vec2(3300, 280), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
-
-
-	_vectNode.push_back(new BackgroundSky("Resources/bg_sky.jpg", 0));
-	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
+	_vectNode.push_back(mAladdin);
 
 	
 	  
@@ -86,6 +75,10 @@ void Lv1Scene::init()
 	Camera::getInstance()->setScaleFactor(Vec2(2, 2));
 	_vectNode.push_back(Camera::getInstance());
 	
+	_bg1 = new BackgroundSky("Resources/background.png", 0);
+	_bg1->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_bg1->setScale(Vec2(0.9, 1.3));
+	_vectNode.push_back(_bg1);
 
 	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 3);
 	_alaIcon->setType(TitleMenuScene::ALA);
@@ -133,6 +126,7 @@ void Lv1Scene::update()
 {
 	//checkVisibility();
 	_alaLife->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
+	_bg1->setPosition(Vec2(Camera::getInstance()->getCameraX() - 170, Camera::getInstance()->getCameraY() - 130));
 	_gameMap->update();
 	Scene::update();
 

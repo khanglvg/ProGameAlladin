@@ -70,7 +70,7 @@ State* SlashWhenClimb::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_D))
 		return new JumpWhileClimb(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new ThrowWhenClimb(_node);
 	if (aladdin->getIndex() >= 6)
 		return new IdleToClimb(_node);

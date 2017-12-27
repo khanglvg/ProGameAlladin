@@ -92,7 +92,11 @@ void RunAndJump::onUpdate()
 void RunAndJump::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	aladdin->getRigidBody()->setSize(Size(10, 60));
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(10, 30));
+	else
+		aladdin->getRigidBody()->setSize(Size(10, 60));
 }
 
 State* RunAndJump::checkTransition()

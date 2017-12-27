@@ -60,13 +60,14 @@ void HeadUp::onExit()
 
 State* HeadUp::checkTransition()
 {
+	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW) && Input::getInstance()->isAnyKeyDown())
 		return new Sit(_node);*/
 	if (Input::getInstance()->getKey(KEY_S))
 		return new HeadUpAndSlash(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW))
 		return new Idle(_node);

@@ -43,7 +43,7 @@ State* IdleToSit::checkTransition()
 		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SitAndSlash(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new SitAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW) && !Input::getInstance()->isKeyUp(KEY_DOWN_ARROW))
 		return new Sit(_node);

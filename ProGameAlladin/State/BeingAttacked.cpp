@@ -6,6 +6,7 @@
 #include "Run.h"
 #include "IdleToSit.h"
 #include "../Framework/Input.h"
+#include "../GameObject/Aladdin.h"
 
 US_NS_JK
 
@@ -25,7 +26,8 @@ void BeingAttacked::onEnter()
 
 State* BeingAttacked::checkTransition()
 {
-	if (Input::getInstance()->getKey(KEY_A))
+	auto aladdin = static_cast<Aladdin*>(_node);
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new Slash(_node);

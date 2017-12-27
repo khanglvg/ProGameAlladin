@@ -67,6 +67,9 @@ public:
 
 	int getHealth() const;
 
+	void desHealth();
+	void incHealth();
+
 	void setIsClimbDown(const bool& climbDown);
 
 	void setIsClimb(const bool& climb);
