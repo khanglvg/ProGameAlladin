@@ -77,6 +77,10 @@
     <IncludePath>D:\DirectX\Include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\DirectX\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -106,6 +110,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <CallingConvention>StdCall</CallingConvention>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
       <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <CallingConvention>StdCall</CallingConvention>
     </ClCompile>
@@ -288,8 +294,6 @@
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
     <ClInclude Include="GameObject\Ground\FireGround.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="GameObject\Weapons\Weapon.h" />
@@ -463,8 +467,6 @@
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
     <ClCompile Include="GameObject\Ground\FireGround.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="GameObject\Weapons\Weapon.cpp" />
@@ -586,6 +588,7 @@
     <Xml Include="Resources\Items\FloatGround.xml" />
     <Xml Include="Resources\Items\Items.xml" />
     <Xml Include="Resources\Items\Items2.xml" />
+    <Xml Include="Resources\Items\SpringBoard.xml" />
     <Xml Include="Resources\Menu\text.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -634,7 +637,7 @@
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\Items-Explosion.png" />
     <Image Include="Resources\Items\items.png" />
-    <Image Include="Resources\Items\springboard.png" />
+    <Image Include="Resources\Items\spring_strip10_1_33.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\Menu\backgroundMenu.png" />
     <Image Include="Resources\Menu\menuknife.png" />

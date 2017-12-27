@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="SpringBoard-Normal" imagePath="spring_strip10_1_33.png" width="900" height="66">
+    <sprite x="1" y="13" w="86" h="35" oX="1" oY="13" oW="73" oH="86" />
+  </Animation>
+  <Animation name="SpringBoard-OnCollision" imagePath="spring_strip10_1_33.png" width="900" height="66">
+    <sprite x="91" y="35" w="79" h="29" oX="91" oY="35" oW="-709" oH="797" />
+    <sprite x="181" y="1" w="70" h="47" oX="181" oY="1" oW="-709" oH="797" />
+    <sprite x="271" y="35" w="79" h="29" oX="271" oY="35" oW="-709" oH="797" />
+    <sprite x="361" y="1" w="70" h="47" oX="361" oY="1" oW="-709" oH="797" />
+    <sprite x="451" y="35" w="83" h="27" oX="451" oY="35" oW="-709" oH="797" />
+    <sprite x="541" y="5" w="82" h="43" oX="541" oY="5" oW="-709" oH="797" />
+    <sprite x="631" y="21" w="87" h="29" oX="631" oY="21" oW="-709" oH="797" />
+    <sprite x="721" y="7" w="81" h="41" oX="721" oY="7" oW="-709" oH="797" />
+    <sprite x="811" y="9" w="83" h="39" oX="811" oY="9" oW="-709" oH="797" />
+  </Animation>
+</Animations>

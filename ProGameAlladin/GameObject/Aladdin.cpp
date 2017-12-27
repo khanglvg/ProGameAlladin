@@ -87,6 +87,7 @@ void Aladdin::update()
 		_isOnTheFire = false;
 		_isOnThePlatform = false;
 		_isInCamel = false;
+		_isInSpringBoard = false;
 	}
 	else
 	{
@@ -100,6 +101,7 @@ void Aladdin::update()
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
 		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
+		auto const springboard = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "springboard");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -205,6 +207,18 @@ void Aladdin::update()
 			_isInCamel = true;
 		}
 		else _isInCamel = false;
+
+
+		//
+		// collision with SpringBoard
+		//
+		if (springboard != _rigid->getCollidingBodies().end())
+		{
+			_isInSpringBoard = true;
+		}
+		else _isInSpringBoard = false;
+
+
 	}
 	
 
@@ -418,6 +432,11 @@ bool Aladdin::isOnTheFire() const
 bool Aladdin::isInCamel() const
 {
 	return _isInCamel;
+}
+
+bool Aladdin::isInSpringBoard() const
+{
+	return _isInSpringBoard;
 }
 
 void Aladdin::setIndex(const int& index)
