@@ -7,6 +7,8 @@
 #include "GameObject/Enemies/Jafar/Jafar.h"
 #include "GameObject/Ground/FireGround.h"
 #include "Framework/Audio.h"
+#include "Framework/GameManager.h"
+#include "CompleteScene.h"
 
 US_NS_JK
 
@@ -274,7 +276,7 @@ void BossScene::update()
 		_platform4->setTag(GameObject::FIREGROUND);
 	}
 
-	if (_aladdin->getNumApple() == 0)
+	if (_aladdin->getNumApple() <= 0)
 	{
 		if (getNumApple() == 0)
 		{
@@ -302,7 +304,14 @@ void BossScene::update()
 		_listAppleLeft[i]->update();
 	for (size_t i = 0; i < _listAppleRight.size(); i++)
 		_listAppleRight[i]->update();
+
+	
 	Scene::update();
+
+	if (_jafar->getHealth() == 0)
+	{
+		GameManager::getInstance()->changeScene(new CompleteScene);
+	}
 }
 
 void BossScene::render()
@@ -320,7 +329,7 @@ void BossScene::render()
 
 int BossScene::getAladdinPosition()
 {
-	if (_aladdin->getPosition().getX() > 770 * 0.45)
+	if (_aladdin->getPosition().getX() >= 770 * 0.45)
 	{
 		return 1;
 	}

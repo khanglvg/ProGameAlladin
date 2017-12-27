@@ -2,6 +2,7 @@
 #include "BigEnemy.h"
 #include "BigEnemyWalkState.h"
 #include "BigEnemyIdleState.h"
+#include "../../Framework/Scene.h"
 
 US_NS_JK
 
@@ -14,6 +15,12 @@ BigEnemyAttackState::BigEnemyAttackState(Enemy * enemy) : EnemyState(enemy, Enem
 	_enemy = enemy;
 	_enemy->setActionName("BigEnemy-AttackHigh");
 	_enemy->setVelocity(Vec2(0, 0));
+
+	_weapon = new Weapon(_enemy, _enemy->getRigidPosition(), Size(45, 30), Vec2(30, 12), "thinenemyknife");
+	_weapon->setCurrentScene(_enemy->getCurrentScene());
+	_weapon->getRigidBody()->setActive(true);
+
+	_enemy->getCurrentScene()->addNode(_weapon);
 }
 
 BigEnemyAttackState::~BigEnemyAttackState()
@@ -57,16 +64,28 @@ void BigEnemyAttackState::onUpdate()
 	if (_enemy->isRight())
 	{
 		_enemy->setScale(Vec2(-1, 1));
+		_enemy->setIsOwnerRight(true);
 	}
 	else
 	{
 		_enemy->setScale(Vec2(1, 1));
+		_enemy->setIsOwnerRight(false);
+	}
+
+	if (_enemy->getIndex() == 3 || _enemy->getIndex() == 4 || _enemy->getIndex() == 5)
+	{
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getRigidBody()->setActive(false);
 	}
 }
 
 void BigEnemyAttackState::onExit()
 {
-
+	_weapon->getRigidBody()->setActive(false);
+	_enemy->getCurrentScene()->removeNode(_weapon);
 }
 
 EnemyState * BigEnemyAttackState::checkTransition()

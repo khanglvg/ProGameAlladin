@@ -19,6 +19,7 @@ BigEnemy::BigEnemy(const Vec2& position, const Size& size, const GameObjectType&
 	_boundaryLeft = position.x - 90;
 	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));
+	_rigid->setSize(size);
 	_isAttacked = false;
 	_currentState = new BigEnemyIdleState(this);
 }
@@ -41,12 +42,10 @@ void BigEnemy::init()
 void BigEnemy::release()
 {
 	delete _rigid;
-	delete this;
 }
 
 void BigEnemy::update()
 {
-	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
 
 
@@ -99,6 +98,8 @@ void BigEnemy::update()
 	{
 		_rigid->setGravityScale(0);
 		setVelocity(Vec2(0, 0));
+		_currentState->onExit();
+		delete _currentState;
 		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}

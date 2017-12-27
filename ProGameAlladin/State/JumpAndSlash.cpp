@@ -70,11 +70,13 @@ void JumpAndSlash::onUpdate()
 	{
 		aladdin->setScale(Vec2(-1, 1));
 		aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
+		_weapon->getOwner()->setIsOwnerRight(false);
 	}
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
+		_weapon->getOwner()->setIsOwnerRight(true);
 	}
 
 }
@@ -90,9 +92,8 @@ void JumpAndSlash::onExit()
 State* JumpAndSlash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new JumpAndThrow(_node);
-
 
 	if (aladdin->isOnTheGround())
 		return new Idle(_node);

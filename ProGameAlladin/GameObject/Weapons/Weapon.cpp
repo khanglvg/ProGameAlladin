@@ -29,16 +29,35 @@ void Weapon::init()
 
 void Weapon::update()
 {
-	if(_owner->isOwnerRight())
+	if (_owner->getRigidBody()->getTag() == "aladdin")
 	{
-		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth() + _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
-		_position = _rigid->getPosition() - _rigid->getOffset();
+		if (_owner->isOwnerRight())
+		{
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() + _attackRange.getX()/2 , _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_position = _rigid->getPosition() - _rigid->getOffset();
+		}
+		else
+		{
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _attackRange.getX()/2 - _attackRange.getX() / 2, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_position = _rigid->getPosition() - _rigid->getOffset();
+		}
 	}
-	else
+
+
+	if (_owner->getRigidBody()->getTag() == "enemy")
 	{
-		_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _owner->getRigidBody()->getSize().getWidth()*2 - _attackRange.getX()+15, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
-		_position = _rigid->getPosition() - _rigid->getOffset();
+		if (_owner->isOwnerRight())
+		{
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() + _attackRange.getX() / 2 + 30, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_position = _rigid->getPosition() - _rigid->getOffset();
+		}
+		else
+		{
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _attackRange.getX() / 2 - 30, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_position = _rigid->getPosition() - _rigid->getOffset();
+		}
 	}
+	
 	
 }
 

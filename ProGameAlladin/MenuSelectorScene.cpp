@@ -32,15 +32,19 @@ void MenuSelector::init()
 	_title1->setPosition(Vec2(-80, -60));
 	_title1->setScale(Vec2(2.5, 2.79));
 	_title1->setVisible(false);
+	_title1->setIcon(false);
 	_vectNode.push_back(_title1);
 	
 	_title2 = new TitleMenuScene("Resources/Items/items.png", Rect(2, 10, 321, 183), 2);
 	_title2->setPosition(Vec2(-30, 0));
 	_title2->setScale(Vec2(2.4, 2.4));
 	_title2->setVisible(false);
+	_title2->setIcon(false);
 	_vectNode.push_back(_title2);
 
 	_titleAla = new TitleMenuScene("Resources/Menu/title.png", Rect(0, 0, 243, 90), 1);
+	_titleAla->setScale(Vec2(2.3, 2.3));
+	_titleAla->setIcon(false);
 	_vectNode.push_back(_titleAla);
 
 	_vectNode.push_back(_knife);
@@ -355,7 +359,7 @@ void MenuSelector::update()
 		{
 			if (_isLv1 == true)
 			{
-				//GameManager::getInstance()->changeScene(new Lv1Scene);
+				GameManager::getInstance()->changeScene(new Lv1Scene);
 			}
 			else
 			{

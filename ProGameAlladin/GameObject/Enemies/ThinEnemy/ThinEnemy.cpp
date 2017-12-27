@@ -26,6 +26,8 @@ ThinEnemy::ThinEnemy(const Vec2& position, const Size& size, const GameObjectTyp
 	_boundaryRight = position.x + 80;
 	setScale(Vec2(1, 1));
 
+	_rigid->setSize(size);
+
 	_currentState = new ThinEnemyIdleState(this);
 	_isCollisionWithAladdin = false;
 	_isAttacked = false;
@@ -50,12 +52,11 @@ void ThinEnemy::init()
 void ThinEnemy::release()
 {
 	delete _rigid;
-	delete this;
 }
 
 void ThinEnemy::update()
 {
-	_rigid->setSize(Size(getRect().getWidth()*1.6+_rigid->getOffset().getX()*2, getRect().getHeight()));
+	//_rigid->setSize(Size(getRect().getWidth()*1.6+_rigid->getOffset().getX()*2, getRect().getHeight()));
 	_position = _rigid->getPosition() -_rigid->getOffset();
 
 	auto const aladdin = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdin");
@@ -111,6 +112,8 @@ void ThinEnemy::update()
 	{
 		_rigid->setGravityScale(0);
 		setVelocity(Vec2(0, 0));
+		_currentState->onExit();
+		delete _currentState;
 		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}

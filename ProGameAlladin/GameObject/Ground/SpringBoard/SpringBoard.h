@@ -6,16 +6,16 @@
 #include "../../Framework/Texture.h"
 #include "../../pugixml/pugixml.hpp"
 #include "../../Framework/Graphics.h"
-#include "SpringBoardIdleState.h"
-#include "SpringBoardState.h"
 
 NS_JK_BEGIN
+
+class Aladdin;
 
 class SpringBoard : public GameObject
 {
 public:
 	SpringBoard();//not use
-	SpringBoard(const Vec2& position, const Size& size, const GameObjectType& tag);
+	SpringBoard(const Vec2& position, const Size& size, const GameObjectType& tag, Aladdin* player);
 
 	~SpringBoard() override;
 
@@ -34,10 +34,11 @@ public:
 protected:
 	Texture _textureSpringBoard;
 
+	Aladdin* _player;
+
 	int _animationIndex = 0;
 	string _actionName;
 	float _index = 0;
-	SpringBoardState* _currentState;
 };
 
 NS_JK_END

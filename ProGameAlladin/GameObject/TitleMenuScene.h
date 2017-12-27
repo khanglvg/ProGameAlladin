@@ -10,7 +10,7 @@ class TitleMenuScene: public Node
 {
 public:
 
-	enum TitleType { ALA, APPLE };
+	enum TitleType { ALA, APPLE, RUBY };
 
 	TitleMenuScene();
 	TitleMenuScene(const string& srcFile, const Rect& rect, const int& layer);
@@ -22,6 +22,7 @@ public:
 	void release() override;
 
 	void setType(const TitleType& type);
+	void setIcon(const bool& isIcon);
 
 	void setVisible(const bool& visible);
 private:
@@ -33,6 +34,7 @@ private:
 	TitleType _type;
 
 	int _alpha = 255;
+	bool _isIcon = true;
 
 };
 

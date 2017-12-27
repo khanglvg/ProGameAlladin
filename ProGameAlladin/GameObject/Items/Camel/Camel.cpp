@@ -61,7 +61,7 @@ void Camel::init()
 
 void Camel::release()
 {
-	delete this;
+	delete _rigid;
 }
 
 void Camel::update()

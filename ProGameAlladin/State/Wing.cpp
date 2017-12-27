@@ -32,11 +32,12 @@ void Wing::onEnter()
 
 State* Wing::checkTransition()
 {
+	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SlashWhenWing(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new ThrowWhenWing(_node);
 
 	return nullptr;

@@ -46,7 +46,7 @@ State* HeadUpAndSlash::checkTransition()
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_Q))
 		return new Flip(_node);

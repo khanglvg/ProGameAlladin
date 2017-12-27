@@ -46,13 +46,26 @@ void FireGround::update()
 				_currentFrame = _aladdin->getIndex();
 				if (abs(_lastColliPosition.getX() - _currentColliPosition.getX()) > 20 && _lastFrame != _currentFrame)
 				{
-					const auto flame = new Fire(this, Vec2(_aladdin->getRigidPosition().getX(), _aladdin->getRigidPosition().getY()), Size(30, 56));
-					flame->getRigidBody()->setGravityScale(0);
+					if (_aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+					{
+						const auto flame = new Fire(this, Vec2(_aladdin->getRigidPosition().getX(), _aladdin->getRigidPosition().getY() - 15), Size(30, 56));
+						flame->getRigidBody()->setGravityScale(0);
 
-					flame->setCurrentScene(this->getCurrentScene());
-					this->getCurrentScene()->addNode(flame);
-					_lastColliPosition = _currentColliPosition;
-					_lastFrame = _currentFrame;
+						flame->setCurrentScene(this->getCurrentScene());
+						this->getCurrentScene()->addNode(flame);
+						_lastColliPosition = _currentColliPosition;
+						_lastFrame = _currentFrame;
+					}
+					else
+					{
+						const auto flame = new Fire(this, Vec2(_aladdin->getRigidPosition().getX(), _aladdin->getRigidPosition().getY()), Size(30, 56));
+						flame->getRigidBody()->setGravityScale(0);
+
+						flame->setCurrentScene(this->getCurrentScene());
+						this->getCurrentScene()->addNode(flame);
+						_lastColliPosition = _currentColliPosition;
+						_lastFrame = _currentFrame;
+					}
 				}
 			}
 			else

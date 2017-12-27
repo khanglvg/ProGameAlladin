@@ -6,6 +6,7 @@
 #include "Run.h"
 #include "IdleToSit.h"
 #include "Climb.h"
+#include "Flip.h"
 #include "IdleToClimb.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
@@ -27,7 +28,12 @@ void Jump::onEnter()
 
 	
 	aladdin->setVelocity(Vec2(0, -290)); // -300 is High jump (hold D), -200 is a normal jump
-	aladdin->getRigidBody()->setSize(Size(4, 60));
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(10, 30));
+	else
+		aladdin->getRigidBody()->setSize(Size(10, 60));
+
 	aladdin->setActionName("Jump");
 }
 
@@ -56,7 +62,11 @@ void Jump::onUpdate()
 void Jump::onExit()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	aladdin->getRigidBody()->setSize(Size(10, 60));
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(10, 30));
+	else
+		aladdin->getRigidBody()->setSize(Size(10, 60));
 	aladdin->getRigidBody()->setGravityScale(1.5);
 }
 
@@ -96,6 +106,9 @@ State* Jump::checkTransition()
 
 	if (aladdin->getIndex() >= 5)
 		aladdin->setIsPause(true);
+
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{

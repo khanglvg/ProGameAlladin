@@ -22,8 +22,14 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isClimbDown = false;
 	_isClimb = false;
 	_eScene = ENUM_LV1_SCENE;
-	_numApple = 5;
+	_numApple = 50;
+	_numRuby = 50;
 	_health = 10;
+	_isDamaged = false;
+	_isInviolable = false;
+	_isDeHealth = false;
+	_alaLife = 3;
+	_score = 0;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -70,7 +76,7 @@ void Aladdin::init()
 
 void Aladdin::release()
 {
-	delete this;
+	delete _rigid;
 }
 
 void Aladdin::update()
@@ -79,6 +85,13 @@ void Aladdin::update()
 	_currentState->onUpdate();
 
 	//OutputDebugString(std::to_string(_numApple).c_str());
+
+	if (_damagedTime <1.3 && _damagedTime > 0)
+	{
+		_isInviolable = true;
+	}
+	else
+		_isInviolable = false;
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -89,6 +102,7 @@ void Aladdin::update()
 		_isOnTheFire = false;
 		_isOnThePlatform = false;
 		_isInCamel = false;
+		_isInSpringBoard = false;
 	}
 	else
 	{
@@ -102,6 +116,8 @@ void Aladdin::update()
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
 		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
+		auto const springboard = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "springboard");
+		auto const thinEnemyKnife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "thinenemyknife");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -204,13 +220,45 @@ void Aladdin::update()
 		//
 		if (camel != _rigid->getCollidingBodies().end())
 		{
+			_isDamaged = true;
 			_isInCamel = true;
 			
 		}
 		else _isInCamel = false;
-	}
-	
 
+
+		//
+		// collision with SpringBoard
+		//
+		if (springboard != _rigid->getCollidingBodies().end())
+		{
+			_isInSpringBoard = true;
+		}
+		else _isInSpringBoard = false;
+
+
+
+		//
+		// collision with Enemy's weapon
+		//
+		if (thinEnemyKnife != _rigid->getCollidingBodies().end())
+		{
+			_isDamaged = true;
+			_isAttacked = true;
+			if (!_isDeHealth && !_isInviolable)
+			{
+				_health--;
+				_isDeHealth = true;
+				OutputDebugString(std::to_string(_health).c_str());
+			}
+		}
+		else
+		{
+			_isDeHealth = false;
+			_isAttacked = false;
+		}
+
+	}
 
 	State* newState = _currentState->checkTransition();
 	
@@ -244,6 +292,8 @@ void Aladdin::render()
 	//auto expect = GameManager::getInstance()->getDeltaTime() * 5;
 	auto expect = 0.05;
 	auto origin = Vec2(0.5f, 1.0f);
+
+	auto expectDmgTime = 2;
 
 	if (_actionName == "Run")
 	{
@@ -289,8 +339,23 @@ void Aladdin::render()
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
+
+	if (_damagedTime <= expectDmgTime)
+	{
+		_damagedTime += GameManager::getInstance()->getDeltaTime();
+	}
+	else 
+	{
+		_damagedTime = 0;
+		_isDamaged = false;
+	}
+
 	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
-	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	
+	if (!_isDamaged)
+	{
+		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	}
 
 	if (_index <= expect)
 	{
@@ -374,6 +439,21 @@ void Aladdin::incApple()
 	_numApple++;
 }
 
+int Aladdin::getNumRuby() const
+{
+	return _numRuby;
+}
+
+void Aladdin::desRuby()
+{
+	_numRuby--;
+}
+
+void Aladdin::incRuby()
+{
+	_numRuby++;
+}
+
 Vec2 Aladdin::getStartPosition() const
 {
 	return Vec2(_startX, _startY);
@@ -443,6 +523,11 @@ bool Aladdin::isInCamel() const
 	return _isInCamel;
 }
 
+bool Aladdin::isInSpringBoard() const
+{
+	return _isInSpringBoard;
+}
+
 void Aladdin::setIndex(const int& index)
 {
 	_animationIndex = index;
@@ -464,9 +549,45 @@ int Aladdin::getHealth() const
 {
 	return _health;
 }
+
+void Aladdin::desHealth()
+{
+	_health++;
+}
+
+void Aladdin::incHealth()
+{
+	_health--;
+}
+
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;
+}
+
+void Aladdin::setIsDamaged(const bool & isDamaged)
+{
+	_isDamaged = isDamaged;
+}
+
+bool Aladdin::getIsDamaged() const
+{
+	return _isDamaged;
+}
+
+void Aladdin::setIsInviolable(const bool & isInviolable)
+{
+	_isInviolable = isInviolable;
+}
+
+bool Aladdin::getIsInviolable() const
+{
+	return _isInviolable;
+}
+
+bool Aladdin::isAttacked() const
+{
+	return _isAttacked;
 }
 
 void Aladdin::setIsClimb(const bool & climb)
@@ -487,5 +608,40 @@ int Aladdin::getEScene() const
 void Aladdin::setEScene(const int& eScene)
 {
 	_eScene = eScene;
+}
+
+int Aladdin::getAlaLife() const
+{
+	return _alaLife;
+}
+
+void Aladdin::setAlaLife(const int& alaLife)
+{
+	_alaLife = alaLife;
+}
+
+int Aladdin::getScore() const
+{
+	return _score;
+}
+
+void Aladdin::desScore(const int& des)
+{
+	_score -= des;
+}
+
+void Aladdin::incScore(const int& inc)
+{
+	_score += inc;
+}
+
+void Aladdin::desAlaLife()
+{
+	_alaLife++;
+}
+
+void Aladdin::incAlaLife()
+{
+	_alaLife--;
 }
 #pragma endregion

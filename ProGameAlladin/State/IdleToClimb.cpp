@@ -77,7 +77,7 @@ State* IdleToClimb::checkTransition()
 		return new JumpWhileClimb(_node);
 	if (Input::getInstance()->isKeyDown(KEY_S))
 		return new SlashWhenClimb(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new ThrowWhenClimb(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new Climb(_node);

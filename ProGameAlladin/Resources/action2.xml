@@ -341,6 +341,7 @@
     <sprite x="189" y="2163" w="80" h="47" oX="189" oY="2163" oW="2202" oH="376" />
     <sprite x="282" y="2160" w="61" h="50" oX="282" oY="2160" oW="2202" oH="376" />
     <sprite x="351" y="2161" w="59" h="48" oX="351" oY="2161" oW="2202" oH="376" />
+    <sprite x="9" y="2167" w="42" h="45" oX="9" oY="2167" oW="2202" oH="376" />
   </Animation>
   <Animation name="BeingAttackedAndDie" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="1" y="2234" w="80" h="47" oX="1" oY="2234" oW="2297" oH="760" />

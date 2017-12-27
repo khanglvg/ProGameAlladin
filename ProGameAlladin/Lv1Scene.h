@@ -11,6 +11,8 @@
 #include "Framework/Text.h"
 #include "Framework/dxaudio.h"
 #include "Framework/Sound.h"
+#include "GameObject/BackgroundSky.h"
+#include "GameObject/SpriteText.h"
 
 NS_JK_BEGIN
 
@@ -26,6 +28,8 @@ public:
 	void release() override;
 	void update() override;
 	void render() override;
+
+	void calculationSpriteText() const;
 
 
 	CSoundManager* _soundManager;
@@ -69,6 +73,26 @@ private:
 
 	TitleMenuScene* _alaIcon;
 	TitleMenuScene* _appleIcon;
+	TitleMenuScene* _rubyIcon;
+
+	BackgroundSky* _bg1;
+	BackgroundSky* _bg2;
+
+	SpriteText* _alaLifeUnit;
+
+	SpriteText* _score1;
+	SpriteText* _score2;
+	SpriteText* _score3;
+	SpriteText* _score4;
+	
+	SpriteText* _appleUnit;
+	SpriteText* _alaAppleTens;
+
+
+	SpriteText* _rubyUnit;
+	SpriteText* _rubyTens;
+
+
 	
 };
 

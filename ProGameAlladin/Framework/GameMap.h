@@ -31,6 +31,7 @@ private:
 
 	GameObject* _triggerLow;
 	GameObject* _triggerHigh;
+	GameObject* _triggerEnd;
 
 	std::vector<BackgroundLv1Scene*> _backgroundTextures;
 	std::vector<Enemy*> _listEnemies;

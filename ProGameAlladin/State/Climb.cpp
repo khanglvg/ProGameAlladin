@@ -98,7 +98,7 @@ State* Climb::checkTransition()
 		return new JumpWhileClimb(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new SlashWhenClimb(_node);
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new ThrowWhenClimb(_node);
 	if (!aladdin->isOnTheRope())
 	{

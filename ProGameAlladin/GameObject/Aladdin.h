@@ -42,6 +42,11 @@ public:
 	void desApple();
 	void incApple();
 
+	int getNumRuby() const;
+
+	void desRuby();
+	void incRuby();
+
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
@@ -58,6 +63,7 @@ public:
 	bool isOnTheRope() const;
 	bool isOnTheFire() const;
 	bool isInCamel() const;
+	bool isInSpringBoard() const;
 
 	void setAllowToClimb(const bool& allow) override;
 	bool isAllowToClimb() override;
@@ -66,7 +72,18 @@ public:
 
 	int getHealth() const;
 
+	void desHealth();
+	void incHealth();
+
 	void setIsClimbDown(const bool& climbDown);
+
+	void setIsDamaged(const bool& isDamaged);
+	bool getIsDamaged() const;
+
+	void setIsInviolable(const bool& isInviolable);
+	bool getIsInviolable() const;
+
+	bool isAttacked() const;
 
 	void setIsClimb(const bool& climb);
 	bool isClimb() const;
@@ -74,8 +91,17 @@ public:
 	int getEScene() const;
 	void setEScene(const int& eScene);
 
+	int getAlaLife() const;
+	void desAlaLife();
+	void incAlaLife();
+	void setAlaLife(const int& alaLife);
+	int getScore() const;
+
+	void desScore(const int& des);
+	void incScore(const int& inc);
 private:
 	int _numApple;
+	int _numRuby;
 	
 	Texture _textureAla;
 	Texture _textureRigid;
@@ -107,10 +133,22 @@ private:
 	bool _isOnTheRope;
 	bool _isOnTheFire;
 	bool _isInCamel;
+	bool _isInSpringBoard;
+	bool _isAttacked;
+
+	bool _isDeHealth;
+
+	bool _isInviolable;
+	bool _isDamaged;
+	float _damagedTime = 0;
+	float _inviolableTime = 0;
 
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
 	int _eScene;
 
+	int _alaLife;
+
+	int _score;
 };
 
 NS_JK_END

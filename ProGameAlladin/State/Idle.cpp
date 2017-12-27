@@ -12,6 +12,7 @@
 #include "Random.h"
 #include "Idle2.h"
 #include "Idle3.h"
+#include "BeingAttacked.h"
 #include "../Framework/Audio.h"
 
 
@@ -19,7 +20,7 @@
 US_NS_JK
 
 
-Idle::Idle(Node* node):State(node)
+Idle::Idle(Node* node) :State(node)
 {
 }
 
@@ -46,12 +47,12 @@ void Idle::onEnter()
 		aladdin->setScale(Vec2(1, 1));
 
 	aladdin->setVelocity(Vec2(0, 0));
-	
+
 }
 
 void Idle::onUpdate()
 {
-	
+
 
 
 }
@@ -87,9 +88,12 @@ State* Idle::checkTransition()
 	
 		return new Slash(_node);
 	}
-		if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
-			return new Throw(_node);
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
+		return new Throw(_node);
 
-		return nullptr;
-	
+	if (aladdin->isAttacked())
+		return new BeingAttacked(_node);
+
+	return nullptr;
+
 }

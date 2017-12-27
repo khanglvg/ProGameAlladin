@@ -14,7 +14,7 @@ BackgroundSky::~BackgroundSky()
 
 void BackgroundSky::update()
 {
-	_position -= Vec2(8,0);
+	_position -= Vec2(0,0);
 }
 
 void BackgroundSky::release()
@@ -32,5 +32,5 @@ void BackgroundSky::init()
 
 void BackgroundSky::render()
 {
-	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, 4773, 689), _layer);
+	Graphics::getInstance()->drawSprite(_textureBackground, Vec2(0.0, 0.0), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, 512, 223), _layer);
 }

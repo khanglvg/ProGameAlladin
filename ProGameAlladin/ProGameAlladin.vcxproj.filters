@@ -63,8 +63,6 @@
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="GameObject\Ground\FloatGround\FloatGround.cpp" />
     <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoard.cpp" />
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.cpp" />
-    <ClCompile Include="GameObject\Ground\SpringBoard\SpringBoardState.cpp" />
     <ClCompile Include="GameObject\Items\Camel\Camel.cpp" />
     <ClCompile Include="GameObject\Wall\Wall.cpp" />
     <ClCompile Include="Lv1Scene.cpp" />
@@ -295,8 +293,6 @@
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameObject\Ground\FloatGround\FloatGround.h" />
     <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoard.h" />
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardIdleState.h" />
-    <ClInclude Include="GameObject\Ground\SpringBoard\SpringBoardState.h" />
     <ClInclude Include="GameObject\Items\Camel\Camel.h" />
     <ClInclude Include="GameObject\Wall\Wall.h" />
     <ClInclude Include="Lv1Scene.h" />
@@ -445,6 +441,7 @@
     <Xml Include="Resources\Items\Items2.xml" />
     <Xml Include="Resources\Enemies\Enemy-Explosion.xml" />
     <Xml Include="Resources\Items\AladdinHealth.xml" />
+    <Xml Include="Resources\Items\SpringBoard.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -476,7 +473,6 @@
     <Image Include="Resources\Items\FloatGround.png" />
     <Image Include="Resources\Items\Genesis 32X SCD - Aladdin - Camel.png" />
     <Image Include="Resources\Items\Items-Explosion.png" />
-    <Image Include="Resources\Items\springboard.png" />
     <Image Include="Resources\market BG.png" />
     <Image Include="Resources\Menu\backgroundMenu.png" />
     <Image Include="Resources\Menu\menuknife.png" />
@@ -504,6 +500,8 @@
     <Image Include="Resources\Enemies\enemy_explosion_strip10_89_114.png" />
     <Image Include="Resources\Items\CamelBullet.png" />
     <Image Include="Resources\Items\AladdinHealth.png" />
+    <Image Include="Resources\Items\spring_strip10_1_33.png" />
+    <Image Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
