@@ -79,9 +79,9 @@ void Lv1Scene::init()
 	_bg1->setScale(Vec2(0.9, 1.3));
 	_vectNode.push_back(_bg1);
 
-	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 3);
+	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 4);
 	_alaIcon->setType(TitleMenuScene::ALA);
-	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 3);
+	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 4);
 	_appleIcon->setType(TitleMenuScene::APPLE);
 	_appleIcon->setScale(Vec2(1.4,1.4));
 
