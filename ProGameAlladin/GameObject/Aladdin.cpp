@@ -20,8 +20,11 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isClimbDown = false;
 	_isClimb = false;
 	_eScene = ENUM_LV1_SCENE;
-	_numApple = 5;
+	_numApple = 50;
+	_numRuby = 50;
 	_health = 10;
+	_alaLife = 3;
+	_score = 0;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -365,6 +368,21 @@ void Aladdin::incApple()
 	_numApple++;
 }
 
+int Aladdin::getNumRuby() const
+{
+	return _numRuby;
+}
+
+void Aladdin::desRuby()
+{
+	_numRuby--;
+}
+
+void Aladdin::incRuby()
+{
+	_numRuby++;
+}
+
 Vec2 Aladdin::getStartPosition() const
 {
 	return Vec2(_startX, _startY);
@@ -494,5 +512,40 @@ int Aladdin::getEScene() const
 void Aladdin::setEScene(const int& eScene)
 {
 	_eScene = eScene;
+}
+
+int Aladdin::getAlaLife() const
+{
+	return _alaLife;
+}
+
+void Aladdin::setAlaLife(const int& alaLife)
+{
+	_alaLife = alaLife;
+}
+
+int Aladdin::getScore() const
+{
+	return _score;
+}
+
+void Aladdin::desScore(const int& des)
+{
+	_score -= des;
+}
+
+void Aladdin::incScore(const int& inc)
+{
+	_score += inc;
+}
+
+void Aladdin::desAlaLife()
+{
+	_alaLife++;
+}
+
+void Aladdin::incAlaLife()
+{
+	_alaLife--;
 }
 #pragma endregion

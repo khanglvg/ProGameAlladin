@@ -35,9 +35,13 @@ void TitleMenuScene::update()
 		{
 			_position = Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80);
 		}
-		else
+		if (_type == APPLE)
 		{
-			_position = Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() + 86);
+			_position = Vec2(Camera::getInstance()->getCameraX() + 115, Camera::getInstance()->getCameraY() + 86);
+		}
+		if (_type == RUBY)
+		{
+			_position = Vec2(Camera::getInstance()->getCameraX() + 70, Camera::getInstance()->getCameraY() + 86);
 		}
 	}
 	

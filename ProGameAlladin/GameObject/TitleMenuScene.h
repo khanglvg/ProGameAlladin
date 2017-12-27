@@ -10,7 +10,7 @@ class TitleMenuScene: public Node
 {
 public:
 
-	enum TitleType { ALA, APPLE };
+	enum TitleType { ALA, APPLE, RUBY };
 
 	TitleMenuScene();
 	TitleMenuScene(const string& srcFile, const Rect& rect, const int& layer);
