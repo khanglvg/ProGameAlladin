@@ -42,6 +42,11 @@ public:
 	void desApple();
 	void incApple();
 
+	int getNumRuby() const;
+
+	void desRuby();
+	void incRuby();
+
 	Vec2 getStartPosition() const;
 
 	std::map<string, vector<Rect>> _animations;
@@ -86,8 +91,17 @@ public:
 	int getEScene() const;
 	void setEScene(const int& eScene);
 
+	int getAlaLife() const;
+	void desAlaLife();
+	void incAlaLife();
+	void setAlaLife(const int& alaLife);
+	int getScore() const;
+
+	void desScore(const int& des);
+	void incScore(const int& inc);
 private:
 	int _numApple;
+	int _numRuby;
 	
 	Texture _textureAla;
 	Texture _textureRigid;
@@ -132,6 +146,9 @@ private:
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
 	int _eScene;
 
+	int _alaLife;
+
+	int _score;
 };
 
 NS_JK_END

@@ -27,17 +27,35 @@ public:
 		CLOSE_PARENTHESES
 	};
 	
+	enum SpriteTextType
+	{	
+		NONE,
+		ALA_LIFE,
+		APPLE_UNIT,
+		APPLE_TENS, 
+		RUBY_UNIT,
+		RUBY_TENS,
+		SCORE_1,
+		SCORE_2,
+		SCORE_3,
+		SCORE_4
+	};
 public:
 	SpriteText(const string& sourceFile, const int& eValue, const int& layer);
 	~SpriteText();
 
+	void update() override;
 	void init() override;
 	void render() override;
 
 	int getLayer() const;
 	void setLayer(const int& layer);
 
+	void setType(const SpriteTextType& type);
 	void setVisible(const bool& visible);
+
+	int getValue()const;
+	void setValue(const int& value);
 private:
 
 	map<string, vector<Rect>> _animations;
@@ -47,7 +65,7 @@ private:
 
 	int _alpha;
 	Texture _texture;
-
+	int _type;
 	
 };
 NS_JK_END

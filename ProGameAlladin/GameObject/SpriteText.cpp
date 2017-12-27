@@ -1,6 +1,7 @@
 ﻿#include "SpriteText.h"
 #include "../Framework/Graphics.h"
 #include "../pugixml/pugixml.hpp"
+#include "../Framework/Camera.h"
 
 US_NS_JK
 
@@ -10,6 +11,7 @@ SpriteText::SpriteText(const string& sourceFile, const int& eValue, const int& l
 	_value = eValue;
 	_layer = layer;
 	_alpha = 255;
+	_type = NONE;
 
 #pragma region READ - XML
 	pugi::xml_document doc;
@@ -39,6 +41,55 @@ SpriteText::~SpriteText()
 {
 }
 
+void SpriteText::update()
+{
+	if(_type == ALA_LIFE)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() - 120, Camera::getInstance()->getCameraY() + 100);
+	}
+
+	if (_type == APPLE_UNIT)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 145, Camera::getInstance()->getCameraY() + 100);
+	}
+
+	if (_type == APPLE_TENS)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 136, Camera::getInstance()->getCameraY() + 100);
+	}
+
+	if (_type == RUBY_UNIT)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 99, Camera::getInstance()->getCameraY() + 100);
+	}
+
+	if (_type == RUBY_TENS)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 90, Camera::getInstance()->getCameraY() + 100);
+	}
+
+	if (_type == SCORE_1)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 80, Camera::getInstance()->getCameraY() - 85);
+	}
+
+	if (_type == SCORE_2)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 100, Camera::getInstance()->getCameraY() - 85);
+	}
+
+	if (_type == SCORE_3)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 120, Camera::getInstance()->getCameraY() - 85);
+	}
+
+	if (_type == SCORE_4)
+	{
+		_position = Vec2(Camera::getInstance()->getCameraX() + 140, Camera::getInstance()->getCameraY() - 85);
+	}
+
+}
+
 void SpriteText::init()
 {
 	_texture.setSrcFile(_srcFile);
@@ -62,6 +113,12 @@ void SpriteText::setLayer(const int& layer)
 	_layer = layer;
 }
 
+void SpriteText::setType(const SpriteTextType& type)
+{
+	_type = type;
+}
+
+
 void SpriteText::setVisible(const bool& visible)
 {
 	if (visible == true)
@@ -72,4 +129,14 @@ void SpriteText::setVisible(const bool& visible)
 	{
 		_alpha = 0;
 	}
+}
+
+int SpriteText::getValue() const
+{
+	return _value;
+}
+
+void SpriteText::setValue(const int& value)
+{
+	_value = value;
 }
