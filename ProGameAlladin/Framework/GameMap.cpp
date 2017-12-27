@@ -78,8 +78,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init Springboard
 			if (objectGroup->GetName() == "Springboard")
 			{
-				auto *springBoard = new SpringBoard(Vec2(object->GetX(), object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::SPRINGBOARD);
-				springBoard->setPosition(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()));
+				auto *springBoard = new SpringBoard(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY()), Size(object->GetWidth(), object->GetHeight()), GameObject::SPRINGBOARD, _player);
 
 				_listSpringboards.push_back(springBoard);
 
@@ -235,11 +234,17 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 					_triggerLow->setRigidTag("trigger");
 					_triggerLow->getRigidBody()->setDensity(0.000000001);
 				}
-				else
+				else if (object->GetName() == "Trigger-High")
 				{
 					_triggerHigh = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::TRIGGER);
 					_triggerHigh->setRigidTag("trigger");
 					_triggerHigh->getRigidBody()->setDensity(0.000000001);
+				}
+				else
+				{
+					_triggerEnd = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::TRIGGER);
+					_triggerEnd->setRigidTag("trigger");
+					_triggerEnd->getRigidBody()->setDensity(0.000000001);
 				}
 			}
 
@@ -391,8 +396,12 @@ void GameMap::update()
 	for (size_t i = 0; i < _listItems.size(); i++)
 		_listItems[i]->update();
 
+	for (size_t i = 0; i < _listSpringboards.size(); i++)
+		_listSpringboards[i]->update();
+
 	_triggerLow->update();
 	_triggerHigh->update();
+	_triggerEnd->update();
 
 	if (_triggerLow->isOnCollision())
 	{
@@ -417,7 +426,7 @@ void GameMap::update()
 		}
 	}
 
-	if (_triggerHigh->isOnCollision())
+	if (_triggerHigh->isOnCollision() || _triggerEnd->isOnCollision())
 	{
 		_isActivedHigh = true;
 	}

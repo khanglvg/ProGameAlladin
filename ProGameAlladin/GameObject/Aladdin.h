@@ -58,6 +58,7 @@ public:
 	bool isOnTheRope() const;
 	bool isOnTheFire() const;
 	bool isInCamel() const;
+	bool isInSpringBoard() const;
 
 	void setAllowToClimb(const bool& allow) override;
 	bool isAllowToClimb() override;
@@ -107,6 +108,7 @@ private:
 	bool _isOnTheRope;
 	bool _isOnTheFire;
 	bool _isInCamel;
+	bool _isInSpringBoard;
 
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
 	int _eScene;

@@ -71,6 +71,7 @@ void Throw::onUpdate()
 		}
 		else
 		{
+			apple->setRigidPosition(Vec2(aladdin->getRigidPosition().getX() - aladdin->getRect().getWidth() / 2 - 20, aladdin->getRigidPosition().getY() - 20));
 			apple->getRigidBody()->setVelocity(Vec2(-380, -20));
 		}
 

@@ -29,5 +29,10 @@ State* Flip::checkTransition()
 	if (aladdin->isOnTheGround())
 		return new Idle(_node);
 
+	if (aladdin->isInSpringBoard())
+	{
+		return new Flip(_node);
+	}
+
 	return nullptr;
 }

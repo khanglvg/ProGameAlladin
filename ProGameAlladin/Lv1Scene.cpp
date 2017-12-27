@@ -69,7 +69,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, -850), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(3300, 280), Size(40, 60));
 	_vectNode.push_back(mAladdin);
 	mAladdin->setCurrentScene(this);
 
@@ -78,7 +78,7 @@ void Lv1Scene::init()
 	//_vectNode.push_back(new Rope(Vec2(300, 440), Size(5, 220)));
 
 	
-
+	  
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
 
