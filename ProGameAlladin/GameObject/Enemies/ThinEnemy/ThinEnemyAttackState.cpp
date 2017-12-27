@@ -48,6 +48,15 @@ void ThinEnemyAttackState::onUpdate()
 		_enemy->setIsOwnerRight(false);
 	}
 
+	if(_enemy->getIndex() == 2 || _enemy->getIndex() == 3)
+	{
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getRigidBody()->setActive(false);
+	}
+
 }
 
 void ThinEnemyAttackState::onExit()
