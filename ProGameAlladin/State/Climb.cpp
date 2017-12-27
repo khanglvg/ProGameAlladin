@@ -94,7 +94,8 @@ State* Climb::checkTransition()
 		return new ThrowWhenClimb(_node);
 	if (!aladdin->isOnTheRope())
 	{
-		aladdin->getRigidBody()->setGravityScale(1.5);
+		aladdin->getRigidBody()->setGravityScale(1);
+		return new Idle(_node);
 	}
 		
 	return nullptr;

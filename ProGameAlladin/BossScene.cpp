@@ -9,7 +9,6 @@
 #include "Framework/Audio.h"
 #include "Framework/GameManager.h"
 #include "CompleteScene.h"
-#include "Lv1Scene.h"
 
 US_NS_JK
 
@@ -254,7 +253,7 @@ void BossScene::release()
 
 void BossScene::update()
 {
-	if(_aladdin->getRigidBody()->getPosition().getY() < _platform1->getRigidBody()->getPosition().getY() - _platform1->getRigidBody()->getSize().getHeight() - 2)
+	if(_aladdin->getRigidBody()->getPosition().getY() < _platform1->getRigidBody()->getPosition().getY() - _platform1->getRigidBody()->getSize().getHeight())
 	{
 		_platform1->getRigidBody()->setActive(true);
 		_platform2->getRigidBody()->setActive(true);
