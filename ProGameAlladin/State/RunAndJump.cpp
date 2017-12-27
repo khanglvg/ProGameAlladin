@@ -7,6 +7,8 @@
 #include "Fall.h"
 #include "IdleToClimb.h"
 #include "Jump.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -44,12 +46,12 @@ void RunAndJump::onEnter()
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
 			aladdin->setScale(Vec2(-1, 1));
-			aladdin->setVelocity(Vec2(-150, -270));
+			aladdin->setVelocity(Vec2(-180, -310));
 		}
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->setScale(Vec2(1, 1));
-			aladdin->setVelocity(Vec2(150, -270));
+			aladdin->setVelocity(Vec2(180, -310));
 		}
 	}
 	aladdin->getRigidBody()->setSize(Size(10, 60));
@@ -124,7 +126,14 @@ State* RunAndJump::checkTransition()
 	if (aladdin->isClimb())
 		return new IdleToClimb(_node);
 	if (aladdin->isInCamel())
+	{
+		auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+		Audio::get()->play(lv1->getsoundCamel(), false);
 		return new Jump(_node);
+	}
+		
+	if (aladdin->getIndex() >= 6)
+		aladdin->setIsPause(true);
 
 	return nullptr;
 }

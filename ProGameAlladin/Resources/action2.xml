@@ -136,7 +136,7 @@
     <sprite x="273" y="696" w="60" h="47" oX="273" oY="696" oW="749" oH="582" />
     <sprite x="350" y="692" w="57" h="52" oX="350" oY="692" oW="749" oH="582" />
     <sprite x="419" y="688" w="53" h="57" oX="419" oY="688" oW="749" oH="582" />
-    <sprite x="560" y="719" w="59" h="43" oX="560" oY="719" oW="749" oH="582" />
+    <!--<sprite x="491" y="680" w="50" h="84" oX="491" oY="680" oW="749" oH="582" />-->
   </Animation>
   <Animation name="RunAndSlash" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="461" y="337" w="35" h="50" oX="461" oY="337" oW="-591" oH="543" />
@@ -153,13 +153,13 @@
     <sprite x="203" y="824" w="54" h="68" oX="203" oY="824" oW="888" oH="627" />
     <sprite x="269" y="820" w="51" h="73" oX="269" oY="820" oW="888" oH="627" />
     <sprite x="336" y="829" w="38" h="65" oX="336" oY="829" oW="888" oH="627" />
-    <sprite x="390" y="818" w="35" h="78" oX="390" oY="818" oW="888" oH="627" />
+    <!--<sprite x="390" y="818" w="35" h="78" oX="390" oY="818" oW="888" oH="627" />
     <sprite x="448" y="808" w="34" h="92" oX="448" oY="808" oW="888" oH="627" />
     <sprite x="504" y="810" w="34" h="92" oX="504" oY="810" oW="888" oH="627" />
-    <sprite x="564" y="812" w="34" h="92" oX="564" oY="812" oW="888" oH="627" />
+    <sprite x="564" y="812" w="34" h="92" oX="564" oY="812" oW="888" oH="627" />-->
   </Animation>
   <Animation name="Fall" imagePath="oie_transparent.png" width="1121" height="2718">
-    <sprite x="8" y="846" w="59" h="42" oX="8" oY="846" oW="888" oH="627" />
+    <!--<sprite x="8" y="846" w="59" h="42" oX="8" oY="846" oW="888" oH="627" />-->
     <sprite x="75" y="828" w="52" h="61" oX="75" oY="828" oW="888" oH="627" />
     <sprite x="137" y="829" w="54" h="60" oX="137" oY="829" oW="888" oH="627" />
     <sprite x="203" y="824" w="54" h="68" oX="203" oY="824" oW="888" oH="627" />
@@ -291,7 +291,6 @@
     <sprite x="499" y="1775" w="48" h="86" oX="499" oY="1775" oW="1827" oH="532" />
   </Animation>
   <Animation name="JumpWhileClimb" imagePath="oie_transparent.png" width="1121" height="2718">
-    <sprite x="10" y="1870" w="34" h="72" oX="10" oY="1870" oW="1935" oH="501" />
     <sprite x="65" y="1873" w="24" h="76" oX="65" oY="1873" oW="1935" oH="501" />
     <sprite x="100" y="1874" w="36" h="70" oX="100" oY="1874" oW="1935" oH="501" />
     <sprite x="144" y="1874" w="48" h="63" oX="144" oY="1874" oW="1935" oH="501" />
@@ -300,6 +299,11 @@
     <sprite x="354" y="1869" w="52" h="53" oX="354" oY="1869" oW="1935" oH="501" />
     <sprite x="422" y="1871" w="47" h="66" oX="422" oY="1871" oW="1935" oH="501" />
     <sprite x="482" y="1866" w="45" h="74" oX="482" oY="1866" oW="1935" oH="501" />
+  </Animation>
+  <Animation name="SmallJumpWhileClimb" imagePath="oie_transparent.png" width="1121" height="2718">
+    <sprite x="65" y="1873" w="24" h="76" oX="65" oY="1873" oW="1935" oH="501" />
+    <sprite x="100" y="1874" w="36" h="70" oX="100" oY="1874" oW="1935" oH="501" />
+    <sprite x="144" y="1874" w="48" h="63" oX="144" oY="1874" oW="1935" oH="501" />
   </Animation>
   <Animation name="Push" imagePath="oie_transparent.png" width="1121" height="2718">
     <sprite x="7" y="1959" w="56" h="45" oX="7" oY="1959" oW="2013" oH="721" />

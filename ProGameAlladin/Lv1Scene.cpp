@@ -44,6 +44,7 @@ void Lv1Scene::init()
 	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
+	_soundCamel = new Sound("Resources/Audio/Camel Spit.wav");
 
 	Audio::get()->load(_soundAbu);
 	Audio::get()->load(_soundBackground);
@@ -55,7 +56,7 @@ void Lv1Scene::init()
 	Audio::get()->load(_soundHurt);
 	Audio::get()->load(_soundAppleCollect);
 	Audio::get()->load(_soundAppleCrush);
-
+	Audio::get()->load(_soundCamel);
 
 	//Audio::get()->play(_soundBackground, true);
 
@@ -844,6 +845,11 @@ Sound* Lv1Scene::getsoundAppleCollect()
 Sound* Lv1Scene::getsoundAppleCrush()
 {
 	return _soundAppleCrush;
+}
+
+Sound* Lv1Scene::getsoundCamel()
+{
+	return _soundCamel;
 }
 
 

@@ -7,6 +7,7 @@
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
 #include "../BossScene.h"
+#include "Jump.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -117,6 +118,13 @@ State* JumpAndSlash::checkTransition()
 			aladdin->setIsPause(false);
 	}
 	
+	if (aladdin->isInCamel())
+	{
+		auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+		Audio::get()->play(lv1->getsoundCamel(), false);
+		return new Jump(_node);
+	}
+		
 
 	return nullptr;
 }

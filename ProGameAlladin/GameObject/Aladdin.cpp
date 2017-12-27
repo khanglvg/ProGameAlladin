@@ -2,6 +2,8 @@
 #include "../Framework/Graphics.h"
 #include "../Framework/GameManager.h"
 #include "../Framework/PhysicsManager.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 
 US_NS_JK
 
@@ -126,7 +128,7 @@ void Aladdin::update()
 		_isOnTheRope = false;
 		_isOnTheFire = false;
 		_isOnThePlatform = false;
-
+		_isInCamel = false;
 
 		//
 		//	collision with ground
@@ -214,6 +216,7 @@ void Aladdin::update()
 		if (camel != _rigid->getCollidingBodies().end())
 		{
 			_isInCamel = true;
+			
 		}
 		else _isInCamel = false;
 
@@ -324,17 +327,37 @@ void Aladdin::render()
 
 	if(_actionName=="RunAndJump")
 	{
-		expect = 0.08;
+		expect = 0.14;
 	}
 
 	if(_actionName=="JumpAndSlash")
 	{
-		expect = 0.08;
+		expect = 0.11;
 	}
 
 	if(_actionName=="JumpWhileClimb")
 	{
-		expect = 0.02;
+		expect = 0.12;
+	}
+
+	if(_actionName=="JumpAndThrow")
+	{
+		expect = 0.09;
+	}
+
+	if(_actionName=="Jump")
+	{
+		expect = 0.14;
+	}
+
+	if(_actionName=="Throw")
+	{
+		expect = 0.08;
+	}
+
+	if(_actionName=="Fall")
+	{
+		expect = 0.08;
 	}
 
 	if (_actionName == "Grounding")

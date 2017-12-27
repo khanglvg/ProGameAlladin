@@ -97,7 +97,7 @@ State* JumpAndThrow::checkTransition()
 		return new IdleToClimb(_node);
 
 	if (aladdin->getIndex() >= 4)
-		return new Idle(_node);
+		aladdin->setIsPause(true);
 
 	return nullptr;
 }
