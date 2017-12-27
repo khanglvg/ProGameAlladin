@@ -46,7 +46,7 @@ void Lv1Scene::init()
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
 
 	Audio::get()->load(_soundAbu);
-	Audio::get()->load(_soundBackground);
+	//Audio::get()->load(_soundBackground);
 	Audio::get()->load(_soundSlash);
 	Audio::get()->load(_soundSitSlash);
 	Audio::get()->load(_soundGrounding);
