@@ -106,6 +106,7 @@
     <sprite x="115" y="850" w="60" h="49" oX="115" oY="850" oW="896" oH="300" />
     <sprite x="182" y="856" w="45" h="43" oX="182" oY="856" oW="896" oH="300" />
     <sprite x="236" y="848" w="32" h="51" oX="236" oY="848" oW="896" oH="300" />
+    <sprite x="9" y="663" w="43" h="49" oX="9" oY="663" oW="896" oH="300" />
   </Animation>
   <Animation name="FatEnemy-Idle" imagePath="Genesis 32X SCD - Aladdin - Guards.png" width="498" height="1053">
     <sprite x="9" y="663" w="43" h="49" oX="9" oY="663" oW="896" oH="300" />
@@ -116,6 +117,15 @@
     <sprite x="187" y="725" w="54" h="45" oX="187" oY="725" oW="765" oH="341" />
     <sprite x="247" y="719" w="52" h="51" oX="247" oY="719" oW="765" oH="341" />
     <sprite x="308" y="722" w="40" h="48" oX="308" oY="722" oW="765" oH="341" />-->
+  </Animation>
+  <Animation name="FatEnemy-NotAllowedMove" imagePath="Genesis 32X SCD - Aladdin - Guards.png" width="498" height="1053">
+    <sprite x="2" y="727" w="37" h="43" oX="2" oY="727" oW="765" oH="341" />
+    <sprite x="45" y="721" w="40" h="49" oX="45" oY="721" oW="765" oH="341" />
+    <sprite x="94" y="725" w="34" h="45" oX="94" oY="725" oW="765" oH="341" />
+    <sprite x="143" y="727" w="37" h="43" oX="143" oY="727" oW="765" oH="341" />
+    <sprite x="187" y="725" w="54" h="45" oX="187" oY="725" oW="765" oH="341" />
+    <sprite x="247" y="719" w="52" h="51" oX="247" oY="719" oW="765" oH="341" />
+    <sprite x="308" y="722" w="40" h="48" oX="308" oY="722" oW="765" oH="341" />
   </Animation>
   <Animation name="FatEnemy-AttackedLow" imagePath="Genesis 32X SCD - Aladdin - Guards.png" width="498" height="1053">
     <sprite x="4" y="919" w="54" h="51" oX="4" oY="919" oW="974" oH="442" />

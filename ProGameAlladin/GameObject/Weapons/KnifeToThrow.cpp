@@ -67,6 +67,7 @@ void KnifeToThrow::update()
 	const auto stair = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stair");
 	const auto enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "enemy");
 	const auto knifetothrow = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "knifetothrow");
+	const auto aladdinknife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
 
 	if (aladdin != _rigid->getCollidingBodies().end())
 		_isCollision = true;
@@ -94,6 +95,11 @@ void KnifeToThrow::update()
 	else if (_actionName == "Knife-Explosion" && _animationIndex == 4)
 	{
 		getCurrentScene()->removeNode(this);
+	}
+
+	if (aladdinknife != _rigid->getCollidingBodies().end())
+	{
+		setVelocity(Vec2(-_rigid->getVelocity().getX()/5, -200));
 	}
 
 	//if (ground != _rigid->getCollidingBodies().end() || wall != _rigid->getCollidingBodies().end() || platform != _rigid->getCollidingBodies().end())

@@ -36,7 +36,7 @@ void BigEnemyAttackState::onUpdate()
 	{
 		_checkIndex = 3;
 	}
-	if (_enemy->getIndex() == _checkIndex)
+	if (_enemy->getIndex() == _checkIndex  && _enemy->isAnimationDone())
 	{
 		switch (rand() % 2)
 		{

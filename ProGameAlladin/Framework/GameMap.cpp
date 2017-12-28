@@ -98,6 +98,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
 				enemy->setGameMap(this);
+				if (object->GetName() == "NotAllowedMove")
+				{
+					enemy->setBoudaryLeft(0);
+					enemy->setBoudaryRight(0);
+				}
+
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
@@ -105,6 +111,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
 				enemy->setGameMap(this);
+				if (object->GetName() == "NotAllowedMove")
+				{
+					enemy->setIsNotAllowedMove(true);
+					enemy->setBoudaryLeft(0);
+					enemy->setBoudaryRight(0);
+				}
+
 				_listEnemies.push_back(enemy);
 
 			}

@@ -30,7 +30,7 @@ void WallEnemyIdleState::onExit()
 
 EnemyState * WallEnemyIdleState::checkTransition()
 {
-	if (_enemy->isTargetInViewRange())
+	if (_enemy->isTargetInWallEnemyRange())
 	{
 		return new WallEnemyAttackState(_enemy);
 	}

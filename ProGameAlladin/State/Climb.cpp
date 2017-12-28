@@ -59,7 +59,14 @@ void Climb::onUpdate()
 			aladdin->setIsPause(true);
 		}
 
-	
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+	{
+		aladdin->setIsOwnerRight(false);
+	}
+	else if (Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setIsOwnerRight(true);
+	}
 
 	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW) || Input::getInstance()->isKeyUp(KEY_DOWN_ARROW))
 	{

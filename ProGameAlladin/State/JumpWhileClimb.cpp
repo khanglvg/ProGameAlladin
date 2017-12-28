@@ -4,6 +4,7 @@
 #include "JumpAndThrow.h"
 #include "Fall.h"
 #include "../GameObject/Aladdin.h"
+#include "../Framework/GameManager.h"
 #include "Jump.h"
 #include "IdleToClimb.h"
 
@@ -45,7 +46,18 @@ void JumpWhileClimb::onUpdate()
 			}
 		}
 
-
+		if (!aladdin->isOnTheRope())
+		{
+			if (_expect >= 0.07)
+			{
+				aladdin->getRigidBody()->setActive(true);
+			}
+			else
+			{
+				_expect += GameManager::getInstance()->getDeltaTime();
+			}
+		}
+			
 
 
 		//if (!aladdin->isOnTheRope())

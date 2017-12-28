@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="368">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="4773" tileheight="689" nextobjectid="369">
  <tileset firstgid="1" name="AgrabahMarket" tilewidth="4773" tileheight="689" tilecount="2" columns="1">
   <image source="AgrabahMarket.png" trans="3f48cc" width="4773" height="1378"/>
  </tileset>
@@ -191,7 +191,7 @@
  </objectgroup>
  <objectgroup name="Enemy_2">
   <object id="188" gid="8" x="950.333" y="623.667" width="55" height="52"/>
-  <object id="189" gid="8" x="1699" y="273" width="55" height="52"/>
+  <object id="189" name="NotAllowedMove" gid="8" x="1689" y="273" width="55" height="52"/>
   <object id="190" gid="8" x="3238.33" y="655.917" width="55" height="52"/>
   <object id="191" gid="8" x="3711.67" y="655.333" width="55" height="52"/>
   <object id="192" gid="8" x="4245" y="656.333" width="55" height="52"/>
@@ -205,11 +205,12 @@
   <object id="200" gid="10" x="3475.5" y="656" width="43" height="50"/>
   <object id="201" gid="10" x="4572.5" y="620.5" width="43" height="50"/>
   <object id="205" gid="10" x="3399" y="323" width="43" height="50"/>
-  <object id="206" gid="10" x="4606" y="211" width="43" height="50"/>
+  <object id="206" name="NotAllowedMove" gid="10" x="4606" y="211" width="43" height="50"/>
   <object id="198" gid="11" x="1885.33" y="433.667" width="43" height="50"/>
-  <object id="202" gid="11" x="3995" y="435" width="43" height="50"/>
+  <object id="202" gid="11" x="3918" y="435" width="43" height="50"/>
   <object id="203" gid="11" x="3153" y="482" width="43" height="50"/>
   <object id="204" gid="11" x="2949" y="417.5" width="43" height="50"/>
+  <object id="368" name="NotAllowedMove" gid="10" x="2775.17" y="562.333" width="43" height="50"/>
  </objectgroup>
  <objectgroup name="Enemy_4_Left">
   <object id="208" gid="14" x="1308" y="582.667" width="48" height="81"/>
@@ -318,7 +319,7 @@
  </objectgroup>
  <objectgroup name="Wall">
   <object id="124" x="2177.33" y="293.333" width="79" height="395.333"/>
-  <object id="131" x="1403.33" y="1.33333" width="88" height="448.667"/>
+  <object id="131" x="1403.33" y="1.33333" width="88" height="434.667"/>
   <object id="162" x="2757.5" y="580.5" width="77" height="109.5"/>
   <object id="166" x="2609.33" y="168.333" width="32.6667" height="251.667"/>
   <object id="168" x="3552" y="130.833" width="50.6667" height="237.167"/>

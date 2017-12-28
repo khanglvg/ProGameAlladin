@@ -29,10 +29,17 @@ void Sit::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
+		aladdin->setIsOwnerRight(false);
 		aladdin->setScale(Vec2(-1, 1));
-
+	}
+		
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
+		aladdin->setIsOwnerRight(true);
 		aladdin->setScale(Vec2(1, 1));
+	}
+		
 
 	
 }
