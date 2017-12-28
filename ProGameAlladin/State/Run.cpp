@@ -17,6 +17,8 @@
 #include "Brake.h"
 #include "../Framework/Audio.h"
 #include "../Lv1Scene.h"
+#include "Flip.h"
+#include "IdleWhenWing.h"
 
 US_NS_JK
 
@@ -157,15 +159,20 @@ State* Run::checkTransition()
 		Audio::get()->play(lv1->getsoundCamel(), false);
 		return new Jump(_node);
 	}
-	
-	if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
-	{
-		return new Brake(_node);
-	}
-	if (aladdin->getIndex() >= 8 && Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
-	{
-		return new Brake(_node);
-	}
 
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
+	
+	//if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+	//{
+	//	return new Brake(_node);
+	//}
+	//if (aladdin->getIndex() >= 8 && Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	//{
+	//	return new Brake(_node);
+	//}
+
+	if (aladdin->isOnTheHorizontalBar())
+		return new IdleWhenWing(_node);
 	return nullptr;
 }

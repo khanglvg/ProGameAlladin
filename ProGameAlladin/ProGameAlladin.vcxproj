@@ -74,8 +74,8 @@
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\DirectX\Include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\DirectX\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
@@ -342,7 +342,6 @@
     <ClInclude Include="State\Idle3.h" />
     <ClInclude Include="State\IdleToClimb.h" />
     <ClInclude Include="State\IdleToLook.h" />
-    <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
     <ClInclude Include="State\Jump.h" />
     <ClInclude Include="State\JumpAndSlash.h" />
@@ -520,7 +519,6 @@
     <ClCompile Include="State\JumpAndSlash.cpp" />
     <ClCompile Include="State\JumpAndThrow.cpp" />
     <ClCompile Include="State\JumpWhileClimb.cpp" />
-    <ClCompile Include="State\IdleWhenClimb.cpp" />
     <ClCompile Include="State\Push.cpp" />
     <ClCompile Include="State\Random.cpp" />
     <ClCompile Include="State\Run.cpp" />

@@ -10,6 +10,7 @@
 #include "IdleToClimb.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
+#include "IdleWhenWing.h"
 US_NS_JK
 
 Jump::Jump(Node* node):State(node)
@@ -27,7 +28,7 @@ void Jump::onEnter()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	
-	aladdin->setVelocity(Vec2(0, -290)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -300)); // -300 is High jump (hold D), -200 is a normal jump
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
 	{
@@ -113,6 +114,8 @@ State* Jump::checkTransition()
 	if (aladdin->isInSpringBoard())
 		return new Flip(_node);
 
+	if (aladdin->isOnTheHorizontalBar())
+		return new IdleWhenWing(_node);
 	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{
 	//	return new Idle(_node);

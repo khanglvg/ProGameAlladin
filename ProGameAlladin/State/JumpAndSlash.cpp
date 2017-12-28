@@ -8,6 +8,7 @@
 #include "../Framework/Audio.h"
 #include "../BossScene.h"
 #include "Jump.h"
+#include "Flip.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -125,6 +126,8 @@ State* JumpAndSlash::checkTransition()
 		return new Jump(_node);
 	}
 		
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	return nullptr;
 }

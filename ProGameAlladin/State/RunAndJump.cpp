@@ -9,6 +9,7 @@
 #include "Jump.h"
 #include "../Framework/Audio.h"
 #include "../Lv1Scene.h"
+#include "Flip.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -139,5 +140,7 @@ State* RunAndJump::checkTransition()
 	if (aladdin->getIndex() >= 6)
 		aladdin->setIsPause(true);
 
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

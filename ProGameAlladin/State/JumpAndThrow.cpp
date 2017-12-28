@@ -8,6 +8,7 @@
 #include "../Framework/Audio.h"
 #include "../Lv1Scene.h"
 #include "../BossScene.h"
+#include "Flip.h"
 US_NS_JK
 
 JumpAndThrow::JumpAndThrow(Node* node):State(node)
@@ -87,10 +88,10 @@ State* JumpAndThrow::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_S))
-		return new JumpAndSlash(_node);
+	/*if (Input::getInstance()->getKey(KEY_S))
+		return new JumpAndSlash(_node);*/
 	
-	if (aladdin->isOnTheGround())
+	if (aladdin->isOnTheGround()||aladdin->isOnThePlatform()||aladdin->isBesideTheStair())
 		return new Idle(_node);
 
 	if (aladdin->isOnTheRope())
@@ -98,6 +99,9 @@ State* JumpAndThrow::checkTransition()
 
 	if (aladdin->getIndex() >= 4)
 		aladdin->setIsPause(true);
+	
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	return nullptr;
 }

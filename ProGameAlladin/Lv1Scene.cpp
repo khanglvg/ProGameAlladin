@@ -48,6 +48,7 @@ void Lv1Scene::init()
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
 	_soundCamel = new Sound("Resources/Audio/Camel Spit.wav");
+	_soundSpring = new Sound("Resources/Audio/Spring Doing 1.wav");
 
 	Audio::get()->load(_soundAbu);
 	Audio::get()->load(_soundBackground);
@@ -60,7 +61,7 @@ void Lv1Scene::init()
 	Audio::get()->load(_soundAppleCollect);
 	Audio::get()->load(_soundAppleCrush);
 	Audio::get()->load(_soundCamel);
-
+	Audio::get()->load(_soundSpring);
 	//Audio::get()->play(_soundBackground, true);
 
 #pragma endregion 
@@ -68,6 +69,7 @@ void Lv1Scene::init()
 	mAladdin = new Aladdin(Vec2(3400, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
+
 
 
 
@@ -874,6 +876,11 @@ Sound* Lv1Scene::getsoundAppleCrush()
 Sound* Lv1Scene::getsoundCamel()
 {
 	return _soundCamel;
+}
+
+Sound* Lv1Scene::getsoundSpring()
+{
+	return _soundSpring;
 }
 
 

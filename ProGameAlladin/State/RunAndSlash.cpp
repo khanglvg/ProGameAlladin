@@ -91,16 +91,14 @@ void RunAndSlash::onExit()
 State* RunAndSlash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
-		return new Throw(_node);
+	//if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
+	//	return new Throw(_node);
 	if (Input::getInstance()->getKey(KEY_D))
 		return new RunAndJump(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Sit(_node);
-	if (Input::getInstance()->isKeyUp(KEY_S))
-		return new Run(_node);
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 		return new Idle(_node);
 
@@ -109,6 +107,10 @@ State* RunAndSlash::checkTransition()
 		return new Run(_node);
 	}
 
+	if (aladdin->getIndex() >= 5 && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
+		return new Run(_node);
+	}
 
 	return nullptr;
 }

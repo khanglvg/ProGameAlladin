@@ -5,6 +5,7 @@
 #include "../GameObject/Aladdin.h"
 #include "IdleToClimb.h"
 #include "Grounding.h"
+#include "Flip.h"
 US_NS_JK
 
 Fall::Fall(Node* node):State(node)
@@ -22,6 +23,7 @@ void Fall::onEnter()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("Fall");
 	aladdin->getRigidBody()->setActive(true);
+	aladdin->getRigidBody()->setGravityScale(2.7);
 }
 
 void Fall::onUpdate()
@@ -37,8 +39,14 @@ void Fall::onUpdate()
 		{
 			aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
 		}
-		aladdin->getRigidBody()->setGravityScale(2.7);
+		
 	}
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW)||Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
+
 }
 
 void Fall::onExit()
@@ -53,14 +61,20 @@ State* Fall::checkTransition()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new JumpAndThrow(_node);
+
 	if (Input::getInstance()->getKey(KEY_S))
 		return new JumpAndSlash(_node);
-	if (aladdin->isClimb())
+
+	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
+
 	if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Grounding(_node);
+
 	if (aladdin->getIndex() >= 8)
 		aladdin->setIsPause(true);
 
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

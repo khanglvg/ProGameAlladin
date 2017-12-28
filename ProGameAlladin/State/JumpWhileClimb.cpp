@@ -6,6 +6,7 @@
 #include "../GameObject/Aladdin.h"
 #include "Jump.h"
 #include "IdleToClimb.h"
+#include "IdleWhenWing.h"
 
 US_NS_JK
 JumpWhileClimb::JumpWhileClimb(Node* node):State(node)
@@ -30,7 +31,6 @@ void JumpWhileClimb::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	{
-	
 		{
 
 			if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
@@ -44,7 +44,6 @@ void JumpWhileClimb::onUpdate()
 				aladdin->setVelocity(Vec2(80, -120));
 			}
 		}
-
 
 
 
@@ -88,6 +87,12 @@ State* JumpWhileClimb::checkTransition()
 		{
 			return new Fall(_node);
 		}
+		
+	}
+
+	if(aladdin->isOnTheHorizontalBar())
+	{
+		return new IdleWhenWing(_node);
 	}
 
 
