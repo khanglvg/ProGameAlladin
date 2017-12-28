@@ -118,6 +118,7 @@ void Aladdin::update()
 		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
 		auto const springboard = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "springboard");
 		auto const thinEnemyKnife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "thinenemyknife");
+		auto const horizontalbar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "horizontalbar");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -236,7 +237,14 @@ void Aladdin::update()
 		}
 		else _isInSpringBoard = false;
 
-
+		//
+		// collision with HorizontalBar
+		//
+		if (horizontalbar != _rigid->getCollidingBodies().end())
+		{
+			_isOnTheHorizontalBar = true;
+		}
+		else _isOnTheHorizontalBar = false;
 
 		//
 		// collision with Enemy's weapon
@@ -312,7 +320,7 @@ void Aladdin::render()
 
 	if(_actionName=="JumpWhileClimb")
 	{
-		expect = 0.12;
+		expect = 0.11;
 	}
 
 	if(_actionName=="JumpAndThrow")
@@ -333,6 +341,11 @@ void Aladdin::render()
 	if(_actionName=="Fall")
 	{
 		expect = 0.08;
+	}
+
+	if(_actionName=="Flip")
+	{
+		expect = 0.04;
 	}
 
 	if (_actionName == "Grounding")
@@ -526,6 +539,11 @@ bool Aladdin::isInCamel() const
 bool Aladdin::isInSpringBoard() const
 {
 	return _isInSpringBoard;
+}
+
+bool Aladdin::isOnTheHorizontalBar() const
+{
+	return _isOnTheHorizontalBar;
 }
 
 void Aladdin::setIndex(const int& index)

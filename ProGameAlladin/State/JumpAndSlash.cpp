@@ -8,6 +8,7 @@
 #include "../Framework/Audio.h"
 #include "../BossScene.h"
 #include "Jump.h"
+#include "Flip.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -79,6 +80,11 @@ void JumpAndSlash::onUpdate()
 		_weapon->getOwner()->setIsOwnerRight(true);
 	}
 
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
 }
 
 void JumpAndSlash::onExit()
@@ -121,6 +127,8 @@ State* JumpAndSlash::checkTransition()
 		return new Jump(_node);
 	}
 		
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	return nullptr;
 }

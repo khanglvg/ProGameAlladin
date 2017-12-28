@@ -36,10 +36,10 @@ void HeadUpAndSlash::onEnter()
 State* HeadUpAndSlash::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	/*if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		return new Run(_node);
+		return new Run(_node);*/
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
@@ -48,8 +48,8 @@ State* HeadUpAndSlash::checkTransition()
 		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
-	if (Input::getInstance()->getKey(KEY_Q))
-		return new Flip(_node);
+	/*if (Input::getInstance()->getKey(KEY_Q))
+		return new Flip(_node);*/
 	if (aladdin->getIndex() >= 22)
 		return new Idle(_node);
 	

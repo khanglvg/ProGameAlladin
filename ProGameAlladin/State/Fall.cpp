@@ -5,6 +5,7 @@
 #include "../GameObject/Aladdin.h"
 #include "IdleToClimb.h"
 #include "Grounding.h"
+#include "Flip.h"
 US_NS_JK
 
 Fall::Fall(Node* node):State(node)
@@ -61,6 +62,7 @@ State* Fall::checkTransition()
 		return new Grounding(_node);
 	if (aladdin->getIndex() >= 8)
 		aladdin->setIsPause(true);
-
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

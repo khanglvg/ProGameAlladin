@@ -9,6 +9,7 @@
 #include "Jump.h"
 #include "../Framework/Audio.h"
 #include "../Lv1Scene.h"
+#include "Flip.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -89,6 +90,11 @@ void RunAndJump::onUpdate()
 		}
 			
 	}
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
 }
 
 void RunAndJump::onExit()
@@ -130,5 +136,7 @@ State* RunAndJump::checkTransition()
 	if (aladdin->getIndex() >= 6)
 		aladdin->setIsPause(true);
 
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

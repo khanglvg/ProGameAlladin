@@ -8,9 +8,12 @@ NS_JK_BEGIN
 
 class Wing: public State
 {
+public:
 	Wing(Node* node);
 	~Wing() override;
 	void onEnter() override;
+	void onUpdate() override;
+	void onExit() override;
 	State*checkTransition() override;
 };
 

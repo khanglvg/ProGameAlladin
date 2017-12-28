@@ -109,7 +109,6 @@
     <ClCompile Include="State\JumpAndSlash.cpp" />
     <ClCompile Include="State\JumpAndThrow.cpp" />
     <ClCompile Include="State\JumpWhileClimb.cpp" />
-    <ClCompile Include="State\IdleWhenClimb.cpp" />
     <ClCompile Include="State\Push.cpp" />
     <ClCompile Include="State\Random.cpp" />
     <ClCompile Include="State\Run.cpp" />
@@ -337,7 +336,6 @@
     <ClInclude Include="State\Idle3.h" />
     <ClInclude Include="State\IdleToClimb.h" />
     <ClInclude Include="State\IdleToLook.h" />
-    <ClInclude Include="State\IdleWhenClimb.h" />
     <ClInclude Include="State\IdleWhenWing.h" />
     <ClInclude Include="State\Jump.h" />
     <ClInclude Include="State\JumpAndSlash.h" />

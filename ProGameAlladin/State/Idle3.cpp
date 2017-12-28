@@ -8,6 +8,7 @@
 #include "Jump.h"
 #include "Run.h"
 #include "BeingAttacked.h"
+#include "Flip.h"
 
 US_NS_JK
 Idle3::Idle3(Node* node):State(node)
@@ -48,6 +49,7 @@ State* Idle3::checkTransition()
 		return new Throw(_node);
 	if (aladdin->isAttacked())
 		return new BeingAttacked(_node);
-
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

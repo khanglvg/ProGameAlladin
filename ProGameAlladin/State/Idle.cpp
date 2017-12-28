@@ -14,7 +14,7 @@
 #include "Idle3.h"
 #include "BeingAttacked.h"
 #include "../Framework/Audio.h"
-
+#include "Flip.h"
 
 
 US_NS_JK
@@ -93,6 +93,9 @@ State* Idle::checkTransition()
 
 	if (aladdin->isAttacked())
 		return new BeingAttacked(_node);
+
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	return nullptr;
 
