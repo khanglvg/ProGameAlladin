@@ -7,6 +7,10 @@
 #include "IdleToSit.h"
 #include "../Framework/Input.h"
 #include "../GameObject/Aladdin.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
+#include "../BossScene.h"
+#include "IdleToLook.h"
 
 US_NS_JK
 
@@ -23,6 +27,19 @@ void BeingAttacked::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("BeingAttacked");
+	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+	auto boss = static_cast<BossScene*>(aladdin->getCurrentScene());
+	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
+	{
+		Audio::get()->play(lv1->getsoundHurt(), false);
+	}
+
+
+
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
+		Audio::get()->play(boss->getsoundHurt(), false);
+	}
 }
 
 State* BeingAttacked::checkTransition()
@@ -35,7 +52,7 @@ State* BeingAttacked::checkTransition()
 	if (Input::getInstance()->getKey(KEY_D))
 		return new Jump(_node);
 	if (Input::getInstance()->getKey(KEY_UP_ARROW))
-		return new HeadUp(_node);
+		return new IdleToLook(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
