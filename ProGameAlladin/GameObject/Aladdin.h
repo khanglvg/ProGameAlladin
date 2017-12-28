@@ -64,6 +64,7 @@ public:
 	bool isOnTheFire() const;
 	bool isInCamel() const;
 	bool isInSpringBoard() const;
+	bool isOnTheHorizontalBar() const;
 
 	void setAllowToClimb(const bool& allow) override;
 	bool isAllowToClimb() override;
@@ -137,6 +138,7 @@ private:
 	bool _isInCamel;
 	bool _isInSpringBoard;
 	bool _isAttacked;
+	bool _isOnTheHorizontalBar;
 	bool _isAttackedByFlame;
 
 	bool _isDeHealth;

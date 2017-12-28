@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animations>
+  <Animation name="aladdindeath" imagePath="aladdinDeath.png" width="1136" height="272">
+    <sprite x="158" y="2" w="45" h="57" oX="158" oY="2" oW="197" oH="1132" />
+    <sprite x="211" y="2" w="45" h="57" oX="211" oY="2" oW="197" oH="1132" />
+    <sprite x="262" y="9" w="39" h="49" oX="262" oY="9" oW="197" oH="1132" />
+    <sprite x="310" y="8" w="40" h="50" oX="310" oY="8" oW="197" oH="1132" />
+    <sprite x="359" y="8" w="35" h="50" oX="359" oY="8" oW="197" oH="1132" />
+    <sprite x="405" y="8" w="36" h="50" oX="405" oY="8" oW="197" oH="1132" />
+    <sprite x="452" y="10" w="39" h="48" oX="452" oY="10" oW="197" oH="1132" />
+    <sprite x="503" y="5" w="44" h="55" oX="503" oY="5" oW="197" oH="1132" />
+    <sprite x="558" y="6" w="41" h="52" oX="558" oY="6" oW="197" oH="1132" />
+    <sprite x="612" y="10" w="39" h="49" oX="612" oY="10" oW="197" oH="1132" />
+    <sprite x="659" y="10" w="40" h="50" oX="659" oY="10" oW="197" oH="1132" />
+   
+
+    <sprite x="0" y="113" w="37" h="50" oX="0" oY="113" oW="197" oH="1132" />
+    <sprite x="47" y="107" w="37" h="56" oX="47" oY="107" oW="197" oH="1132" />
+    <sprite x="95" y="109" w="42" h="54" oX="95" oY="109" oW="197" oH="1132" />
+    <sprite x="146" y="111" w="60" h="52" oX="146" oY="111" oW="197" oH="1132" />
+    <sprite x="221" y="114" w="61" h="50" oX="221" oY="114" oW="197" oH="1132" />
+    <sprite x="294" y="88" w="75" h="82" oX="294" oY="88" oW="197" oH="1132" />
+    <sprite x="381" y="87" w="77" h="84" oX="381" oY="87" oW="197" oH="1132" />
+    <sprite x="474" y="87" w="75" h="84" oX="474" oY="87" oW="197" oH="1132" />
+    <sprite x="565" y="89" w="68" h="82" oX="565" oY="89" oW="197" oH="1132" />
+    <sprite x="652" y="91" w="66" h="80" oX="652" oY="91" oW="197" oH="1132" />
+    <sprite x="732" y="99" w="66" h="73" oX="732" oY="99" oW="197" oH="1132" />
+    <sprite x="809" y="101" w="66" h="73" oX="809" oY="101" oW="197" oH="1132" />
+    <sprite x="886" y="101" w="66" h="73" oX="886" oY="101" oW="197" oH="1132" />
+    <sprite x="968" y="103" w="66" h="73" oX="968" oY="103" oW="197" oH="1132" />
+    <sprite x="1047" y="103" w="66" h="73" oX="1047" oY="103" oW="197" oH="1132" />
+  </Animation>
+  
+  
+  <Animation name="abu" imagePath="aladdinDeath.png" width="1136" height="272">
+    <sprite x="9" y="218" w="68" h="28" oX="9" oY="218" oW="257" oH="426" />
+    <sprite x="88" y="211" w="57" h="35" oX="88" oY="211" oW="257" oH="426" />
+    <sprite x="159" y="203" w="57" h="43" oX="159" oY="203" oW="257" oH="426" />
+    <sprite x="228" y="193" w="58" h="53" oX="228" oY="193" oW="257" oH="426" />
+    <sprite x="305" y="194" w="51" h="52" oX="305" oY="194" oW="257" oH="426" />
+    <sprite x="364" y="199" w="63" h="47" oX="364" oY="199" oW="257" oH="426" />
+  </Animation>
+</Animations>

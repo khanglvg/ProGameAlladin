@@ -9,6 +9,7 @@
 #include "Jump.h"
 #include "../Framework/Audio.h"
 #include "../Lv1Scene.h"
+#include "Flip.h"
 US_NS_JK
 
 RunAndJump::RunAndJump(Node* node):State(node)
@@ -25,7 +26,7 @@ void RunAndJump::onEnter()
 	// TODO: loadAnimation()
 	
 	auto aladdin = static_cast<Aladdin*>(_node);
-	auto scale = 0.8;
+	auto scale = 1;
 
 
 	if(aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
@@ -33,12 +34,14 @@ void RunAndJump::onEnter()
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
 			aladdin->setScale(Vec2(-1, 1));
-			aladdin->setVelocity(Vec2(-150*scale, -270 * scale));
+			aladdin->setVelocity(Vec2(-140*scale, -290 * scale));
+			aladdin->getRigidBody()->setSize(Size(15, 30));
 		}
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->setScale(Vec2(1, 1));
-			aladdin->setVelocity(Vec2(150 * scale, -270 * scale));
+			aladdin->setVelocity(Vec2(140 * scale, -290 * scale));
+			aladdin->getRigidBody()->setSize(Size(15, 30));
 		}
 	}
 	else
@@ -47,14 +50,16 @@ void RunAndJump::onEnter()
 		{
 			aladdin->setScale(Vec2(-1, 1));
 			aladdin->setVelocity(Vec2(-180, -310));
+			aladdin->getRigidBody()->setSize(Size(10, 60));
 		}
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
 			aladdin->setScale(Vec2(1, 1));
 			aladdin->setVelocity(Vec2(180, -310));
+			aladdin->getRigidBody()->setSize(Size(10, 60));
 		}
 	}
-	aladdin->getRigidBody()->setSize(Size(10, 60));
+	
 	aladdin->setActionName("RunAndJump");
 }
 
@@ -101,7 +106,7 @@ void RunAndJump::onExit()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
-		aladdin->getRigidBody()->setSize(Size(10, 30));
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 	else
 		aladdin->getRigidBody()->setSize(Size(10, 60));
 }
@@ -135,5 +140,7 @@ State* RunAndJump::checkTransition()
 	if (aladdin->getIndex() >= 6)
 		aladdin->setIsPause(true);
 
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 	return nullptr;
 }

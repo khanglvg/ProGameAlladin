@@ -49,6 +49,9 @@ void Throw::onEnter()
 	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	//	aladdin->setScale(Vec2(1, 1));
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
+
 	aladdin->setActionName("Throw");
 	_isThrow = true;
 	
@@ -80,7 +83,7 @@ void Throw::onUpdate()
 
 void Throw::onExit()
 {
-
+	
 }
 
 State* Throw::checkTransition()

@@ -14,7 +14,7 @@
 #include "Idle3.h"
 #include "BeingAttacked.h"
 #include "../Framework/Audio.h"
-
+#include "Flip.h"
 
 
 US_NS_JK
@@ -46,7 +46,11 @@ void Idle::onEnter()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
+
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setGravityScale(1.5);
 
 }
 
@@ -70,6 +74,7 @@ State* Idle::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		return new Run(_node);
+
 	if (Input::getInstance()->isKeyDown(KEY_D))
 	{
 	
@@ -83,9 +88,9 @@ State* Idle::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
+
 	if (Input::getInstance()->getKey(KEY_S))
-	{
-	
+	{	
 		return new Slash(_node);
 	}
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
@@ -93,6 +98,9 @@ State* Idle::checkTransition()
 
 	if (aladdin->isAttacked())
 		return new BeingAttacked(_node);
+
+	if (aladdin->isInSpringBoard())
+		return new Flip(_node);
 
 	return nullptr;
 

@@ -25,6 +25,7 @@ void Climb::onEnter()
 	//aladdin->setVelocity(Vec2(0, 0));
 	aladdin->setActionName("Climb");
 	
+	
 }
 
 void Climb::onUpdate()

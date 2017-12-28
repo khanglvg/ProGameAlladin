@@ -18,6 +18,8 @@ void Sit::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 
 	aladdin->setActionName("Sit");
 	//aladdin->getRigidBody()->setSize(Size(10,aladdin->getRect().getHeight()));

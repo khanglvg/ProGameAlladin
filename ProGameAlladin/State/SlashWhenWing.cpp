@@ -19,13 +19,34 @@ void SlashWhenWing::onEnter()
 	auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
 	Audio::get()->play(lv1->getsoundSlash(), false);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		aladdin->setScale(Vec2(-1, 1));
+	aladdin->setVelocity(Vec2(0, 0));
 
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		aladdin->setScale(Vec2(1, 1));
+	aladdin->setActionName("SlashWhenClimbing");
 
-	aladdin->setActionName("SlashWhenWing");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+
+	if (aladdin->isOwnerRight())
+	{
+		_weapon->getOwner()->setIsOwnerRight(true);
+		_weapon->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_weapon->getOwner()->setIsOwnerRight(false);
+		_weapon->getRigidBody()->setActive(true);
+	}
+
+	_weapon->setCurrentScene(aladdin->getCurrentScene());
+	aladdin->getCurrentScene()->addNode(_weapon);
+
+}
+
+void SlashWhenWing::onUpdate()
+{
+}
+
+void SlashWhenWing::onExit()
+{
 }
 
 State* SlashWhenWing::checkTransition()

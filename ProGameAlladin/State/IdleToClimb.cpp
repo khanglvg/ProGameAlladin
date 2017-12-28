@@ -89,7 +89,7 @@ State* IdleToClimb::checkTransition()
 	//{
 	//	return new Idle(_node);
 	//}
-	if (!aladdin->isOnTheRope())
-		return new Idle(_node);
+	/*if (!aladdin->isOnTheRope())
+		return new Idle(_node);*/
 	return nullptr;
 }

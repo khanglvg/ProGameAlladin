@@ -24,7 +24,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isAttackedByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
-	_numRuby = 0;
+	_numRuby = 1;
 	_health = 10;
 	_isDamaged = false;
 	_isInviolable = false;
@@ -121,6 +121,7 @@ void Aladdin::update()
 		auto const thinEnemyKnife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "thinenemyknife");
 		auto const knife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "knifetothrow"); 
 		auto const pot = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "pottothrow");
+		auto const horizontalbar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "horizontalbar");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -230,6 +231,14 @@ void Aladdin::update()
 		}
 		else _isInSpringBoard = false;
 
+		//
+		// collision with HorizontalBar
+		//
+		if (horizontalbar != _rigid->getCollidingBodies().end())
+		{
+			_isOnTheHorizontalBar = true;
+		}
+		else _isOnTheHorizontalBar = false;
 
 		//
 		// collision with Flame
@@ -332,12 +341,12 @@ void Aladdin::render()
 
 	if(_actionName=="JumpAndSlash")
 	{
-		expect = 0.11;
+		expect = 0.09;
 	}
 
 	if(_actionName=="JumpWhileClimb")
 	{
-		expect = 0.12;
+		expect = 0.11;
 	}
 
 	if(_actionName=="JumpAndThrow")
@@ -360,9 +369,20 @@ void Aladdin::render()
 		expect = 0.08;
 	}
 
+	if(_actionName=="Flip")
+	{
+		expect = 0.04;
+	}
+
+	if(_actionName=="HeadUpAndSlash")
+	{
+		expect = 0.03;
+	}
+
 	if (_actionName == "Grounding")
 	{
 		origin = Vec2(0.5f, 0.9f);
+		expect = 0.03;
 	}
 
 	if (_actionName == "SitAndSlash")
@@ -556,6 +576,11 @@ bool Aladdin::isInCamel() const
 bool Aladdin::isInSpringBoard() const
 {
 	return _isInSpringBoard;
+}
+
+bool Aladdin::isOnTheHorizontalBar() const
+{
+	return _isOnTheHorizontalBar;
 }
 
 void Aladdin::setIndex(const int& index)

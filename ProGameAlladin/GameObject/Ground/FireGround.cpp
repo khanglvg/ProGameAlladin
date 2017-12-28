@@ -11,6 +11,7 @@ FireGround::FireGround()
 
 FireGround::FireGround(const Vec2 & position, const Size & size, const GameObjectType tag, Aladdin* target) : GameObject(position, size, tag)
 {
+	_rigid->setDensity(10000);
 	_lastColliPosition = Vec2(0,0);
 	_lastFrame = 0;
 	_aladdin = target;

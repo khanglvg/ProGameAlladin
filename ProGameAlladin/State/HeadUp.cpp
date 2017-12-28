@@ -65,6 +65,8 @@ State* HeadUp::checkTransition()
 		return new Jump(_node);
 	/*if (Input::getInstance()->getKey(KEY_DOWN_ARROW) && Input::getInstance()->isAnyKeyDown())
 		return new Sit(_node);*/
+	//if (Input::getInstance()->getKey(KEY_S)||Input::getInstance()->isKeyUp(KEY_S))
+	//	return new HeadUpAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 		return new HeadUpAndSlash(_node);
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)

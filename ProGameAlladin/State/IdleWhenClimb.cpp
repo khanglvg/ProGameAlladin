@@ -17,6 +17,14 @@ void IdleWhenClimb::onEnter()
 {
 }
 
+void IdleWhenClimb::onUpdate()
+{
+}
+
+void IdleWhenClimb::onExit()
+{
+}
+
 State* IdleWhenClimb::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
