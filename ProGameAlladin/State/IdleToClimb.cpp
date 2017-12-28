@@ -22,6 +22,7 @@ void IdleToClimb::onEnter()
 
 	aladdin->getRigidBody()->setGravityScale(0);
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setActive(true);
 
 }
 

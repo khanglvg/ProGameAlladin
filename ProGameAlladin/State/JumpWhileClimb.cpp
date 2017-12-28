@@ -22,7 +22,8 @@ void JumpWhileClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -80));
+	aladdin->setVelocity(Vec2(0, -120));
+	aladdin->getRigidBody()->setActive(false);
 
 
 	aladdin->setActionName("JumpWhileClimb");
@@ -99,14 +100,6 @@ State* JumpWhileClimb::checkTransition()
 		{
 			return new Fall(_node);
 		}
-		
 	}
-
-	if(aladdin->isOnTheHorizontalBar())
-	{
-		return new IdleWhenWing(_node);
-	}
-
-
 	return nullptr;
 }

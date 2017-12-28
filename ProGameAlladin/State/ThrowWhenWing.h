@@ -9,6 +9,7 @@ public:
 	ThrowWhenWing(Node*node);
 	~ThrowWhenWing() override;
 	void onEnter() override;
+	void onExit() override;
 	State*checkTransition() override;
 };
 

@@ -114,8 +114,8 @@ State* Jump::checkTransition()
 	if (aladdin->isInSpringBoard())
 		return new Flip(_node);
 
-	if (aladdin->isOnTheHorizontalBar())
-		return new IdleWhenWing(_node);
+	//if (aladdin->isOnTheHorizontalBar())
+	//	return new IdleWhenWing(_node);
 	//if (aladdin->isOnTheGround() && (Input::getInstance()->isKeyDown(KEY_D)))
 	//{
 	//	return new Idle(_node);
