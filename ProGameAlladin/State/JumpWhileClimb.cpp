@@ -98,6 +98,7 @@ State* JumpWhileClimb::checkTransition()
 	{
 		if(aladdin->getIndex()>=6)
 		{
+			aladdin->setIsClimb(false);
 			return new Fall(_node);
 		}
 	}

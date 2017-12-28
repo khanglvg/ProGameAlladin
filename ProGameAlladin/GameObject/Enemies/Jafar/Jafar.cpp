@@ -19,7 +19,7 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_attackRange = 280;
 	setScale(Vec2(1, 1));
 
-	_health = 1;
+	_health = 11;
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;
@@ -239,11 +239,11 @@ void Jafar::render()
 		auto origin = Vec2(0.5f, 1.0f);
 
 		Graphics::getInstance()->drawSprite(_textureJafar, origin, getTransformMatrix(), Color(255, 255, 255, 255),
-			rect, 1);
+			rect, 2);
 
 		if (_index <= expect)
 		{
-			Graphics::getInstance()->drawSprite(_textureJafar, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 1);
+			Graphics::getInstance()->drawSprite(_textureJafar, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 			_index += GameManager::getInstance()->getDeltaTime();
 		}
 		else

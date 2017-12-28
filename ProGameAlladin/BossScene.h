@@ -6,6 +6,7 @@
 #include "GameObject/GameObject.h"
 #include "Framework/Sound.h"
 #include "Framework/dxaudio.h"
+#include "GameObject/TitleMenuScene.h"
 
 
 NS_JK_BEGIN
@@ -54,6 +55,11 @@ private:
 	Node* _bgRight;
 	Node* _bgLeft;
 	Node* _map;
+	Node* _alaHealth;
+
+	TitleMenuScene* _alaIcon;
+	TitleMenuScene* _appleIcon;
+	TitleMenuScene* _rubyIcon;
 
 	Sound* _soundSlash;
 	Sound*_soundSitSlash;

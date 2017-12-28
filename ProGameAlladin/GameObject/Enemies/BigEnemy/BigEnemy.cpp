@@ -46,6 +46,7 @@ void BigEnemy::release()
 
 void BigEnemy::update()
 {
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
 
 

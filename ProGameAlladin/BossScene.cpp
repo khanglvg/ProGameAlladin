@@ -10,6 +10,7 @@
 #include "Framework/GameManager.h"
 #include "CompleteScene.h"
 #include "Framework/PhysicsManager.h"
+#include "GameObject/Items/AladdinHealth.h"
 
 US_NS_JK
 
@@ -79,7 +80,28 @@ void BossScene::init()
 	_vectNode.push_back(_map);
 	// ======================================================================================================================================
 
+	_alaIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 139, 22, 25), 4);
+	_alaIcon->setType(TitleMenuScene::ALA);
+	_alaIcon->setPosition(Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() + 80));
+	_vectNode.push_back(_alaIcon);
 
+
+	_appleIcon = new TitleMenuScene("Resources/Items/items.png", Rect(340, 17, 12, 12), 4);
+	_appleIcon->setType(TitleMenuScene::APPLE);
+	_appleIcon->setScale(Vec2(1.4, 1.4));
+	_appleIcon->setPosition(Vec2(Camera::getInstance()->getCameraX() + 110, Camera::getInstance()->getCameraY() + 86));
+	_vectNode.push_back(_appleIcon);
+
+
+	_rubyIcon = new TitleMenuScene("Resources/Items/items.png", Rect(339, 110, 18, 17), 4);
+	_rubyIcon->setType(TitleMenuScene::RUBY);
+	_rubyIcon->setScale(Vec2(1, 1));
+	_vectNode.push_back(_rubyIcon);
+
+	_alaHealth = new AladdinHealth(_aladdin);
+	_alaHealth->setPosition(Vec2(Camera::getInstance()->getCameraX() - 150, Camera::getInstance()->getCameraY() - 80));
+
+	_vectNode.push_back(_alaHealth);
 
 	// =============================================== GROUND & WALL =========================================================================
 	auto ground = new GameObject(Vec2(750 * scale, (816 - 63 - 15) * scale), Size(1500* scale, 126* scale), GameObject::GROUND);
@@ -130,7 +152,7 @@ void BossScene::init()
 
 
 	// =============================================== BOSS ========================================================================================
-	_jafar = new Jafar(Vec2(770 * scale, 550 * scale), Size(10, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
+	_jafar = new Jafar(Vec2(790 * scale, 550 * scale), Size(60, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
 	_jafar->setCurrentScene(this);
 	_vectNode.push_back(_jafar);
 	// =============================================================================================================================================
