@@ -47,7 +47,7 @@ void JumpAndSlash::onEnter()
 
 	aladdin->setActionName("JumpAndSlash");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(22, 12), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{
@@ -79,7 +79,6 @@ void JumpAndSlash::onUpdate()
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
 		_weapon->getOwner()->setIsOwnerRight(true);
 	}
-
 
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 	{

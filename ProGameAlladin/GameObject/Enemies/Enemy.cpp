@@ -133,7 +133,7 @@ void Enemy::setVelocity(const Vec2& velocity)
 
 bool Enemy::isTargetInViewRange()
 {
-	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 200)
+	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 160)
 		return true;
 	return false;
 }
@@ -256,4 +256,14 @@ void Enemy::setFootPosY()
 bool Enemy::getIsCollisionWithAladdin() const
 {
 	return _isCollisionWithAladdin;
+}
+
+bool Enemy::isAttacked() const
+{
+	return _isAttacked;
+}
+
+bool Enemy::isInFire() const
+{
+	return _isInFire;
 }

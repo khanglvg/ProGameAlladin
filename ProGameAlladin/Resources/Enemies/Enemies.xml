@@ -31,6 +31,7 @@
     <sprite x="318" y="184" w="46" h="48" oX="318" oY="184" oW="233" oH="469" />
     <sprite x="378" y="185" w="40" h="47" oX="378" oY="185" oW="233" oH="469" />
     <sprite x="433" y="166" w="45" h="66" oX="433" oY="166" oW="233" oH="469" />
+    <sprite x="8" y="175" w="44" h="57" oX="8" oY="175" oW="233" oH="469" />
   </Animation>
   <Animation name="BigEnemy-Idle" imagePath="Genesis 32X SCD - Aladdin - Guards.png" width="498" height="1053">
     <sprite x="5" y="317" w="44" h="52" oX="5" oY="317" oW="360" oH="318" />
@@ -75,6 +76,7 @@
     <sprite x="210" y="520" w="71" h="65" oX="210" oY="520" oW="582" oH="422" />
     <sprite x="290" y="522" w="74" h="63" oX="290" oY="522" oW="582" oH="422" />
     <sprite x="382" y="530" w="66" h="55" oX="382" oY="530" oW="582" oH="422" />
+    <sprite x="6" y="538" w="53" h="47" oX="6" oY="538" oW="582" oH="422" />
   </Animation>
   <Animation name="BigEnemy-Fired" imagePath="Genesis 32X SCD - Aladdin - Guards.png" width="498" height="1053">
     <sprite x="10" y="598" w="41" h="53" oX="10" oY="598" oW="639" oH="422" />

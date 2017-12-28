@@ -10,6 +10,8 @@
 #include "Framework/Input.h"
 #include "GameObject/TitleMenuScene.h"
 #include "GameObject/Items/AladdinHealth.h"
+#include "Framework/GameManager.h"
+#include "Framework/PhysicsManager.h"
 
 US_NS_JK
 
@@ -63,8 +65,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(1200, -300), Size(40, 60));
-	_vectNode.push_back(mAladdin);
+	mAladdin = new Aladdin(Vec2(1400, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 
 
@@ -192,6 +193,15 @@ void Lv1Scene::update()
 
 	_gameMap->update();
 	Scene::update();
+	
+	if (i > 100)
+	{
+		PhysicsManager::getIntance()->setBeginLv1(false);
+	}
+	else
+	{
+		i++;
+	}
 
 }
 
@@ -213,7 +223,7 @@ void Lv1Scene::calculationSpriteText() const
 	const auto score3 = (score / 10)%10;
 	const auto score4 = score % 10;
 
-	const auto ruby = mAladdin->getNumApple();
+	const auto ruby = mAladdin->getNumRuby();
 	const auto rUnit = ruby % 10;
 	const auto rTens = ruby / 10;
 

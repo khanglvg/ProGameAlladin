@@ -33,12 +33,12 @@ void Weapon::update()
 	{
 		if (_owner->isOwnerRight())
 		{
-			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() + _attackRange.getX()/2 , _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() + (_rigid->getSize().getWidth() - _owner->getRigidBody()->getSize().getWidth()) + _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
 			_position = _rigid->getPosition() - _rigid->getOffset();
 		}
 		else
 		{
-			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _attackRange.getX()/2 - _attackRange.getX() / 2, _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
+			_rigid->setPosition(Vec2(_owner->getRigidBody()->getPosition().getX() - _attackRange.getX(), _owner->getRigidBody()->getPosition().getY() - _attackRange.getY()));
 			_position = _rigid->getPosition() - _rigid->getOffset();
 		}
 	}

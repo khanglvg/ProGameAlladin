@@ -216,6 +216,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.h" />
     <ClInclude Include="GameObject\Enemies\EnemyExplosionState.h" />
     <ClInclude Include="GameObject\Enemies\Jafar\JafarBullet.h" />
     <ClInclude Include="GameObject\Enemies\Jafar\Jafar.h" />
@@ -388,6 +389,7 @@
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.cpp" />
     <ClCompile Include="GameObject\Enemies\EnemyExplosionState.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\JafarBullet.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\Jafar.cpp" />

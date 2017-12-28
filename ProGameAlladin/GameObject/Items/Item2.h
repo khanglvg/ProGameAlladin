@@ -46,7 +46,9 @@ private:
 	string _actionName;
 	float _index = 0;
 
-	float _isIncApple;
+	bool _isIncApple;
+	bool _isIncCherry;
+	bool _isIncHealth;
 
 };
 

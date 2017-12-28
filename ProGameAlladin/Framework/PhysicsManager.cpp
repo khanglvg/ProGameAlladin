@@ -38,7 +38,15 @@ void PhysicsManager::update()
 	{
 		for (auto rigid : _rigidBodies)
 		{
-			const auto deltaTime = GameManager::getInstance()->getDeltaTime();
+			float deltaTime;
+			if (_isBeginLv1)
+			{
+				deltaTime = 0.0167;
+			}
+			else
+			{
+				deltaTime = GameManager::getInstance()->getDeltaTime();
+			}
 
 			const auto mass = rigid->getDensity() * rigid->getSize().getWidth()*rigid->getSize().getHeight();
 
@@ -300,6 +308,11 @@ bool PhysicsManager::isColliding(Manifold& manifold) const
 
 	// mình xét ngược lại cho nhanh hơn
 	return !(left > 0 || right < 0 || top < 0 || bottom > 0);
+}
+
+void PhysicsManager::setBeginLv1(const bool& isLv1)
+{
+	_isBeginLv1 = isLv1;
 }
 
 

@@ -33,7 +33,7 @@ void KnifeEnemyIdleState::onUpdate()
 			_enemy->setScale(Vec2(-1, 1));
 		}
 		int velocityY = -350;
-		int velocityX = 120;
+		int velocityX = 100;
 		if (_enemy->isTargetInAttackRange())
 		{
 			velocityY = -30;
@@ -44,7 +44,7 @@ void KnifeEnemyIdleState::onUpdate()
 			
 			if (!_isThrew)
 			{				
-				if (_expect == 6)
+				if (_expect == 2)
 				{
 					_enemy->getRigidBody()->setActive(false);
 					const auto knife = new KnifeToThrow(_enemy, Vec2(_enemy->getRigidPosition().getX(), _enemy->getRigidPosition().getY()), Size(5, 5));
