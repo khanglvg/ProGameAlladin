@@ -30,7 +30,10 @@ void Jump::onEnter()
 	aladdin->setVelocity(Vec2(0, -270)); // -300 is High jump (hold D), -200 is a normal jump
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+	{
 		aladdin->getRigidBody()->setSize(Size(10, 30));
+		aladdin->getRigidBody()->setGravityScale(1.3);
+	}
 	else
 		aladdin->getRigidBody()->setSize(Size(10, 60));
 

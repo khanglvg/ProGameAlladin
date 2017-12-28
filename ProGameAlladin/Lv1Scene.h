@@ -91,7 +91,7 @@ private:
 	SpriteText* _rubyTens;
 
 
-	
+	int i = 0;
 };
 
 NS_JK_END

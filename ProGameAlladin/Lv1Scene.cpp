@@ -10,6 +10,8 @@
 #include "Framework/Input.h"
 #include "GameObject/TitleMenuScene.h"
 #include "GameObject/Items/AladdinHealth.h"
+#include "Framework/GameManager.h"
+#include "Framework/PhysicsManager.h"
 
 US_NS_JK
 
@@ -189,6 +191,15 @@ void Lv1Scene::update()
 
 	_gameMap->update();
 	Scene::update();
+	
+	if (i > 100)
+	{
+		PhysicsManager::getIntance()->setBeginLv1(false);
+	}
+	else
+	{
+		i++;
+	}
 
 }
 

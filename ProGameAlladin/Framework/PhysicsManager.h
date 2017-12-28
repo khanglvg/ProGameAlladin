@@ -44,6 +44,7 @@ public:
 
 	bool isColliding(Manifold& manifold) const;
 
+	void setBeginLv1(const bool& isLv1);
 	static PhysicsManager* getIntance();
 private:
 	Vec2 _collisionNormal;
@@ -51,6 +52,8 @@ private:
 	std::vector<RigidBody*> _rigidBodies;
 
 	static PhysicsManager* _instance;
+
+	bool _isBeginLv1 = true;
 };
 
 NS_JK_END
