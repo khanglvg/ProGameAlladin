@@ -161,14 +161,14 @@ State* Run::checkTransition()
 	if (aladdin->isInSpringBoard())
 		return new Flip(_node);
 	
-	if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
-	{
-		return new Brake(_node);
-	}
-	if (aladdin->getIndex() >= 8 && Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
-	{
-		return new Brake(_node);
-	}
+	//if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
+	//{
+	//	return new Brake(_node);
+	//}
+	//if (aladdin->getIndex() >= 8 && Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	//{
+	//	return new Brake(_node);
+	//}
 
 	if (aladdin->isOnTheHorizontalBar())
 		return new IdleWhenWing(_node);

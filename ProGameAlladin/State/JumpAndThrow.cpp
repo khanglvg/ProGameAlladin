@@ -88,8 +88,8 @@ State* JumpAndThrow::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_S))
-		return new JumpAndSlash(_node);
+	/*if (Input::getInstance()->getKey(KEY_S))
+		return new JumpAndSlash(_node);*/
 	
 	if (aladdin->isOnTheGround()||aladdin->isOnThePlatform()||aladdin->isBesideTheStair())
 		return new Idle(_node);

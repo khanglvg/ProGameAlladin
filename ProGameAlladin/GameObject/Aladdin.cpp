@@ -341,7 +341,7 @@ void Aladdin::render()
 
 	if(_actionName=="JumpAndSlash")
 	{
-		expect = 0.11;
+		expect = 0.09;
 	}
 
 	if(_actionName=="JumpWhileClimb")
@@ -374,9 +374,15 @@ void Aladdin::render()
 		expect = 0.04;
 	}
 
+	if(_actionName=="HeadUpAndSlash")
+	{
+		expect = 0.03;
+	}
+
 	if (_actionName == "Grounding")
 	{
 		origin = Vec2(0.5f, 0.9f);
+		expect = 0.03;
 	}
 
 	if (_actionName == "SitAndSlash")

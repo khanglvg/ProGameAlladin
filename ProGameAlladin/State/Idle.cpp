@@ -70,6 +70,7 @@ State* Idle::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		return new Run(_node);
+
 	if (Input::getInstance()->isKeyDown(KEY_D))
 	{
 	
@@ -83,9 +84,9 @@ State* Idle::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new IdleToSit(_node);
+
 	if (Input::getInstance()->getKey(KEY_S))
-	{
-	
+	{	
 		return new Slash(_node);
 	}
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)

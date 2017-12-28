@@ -62,7 +62,7 @@ State* Flip::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_A))
+	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new JumpAndThrow(_node);
 
 	if (Input::getInstance()->getKey(KEY_S))
@@ -82,7 +82,6 @@ State* Flip::checkTransition()
 	if(aladdin->getIndex()>=12)
 	{
 		return new Fall(_node);
-		aladdin->getRigidBody()->setGravityScale(2.3);
 	}
 
 	return nullptr;
