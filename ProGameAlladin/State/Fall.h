@@ -12,6 +12,9 @@ public:
 	void onUpdate() override;
 	void onExit() override;
 	State*checkTransition() override;
+
+private:
+	float _expect = 0;
 };
 
 NS_JK_END

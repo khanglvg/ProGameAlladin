@@ -32,12 +32,12 @@ void Slash::onEnter()
 
 	if (aladdin->getEScene() == Aladdin::ENUM_LV1_SCENE)
 	{
-	
 		Audio::get()->play(lv1->getsoundSlash(), false);
 	}
 
 	if(aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
 	{
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 		Audio::get()->play(boss->getsoundSlash(), false);
 	}
 	

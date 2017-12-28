@@ -21,10 +21,11 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isPause = false;
 	_isClimbDown = false;
 	_isClimb = false;
+	_isWing = false;
 	_isAttackedByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
-	_numRuby = 0;
+	_numRuby = 1;
 	_health = 10;
 	_isDamaged = false;
 	_isInviolable = false;
@@ -653,6 +654,16 @@ void Aladdin::setIsClimb(const bool & climb)
 bool Aladdin::isClimb() const
 {
 	return _isClimb;
+}
+
+void Aladdin::setIsWing(const bool & wing)
+{
+	_isWing = wing;
+}
+
+bool Aladdin::isWing() const
+{
+	return _isWing;
 }
 
 int Aladdin::getEScene() const

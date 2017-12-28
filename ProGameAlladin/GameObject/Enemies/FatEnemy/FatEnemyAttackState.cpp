@@ -73,6 +73,10 @@ void FatEnemyAttackState::onExit()
 
 EnemyState * FatEnemyAttackState::checkTransition()
 {
+	if (_enemy->getIndex() == 6)
+	{
+		return new FatEnemyIdleState(_enemy);
+	}
 	if (_enemy->isTargetInViewRange() && !_enemy->isTargetInAttackRange())
 	{
 		if  (_enemy->getIndex() == 0)

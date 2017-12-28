@@ -4,6 +4,7 @@
 #include "JumpAndThrow.h"
 #include "Fall.h"
 #include "../GameObject/Aladdin.h"
+#include "../Framework/GameManager.h"
 #include "Jump.h"
 #include "IdleToClimb.h"
 #include "IdleWhenWing.h"
@@ -21,7 +22,8 @@ void JumpWhileClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -80));
+	aladdin->setVelocity(Vec2(0, -120));
+	aladdin->getRigidBody()->setActive(false);
 
 
 	aladdin->setActionName("JumpWhileClimb");
@@ -36,16 +38,27 @@ void JumpWhileClimb::onUpdate()
 			if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
 			{
 				aladdin->getRigidBody()->setGravityScale(1);
-				aladdin->setVelocity(Vec2(-70, -110));
+				aladdin->setVelocity(Vec2(-90, -120));
 			}
 			if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 			{
 				aladdin->getRigidBody()->setGravityScale(1);
-				aladdin->setVelocity(Vec2(70, -110));
+				aladdin->setVelocity(Vec2(80, -120));
 			}
 		}
 
-
+		if (!aladdin->isOnTheRope())
+		{
+			if (_expect >= 0.07)
+			{
+				aladdin->getRigidBody()->setActive(true);
+			}
+			else
+			{
+				_expect += GameManager::getInstance()->getDeltaTime();
+			}
+		}
+			
 
 		//if (!aladdin->isOnTheRope())
 		//{
@@ -87,14 +100,6 @@ State* JumpWhileClimb::checkTransition()
 		{
 			return new Fall(_node);
 		}
-		
 	}
-
-	if(aladdin->isOnTheHorizontalBar())
-	{
-		return new IdleWhenWing(_node);
-	}
-
-
 	return nullptr;
 }

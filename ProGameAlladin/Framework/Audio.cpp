@@ -105,9 +105,10 @@ void Audio::initDirectXSound() {
 }
 
 void Audio::releaseDirectXSound() {
-  if ( _directXSound ) {
+  if ( _directXSound ) 
+  {
     delete _directXSound;
-    _directXSound = 0;
+    _directXSound = nullptr;
 
    // _logger.info( "Released DirectX Sound" );
   }

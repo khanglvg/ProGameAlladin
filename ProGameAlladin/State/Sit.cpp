@@ -18,6 +18,8 @@ void Sit::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 
 	aladdin->setActionName("Sit");
 	//aladdin->getRigidBody()->setSize(Size(10,aladdin->getRect().getHeight()));
@@ -29,10 +31,17 @@ void Sit::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	{
+		aladdin->setIsOwnerRight(false);
 		aladdin->setScale(Vec2(-1, 1));
-
+	}
+		
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+	{
+		aladdin->setIsOwnerRight(true);
 		aladdin->setScale(Vec2(1, 1));
+	}
+		
 
 	
 }

@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
     <ClInclude Include="CompleteScene.h" />
+    <ClInclude Include="DeathScene.h" />
     <ClInclude Include="Framework\Audio.h" />
     <ClInclude Include="Framework\dxaudio.h" />
     <ClInclude Include="Framework\Sound.h" />
@@ -216,6 +217,7 @@
     <ClInclude Include="DirectX\Include\XInput.h" />
     <ClInclude Include="DirectX\Include\xma2defs.h" />
     <ClInclude Include="DirectX\Include\xnamath.h" />
+    <ClInclude Include="GameObject\AladdinDeath.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.h" />
     <ClInclude Include="GameObject\Enemies\EnemyExplosionState.h" />
     <ClInclude Include="GameObject\Enemies\Jafar\JafarBullet.h" />
@@ -232,6 +234,7 @@
     <ClInclude Include="GameObject\Ground\Platform.h" />
     <ClInclude Include="GameObject\Items\AladdinHealth.h" />
     <ClInclude Include="GameObject\Items\Item2.h" />
+    <ClInclude Include="GameObject\Ground\HorizontalBar.h" />
     <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\SpriteText.h" />
@@ -383,12 +386,14 @@
   <ItemGroup>
     <ClCompile Include="BossScene.cpp" />
     <ClCompile Include="CompleteScene.cpp" />
+    <ClCompile Include="DeathScene.cpp" />
     <ClCompile Include="Framework\Audio.cpp" />
     <ClCompile Include="Framework\dxaudio.cpp" />
     <ClCompile Include="Framework\Sound.cpp" />
     <ClCompile Include="Framework\Text.cpp" />
     <ClCompile Include="GameObject\AladdinAndAbu.cpp" />
     <ClCompile Include="GameObject\Aladdin.cpp" />
+    <ClCompile Include="GameObject\AladdinDeath.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.cpp" />
     <ClCompile Include="GameObject\Enemies\EnemyExplosionState.cpp" />
     <ClCompile Include="GameObject\Enemies\Jafar\JafarBullet.cpp" />
@@ -405,6 +410,7 @@
     <ClCompile Include="GameObject\Ground\Platform.cpp" />
     <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
     <ClCompile Include="GameObject\Items\Item2.cpp" />
+    <ClCompile Include="GameObject\Ground\HorizontalBar.cpp" />
     <ClCompile Include="GameObject\SpriteText.cpp" />
     <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />
@@ -574,6 +580,7 @@
     <Xml Include="Resources\Boss\JafarBullet.xml" />
     <Xml Include="Resources\Boss\Transform.xml" />
     <Xml Include="Resources\Complete\aladdin_complete.xml" />
+    <Xml Include="Resources\DeathScene\aladdinDeath.xml" />
     <Xml Include="Resources\Enemies\Camel.xml" />
     <Xml Include="Resources\Enemies\Enemies.xml" />
     <Xml Include="Resources\Enemies\Enemies2.xml" />
@@ -611,6 +618,7 @@
     <Image Include="Resources\Complete\victory_abu.png" />
     <Image Include="Resources\Complete\victory_aladdin.png" />
     <Image Include="Resources\Complete\victory_title.png" />
+    <Image Include="Resources\DeathScene\aladdinDeath.png" />
     <Image Include="Resources\demo_tmx\apple.png" />
     <Image Include="Resources\demo_tmx\Camel.png" />
     <Image Include="Resources\demo_tmx\Enemy-1.png" />

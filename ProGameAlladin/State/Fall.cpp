@@ -5,6 +5,8 @@
 #include "../GameObject/Aladdin.h"
 #include "IdleToClimb.h"
 #include "Grounding.h"
+#include "IdleWhenWing.h"
+#include "../Framework/GameManager.h"
 #include "Flip.h"
 US_NS_JK
 
@@ -22,7 +24,6 @@ void Fall::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("Fall");
-	aladdin->getRigidBody()->setActive(true);
 	aladdin->getRigidBody()->setGravityScale(2.7);
 }
 
@@ -45,6 +46,16 @@ void Fall::onUpdate()
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW)||Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 	{
 		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
+
+
+	if (_expect >= 0.1)
+	{
+		aladdin->getRigidBody()->setActive(true);
+	}
+	else
+	{
+		_expect += GameManager::getInstance()->getDeltaTime();
 	}
 
 }
@@ -76,5 +87,10 @@ State* Fall::checkTransition()
 
 	if (aladdin->isInSpringBoard())
 		return new Flip(_node);
+
+	if (aladdin->isWing() && aladdin->getVelocity().getY() > 0)
+	{
+		return new IdleWhenWing(_node);
+	}
 	return nullptr;
 }

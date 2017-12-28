@@ -22,7 +22,7 @@ Enemy::Enemy(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_speed = 10;
 	_boundaryLeft = _startPosition.x - 50;
 	_boundaryRight = _startPosition.x + 50;
-	_viewRange = 250;
+	_viewRange = 180;
 	_attackRange = 100;
 	_isRight = false;
 	_allowMoveLeft = _allowMoveRight = true;
@@ -133,7 +133,7 @@ void Enemy::setVelocity(const Vec2& velocity)
 
 bool Enemy::isTargetInViewRange()
 {
-	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 160)
+	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < _target->getSize().getHeight())
 		return true;
 	return false;
 }
@@ -141,6 +141,13 @@ bool Enemy::isTargetInViewRange()
 bool Enemy::isTargetInAttackRange()
 {
 	if (abs(_distanceToTarget.x) <= _attackRange && _distanceToTarget.y < _target->getSize().getHeight())
+		return true;
+	return false;
+}
+
+bool Enemy::isTargetInWallEnemyRange()
+{
+	if (abs(_distanceToTarget.x) <= _viewRange && _distanceToTarget.y < 160)
 		return true;
 	return false;
 }
@@ -236,6 +243,16 @@ void Enemy::setGameMap(GameMap * map)
 	_map = map;
 }
 
+void Enemy::setBoudaryLeft(const int & boudary)
+{
+	_boundaryLeft = _startPosition.x - boudary;
+}
+
+void Enemy::setBoudaryRight(const int & boudary)
+{
+	_boundaryRight = _startPosition.x + boudary;
+}
+
 GameObject * Enemy::getTarget() const
 {
 	return _target;
@@ -261,6 +278,16 @@ bool Enemy::getIsCollisionWithAladdin() const
 bool Enemy::isAttacked() const
 {
 	return _isAttacked;
+}
+
+void Enemy::setIsNotAllowedMove(const bool& isAllowedMove)
+{
+	_isNotAllowedMove = isAllowedMove;
+}
+
+bool Enemy::isNotAllowedMove() const
+{
+	return _isNotAllowedMove;
 }
 
 bool Enemy::isInFire() const

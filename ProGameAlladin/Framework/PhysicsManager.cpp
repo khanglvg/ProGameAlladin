@@ -315,6 +315,11 @@ void PhysicsManager::setBeginLv1(const bool& isLv1)
 	_isBeginLv1 = isLv1;
 }
 
+void PhysicsManager::setInBoss(const bool& isInBoss)
+{
+	_isInBoss = isInBoss;
+}
+
 
 void PhysicsManager::resolveCollision(Manifold &manifold) const
 {
@@ -347,9 +352,11 @@ void PhysicsManager::resolveCollision(Manifold &manifold) const
 	// Apply impulse
 	const auto impulse = manifold.collisionNormal * j;
 
-
-	const float percent = 0.2; // usually 20% to 80%
-
+	
+	float percent = 0.2; // usually 20% to 80%
+	if (_isInBoss)
+		percent = 0.8;
+	
 	const float slop = 0.01; // usually 0.01 to 0.1
 
 	const auto correction = manifold.collisionNormal * percent* (max(manifold.penetration - slop, 0.0f) / (inverseMassA + inverseMassB));

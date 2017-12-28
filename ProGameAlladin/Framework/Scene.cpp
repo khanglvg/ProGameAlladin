@@ -2,7 +2,7 @@
 
 US_NS_JK
 
-Scene::Scene()
+Scene::Scene(): _oldScene(nullptr)
 {
 }
 
@@ -74,3 +74,19 @@ void Scene::removeNode(Node* node)
 {
 	_nodesToRemove.push_back(node);
 }
+
+Scene* Scene::getOldScene() const
+{
+	if(_oldScene != nullptr)
+	{
+		return _oldScene;
+	}
+
+	return nullptr;
+}
+
+bool Scene::isInitialized() const
+{
+	return _isInitialized;
+}
+

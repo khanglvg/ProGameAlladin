@@ -42,6 +42,7 @@ void CompleteScene::init()
 
 	Camera::getInstance()->setScaleFactor(Vec2(1,1));
 	_vectNode.push_back(Camera::getInstance());
+	_isInitialized = true;
 	Scene::init();
 }
 

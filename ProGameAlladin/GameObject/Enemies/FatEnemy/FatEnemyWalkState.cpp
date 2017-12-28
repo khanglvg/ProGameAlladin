@@ -1,6 +1,7 @@
 #include "FatEnemyWalkState.h"
 #include "FatEnemy.h"
 #include "FatEnemyAttackState.h"
+#include "../../../Framework/GameManager.h"
 
 US_NS_JK
 
@@ -43,6 +44,14 @@ EnemyState * FatEnemyWalkState::checkTransition()
 {
 	if (_enemy->isTargetInAttackRange())
 	{
+		//if (_expect >= 3)
+		//{
+		//	return new FatEnemyAttackState(_enemy);
+		//}
+		//else
+		//{
+		//	_expect += GameManager::getInstance()->getDeltaTime();
+		//}
 		return new FatEnemyAttackState(_enemy);
 	}
 	if (!_enemy->isRight() && !_enemy->isAllowMoveLeft() && _enemy->getIndex()==0)
