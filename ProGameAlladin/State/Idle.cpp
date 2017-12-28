@@ -46,7 +46,11 @@ void Idle::onEnter()
 	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		aladdin->setScale(Vec2(1, 1));
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
+
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setGravityScale(1.5);
 
 }
 

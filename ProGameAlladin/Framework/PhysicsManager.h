@@ -45,6 +45,8 @@ public:
 	bool isColliding(Manifold& manifold) const;
 
 	void setBeginLv1(const bool& isLv1);
+
+	void setInBoss(const bool& isInBoss);
 	static PhysicsManager* getIntance();
 private:
 	Vec2 _collisionNormal;
@@ -54,6 +56,7 @@ private:
 	static PhysicsManager* _instance;
 
 	bool _isBeginLv1 = true;
+	bool _isInBoss = false;
 };
 
 NS_JK_END

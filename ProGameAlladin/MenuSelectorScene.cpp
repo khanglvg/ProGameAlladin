@@ -54,7 +54,7 @@ void MenuSelector::init()
 	_stateSound = true;
 	_distance = 30;
 	_errorY = 30;
-	_timer = 3;
+	_timer = 2;
 	_temp = 0;
 
 	const auto scaleLetter = 1.7;

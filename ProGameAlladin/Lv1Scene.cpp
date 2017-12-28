@@ -12,6 +12,7 @@
 #include "GameObject/Items/AladdinHealth.h"
 #include "Framework/GameManager.h"
 #include "Framework/PhysicsManager.h"
+#include "DeathScene.h"
 
 US_NS_JK
 
@@ -64,7 +65,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(1400, 600), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(3400, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
@@ -172,6 +173,9 @@ void Lv1Scene::init()
 	//	object->init();
 	//	mQuadTree->insertObject(object);
 	//}
+
+	PhysicsManager::getIntance()->setInBoss(false);
+	_isInitialized = true;
 	Scene::init();
 
 }
@@ -185,6 +189,7 @@ void Lv1Scene::release()
 
 void Lv1Scene::update()
 {
+	Camera::getInstance()->follow(mAladdin);
 	//checkVisibility();
 	_alaLife->setPosition(Vec2(Camera::getInstance()->getCameraX(), Camera::getInstance()->getCameraY()));
 	_bg1->setPosition(Vec2(Camera::getInstance()->getCameraX() - 170, Camera::getInstance()->getCameraY() - 130));
@@ -200,6 +205,14 @@ void Lv1Scene::update()
 	else
 	{
 		i++;
+	}
+
+	if (mAladdin->getNumRuby() == 0)
+	{
+		// change Scene
+		mAladdin->incApple();
+		GameManager::getInstance()->changeScene(new DeathScene(this));
+		
 	}
 
 }

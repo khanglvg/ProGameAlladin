@@ -24,6 +24,9 @@ void Idle3::onEnter()
 	aladdin->setActionName("Idle3");
 	aladdin->setVelocity(Vec2(0, 0));
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
+
 }
 
 State* Idle3::checkTransition()

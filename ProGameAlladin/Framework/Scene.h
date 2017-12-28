@@ -19,10 +19,17 @@ public:
 	
 	void addNode(Node* node);
 	void removeNode(Node* node);
+	
+	Scene* getOldScene() const;
+
+	bool isInitialized() const;
 protected:
 	vector<Node*> _vectNode;
 	vector<Node*> _nodesToAdd;
 	vector<Node*> _nodesToRemove;
+	Scene* _oldScene;
+
+	bool _isInitialized = false;
 };
 
 NS_JK_END

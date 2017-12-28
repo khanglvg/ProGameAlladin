@@ -24,7 +24,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isAttackedByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
-	_numRuby = 0;
+	_numRuby = 1;
 	_health = 10;
 	_isDamaged = false;
 	_isInviolable = false;

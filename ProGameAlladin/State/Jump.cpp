@@ -31,8 +31,8 @@ void Jump::onEnter()
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
 	{
-		aladdin->getRigidBody()->setSize(Size(10, 30));
-		aladdin->getRigidBody()->setGravityScale(1.3);
+		aladdin->getRigidBody()->setSize(Size(15, 30));
+		aladdin->getRigidBody()->setGravityScale(1.5);
 	}
 	else
 		aladdin->getRigidBody()->setSize(Size(10, 60));
@@ -67,7 +67,7 @@ void Jump::onExit()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
-		aladdin->getRigidBody()->setSize(Size(10, 30));
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 	else
 		aladdin->getRigidBody()->setSize(Size(10, 60));
 	aladdin->getRigidBody()->setGravityScale(1.5);

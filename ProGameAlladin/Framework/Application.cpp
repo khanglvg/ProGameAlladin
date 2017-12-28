@@ -42,6 +42,7 @@ float Application::getAnimationInterval() const
 
 Application::~Application ( )
 {
+	Audio::get()->release();
 	GameManager::getInstance()->release();
 	Graphics::getInstance()->release();
 	Input::getInstance()->release();

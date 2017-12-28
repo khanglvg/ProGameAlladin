@@ -56,6 +56,8 @@ void Run::onEnter()
 		}
 	}
 
+	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
+		aladdin->getRigidBody()->setSize(Size(15, 30));
 	aladdin->setActionName("Run");
 
 	

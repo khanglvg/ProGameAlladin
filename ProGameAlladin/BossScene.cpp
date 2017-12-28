@@ -230,6 +230,9 @@ void BossScene::init()
 		_listAppleRight[i]->init();
 	}
 
+
+	PhysicsManager::getIntance()->setInBoss(true);
+	_isInitialized = true;
 	Scene::init();
 }
 
@@ -248,8 +251,12 @@ void BossScene::release()
 			delete _listAppleRight[i];
 	}
 	_listAppleRight.clear();
-	Scene::release();
+
+	PhysicsManager::getIntance()->setInBoss(false);
+
 	Audio::get()->release();
+	Scene::release();
+	
 }
 
 void BossScene::update()

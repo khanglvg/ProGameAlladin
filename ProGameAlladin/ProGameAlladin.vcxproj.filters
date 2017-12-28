@@ -156,6 +156,8 @@
     <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
     <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.cpp" />
+    <ClCompile Include="DeathScene.cpp" />
+    <ClCompile Include="GameObject\AladdinDeath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -392,6 +394,8 @@
     <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
     <ClInclude Include="GameObject\Items\AladdinHealth.h" />
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.h" />
+    <ClInclude Include="DeathScene.h" />
+    <ClInclude Include="GameObject\AladdinDeath.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
@@ -444,6 +448,7 @@
     <Xml Include="Resources\Enemies\Enemy-Explosion.xml" />
     <Xml Include="Resources\Items\AladdinHealth.xml" />
     <Xml Include="Resources\Items\SpringBoard.xml" />
+    <Xml Include="Resources\DeathScene\aladdinDeath.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\AgrabahMarket.png" />
@@ -504,6 +509,7 @@
     <Image Include="Resources\Items\AladdinHealth.png" />
     <Image Include="Resources\Items\spring_strip10_1_33.png" />
     <Image Include="Resources\background.png" />
+    <Image Include="Resources\DeathScene\aladdinDeath.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

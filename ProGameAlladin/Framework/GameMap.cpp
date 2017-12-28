@@ -219,7 +219,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			if (objectGroup->GetName() == "HorizontalBar")
 			{
 				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::HORIZONTALBAR);
-
+				gameObject->getRigidBody()->setTag("horizontalbar");
 				_listHorizontalBar.push_back(gameObject);
 
 				//_quadTree->InsertStaticObject(gameObject);
