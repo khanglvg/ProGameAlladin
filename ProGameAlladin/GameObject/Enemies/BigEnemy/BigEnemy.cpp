@@ -14,7 +14,7 @@ BigEnemy::BigEnemy()
 BigEnemy::BigEnemy(const Vec2& position, const Size& size, const GameObjectType& tag, GameObject* player)
 	:Enemy(position, size, tag, player)
 {
-	_health = 30;
+	_health = 20;
 	_attackRange = 80;
 	_boundaryLeft = position.x - 90;
 	_boundaryRight = position.x + 90;
@@ -51,6 +51,7 @@ void BigEnemy::update()
 
 	auto const aladdinWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "aladdinknife");
 	auto const appleWeapon = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
+	auto const fireground = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fireground");
 
 	if (aladdinWeapon != _rigid->getCollidingBodies().end() || appleWeapon != _rigid->getCollidingBodies().end())
 	{
@@ -68,6 +69,13 @@ void BigEnemy::update()
 	{
 		_isAttacked = false;
 	}
+
+	if (fireground != _rigid->getCollidingBodies().end())
+	{
+		_isInFire = true;
+	}
+	else
+		_isInFire = false;
 
 	if (_actionName == "Enemy-Explosion" && _animationIndex == 9)
 	{
@@ -98,6 +106,8 @@ void BigEnemy::update()
 	{
 		_rigid->setGravityScale(0);
 		setVelocity(Vec2(0, 0));
+		_currentState->onExit();
+		delete _currentState;
 		_currentState = new EnemyExplosionState(this);
 		_animationIndex = 0;
 	}

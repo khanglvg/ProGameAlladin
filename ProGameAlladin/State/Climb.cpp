@@ -80,6 +80,14 @@ void Climb::onUpdate()
 		aladdin->getRigidBody()->setActive(false);
 		aladdin->setIsClimb(false);
 	}
+
+	
+}
+
+void Climb::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->setIsClimbDown(false);
 }
 
 State* Climb::checkTransition()
@@ -88,13 +96,13 @@ State* Climb::checkTransition()
 
 	if (Input::getInstance()->getKey(KEY_D))
 		return new JumpWhileClimb(_node);
-	if (Input::getInstance()->isKeyDown(KEY_S))
+	if (Input::getInstance()->getKey(KEY_S))
 		return new SlashWhenClimb(_node);
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new ThrowWhenClimb(_node);
 	if (!aladdin->isOnTheRope())
 	{
-		aladdin->getRigidBody()->setGravityScale(1);
+		aladdin->getRigidBody()->setGravityScale(1.5);
 		return new Idle(_node);
 	}
 		

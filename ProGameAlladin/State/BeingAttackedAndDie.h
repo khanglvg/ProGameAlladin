@@ -8,6 +8,7 @@ NS_JK_BEGIN
 
 class BeingAttackedAndDie:public State
 {
+public:
 	BeingAttackedAndDie(Node* node);
 	~BeingAttackedAndDie() override;
 	void onEnter() override;

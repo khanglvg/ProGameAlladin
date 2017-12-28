@@ -42,6 +42,7 @@ public:
 	Sound* getsoundHurt();
 	Sound* getsoundAppleCollect();
 	Sound* getsoundAppleCrush();
+	Sound* getsoundCamel();
 
 //protected:
 //	void checkVisibility();
@@ -67,6 +68,7 @@ private:
 	Sound*_soundHurt;
 	Sound*_soundAppleCollect;
 	Sound*_soundAppleCrush;
+	Sound*_soundCamel;
 	//CSound* _soundBackground;
 
 	TitleMenuScene* _alaIcon;

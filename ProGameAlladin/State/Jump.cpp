@@ -27,7 +27,7 @@ void Jump::onEnter()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
 	
-	aladdin->setVelocity(Vec2(0, -270)); // -300 is High jump (hold D), -200 is a normal jump
+	aladdin->setVelocity(Vec2(0, -290)); // -300 is High jump (hold D), -200 is a normal jump
 
 	if (aladdin->getEScene() == Aladdin::ENUM_BOSS_SCENE)
 	{
@@ -70,6 +70,7 @@ void Jump::onExit()
 		aladdin->getRigidBody()->setSize(Size(10, 30));
 	else
 		aladdin->getRigidBody()->setSize(Size(10, 60));
+	aladdin->getRigidBody()->setGravityScale(1.5);
 }
 
 State* Jump::checkTransition()
@@ -82,7 +83,6 @@ State* Jump::checkTransition()
 		return new JumpAndThrow(_node);
 	if (Input::getInstance()->getKey(KEY_S))
 	{
-		//Audio::get()->play(Lv1Scene::_soundSlash, false);
 		return new JumpAndSlash(_node);
 		
 	}
@@ -100,7 +100,15 @@ State* Jump::checkTransition()
 	}
 
 	if (aladdin->isInCamel())
+	{
+		auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+		Audio::get()->play(lv1->getsoundCamel(), false);
 		return new Jump(_node);
+	}
+	
+
+	if (aladdin->getIndex() >= 5)
+		aladdin->setIsPause(true);
 
 	if (aladdin->isInSpringBoard())
 		return new Flip(_node);
@@ -110,7 +118,8 @@ State* Jump::checkTransition()
 	//	return new Idle(_node);
 	//}
 	
-	
+	if (aladdin->getIndex() == 5)
+		aladdin->getRigidBody()->setGravityScale(4);
 
 	
 

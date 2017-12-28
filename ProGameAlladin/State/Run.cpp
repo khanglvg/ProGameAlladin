@@ -15,6 +15,8 @@
 #include "../Framework/Camera.h"
 #include "IdleToClimb.h"
 #include "Brake.h"
+#include "../Framework/Audio.h"
+#include "../Lv1Scene.h"
 
 US_NS_JK
 
@@ -148,7 +150,12 @@ State* Run::checkTransition()
 	if (aladdin->isOnTheRope())
 		return new IdleToClimb(_node);
 	if (aladdin->isInCamel())
+	{
+		auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+		Audio::get()->play(lv1->getsoundCamel(), false);
 		return new Jump(_node);
+	}
+	
 	if(aladdin->getIndex()>=8 && Input::getInstance()->isKeyUp(KEY_LEFT_ARROW))
 	{
 		return new Brake(_node);
@@ -157,5 +164,6 @@ State* Run::checkTransition()
 	{
 		return new Brake(_node);
 	}
+
 	return nullptr;
 }

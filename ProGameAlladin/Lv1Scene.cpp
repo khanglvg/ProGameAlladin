@@ -46,6 +46,7 @@ void Lv1Scene::init()
 	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
+	_soundCamel = new Sound("Resources/Audio/Camel Spit.wav");
 
 	Audio::get()->load(_soundAbu);
 	Audio::get()->load(_soundBackground);
@@ -57,13 +58,13 @@ void Lv1Scene::init()
 	Audio::get()->load(_soundHurt);
 	Audio::get()->load(_soundAppleCollect);
 	Audio::get()->load(_soundAppleCrush);
-
+	Audio::get()->load(_soundCamel);
 
 	//Audio::get()->play(_soundBackground, true);
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(300, 280), Size(40, 60));
+	mAladdin = new Aladdin(Vec2(1400, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
@@ -221,7 +222,7 @@ void Lv1Scene::calculationSpriteText() const
 	const auto score3 = (score / 10)%10;
 	const auto score4 = score % 10;
 
-	const auto ruby = mAladdin->getNumApple();
+	const auto ruby = mAladdin->getNumRuby();
 	const auto rUnit = ruby % 10;
 	const auto rTens = ruby / 10;
 
@@ -855,6 +856,11 @@ Sound* Lv1Scene::getsoundAppleCollect()
 Sound* Lv1Scene::getsoundAppleCrush()
 {
 	return _soundAppleCrush;
+}
+
+Sound* Lv1Scene::getsoundCamel()
+{
+	return _soundCamel;
 }
 
 

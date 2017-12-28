@@ -20,7 +20,7 @@ void JumpWhileClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -50));
+	aladdin->setVelocity(Vec2(0, -80));
 
 
 	aladdin->setActionName("JumpWhileClimb");
@@ -30,34 +30,43 @@ void JumpWhileClimb::onUpdate()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	{
-
-
-		if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
+	
 		{
-			aladdin->getRigidBody()->setGravityScale(2);
-			aladdin->setVelocity(Vec2(-50, -160));
-		}
-		if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		{
-			aladdin->getRigidBody()->setGravityScale(2);
-			aladdin->setVelocity(Vec2(50, -160));
-		}
 
-
-
-		if (!aladdin->isOnTheRope())
-		{
-				if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+			if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_LEFT_ARROW))
 			{
-			aladdin->setVelocity(Vec2(50, aladdin->getVelocity().getY()));
+				aladdin->getRigidBody()->setGravityScale(1);
+				aladdin->setVelocity(Vec2(-50, -110));
 			}
-			if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+			if (Input::getInstance()->getKey(KEY_D) && Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 			{
-			aladdin->setVelocity(Vec2(-50, aladdin->getVelocity().getY()));
+				aladdin->getRigidBody()->setGravityScale(1);
+				aladdin->setVelocity(Vec2(50, -110));
 			}
-			aladdin->getRigidBody()->setGravityScale(2);
 		}
+
+
+
+
+		//if (!aladdin->isOnTheRope())
+		//{
+		//		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
+		//	{
+		//	aladdin->setVelocity(Vec2(50, aladdin->getVelocity().getY()));
+		//	}
+		//	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
+		//	{
+		//	aladdin->setVelocity(Vec2(-50, aladdin->getVelocity().getY()));
+		//	}
+		//	aladdin->getRigidBody()->setGravityScale(2);
+		//}
 	}
+}
+
+void JumpWhileClimb::onExit()
+{
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->getRigidBody()->setGravityScale(1.5);
 }
 
 State* JumpWhileClimb::checkTransition()
@@ -65,9 +74,8 @@ State* JumpWhileClimb::checkTransition()
 	auto aladdin = static_cast<Aladdin*>(_node);
 	if (aladdin->isOnTheRope())
 	{
-		if (aladdin->getIndex() >= 8)
+		if (aladdin->getIndex() >= 3)
 		{	
-			//aladdin->setVelocity(Vec2(0, 0));
 			return new IdleToClimb(_node);
 		}
 	}
@@ -76,17 +84,11 @@ State* JumpWhileClimb::checkTransition()
 
 	if(!aladdin->isOnTheRope())
 	{
-		if(aladdin->getIndex()>=7)
+		if(aladdin->getIndex()>=6)
 		{
 			return new Fall(_node);
 		}
 	}
-
-
-	//if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-	//	return new Jump(_node);
-	//if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-	//	return new Jump(_node);
 
 
 	return nullptr;

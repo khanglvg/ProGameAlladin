@@ -1,6 +1,7 @@
 #include "ThinEnemyIdleState.h"
 #include "ThinEnemyWalkState.h"
 #include "ThinEnemyAttackState.h"
+#include "ThinEnemyInAttackedState.h"
 #include "ThinEnemy.h"
 
 US_NS_JK
@@ -45,6 +46,11 @@ EnemyState * ThinEnemyIdleState::checkTransition()
 		{
 			return new ThinEnemyWalkState(_enemy);
 		}
+	}
+
+	if (_enemy->isAttacked())
+	{
+		return new ThinEnemyInAttackedState(_enemy);
 	}
 	return nullptr;
 }

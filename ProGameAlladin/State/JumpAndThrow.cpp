@@ -76,6 +76,11 @@ void JumpAndThrow::onUpdate()
 		aladdin->setScale(Vec2(1, 1));
 		aladdin->setVelocity(Vec2(100, aladdin->getVelocity().getY()));
 	}
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
 }
 
 State* JumpAndThrow::checkTransition()
@@ -92,7 +97,7 @@ State* JumpAndThrow::checkTransition()
 		return new IdleToClimb(_node);
 
 	if (aladdin->getIndex() >= 4)
-		return new Idle(_node);
+		aladdin->setIsPause(true);
 
 	return nullptr;
 }

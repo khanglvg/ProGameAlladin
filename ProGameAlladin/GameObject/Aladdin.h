@@ -77,6 +77,14 @@ public:
 
 	void setIsClimbDown(const bool& climbDown);
 
+	void setIsDamaged(const bool& isDamaged);
+	bool getIsDamaged() const;
+
+	void setIsInviolable(const bool& isInviolable);
+	bool getIsInviolable() const;
+
+	bool isAttacked() const;
+
 	void setIsClimb(const bool& climb);
 	bool isClimb() const;
 
@@ -88,6 +96,8 @@ public:
 	void incAlaLife();
 	void setAlaLife(const int& alaLife);
 	int getScore() const;
+
+	void setCheckPoint(const Vec2& checkpoint);
 
 	void desScore(const int& des);
 	void incScore(const int& inc);
@@ -126,6 +136,18 @@ private:
 	bool _isOnTheFire;
 	bool _isInCamel;
 	bool _isInSpringBoard;
+	bool _isAttacked;
+	bool _isAttackedByFlame;
+
+	bool _isDeHealth;
+
+	bool _isInviolable;
+	bool _isDamaged;
+	float _damagedTime = 0;
+	float _inviolableTime = 0;
+	float _inFlameTime = 0;
+
+	Vec2 _checkPoint;
 
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 
 	int _eScene;

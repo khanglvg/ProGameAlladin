@@ -16,12 +16,13 @@ BeingAttacked::BeingAttacked(Node* node):State(node)
 
 BeingAttacked::~BeingAttacked()
 {
+
 }
 
 void BeingAttacked::onEnter()
 {
-	// TODO: setScale()
-	// TODO: loadAnimation()
+	auto aladdin = static_cast<Aladdin*>(_node);
+	aladdin->setActionName("BeingAttacked");
 }
 
 State* BeingAttacked::checkTransition()
@@ -41,7 +42,8 @@ State* BeingAttacked::checkTransition()
 		return new Run(_node);
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		return new Run(_node);
-
-		return nullptr;
+	if (aladdin->getIndex() == 6)
+		return new Idle(_node);
+	return nullptr;
 
 }

@@ -2,6 +2,7 @@
 #include "BigEnemy.h"
 #include "BigEnemyWalkState.h"
 #include "BigEnemyIdleState.h"
+#include "BigEnemyInAttackedState.h"
 #include "../../Framework/Scene.h"
 
 US_NS_JK
@@ -101,6 +102,11 @@ EnemyState * BigEnemyAttackState::checkTransition()
 		{
 			return new BigEnemyWalkState(_enemy);
 		}
+	}
+
+	if (_enemy->isAttacked())
+	{
+		return new BigEnemyInAttackedState(_enemy);
 	}
 	return nullptr;
 }

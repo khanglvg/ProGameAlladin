@@ -53,16 +53,16 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			Tmx::Object *object = objectGroup->GetObjects().at(j);
 
 			//init apple
-			//if (objectGroup->GetName() == "Apple")
-			//{
-			//	auto apple = new Item2(Vec2(object->GetX() + object->GetWidth()/2, object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::NONE, _player);
-			//	apple->setTag(GameObject::APPLES);
-			//	apple->getRigidBody()->setDensity(0.0000001);
-			//	apple->setGameMap(this);
-			//	_listItems.push_back(apple);
+			if (objectGroup->GetName() == "Apple")
+			{
+				auto apple = new Item2(Vec2(object->GetX() + object->GetWidth(), object->GetY() - object->GetHeight() / 2), Size(object->GetWidth(),object->GetHeight()), GameObject::NONE, _player);
+				apple->setTag(GameObject::APPLES);
+				apple->getRigidBody()->setDensity(0.0000001);
+				apple->setGameMap(this);
+				_listItems.push_back(apple);
 
-			//	//_quadTree->insertObject(apple);
-			//}
+				//_quadTree->insertObject(apple);
+			}
 
 			//init float ground
 			if (objectGroup->GetName() == "FloatGround")
@@ -197,7 +197,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init rope
 			if (objectGroup->GetName() == "Rope")
 			{
-				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 25, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
+				auto *gameObject = new Rope(Vec2(object->GetX() + object->GetWidth() + 10, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::ROPE, _player);
 				gameObject->setRigidTag("rope");
 
 				_listRope.push_back(gameObject);

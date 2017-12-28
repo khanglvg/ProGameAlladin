@@ -7,6 +7,7 @@
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
 #include "../BossScene.h"
+#include "Jump.h"
 US_NS_JK
 
 JumpAndSlash::JumpAndSlash(Node* node):State(node)
@@ -45,7 +46,7 @@ void JumpAndSlash::onEnter()
 
 	aladdin->setActionName("JumpAndSlash");
 
-	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(30, 12), "aladdinknife");
+	_weapon = new Weapon(aladdin, aladdin->getRigidPosition(), Size(25, 30), Vec2(22, 12), "aladdinknife");
 
 	if (aladdin->isOwnerRight())
 	{
@@ -78,6 +79,10 @@ void JumpAndSlash::onUpdate()
 		_weapon->getOwner()->setIsOwnerRight(true);
 	}
 
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
+	{
+		aladdin->setVelocity(Vec2(0, aladdin->getVelocity().getY()));
+	}
 }
 
 void JumpAndSlash::onExit()
@@ -113,6 +118,13 @@ State* JumpAndSlash::checkTransition()
 			aladdin->setIsPause(false);
 	}
 	
+	if (aladdin->isInCamel())
+	{
+		auto lv1 = static_cast<Lv1Scene*>(aladdin->getCurrentScene());
+		Audio::get()->play(lv1->getsoundCamel(), false);
+		return new Jump(_node);
+	}
+		
 
 	return nullptr;
 }

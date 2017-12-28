@@ -86,8 +86,8 @@ void Throw::onExit()
 State* Throw::checkTransition()
 {
 	const auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_S))
-		return new Slash(_node);
+	//if (Input::getInstance()->getKey(KEY_S)&&Input::getInstance()->getKey(KEY_A))
+	//	return new Slash(_node);
 	////if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	////	return new Idle(_node);
 	////if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))

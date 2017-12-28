@@ -37,7 +37,7 @@ void Fall::onUpdate()
 		{
 			aladdin->setVelocity(Vec2(-100, aladdin->getVelocity().getY()));
 		}
-		aladdin->getRigidBody()->setGravityScale(1);
+		aladdin->getRigidBody()->setGravityScale(2.7);
 	}
 }
 
@@ -59,7 +59,7 @@ State* Fall::checkTransition()
 		return new IdleToClimb(_node);
 	if (aladdin->isOnTheGround() || aladdin->isOnThePlatform() || aladdin->isOnTheFire())
 		return new Grounding(_node);
-	if (aladdin->getIndex() >= 9)
+	if (aladdin->getIndex() >= 8)
 		aladdin->setIsPause(true);
 
 	return nullptr;

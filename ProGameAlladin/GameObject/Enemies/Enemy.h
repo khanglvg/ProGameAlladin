@@ -62,6 +62,10 @@ public:
 
 	void setGameMap(GameMap* map);
 
+	bool isAttacked() const;
+
+	bool isInFire() const;
+
 	GameObject* getTarget() const;
 
 	Rect getRect() override;
@@ -77,6 +81,10 @@ protected:
 	GameMap* _map;
 
 	bool _isCollisionWithAladdin;
+
+	bool _isAttacked;
+
+	bool _isInFire;
 
 	int _animationIndex = 0;
 	string _actionName;

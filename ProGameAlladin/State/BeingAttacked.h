@@ -5,9 +5,9 @@
 #include "State.h"
 
 NS_JK_BEGIN
-
-class BeingAttacked: public State
+class BeingAttacked : public State
 {
+public:
 	BeingAttacked(Node* node);
 	~BeingAttacked() override;
 	void onEnter() override;

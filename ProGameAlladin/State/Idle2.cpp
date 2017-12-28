@@ -7,17 +7,18 @@
 #include "HeadUp.h"
 #include "Jump.h"
 #include "Run.h"
+#include "BeingAttacked.h"
 
 US_NS_JK
-JaKa::Idle2::Idle2(Node* node):State(node)
+Idle2::Idle2(Node* node):State(node)
 {
 }
 
-JaKa::Idle2::~Idle2()
+Idle2::~Idle2()
 {
 }
 
-void JaKa::Idle2::onEnter()
+void Idle2::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 	aladdin->setActionName("Idle2");
@@ -45,6 +46,8 @@ State* Idle2::checkTransition()
 		return new Slash(_node);
 	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
 		return new Throw(_node);
+	if (aladdin->isAttacked())
+		return new BeingAttacked(_node);
 
 	return nullptr;
 }

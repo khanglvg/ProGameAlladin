@@ -2,6 +2,8 @@
 #include "../Framework/Graphics.h"
 #include "../Framework/GameManager.h"
 #include "../Framework/PhysicsManager.h"
+#include "../Lv1Scene.h"
+#include "../Framework/Audio.h"
 
 US_NS_JK
 
@@ -19,10 +21,14 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isPause = false;
 	_isClimbDown = false;
 	_isClimb = false;
+	_isAttackedByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
-	_numApple = 50;
-	_numRuby = 50;
+	_numApple = 5;
+	_numRuby = 0;
 	_health = 10;
+	_isDamaged = false;
+	_isInviolable = false;
+	_isDeHealth = false;
 	_alaLife = 3;
 	_score = 0;
 
@@ -79,7 +85,14 @@ void Aladdin::update()
 	_position = _rigid->getPosition() - _rigid->getOffset();
 	_currentState->onUpdate();
 
-	OutputDebugString(std::to_string(_numApple).c_str());
+	//OutputDebugString(std::to_string(_numApple).c_str());
+
+	if (_damagedTime <1.3 && _damagedTime > 0)
+	{
+		_isInviolable = true;
+	}
+	else
+		_isInviolable = false;
 
 	if (_rigid->getCollidingBodies().size() == 0)
 	{
@@ -100,11 +113,14 @@ void Aladdin::update()
 		auto const enemy = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"enemy" );
 		auto const platform = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()),"platform" );
 		auto const rope = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "rope");
-		auto const fire = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fire");
+		auto const flame = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "fireground");
 		auto const stop = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "stop");
 		auto const jafarBullet = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafarbullet");
 		auto const camel = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "camel");
 		auto const springboard = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "springboard");
+		auto const thinEnemyKnife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "thinenemyknife");
+		auto const knife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "knifetothrow"); 
+		auto const pot = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "pottothrow");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -112,7 +128,7 @@ void Aladdin::update()
 		_isOnTheRope = false;
 		_isOnTheFire = false;
 		_isOnThePlatform = false;
-
+		_isInCamel = false;
 
 		//
 		//	collision with ground
@@ -170,14 +186,6 @@ void Aladdin::update()
 		}
 
 		//
-		// collision with fire 
-		//
-		if (fire == _rigid->getCollidingBodies().end())
-			_isOnTheFire = false;
-		else
-			_isOnTheFire = true;
-
-		//
 		// collision with stopclimb
 		//
 		if (stop != _rigid->getCollidingBodies().end())
@@ -208,6 +216,7 @@ void Aladdin::update()
 		if (camel != _rigid->getCollidingBodies().end())
 		{
 			_isInCamel = true;
+			
 		}
 		else _isInCamel = false;
 
@@ -222,9 +231,61 @@ void Aladdin::update()
 		else _isInSpringBoard = false;
 
 
-	}
-	
+		//
+		// collision with Flame
+		//
+		if (flame != _rigid->getCollidingBodies().end())
+		{
+			if (_actionName == "Idle1" || _actionName == "Idle2" || _actionName == "Idle3")
+				_inFlameTime == 0.7;
 
+			if (_inFlameTime >= 0.7)
+			{
+				_isDamaged = true;
+				_isAttackedByFlame = true;
+				if (!_isDeHealth)
+				{
+					_health--;
+					_isDeHealth = true;
+					OutputDebugString(std::to_string(_health).c_str());
+				}
+				_inFlameTime = 0;
+			}
+			else
+			{
+				_isDeHealth = false;
+				_inFlameTime += GameManager::getInstance()->getDeltaTime();
+			}
+		}
+		else
+		{
+			_inFlameTime = 0;
+			_isDeHealth = false;
+			_isAttackedByFlame = false;
+		}
+
+
+		//
+		// collision with Enemy's weapon
+		//
+		if (thinEnemyKnife != _rigid->getCollidingBodies().end() || knife != _rigid->getCollidingBodies().end() || pot != _rigid->getCollidingBodies().end())
+		{
+			_isDamaged = true;
+			_isAttacked = true;
+			if (!_isDeHealth && !_isInviolable)
+			{
+				_health--;
+				_isDeHealth = true;
+				OutputDebugString(std::to_string(_health).c_str());
+			}
+		}
+		else
+		{
+			_isDeHealth = false;
+			_isAttacked = false;
+		}
+
+	}
 
 	State* newState = _currentState->checkTransition();
 	
@@ -238,8 +299,6 @@ void Aladdin::update()
 		_isPause = false;
 	}
 
-
-	
 }
 
 void Aladdin::render()
@@ -259,6 +318,8 @@ void Aladdin::render()
 	auto expect = 0.05;
 	auto origin = Vec2(0.5f, 1.0f);
 
+	auto expectDmgTime = 2;
+
 	if (_actionName == "Run")
 	{
 		expect = 0.03;
@@ -266,25 +327,65 @@ void Aladdin::render()
 
 	if(_actionName=="RunAndJump")
 	{
-		expect = 0.08;
+		expect = 0.14;
 	}
 
 	if(_actionName=="JumpAndSlash")
 	{
-		expect = 0.08;
+		expect = 0.11;
 	}
 
 	if(_actionName=="JumpWhileClimb")
 	{
-		expect = 0.02;
+		expect = 0.12;
+	}
+
+	if(_actionName=="JumpAndThrow")
+	{
+		expect = 0.09;
+	}
+
+	if(_actionName=="Jump")
+	{
+		expect = 0.14;
+	}
+
+	if(_actionName=="Throw")
+	{
+		expect = 0.08;
+	}
+
+	if(_actionName=="Fall")
+	{
+		expect = 0.08;
 	}
 
 	if (_actionName == "Grounding")
 	{
 		origin = Vec2(0.5f, 0.9f);
 	}
+
+	if (_actionName == "SitAndSlash")
+	{
+		origin = Vec2(0.29f, 1.0f);
+	}
+
+	if (_damagedTime <= expectDmgTime && _isDamaged)
+	{
+		_damagedTime += GameManager::getInstance()->getDeltaTime();
+	}
+	else 
+	{
+		_damagedTime = 0;
+		_isDamaged = false;
+	}
+
 	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
-	Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	
+	if (!_isDamaged)
+	{
+		Graphics::getInstance()->drawSprite(_textureAla, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
+	}
 
 	if (_index <= expect)
 	{
@@ -481,17 +582,42 @@ int Aladdin::getHealth() const
 
 void Aladdin::desHealth()
 {
-	_health++;
+	_health--;
 }
 
 void Aladdin::incHealth()
 {
-	_health--;
+	_health+=2;
 }
 
 void Aladdin::setIsClimbDown(const bool & climbDown)
 {
 	_isClimbDown = climbDown;
+}
+
+void Aladdin::setIsDamaged(const bool & isDamaged)
+{
+	_isDamaged = isDamaged;
+}
+
+bool Aladdin::getIsDamaged() const
+{
+	return _isDamaged;
+}
+
+void Aladdin::setIsInviolable(const bool & isInviolable)
+{
+	_isInviolable = isInviolable;
+}
+
+bool Aladdin::getIsInviolable() const
+{
+	return _isInviolable;
+}
+
+bool Aladdin::isAttacked() const
+{
+	return (_isAttacked || _isAttackedByFlame);
 }
 
 void Aladdin::setIsClimb(const bool & climb)
@@ -527,6 +653,11 @@ void Aladdin::setAlaLife(const int& alaLife)
 int Aladdin::getScore() const
 {
 	return _score;
+}
+
+void Aladdin::setCheckPoint(const Vec2 & checkpoint)
+{
+	_checkPoint = checkpoint;
 }
 
 void Aladdin::desScore(const int& des)

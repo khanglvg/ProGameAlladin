@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Animations>
   <Animation name="Apple" imagePath="items.png" width="664" height="664">
-    <sprite x="341" y="17" w="11" h="11" oX="341" oY="17" oW="-313" oH="11" />
+    <sprite x="341" y="17" w="11" h="12" oX="341" oY="17" oW="-313" oH="11" />
   </Animation>
   <Animation name="BonusPoint" imagePath="items.png" width="664" height="664">
     <sprite x="335" y="45" w="38" h="49" oX="335" oY="45" oW="-246" oH="38" />
