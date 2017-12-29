@@ -120,7 +120,7 @@ void FatEnemy::render()
 		origin = Vec2(0.47f, 1.0f);
 	}
 
-	Graphics::getInstance()->drawSprite(_textureBigEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	//Graphics::getInstance()->drawSprite(_textureBigEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
 	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)

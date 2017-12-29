@@ -122,8 +122,10 @@ void Camel::render()
 	auto expect = 0.02;
 	
 	auto origin = Vec2(0.3f, 1.0f);
-
-	Graphics::getInstance()->drawSprite(_textureCamelRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	
+	// render rigid
+	//Graphics::getInstance()->drawSprite(_textureCamelRigid, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	
 	Graphics::getInstance()->drawSprite(_textureCamel, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)

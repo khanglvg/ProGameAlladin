@@ -239,6 +239,55 @@ void BossScene::init()
 	// =============================================================================================================================================
 
 
+	// ============================================= SPRITE TEXT ===================================================================================
+	_appleUnit = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_appleUnit->setType(SpriteText::SpriteTextType::APPLE_UNIT);
+	_appleUnit->setScale(Vec2(0.5, 0.7));
+	_vectNode.push_back(_appleUnit);
+
+
+	_appleTens = new SpriteText("Resources/Menu/text.png", SpriteText::ONE, 4);
+	_appleTens->setType(SpriteText::SpriteTextType::APPLE_TENS);
+	_appleTens->setScale(Vec2(0.5, 0.7));
+	_vectNode.push_back(_appleTens);
+
+	_rubyUnit = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_rubyUnit->setType(SpriteText::SpriteTextType::RUBY_UNIT);
+	_rubyUnit->setScale(Vec2(0.5, 0.7));
+	_vectNode.push_back(_rubyUnit);
+
+
+	_rubyTens = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_rubyTens->setType(SpriteText::SpriteTextType::RUBY_TENS);
+	_rubyTens->setScale(Vec2(0.5, 0.7));
+	_vectNode.push_back(_rubyTens);
+
+	_alaLifeUnit = new SpriteText("Resources/Menu/text.png", SpriteText::THREE, 4);
+	_alaLifeUnit->setType(SpriteText::SpriteTextType::ALA_LIFE);
+	_alaLifeUnit->setScale(Vec2(0.5, 0.7));
+	_vectNode.push_back(_alaLifeUnit);
+
+	_score1 = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_score1->setType(SpriteText::SpriteTextType::SCORE_1);
+	_score1->setScale(Vec2(1.2, 1.3));
+	_vectNode.push_back(_score1);
+
+	_score2 = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_score2->setType(SpriteText::SpriteTextType::SCORE_2);
+	_score2->setScale(Vec2(1.2, 1.3));
+	_vectNode.push_back(_score2);
+
+	_score3 = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_score3->setType(SpriteText::SpriteTextType::SCORE_3);
+	_score3->setScale(Vec2(1.2, 1.3));
+	_vectNode.push_back(_score3);
+
+	_score4 = new SpriteText("Resources/Menu/text.png", SpriteText::ZERO, 4);
+	_score4->setType(SpriteText::SpriteTextType::SCORE_4);
+	_score4->setScale(Vec2(1.2, 1.3));
+	_vectNode.push_back(_score4);
+	// =============================================================================================================================================
+
 	Camera::getInstance()->follow(_aladdin);
 	Camera::getInstance()->setScaleFactor(Vec2(2, 2));
 	_vectNode.push_back(Camera::getInstance());
@@ -283,6 +332,8 @@ void BossScene::release()
 
 void BossScene::update()
 {
+	calculationSpriteText();
+
 	if(_aladdin->getRigidBody()->getPosition().getY() < _platform1->getRigidBody()->getPosition().getY() - _platform1->getRigidBody()->getSize().getHeight() - 2)
 	{
 		_platform1->getRigidBody()->setActive(true);
@@ -335,7 +386,6 @@ void BossScene::update()
 	for (size_t i = 0; i < _listAppleRight.size(); i++)
 		_listAppleRight[i]->update();
 
-	
 	Scene::update();
 	PhysicsManager::getIntance()->setBeginLv1(false);
 
@@ -356,6 +406,604 @@ void BossScene::render()
 		_listAppleRight[i]->render();
 	}
 	Scene::render();
+}
+
+void BossScene::calculationSpriteText() const
+{
+	const auto score = _jafar->getHealth();
+	const auto score1 = score / 1000;
+	const auto score2 = (score / 100) % 10;
+	const auto score3 = (score / 10) % 10;
+	const auto score4 = score % 10;
+
+	const auto ruby = _aladdin->getNumRuby();
+	const auto rUnit = ruby % 10;
+	const auto rTens = ruby / 10;
+
+
+	const auto apple = _aladdin->getNumApple();
+	const auto aUnit = apple % 10;
+	const auto aTens = apple / 10;
+
+	switch (aUnit)
+	{
+	case 0:
+	{
+		_appleUnit->setValue(SpriteText::ZERO);
+		break;
+	}
+	case 1:
+	{
+		_appleUnit->setValue(SpriteText::ONE);
+		break;
+	}
+	case 2:
+	{
+		_appleUnit->setValue(SpriteText::TWO);
+		break;
+	}
+	case 3:
+	{
+		_appleUnit->setValue(SpriteText::THREE);
+		break;
+	}
+	case 4:
+	{
+		_appleUnit->setValue(SpriteText::FOUR);
+		break;
+	}
+	case 5:
+	{
+		_appleUnit->setValue(SpriteText::FIVE);
+		break;
+	}
+	case 6:
+	{
+		_appleUnit->setValue(SpriteText::SIX);
+		break;
+	}
+	case 7:
+	{
+		_appleUnit->setValue(SpriteText::SEVEN);
+		break;
+	}
+	case 8:
+	{
+		_appleUnit->setValue(SpriteText::EIGHT);
+		break;
+	}
+	case 9:
+	{
+		_appleUnit->setValue(SpriteText::NINE);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+
+	switch (aTens)
+	{
+	case 0:
+	{
+		_appleTens->setValue(SpriteText::ZERO);
+		_appleTens->setVisible(false);
+		break;
+	}
+	case 1:
+	{
+		_appleTens->setValue(SpriteText::ONE);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_appleTens->setValue(SpriteText::TWO);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_appleTens->setValue(SpriteText::THREE);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_appleTens->setValue(SpriteText::FOUR);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_appleTens->setValue(SpriteText::FIVE);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_appleTens->setValue(SpriteText::SIX);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_appleTens->setValue(SpriteText::SEVEN);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_appleTens->setValue(SpriteText::EIGHT);
+		_appleTens->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_appleTens->setValue(SpriteText::NINE);
+		_appleTens->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+
+	switch (rUnit)
+	{
+	case 0:
+	{
+		_rubyUnit->setValue(SpriteText::ZERO);
+		break;
+	}
+	case 1:
+	{
+		_rubyUnit->setValue(SpriteText::ONE);
+		break;
+	}
+	case 2:
+	{
+		_rubyUnit->setValue(SpriteText::TWO);
+		break;
+	}
+	case 3:
+	{
+		_rubyUnit->setValue(SpriteText::THREE);
+		break;
+	}
+	case 4:
+	{
+		_rubyUnit->setValue(SpriteText::FOUR);
+		break;
+	}
+	case 5:
+	{
+		_rubyUnit->setValue(SpriteText::FIVE);
+		break;
+	}
+	case 6:
+	{
+		_rubyUnit->setValue(SpriteText::SIX);
+		break;
+	}
+	case 7:
+	{
+		_rubyUnit->setValue(SpriteText::SEVEN);
+		break;
+	}
+	case 8:
+	{
+		_rubyUnit->setValue(SpriteText::EIGHT);
+		break;
+	}
+	case 9:
+	{
+		_rubyUnit->setValue(SpriteText::NINE);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+
+	switch (rTens)
+	{
+	case 0:
+	{
+		_rubyTens->setValue(SpriteText::ZERO);
+		_rubyTens->setVisible(false);
+		break;
+	}
+	case 1:
+	{
+		_rubyTens->setValue(SpriteText::ONE);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_rubyTens->setValue(SpriteText::TWO);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_rubyTens->setValue(SpriteText::THREE);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_rubyTens->setValue(SpriteText::FOUR);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_rubyTens->setValue(SpriteText::FIVE);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_rubyTens->setValue(SpriteText::SIX);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_rubyTens->setValue(SpriteText::SEVEN);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_rubyTens->setValue(SpriteText::EIGHT);
+		_rubyTens->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_rubyTens->setValue(SpriteText::NINE);
+		_rubyTens->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+
+	switch (_aladdin->getAlaLife())
+	{
+	case 1:
+	{
+		_alaLifeUnit->setValue(SpriteText::ONE);
+		break;
+	}
+	case 2:
+	{
+		_alaLifeUnit->setValue(SpriteText::TWO);
+		break;
+	}
+	case 3:
+	{
+		_alaLifeUnit->setValue(SpriteText::THREE);
+		break;
+	}
+	case 4:
+	{
+		_alaLifeUnit->setValue(SpriteText::FOUR);
+		break;
+	}
+	case 5:
+	{
+		_alaLifeUnit->setValue(SpriteText::FIVE);
+		break;
+	}
+	case 6:
+	{
+		_alaLifeUnit->setValue(SpriteText::SIX);
+		break;
+	}
+	case 7:
+	{
+		_alaLifeUnit->setValue(SpriteText::SEVEN);
+		break;
+	}
+	case 8:
+	{
+		_alaLifeUnit->setValue(SpriteText::EIGHT);
+		break;
+	}
+	case 9:
+	{
+		_alaLifeUnit->setValue(SpriteText::NINE);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+	switch (score1)
+	{
+	case 0:
+	{
+		_score1->setValue(SpriteText::ZERO);
+		_score1->setVisible(true);
+		break;
+	}
+	case 1:
+	{
+		_score1->setValue(SpriteText::ONE);
+		_score1->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_score1->setValue(SpriteText::TWO);
+		_score1->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_score1->setValue(SpriteText::THREE);
+		_score1->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_score1->setValue(SpriteText::FOUR);
+		_score1->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_score1->setValue(SpriteText::FIVE);
+		_score1->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_score1->setValue(SpriteText::SIX);
+		_score1->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_score1->setValue(SpriteText::SEVEN);
+		_score1->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_score1->setValue(SpriteText::EIGHT);
+		_score1->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_score1->setValue(SpriteText::NINE);
+		_score1->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+	switch (score2)
+	{
+	case 0:
+	{
+		_score2->setValue(SpriteText::ZERO);
+		_score2->setVisible(true);
+		break;
+	}
+	case 1:
+	{
+		_score2->setValue(SpriteText::ONE);
+		_score2->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_score2->setValue(SpriteText::TWO);
+		_score2->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_score2->setValue(SpriteText::THREE);
+		_score2->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_score2->setValue(SpriteText::FOUR);
+		_score2->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_score2->setValue(SpriteText::FIVE);
+		_score2->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_score2->setValue(SpriteText::SIX);
+		_score2->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_score2->setValue(SpriteText::SEVEN);
+		_score2->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_score2->setValue(SpriteText::EIGHT);
+		_score2->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_score2->setValue(SpriteText::NINE);
+		_score2->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+	switch (score3)
+	{
+	case 0:
+	{
+		_score3->setValue(SpriteText::ZERO);
+		_score3->setVisible(true);
+		break;
+	}
+	case 1:
+	{
+		_score3->setValue(SpriteText::ONE);
+		_score3->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_score3->setValue(SpriteText::TWO);
+		_score3->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_score3->setValue(SpriteText::THREE);
+		_score3->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_score3->setValue(SpriteText::FOUR);
+		_score3->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_score3->setValue(SpriteText::FIVE);
+		_score3->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_score3->setValue(SpriteText::SIX);
+		_score3->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_score3->setValue(SpriteText::SEVEN);
+		_score3->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_score3->setValue(SpriteText::EIGHT);
+		_score3->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_score3->setValue(SpriteText::NINE);
+		_score3->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
+
+
+	switch (score4)
+	{
+	case 0:
+	{
+		_score4->setValue(SpriteText::ZERO);
+		_score4->setVisible(true);
+		break;
+	}
+	case 1:
+	{
+		_score4->setValue(SpriteText::ONE);
+		_score4->setVisible(true);
+		break;
+	}
+	case 2:
+	{
+		_score4->setValue(SpriteText::TWO);
+		_score4->setVisible(true);
+		break;
+	}
+	case 3:
+	{
+		_score4->setValue(SpriteText::THREE);
+		_score4->setVisible(true);
+		break;
+	}
+	case 4:
+	{
+		_score4->setValue(SpriteText::FOUR);
+		_score4->setVisible(true);
+		break;
+	}
+	case 5:
+	{
+		_score4->setValue(SpriteText::FIVE);
+		_score4->setVisible(true);
+		break;
+	}
+	case 6:
+	{
+		_score4->setValue(SpriteText::SIX);
+		_score4->setVisible(true);
+		break;
+	}
+	case 7:
+	{
+		_score4->setValue(SpriteText::SEVEN);
+		_score4->setVisible(true);
+		break;
+	}
+	case 8:
+	{
+		_score4->setValue(SpriteText::EIGHT);
+		_score4->setVisible(true);
+		break;
+	}
+	case 9:
+	{
+		_score4->setValue(SpriteText::NINE);
+		_score4->setVisible(true);
+		break;
+	}
+
+	default:
+		break;
+	}
 }
 
 int BossScene::getAladdinPosition()

@@ -38,8 +38,8 @@ void Wall::update()
 
 void Wall::render()
 {
-	Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
-		Rect(0, 0, _rigidWall->getSize().getWidth(), _rigidWall->getSize().getHeight()), 1);
+	/*Graphics::getInstance()->drawSprite(_textureWallRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
+		Rect(0, 0, _rigidWall->getSize().getWidth(), _rigidWall->getSize().getHeight()), 1);*/
 }
 
 void Wall::release()

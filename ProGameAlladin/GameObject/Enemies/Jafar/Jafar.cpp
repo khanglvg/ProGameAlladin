@@ -19,7 +19,7 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_attackRange = 280;
 	setScale(Vec2(1, 1));
 
-	_health = 11;
+	_health = 21;
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;
@@ -260,6 +260,11 @@ void Jafar::render()
 bool Jafar::isTransform() const
 {
 	return _isTransform;
+}
+
+int Jafar::getHealth() const
+{
+	return _health;
 }
 
 Rect Jafar::getRect()

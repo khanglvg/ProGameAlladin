@@ -63,10 +63,10 @@ void Weapon::update()
 
 void Weapon::render()
 {
-	if(_rigid->isActived())
+	/*if(_rigid->isActived())
 	Graphics::getInstance()->drawSprite(_textureRigid, Vec2(0.5f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255),
 		Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
-
+*/
 }
 
 GameObject* Weapon::getOwner() const
