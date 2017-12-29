@@ -30,6 +30,8 @@ void BossScene::init()
 
 #pragma region Sound
 
+	_soundBackground = new Sound("Resources/Audio/AgrabahMarket.wav");
+	_soundAbu = new Sound("Resources/Audio/Abu.wav");
 	_soundSlash = new Sound("Resources/Audio/High Sword.wav");
 	_soundSitSlash = new Sound("Resources/Audio/Low Sword.wav");
 	_soundGrounding = new Sound("Resources/Audio/Aladdin Oof.wav");
@@ -38,8 +40,11 @@ void BossScene::init()
 	_soundHurt = new Sound("Resources/Audio/Aladdin Hurt.wav");
 	_soundAppleCollect = new Sound("Resources/Audio/Apple Collect.wav");
 	_soundAppleCrush = new Sound("Resources/Audio/Apple Splash.wav");
+	_soundCamel = new Sound("Resources/Audio/Camel Spit.wav");
+	_soundSpring = new Sound("Resources/Audio/Spring Doing 1.wav");
 
-
+	Audio::get()->load(_soundAbu);
+	Audio::get()->load(_soundBackground);
 	Audio::get()->load(_soundSlash);
 	Audio::get()->load(_soundSitSlash);
 	Audio::get()->load(_soundGrounding);
@@ -48,6 +53,8 @@ void BossScene::init()
 	Audio::get()->load(_soundHurt);
 	Audio::get()->load(_soundAppleCollect);
 	Audio::get()->load(_soundAppleCrush);
+	Audio::get()->load(_soundCamel);
+	Audio::get()->load(_soundSpring);
 #pragma  endregion 
 	// =============================================== ALADDIN ==============================================================================
 	_aladdin = new Aladdin(Vec2(400 * scale, 610 * scale - 100), Size(10, 30));
@@ -303,7 +310,7 @@ void BossScene::init()
 	}
 
 
-	PhysicsManager::getIntance()->setInBoss(true);
+	PhysicsManager::getIntance()->setInBoss(false);
 	_isInitialized = true;
 	Scene::init();
 }
@@ -326,7 +333,7 @@ void BossScene::release()
 
 	PhysicsManager::getIntance()->setInBoss(false);
 
-	Audio::get()->release();
+	//Audio::get()->release();
 	Scene::release();
 	
 }

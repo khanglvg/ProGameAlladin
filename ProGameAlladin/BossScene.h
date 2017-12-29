@@ -63,6 +63,8 @@ private:
 	TitleMenuScene* _appleIcon;
 	TitleMenuScene* _rubyIcon;
 
+	Sound*_soundBackground;
+	Sound*_soundAbu;
 	Sound* _soundSlash;
 	Sound*_soundSitSlash;
 	Sound*_soundGrounding;
@@ -71,6 +73,8 @@ private:
 	Sound*_soundHurt;
 	Sound*_soundAppleCollect;
 	Sound*_soundAppleCrush;
+	Sound*_soundCamel;
+	Sound*_soundSpring;
 
 	SpriteText* _alaLifeUnit;
 

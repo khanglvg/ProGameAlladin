@@ -13,6 +13,8 @@
 #include "Framework/GameManager.h"
 #include "Framework/PhysicsManager.h"
 #include "DeathScene.h"
+#include "BossScene.h"
+#include "MenuSelectorScene.h"
 
 US_NS_JK
 
@@ -60,13 +62,13 @@ void Lv1Scene::init()
 	Audio::get()->load(_soundHurt);
 	Audio::get()->load(_soundAppleCollect);
 	Audio::get()->load(_soundAppleCrush);
-	Audio::get()->load(_soundCamel);
-	Audio::get()->load(_soundSpring);
+		Audio::get()->load(_soundCamel);
+		Audio::get()->load(_soundSpring);
 	//Audio::get()->play(_soundBackground, true);
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(4300, 600), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(4300, 100), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
@@ -184,7 +186,6 @@ void Lv1Scene::init()
 void Lv1Scene::release()
 {
 	_gameMap->release();
-	Audio::get()->release();
 	Scene::release();
 }
 
@@ -208,11 +209,15 @@ void Lv1Scene::update()
 		i++;
 	}
 
-	if (mAladdin->getNumApple() == 0)
+	if (mAladdin->getHealth() == 0)
 	{
 		// change Scene
 		GameManager::getInstance()->changeScene(new DeathScene(this));
-		
+	}
+
+	if (mAladdin->getEndLv1())
+	{
+		GameManager::getInstance()->changeScene(new BossScene);
 	}
 
 }

@@ -250,7 +250,7 @@ void Aladdin::update()
 		//
 		if (endLv != _rigid->getCollidingBodies().end())
 		{
-			//chuyen scene end game
+			_isEndLv1 = true;
 		}
 
 		//
@@ -709,6 +709,11 @@ int Aladdin::getScore() const
 void Aladdin::setCheckPoint(const Vec2 & checkpoint)
 {
 	_checkPoint = checkpoint;
+}
+
+bool Aladdin::getEndLv1() const
+{
+	return _isEndLv1;
 }
 
 void Aladdin::desScore(const int& des)

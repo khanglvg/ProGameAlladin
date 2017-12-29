@@ -102,6 +102,7 @@ public:
 	int getScore() const;
 
 	void setCheckPoint(const Vec2& checkpoint);
+	bool getEndLv1() const;
 
 	void desScore(const int& des);
 	void incScore(const int& inc);
@@ -155,6 +156,7 @@ private:
 	float _inviolableTime = 0;
 	float _inFlameTime = 0;
 
+	bool _isEndLv1 = false;
 	Vec2 _checkPoint;
 
 	// Sử dụng để xác định aladdin đang trong màn chơi nào. qua đó thay đổi tốc độ nhảy, chạy trong States để phù hợp với từng màn chơi 

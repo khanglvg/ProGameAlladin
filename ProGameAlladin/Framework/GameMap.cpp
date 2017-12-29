@@ -649,7 +649,7 @@ void GameMap::draw()
 void GameMap::release()
 {
 	delete _map;
-	delete _player;
+	
 
 	_quadTree->clear();
 	delete _quadTree;
