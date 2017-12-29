@@ -11,6 +11,7 @@
 #include "CompleteScene.h"
 #include "Framework/PhysicsManager.h"
 #include "GameObject/Items/AladdinHealth.h"
+#include "DeathScene.h"
 
 US_NS_JK
 
@@ -392,6 +393,11 @@ void BossScene::update()
 	if (_jafar->getHealth() == 0)
 	{
 		GameManager::getInstance()->changeScene(new CompleteScene);
+	}
+
+	if (_aladdin->getHealth() == 0)
+	{
+		GameManager::getInstance()->changeScene(new DeathScene(this));
 	}
 }
 

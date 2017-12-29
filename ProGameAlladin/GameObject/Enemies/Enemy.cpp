@@ -62,7 +62,7 @@ void Enemy::init()
 
 void Enemy::release()
 {
-	delete this;
+	delete _rigid;
 }
 
 void Enemy::update()

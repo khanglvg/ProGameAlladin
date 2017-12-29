@@ -96,8 +96,7 @@ void GameManager::changeScene(Scene* newScene)
 	_runningScene->release();
 	delete _runningScene;
 	_runningScene = newScene;
-	if (!_runningScene->isInitialized())
-		_runningScene->init();
+	_runningScene->init();
 }
 
 float GameManager::getDeltaTime() const

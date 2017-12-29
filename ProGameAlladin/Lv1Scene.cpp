@@ -72,7 +72,6 @@ void Lv1Scene::init()
 
 
 
-
 	_gameMap = new GameMap("Resources/AgrabahMarket.tmx", mQuadTree, mAladdin);
 
 
@@ -185,8 +184,8 @@ void Lv1Scene::init()
 void Lv1Scene::release()
 {
 	_gameMap->release();
-	Scene::release();
 	Audio::get()->release();
+	Scene::release();
 }
 
 void Lv1Scene::update()
@@ -212,7 +211,6 @@ void Lv1Scene::update()
 	if (mAladdin->getNumApple() == 0)
 	{
 		// change Scene
-		mAladdin->incApple();
 		GameManager::getInstance()->changeScene(new DeathScene(this));
 		
 	}

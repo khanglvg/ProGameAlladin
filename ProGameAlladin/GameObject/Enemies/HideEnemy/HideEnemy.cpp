@@ -40,7 +40,6 @@ void HideEnemy::init()
 void HideEnemy::release()
 {
 	delete _rigid;
-	delete this;
 }
 
 void HideEnemy::update()
@@ -120,7 +119,7 @@ void HideEnemy::render()
 	}
 	else
 	{
-		_index = 0;
+		_index = 0;	
 		_animationIndex++;
 		if (_animationIndex == _animations[_actionName].size())
 			_animationIndex = 0;

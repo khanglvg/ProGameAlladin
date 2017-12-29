@@ -41,7 +41,6 @@ void WallEnemy::init()
 void WallEnemy::release()
 {
 	delete _rigid;
-	delete this;
 }
 
 void WallEnemy::update()

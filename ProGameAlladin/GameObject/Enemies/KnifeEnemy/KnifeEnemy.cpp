@@ -39,7 +39,6 @@ void KnifeEnemy::init()
 void KnifeEnemy::release()
 {
 	delete _rigid;
-	delete this;
 }
 
 void KnifeEnemy::update()
