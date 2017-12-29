@@ -153,7 +153,7 @@ void BossScene::init()
 
 
 	// =============================================== BOSS ========================================================================================
-	_jafar = new Jafar(Vec2(790 * scale, 550 * scale), Size(60, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
+	_jafar = new Jafar(Vec2(750 * scale, 550 * scale), Size(60, 60), GameObject::GameObjectType::ENEMIES, _aladdin);
 	_jafar->setCurrentScene(this);
 	_vectNode.push_back(_jafar);
 	// =============================================================================================================================================
