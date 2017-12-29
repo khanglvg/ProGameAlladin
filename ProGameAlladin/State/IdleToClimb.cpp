@@ -22,6 +22,7 @@ void IdleToClimb::onEnter()
 
 	aladdin->getRigidBody()->setGravityScale(0);
 	aladdin->setVelocity(Vec2(0, 0));
+	aladdin->getRigidBody()->setActive(true);
 
 }
 
@@ -31,12 +32,14 @@ void IdleToClimb::onUpdate()
 
 		if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 		{
+			aladdin->setIsOwnerRight(false);
 			aladdin->setScale(Vec2(1, 1));
 			aladdin->setVelocity(Vec2(0, 0));
 		}
 
 		if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 		{
+			aladdin->setIsOwnerRight(true);
 			aladdin->setScale(Vec2(-1, 1));
 			aladdin->setVelocity(Vec2(0, 0));
 		}

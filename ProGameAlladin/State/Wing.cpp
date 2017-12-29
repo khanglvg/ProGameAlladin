@@ -1,9 +1,9 @@
 ﻿#include "Wing.h"
 #include "../Framework/Input.h"
 #include "Jump.h"
-#include "SlashWhenWing.h"
-#include "ThrowWhenWing.h"
+#include "IdleWhenWing.h"
 #include "../GameObject/Aladdin.h"
+#include "Fall.h"
 
 US_NS_JK
 
@@ -21,12 +21,6 @@ void Wing::onEnter()
 	// TODO: loadAnimation()
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
-		aladdin->setScale(Vec2(-1, 1));
-
-	if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
-		aladdin->setScale(Vec2(1, 1));
-
 	aladdin->setActionName("Wing");
 }
 
@@ -37,34 +31,19 @@ void Wing::onUpdate()
 
 	if (Input::getInstance()->getKey(KEY_LEFT_ARROW))
 	{
-		if (aladdin->isAllowToClimb())
+		if (aladdin->getScale() == Vec2(-1,1))
 		{
-			aladdin->setIsPause(false);
-			aladdin->setScale(Vec2(-1, 1));
-			aladdin->setVelocity(Vec2(-100, 0));
+			aladdin->setScale(Vec2(1, 1));
 		}
-		else
-		{
-			aladdin->setIsPause(true);
-			aladdin->setVelocity(Vec2(0, 0));
-		}
+		aladdin->setVelocity(Vec2(-100, 0));
 	}
 	else if (Input::getInstance()->getKey(KEY_RIGHT_ARROW))
 	{
-		aladdin->setIsPause(false);
-		aladdin->setScale(Vec2(1, 1));
+		if (aladdin->getScale() == Vec2(1, 1))
+		{
+			aladdin->setScale(Vec2(-1, 1));
+		}
 		aladdin->setVelocity(Vec2(100,0));
-	}
-	else
-	{
-		aladdin->setIsPause(true);
-	}
-
-
-
-	if (Input::getInstance()->isKeyUp(KEY_UP_ARROW) || Input::getInstance()->isKeyUp(KEY_DOWN_ARROW))
-	{
-		aladdin->setVelocity(Vec2(0, 0));
 	}
 }
 
@@ -76,14 +55,18 @@ void Wing::onExit()
 State* Wing::checkTransition()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
-	if (Input::getInstance()->getKey(KEY_D))
+
+	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 	{
-		
+		return new IdleWhenWing(aladdin);
 	}
-	if (Input::getInstance()->getKey(KEY_S))
-		return new SlashWhenWing(_node);
-	if (Input::getInstance()->getKey(KEY_A) && aladdin->getNumApple() > 0)
-		return new ThrowWhenWing(_node);
+
+	if (aladdin->isBesideTheWall())
+	{
+		aladdin->getRigidBody()->setActive(false);
+		aladdin->setIsWing(false);
+		return new Fall(_node);
+	}
 
 	return nullptr;
 }

@@ -30,7 +30,7 @@ void Platform::release()
 
 void Platform::update()
 {
-	if (_player->getRigidBody()->getPosition().getY() + _player->getRigidBody()->getSize().getHeight()/3 < _rigid->getPosition().getY() - _rigid->getSize().getHeight())
+	if (_player->getRigidBody()->getPosition().getY() + _player->getRigidBody()->getSize().getHeight()/3 < _rigid->getPosition().getY() + _rigid->getSize().getHeight()/2)
 	{
 		_rigid->setActive(true);
 	}

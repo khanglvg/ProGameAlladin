@@ -39,7 +39,7 @@ void TransformAttackState::onUpdate()
 	{
 		if (!_isThrew)
 		{
-			const auto bullet = new TransformBullet(_enemy, Vec2(_enemy->getRigidPosition().getX() + _enemy->getRigidBody()->getSize().getHeight()/2, _enemy->getRigidPosition().getY() + _enemy->getRigidBody()->getSize().getHeight() / 3), Size(90, 23));
+			const auto bullet = new TransformBullet(_enemy, Vec2(_enemy->getRigidPosition().getX() + _enemy->getRigidBody()->getSize().getHeight()/2, _enemy->getRigidPosition().getY() + _enemy->getRigidBody()->getSize().getHeight() / 3), Size(40, 23));
 			if (_enemy->getScale() == Vec2(1, 1))
 			{
 				bullet->setScale(Vec2(-0.9, 0.9));

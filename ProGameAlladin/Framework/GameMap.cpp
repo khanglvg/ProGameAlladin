@@ -7,6 +7,7 @@
 #include "../GameObject/Enemies/HideEnemy/HideEnemy.h"
 #include "../GameObject/Enemies/WallEnemy/WallEnemy.h"
 #include "../GameObject/Ground/FireGround.h"
+#include "../GameObject/Ground/HorizontalBar.h"
 #include "../GameObject/Ground/Rope.h"
 #include "../GameObject/Ground/Platform.h"
 #include "../GameObject/Items/Item2.h"
@@ -98,6 +99,12 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 				auto enemy = new BigEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 4), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
 				enemy->setGameMap(this);
+				if (object->GetName() == "NotAllowedMove")
+				{
+					enemy->setBoudaryLeft(0);
+					enemy->setBoudaryRight(0);
+				}
+
 				_listEnemies.push_back(enemy);
 			}
 			if (objectGroup->GetName() == "Enemy_3")
@@ -105,6 +112,13 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 				auto enemy = new FatEnemy(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() - object->GetHeight() / 2 + 3), Size(object->GetWidth(), object->GetHeight()), GameObject::ENEMIES,player);
 				enemy->setCurrentScene(player->getCurrentScene());
 				enemy->setGameMap(this);
+				if (object->GetName() == "NotAllowedMove")
+				{
+					enemy->setIsNotAllowedMove(true);
+					enemy->setBoudaryLeft(0);
+					enemy->setBoudaryRight(0);
+				}
+
 				_listEnemies.push_back(enemy);
 
 			}
@@ -207,7 +221,7 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			if (objectGroup->GetName() == "Fire")
 			{
 				auto gameObject = new FireGround(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::FIREGROUND, _player);
-				gameObject->getRigidBody()->setDensity(1);
+				gameObject->getRigidBody()->setDensity(0.000001);
 				gameObject->setCurrentScene(_player->getCurrentScene());
 				gameObject->setRigidTag("fireground");
 
@@ -218,8 +232,8 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			//init HorizontalBar
 			if (objectGroup->GetName() == "HorizontalBar")
 			{
-				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::HORIZONTALBAR);
-				gameObject->getRigidBody()->setTag("horizontalbar");
+				auto *gameObject = new HorizontalBar(Vec2(object->GetX() + object->GetWidth() / 2, object->GetY() + object->GetHeight() / 2), Size(object->GetWidth(), object->GetHeight()), GameObject::HORIZONTALBAR, _player);
+				gameObject->setRigidTag("horizontalbar");
 				_listHorizontalBar.push_back(gameObject);
 
 				//_quadTree->InsertStaticObject(gameObject);
@@ -398,6 +412,9 @@ void GameMap::update()
 
 	for (size_t i = 0; i < _listSpringboards.size(); i++)
 		_listSpringboards[i]->update();
+
+	for (size_t i = 0; i < _listHorizontalBar.size(); i++)
+		_listHorizontalBar[i]->update();
 
 	_triggerLow->update();
 	_triggerHigh->update();

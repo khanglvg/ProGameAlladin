@@ -111,7 +111,7 @@ void Item2::update()
 			if (_actionName != "Item-Explosion1")
 			{
 				_rigid->setTag("itemkill");
-				_rigid->setSize(Size(150,150));
+				_rigid->setSize(Size(180,150));
 				_rigid->setGravityScale(0);
 				_actionName = "Item-Explosion1";
 				_textureItem.setSrcFile("Resources/Items/Items-Explosion.png");

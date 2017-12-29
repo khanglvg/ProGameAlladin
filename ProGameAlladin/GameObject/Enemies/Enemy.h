@@ -34,6 +34,8 @@ public:
 	bool isTargetInViewRange();
 	bool isTargetInAttackRange();
 
+	bool isTargetInWallEnemyRange();
+
 	int getHealth();
 	void setHealth(int newHealth);
 
@@ -62,7 +64,13 @@ public:
 
 	void setGameMap(GameMap* map);
 
+	void setBoudaryLeft(const int& boudary);
+	void setBoudaryRight(const int& boudary);
+
 	bool isAttacked() const;
+
+	void setIsNotAllowedMove(const bool& isAllowedMove);
+	bool isNotAllowedMove() const;
 
 	bool isInFire() const;
 
@@ -85,6 +93,8 @@ protected:
 	bool _isAttacked;
 
 	bool _isInFire;
+
+	bool _isNotAllowedMove = false;
 
 	int _animationIndex = 0;
 	string _actionName;

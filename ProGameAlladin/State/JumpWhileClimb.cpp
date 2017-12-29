@@ -4,6 +4,7 @@
 #include "JumpAndThrow.h"
 #include "Fall.h"
 #include "../GameObject/Aladdin.h"
+#include "../Framework/GameManager.h"
 #include "Jump.h"
 #include "IdleToClimb.h"
 #include "IdleWhenWing.h"
@@ -21,7 +22,8 @@ void JumpWhileClimb::onEnter()
 {
 	auto aladdin = static_cast<Aladdin*>(_node);
 
-	aladdin->setVelocity(Vec2(0, -80));
+	aladdin->setVelocity(Vec2(0, -120));
+	aladdin->getRigidBody()->setActive(false);
 
 
 	aladdin->setActionName("JumpWhileClimb");
@@ -45,7 +47,18 @@ void JumpWhileClimb::onUpdate()
 			}
 		}
 
-
+		if (!aladdin->isOnTheRope())
+		{
+			if (_expect >= 0.07)
+			{
+				aladdin->getRigidBody()->setActive(true);
+			}
+			else
+			{
+				_expect += GameManager::getInstance()->getDeltaTime();
+			}
+		}
+			
 
 		//if (!aladdin->isOnTheRope())
 		//{
@@ -85,16 +98,9 @@ State* JumpWhileClimb::checkTransition()
 	{
 		if(aladdin->getIndex()>=6)
 		{
+			aladdin->setIsClimb(false);
 			return new Fall(_node);
 		}
-		
 	}
-
-	if(aladdin->isOnTheHorizontalBar())
-	{
-		return new IdleWhenWing(_node);
-	}
-
-
 	return nullptr;
 }

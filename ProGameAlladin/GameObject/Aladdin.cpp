@@ -21,6 +21,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isPause = false;
 	_isClimbDown = false;
 	_isClimb = false;
+	_isWing = false;
 	_isAttackedByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
@@ -122,6 +123,8 @@ void Aladdin::update()
 		auto const knife = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "knifetothrow"); 
 		auto const pot = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "pottothrow");
 		auto const horizontalbar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "horizontalbar");
+		auto const jafar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafar"); 
+		auto const jafarflame = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "transformbullet");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -277,7 +280,8 @@ void Aladdin::update()
 		//
 		// collision with Enemy's weapon
 		//
-		if (thinEnemyKnife != _rigid->getCollidingBodies().end() || knife != _rigid->getCollidingBodies().end() || pot != _rigid->getCollidingBodies().end())
+		if (thinEnemyKnife != _rigid->getCollidingBodies().end() || knife != _rigid->getCollidingBodies().end() || pot != _rigid->getCollidingBodies().end()
+			|| jafar != _rigid->getCollidingBodies().end() || jafarflame != _rigid->getCollidingBodies().end())
 		{
 			_isDamaged = true;
 			_isAttacked = true;
@@ -653,6 +657,16 @@ void Aladdin::setIsClimb(const bool & climb)
 bool Aladdin::isClimb() const
 {
 	return _isClimb;
+}
+
+void Aladdin::setIsWing(const bool & wing)
+{
+	_isWing = wing;
+}
+
+bool Aladdin::isWing() const
+{
+	return _isWing;
 }
 
 int Aladdin::getEScene() const

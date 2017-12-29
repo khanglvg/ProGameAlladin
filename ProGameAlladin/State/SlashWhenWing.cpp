@@ -3,6 +3,7 @@
 #include "../Framework/Input.h"
 #include "../Lv1Scene.h"
 #include "../Framework/Audio.h"
+#include "IdleWhenWing.h"
 
 US_NS_JK
 SlashWhenWing::SlashWhenWing(Node* node):State(node)
@@ -47,9 +48,17 @@ void SlashWhenWing::onUpdate()
 
 void SlashWhenWing::onExit()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
+	_weapon->getRigidBody()->setActive(false);
+	aladdin->getCurrentScene()->removeNode(_weapon);
 }
 
 State* SlashWhenWing::checkTransition()
 {
+	const auto aladdin = static_cast<Aladdin*>(_node);
+
+	if (aladdin->getIndex() >= 6)
+		return new IdleWhenWing(_node);
+
 	return nullptr;
 }

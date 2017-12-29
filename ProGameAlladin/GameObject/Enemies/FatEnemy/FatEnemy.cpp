@@ -16,6 +16,7 @@ FatEnemy::FatEnemy(const Vec2& position, const Size& size, const GameObjectType&
 {
 	_health = 8;
 	_attackRange = 150;
+	_viewRange = 180;
 	_boundaryLeft = position.x - 90;
 	_boundaryRight = position.x + 90;
 	setScale(Vec2(1, 1));

@@ -89,6 +89,9 @@ public:
 	void setIsClimb(const bool& climb);
 	bool isClimb() const;
 
+	void setIsWing(const bool& wing);
+	bool isWing() const;
+
 	int getEScene() const;
 	void setEScene(const int& eScene);
 
@@ -127,6 +130,8 @@ private:
 	bool _isPause;
 	bool _isClimbDown;
 	bool _isClimb;
+
+	bool _isWing;
 
 	bool _isOnTheGround;
 	bool _isBesideTheStair;

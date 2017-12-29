@@ -46,6 +46,7 @@ void BigEnemy::release()
 
 void BigEnemy::update()
 {
+	_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
 	_position = _rigid->getPosition() - _rigid->getOffset();
 
 
@@ -87,6 +88,7 @@ void BigEnemy::update()
 	if (_currentState->isChange())
 	{
 		_animationIndex = 0;
+		_isAnimationDone = false;
 	}
 
 	Enemy::update();
@@ -99,6 +101,7 @@ void BigEnemy::update()
 		delete _currentState;
 		_currentState = newState;
 		_animationIndex = 0;
+		_isAnimationDone = false;
 	}
 
 
@@ -161,10 +164,15 @@ void BigEnemy::render()
 		}
 		else if (_animationIndex == _animations[_actionName].size() && _actionName == "BigEnemy-AttackLow")
 		{
+			_isAnimationDone = true;
 			_animationIndex = 3;
 		}
 		else if (_animationIndex == _animations[_actionName].size())
+		{
+			_isAnimationDone = true;
 			_animationIndex = 0;
+		}
+			
 	}
 }
 

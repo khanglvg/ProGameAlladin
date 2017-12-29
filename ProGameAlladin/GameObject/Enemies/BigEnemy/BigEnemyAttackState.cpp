@@ -36,7 +36,7 @@ void BigEnemyAttackState::onUpdate()
 	{
 		_checkIndex = 3;
 	}
-	if (_enemy->getIndex() == _checkIndex)
+	if (_enemy->getIndex() == _checkIndex  && _enemy->isAnimationDone())
 	{
 		switch (rand() % 2)
 		{
@@ -101,6 +101,13 @@ EnemyState * BigEnemyAttackState::checkTransition()
 		if (_enemy->getIndex() == _checkIndex)
 		{
 			return new BigEnemyWalkState(_enemy);
+		}
+	}
+	else if (!_enemy->isTargetInViewRange())
+	{
+		if (_enemy->getIndex() == _checkIndex)
+		{
+			return new BigEnemyIdleState(_enemy);
 		}
 	}
 

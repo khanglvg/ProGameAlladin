@@ -234,6 +234,7 @@
     <ClInclude Include="GameObject\Ground\Platform.h" />
     <ClInclude Include="GameObject\Items\AladdinHealth.h" />
     <ClInclude Include="GameObject\Items\Item2.h" />
+    <ClInclude Include="GameObject\Ground\HorizontalBar.h" />
     <ClInclude Include="GameObject\Weapons\CamelBullet.h" />
     <ClInclude Include="GameObject\Weapons\Fire.h" />
     <ClInclude Include="GameObject\SpriteText.h" />
@@ -409,6 +410,7 @@
     <ClCompile Include="GameObject\Ground\Platform.cpp" />
     <ClCompile Include="GameObject\Items\AladdinHealth.cpp" />
     <ClCompile Include="GameObject\Items\Item2.cpp" />
+    <ClCompile Include="GameObject\Ground\HorizontalBar.cpp" />
     <ClCompile Include="GameObject\SpriteText.cpp" />
     <ClCompile Include="GameObject\Weapons\CamelBullet.cpp" />
     <ClCompile Include="GameObject\Weapons\Fire.cpp" />

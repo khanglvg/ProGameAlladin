@@ -99,6 +99,8 @@ State* RunAndSlash::checkTransition()
 		return new HeadUp(_node);
 	if (Input::getInstance()->getKey(KEY_DOWN_ARROW))
 		return new Sit(_node);
+	if (aladdin->getIndex() >= 5)
+		return new Run(_node);
 	if (Input::getInstance()->isKeyUp(KEY_LEFT_ARROW) || Input::getInstance()->isKeyUp(KEY_RIGHT_ARROW))
 		return new Idle(_node);
 

@@ -157,6 +157,7 @@
     <ClCompile Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.cpp" />
     <ClCompile Include="DeathScene.cpp" />
     <ClCompile Include="GameObject\AladdinDeath.cpp" />
+    <ClCompile Include="GameObject\Ground\HorizontalBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BossScene.h" />
@@ -394,6 +395,7 @@
     <ClInclude Include="GameObject\Enemies\BigEnemy\BigEnemyFiredState.h" />
     <ClInclude Include="DeathScene.h" />
     <ClInclude Include="GameObject\AladdinDeath.h" />
+    <ClInclude Include="GameObject\Ground\HorizontalBar.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="DirectX\Lib\d2d1.lib" />
