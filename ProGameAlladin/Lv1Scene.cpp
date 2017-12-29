@@ -66,7 +66,7 @@ void Lv1Scene::init()
 
 #pragma endregion 
 
-	mAladdin = new Aladdin(Vec2(3400, 600), Size(10, 60));
+	mAladdin = new Aladdin(Vec2(340, 600), Size(10, 60));
 	mAladdin->setCurrentScene(this);
 	_vectNode.push_back(mAladdin);
 
@@ -209,7 +209,7 @@ void Lv1Scene::update()
 		i++;
 	}
 
-	if (mAladdin->getNumRuby() == 0)
+	if (mAladdin->getNumApple() == 0)
 	{
 		// change Scene
 		mAladdin->incApple();
