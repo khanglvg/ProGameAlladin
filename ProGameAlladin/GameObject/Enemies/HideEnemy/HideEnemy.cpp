@@ -109,7 +109,7 @@ void HideEnemy::render()
 		expect = 0.03;
 	}
 
-	Graphics::getInstance()->drawSprite(_textureHideEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	//Graphics::getInstance()->drawSprite(_textureHideEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
 	Graphics::getInstance()->drawSprite(_textureEnemy, Vec2(0.3f, 1.0f), getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)

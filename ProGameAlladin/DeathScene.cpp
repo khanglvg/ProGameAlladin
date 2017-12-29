@@ -41,7 +41,7 @@ void DeathScene::update()
 	Scene::update();
 	if(_ala->getAnimationIndex() == 25)
 	{
-		GameManager::getInstance()->changeScene(_oldScene);
+		GameManager::getInstance()->changeScene(new MenuSelector);
 	}
 }
 

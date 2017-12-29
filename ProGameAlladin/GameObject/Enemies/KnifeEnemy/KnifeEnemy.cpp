@@ -123,7 +123,7 @@ void KnifeEnemy::render()
 	}
 
 
-	Graphics::getInstance()->drawSprite(_textureKnifeEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
+	//Graphics::getInstance()->drawSprite(_textureKnifeEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 3);
 	Graphics::getInstance()->drawSprite(_textureEnemy, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 3);
 
 	if (_index <= expect)

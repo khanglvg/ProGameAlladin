@@ -120,7 +120,7 @@ void SpringBoard::render()
 		}
 	}
 
-	Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 150), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
+	// Graphics::getInstance()->drawSprite(_textureRigid, origin, getTransformMatrix(), Color(255, 255, 255, 150), Rect(0, 0, _rigid->getSize().getWidth(), _rigid->getSize().getHeight()), 2);
 	Graphics::getInstance()->drawSprite(_textureSpringBoard, origin, getTransformMatrix(), Color(255, 255, 255, 255), rect, 2);
 
 	if (_index <= expect)

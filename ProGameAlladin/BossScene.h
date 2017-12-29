@@ -7,6 +7,7 @@
 #include "Framework/Sound.h"
 #include "Framework/dxaudio.h"
 #include "GameObject/TitleMenuScene.h"
+#include "GameObject/SpriteText.h"
 
 
 NS_JK_BEGIN
@@ -27,6 +28,7 @@ public:
 	int getAladdinPosition();
 
 	int getNumApple() const;
+	void calculationSpriteText() const;
 
 	CSoundManager* _soundManager;
 	Sound* getsoundGrounding();
@@ -70,6 +72,19 @@ private:
 	Sound*_soundAppleCollect;
 	Sound*_soundAppleCrush;
 
+	SpriteText* _alaLifeUnit;
+
+	SpriteText* _score1;
+	SpriteText* _score2;
+	SpriteText* _score3;
+	SpriteText* _score4;
+
+	SpriteText* _appleUnit;
+	SpriteText* _appleTens;
+
+
+	SpriteText* _rubyUnit;
+	SpriteText* _rubyTens;
 };
 
 NS_JK_END

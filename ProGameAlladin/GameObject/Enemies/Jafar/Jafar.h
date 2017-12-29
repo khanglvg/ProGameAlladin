@@ -19,7 +19,7 @@ public:
 
 	bool isTransform() const;
 
-
+	int getHealth() const;
 	Rect getRect() override;
 
 private:

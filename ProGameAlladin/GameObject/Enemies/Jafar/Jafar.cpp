@@ -270,6 +270,11 @@ bool Jafar::isTransform() const
 	return _isTransform;
 }
 
+int Jafar::getHealth() const
+{
+	return _health;
+}
+
 Rect Jafar::getRect()
 {
 	float width = 0;

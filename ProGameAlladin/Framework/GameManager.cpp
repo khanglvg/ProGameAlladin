@@ -65,20 +65,39 @@ GameManager* GameManager::getInstance()
 
 void GameManager::changeScene(Scene* newScene)
 {
-	if(newScene->getOldScene() != nullptr)
-	{
-		_runningScene = newScene;
-		if(!_runningScene->isInitialized())
+	//if(newScene->getOldScene() != nullptr)
+	//{
+	//	// newScene = DeathScene
+	//	// running = Lv1
+	//	_runningScene = newScene;
+	//	if(!_runningScene->isInitialized())
+	//	_runningScene->init();
+	//}
+	//else
+	//{
+	//	if(_runningScene->getOldScene() != nullptr)
+	//	{
+	//		//running = DeathScene
+	//		const auto temp = _runningScene->getOldScene();
+	//		_runningScene->release();
+	//		delete _runningScene;
+	//		_runningScene = temp;
+	//	}
+	//	else
+	//	{
+	//		_runningScene->release();
+	//		delete _runningScene;
+	//		_runningScene = newScene;
+	//		if (!_runningScene->isInitialized())
+	//			_runningScene->init();
+	//	}		
+	//}
+
+	_runningScene->release();
+	delete _runningScene;
+	_runningScene = newScene;
+	if (!_runningScene->isInitialized())
 		_runningScene->init();
-	}
-	else
-	{
-		_runningScene->release();
-		delete _runningScene;
-		_runningScene = newScene;
-		if (!_runningScene->isInitialized())
-		_runningScene->init();
-	}
 }
 
 float GameManager::getDeltaTime() const
