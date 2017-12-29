@@ -204,6 +204,11 @@ GameMap::GameMap(char * filePath, QuadTree* &quadTree, Aladdin* player)
 			{
 				auto *gameObject = new GameObject(Vec2(object->GetX() + object->GetWidth() / 2 + 15, object->GetY() + object->GetHeight()/2), Size(object->GetWidth(), object->GetHeight()), GameObject::WALL);
 				gameObject->setRigidTag("wall");
+				
+				if (object->GetName() == "WallEnd")
+				{
+					gameObject->setRigidTag("end");
+				}
 
 				_listGround.push_back(gameObject);
 			}

@@ -147,6 +147,7 @@ private:
 	bool _isAttackedByFlame;
 
 	bool _isDeHealth;
+	bool _isDeHealthByFlame;
 
 	bool _isInviolable;
 	bool _isDamaged;

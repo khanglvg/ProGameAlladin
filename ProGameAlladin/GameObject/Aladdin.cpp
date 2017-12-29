@@ -23,6 +23,7 @@ Aladdin::Aladdin(const Vec2& position, const Size& size):GameObject(position, si
 	_isClimb = false;
 	_isWing = false;
 	_isAttackedByFlame = false;
+	_isDeHealthByFlame = false;
 	_eScene = ENUM_LV1_SCENE;
 	_numApple = 5;
 	_numRuby = 1;
@@ -125,6 +126,7 @@ void Aladdin::update()
 		auto const horizontalbar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "horizontalbar");
 		auto const jafar = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "jafar"); 
 		auto const jafarflame = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "transformbullet");
+		auto const endLv = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "end");
 
 		_isOnTheGround = false;
 		_isBesideTheStair = false;
@@ -204,12 +206,12 @@ void Aladdin::update()
 		{
 			if (_position.getX() < 740 * 0.45)
 			{
-				_rigid->setPosition(Vec2(_rigid->getPosition().getX() + 1, _rigid->getPosition().getY()));
+				_rigid->setPosition(Vec2(_rigid->getPosition().getX() + 2, _rigid->getPosition().getY()));
 				_position = _rigid->getPosition() - _rigid->getOffset();
 			}
 			else if (_position.getX() > 800 * 0.45)
 			{
-				_rigid->setPosition(Vec2(_rigid->getPosition().getX() - 1, _rigid->getPosition().getY()));
+				_rigid->setPosition(Vec2(_rigid->getPosition().getX() - 2, _rigid->getPosition().getY()));
 				_position = _rigid->getPosition() - _rigid->getOffset();
 			}
 		}
@@ -244,9 +246,17 @@ void Aladdin::update()
 		else _isOnTheHorizontalBar = false;
 
 		//
+		// collision with Wall End Game
+		//
+		if (endLv != _rigid->getCollidingBodies().end())
+		{
+			//chuyen scene end game
+		}
+
+		//
 		// collision with Flame
 		//
-		if (flame != _rigid->getCollidingBodies().end())
+		if (flame != _rigid->getCollidingBodies().end() || jafar != _rigid->getCollidingBodies().end())
 		{
 			if (_actionName == "Idle1" || _actionName == "Idle2" || _actionName == "Idle3")
 				_inFlameTime == 0.7;
@@ -255,24 +265,24 @@ void Aladdin::update()
 			{
 				_isDamaged = true;
 				_isAttackedByFlame = true;
-				if (!_isDeHealth)
+				if (!_isDeHealthByFlame)
 				{
 					_health--;
-					_isDeHealth = true;
+					_isDeHealthByFlame = true;
 					OutputDebugString(std::to_string(_health).c_str());
 				}
 				_inFlameTime = 0;
 			}
 			else
 			{
-				_isDeHealth = false;
+				_isDeHealthByFlame = false;
 				_inFlameTime += GameManager::getInstance()->getDeltaTime();
 			}
 		}
 		else
 		{
 			_inFlameTime = 0;
-			_isDeHealth = false;
+			_isDeHealthByFlame = false;
 			_isAttackedByFlame = false;
 		}
 
@@ -281,10 +291,11 @@ void Aladdin::update()
 		// collision with Enemy's weapon
 		//
 		if (thinEnemyKnife != _rigid->getCollidingBodies().end() || knife != _rigid->getCollidingBodies().end() || pot != _rigid->getCollidingBodies().end()
-			|| jafar != _rigid->getCollidingBodies().end() || jafarflame != _rigid->getCollidingBodies().end())
+			|| jafarflame != _rigid->getCollidingBodies().end())
 		{
 			_isDamaged = true;
 			_isAttacked = true;
+
 			if (!_isDeHealth && !_isInviolable)
 			{
 				_health--;

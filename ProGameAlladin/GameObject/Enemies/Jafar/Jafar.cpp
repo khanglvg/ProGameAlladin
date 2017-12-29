@@ -19,7 +19,9 @@ Jafar::Jafar(const Vec2& position, const Size& size, const GameObjectType& tag, 
 	_attackRange = 280;
 	setScale(Vec2(1, 1));
 
-	_health = 11;
+	_health = 21;
+	_position = _rigid->getPosition();
+	_position.setY(_rigid->getPosition().getY() - _rigid->getOffset().getY());
 
 	_rigid->setTag("jafar");
 	_isCollisionWithApple = false;
@@ -98,7 +100,12 @@ void Jafar::release()
 
 void Jafar::update()
 {
+	//_rigid->setSize(Size(getRect().getWidth(), getRect().getHeight()));
+	//_rigid->setOffset(Vec2(_rigid->getSize().getWidth() / 2, -_rigid->getSize().getHeight() / 2));
+	//_position = _rigid->getPosition() - _rigid->getOffset();
+
 	_currentState->onUpdate();
+
 	if(_target->getRigidPosition().getX() < _rigid->getPosition().getX())
 	{
 		setScale(Vec2(-1, 1));
@@ -108,7 +115,8 @@ void Jafar::update()
 		setScale(Vec2(1, 1));
 	}
 
-	_position = _rigid->getPosition() - _rigid->getOffset();
+	_position = _rigid->getPosition();
+	_position.setY(_rigid->getPosition().getY() - _rigid->getOffset().getY());
 
 
 	const auto apple = std::find(std::begin(_rigid->getCollidingBodies()), std::end(_rigid->getCollidingBodies()), "appletothrow");
@@ -146,24 +154,24 @@ void Jafar::update()
 		_isTransform = true;
 		_currentState->onExit();
 		delete _currentState;
-		_currentState = new TransformIdleState(this);
+		_currentState = new TransformIdleState(this); 
 		_animationIndex = 0;
 
 		//Flame
-		auto flameCenter = new Fire(Vec2(_rigid->getPosition().getX(), _rigid->getPosition().getY() + 2), Size(30, 56));
+		auto flameCenter = new Fire(Vec2(_rigid->getPosition().getX() + 5, _rigid->getPosition().getY() + 2), Size(30, 56));
 		flameCenter->getRigidBody()->setActive(false);
 		flameCenter->setLayer(1);
 		flameCenter->getRigidBody()->setGravityScale(0);
 		flameCenter->setCurrentScene(this->getCurrentScene());
 		this->getCurrentScene()->addNode(flameCenter);
 		//Flame
-		auto flameLeft = new Fire(Vec2(_rigid->getPosition().getX() - _rigid->getSize().getWidth() - 3, _rigid->getPosition().getY() + 2), Size(30, 56));
+		auto flameLeft = new Fire(Vec2(_rigid->getPosition().getX() - 10, _rigid->getPosition().getY() + 2), Size(30, 56));
 		flameLeft->getRigidBody()->setActive(false);
 		flameLeft->getRigidBody()->setGravityScale(0);
 		flameLeft->setCurrentScene(this->getCurrentScene());
 		this->getCurrentScene()->addNode(flameLeft);
 		//Flame
-		auto flameRight = new Fire(Vec2(_rigid->getPosition().getX() + _rigid->getSize().getWidth() + 5, _rigid->getPosition().getY() + 2), Size(30, 56));
+		auto flameRight = new Fire(Vec2(_rigid->getPosition().getX() + 25, _rigid->getPosition().getY() + 2), Size(30, 56));
 		flameRight->getRigidBody()->setActive(false);
 		flameRight->setLayer(1);
 		flameRight->getRigidBody()->setGravityScale(0);
@@ -264,5 +272,24 @@ bool Jafar::isTransform() const
 
 Rect Jafar::getRect()
 {
-	return Rect(0, 0, 0, 0);
+	float width = 0;
+	float height = 0;
+
+	if (!_isTransform)
+	{
+		width = _animations[_actionName][_animationIndex].getWidth();
+		height = _animations[_actionName][_animationIndex].getHeight();
+	}
+	else
+	{
+		width = _transformAnimations[_actionName][_animationIndex].getWidth();
+		height = _transformAnimations[_actionName][_animationIndex].getHeight();
+	}
+
+	Rect rect;
+	rect.setX(this->getPosition().getX() - width*this->getOrigin().getX());
+	rect.setY(this->getPosition().getY() - height*this->getOrigin().getY());
+	rect.setWidth(width);
+	rect.setHeight(height);
+	return rect;
 }
